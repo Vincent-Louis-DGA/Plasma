@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlasmaBootLoader", "PlasmaBootLoader\PlasmaBootLoader.vcxproj", "{4D9C9380-D796-4036-A49A-F5489D10367F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example", "Example\Example.vcxproj", "{8B54A43C-9B9E-466C-A72B-F63A106C78E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9C9380-D796-4036-A49A-F5489D10367F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D9C9380-D796-4036-A49A-F5489D10367F}.Debug|Win32.Build.0 = Debug|Win32
+		{4D9C9380-D796-4036-A49A-F5489D10367F}.Release|Win32.ActiveCfg = Release|Win32
+		{4D9C9380-D796-4036-A49A-F5489D10367F}.Release|Win32.Build.0 = Release|Win32
+		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Debug|Win32.Build.0 = Debug|Win32
+		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Release|Win32.ActiveCfg = Release|Win32
+		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
