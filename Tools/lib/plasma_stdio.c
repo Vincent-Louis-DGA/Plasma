@@ -1,4 +1,5 @@
 #include <plasma_stdio.h>
+#include <plasma.h>
 
 // Prints a null-terminated string to STDOUT (does not write terminating null).
 void print(char * buf)

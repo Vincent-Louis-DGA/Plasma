@@ -17,7 +17,7 @@ Address of section .text set to 0x0
 LOAD ..\..\Tools\lib\boot_os.o
 LOAD PlasmaBootLoader.o
 
-.text           0x00000000      0x59c
+.text           0x00000000      0x5b4
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x1e4 ..\..\Tools\lib\boot_os.o
@@ -29,16 +29,17 @@ LOAD PlasmaBootLoader.o
                 0x000001d8                OS_Syscall
                 0x00000148                OS_AsmInterruptEnable
                 0x0000004c                OS_DefaultISR
- .text          0x000001e4      0x3b8 PlasmaBootLoader.o
+ .text          0x000001e4      0x3d0 PlasmaBootLoader.o
                 0x000002f4                readChar
                 0x00000380                ISR
                 0x000001e4                print
+                0x000003ac                FlashBootLoad
                 0x00000248                write
                 0x0000021c                printLine
                 0x000002a4                read
                 0x0000033c                writeChar
-                0x00000538                main
-                0x000003ac                UartBootLoad
+                0x00000540                main
+                0x000003b4                UartBootLoad
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -50,12 +51,12 @@ LOAD PlasmaBootLoader.o
 
 .fini
  *(.fini)
-                0x0000059c                _ecode=.
+                0x000005b4                _ecode=.
 
-.reginfo        0x0000059c       0x18
+.reginfo        0x000005b4       0x18
  *(.reginfo)
- .reginfo       0x0000059c       0x18 ..\..\Tools\lib\boot_os.o
- .reginfo       0x000005b4       0x18 PlasmaBootLoader.o
+ .reginfo       0x000005b4       0x18 ..\..\Tools\lib\boot_os.o
+ .reginfo       0x000005cc       0x18 PlasmaBootLoader.o
 
 .ctors
  *(.ctors)
@@ -75,28 +76,25 @@ LOAD PlasmaBootLoader.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x000005b4        0x3
+.rodata         0x000005cc        0x3
  *(.rodata)
- .rodata        0x000005b4        0x3 PlasmaBootLoader.o
+ .rodata        0x000005cc        0x3 PlasmaBootLoader.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x000005b7                _etext=.
-                0x000005b7                PROVIDE (etext, .)
+                0x000005cf                _etext=.
+                0x000005cf                PROVIDE (etext, .)
 
-.data           0x000005b7       0x1d
-                0x000005b7                _fdata=.
+.data           0x000005cf        0x0
+                0x000005cf                _fdata=.
  *(.data)
- *fill*         0x000005b7        0x1
- .data          0x000005b8       0x1c PlasmaBootLoader.o
-                0x000005b8                StaticProgram
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x000085c4                _gp=(.+0x7ff0)
+                0x000085bf                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -104,23 +102,21 @@ LOAD PlasmaBootLoader.o
 .lit4
  *(.lit4)
 
-.sdata          0x000005d4        0x4
+.sdata
  *(.sdata)
- .sdata         0x000005d4        0x4 PlasmaBootLoader.o
-                0x000005d4                StaticProgramLen
  *(.gnu.linkonce.s*)
-                0x000005d8                _edata=.
-                0x000005d8                PROVIDE (edata, .)
-                0x000005d8                .=ALIGN(0x8)
-                0x000005d8                __bss_start=.
-                0x000005d8                _fbss=__bss_start
+                0x000005cf                _edata=.
+                0x000005cf                PROVIDE (edata, .)
+                0x000005d0                .=ALIGN(0x8)
+                0x000005cf                __bss_start=.
+                0x000005d0                _fbss=__bss_start
 
-.sbss           0x000005d8        0x8
+.sbss           0x000005d0        0x8
  *(.sbss)
  *(.scommon)
- .scommon       0x000005d8        0x8 PlasmaBootLoader.o
-                0x000005d8                rxBuf
-                0x000005dc                offset
+ .scommon       0x000005d0        0x8 PlasmaBootLoader.o
+                0x000005d0                rxBuf
+                0x000005d4                offset
 
 .bss            0x000005e0      0x200
  *(.dynbss)

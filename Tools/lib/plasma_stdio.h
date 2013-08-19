@@ -6,7 +6,7 @@
 #define __MIPS_STDIO_H
 
 #define STDOUT	UART_TX			// STDOUT is UART
-#define STDIN	UART_RX			// STDINT is also UART
+#define STDIN	UART_RX			// STDIN is also UART
 #define	STDERR	UART_TX			// STDERR is also UART
 #define UART_RX_DV_MASK		0x08	// Mask to single out RX Data Available bit.
 #define UART_TX_FULL_MASK	0x01	// TX Not Full bit

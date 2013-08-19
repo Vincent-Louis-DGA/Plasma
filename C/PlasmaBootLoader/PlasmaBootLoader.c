@@ -7,24 +7,15 @@
 	2.	Send 32-bit address of new boot offset.
 	3.	Send the file (pad out to multiple of 4 if needed).
 	4.	Boot loader will echo everything.
+
+	TODO: write code to load from Flash ROM. This would be useful...
 */
 
 #include <plasma.h>
 #include <plasma_stdio.h>
 
-// $zero = 0, $v0 = 00010, $v1 = 00011, $a0 = 00100, $status = CPR[0,01100,0]
-
 #define BOOT_OFFSET 0x00001000
-int StaticProgramLen = 7;
-int StaticProgram[] = {	
-	0x34020007,	//	ori		$v0,$zero,1		
-	0x40826000,	// 	mtc0	$v0,$status		
-	0x3c032000,	// 	lui	$v1,0x2000			
-	0x34630060,	// 	ori	$v1,$v1,0x60		
-	0xac620000,	// 	sw	$v0,0($v1)			
-	0x1000fffe,	// 	beq $zero,$zero,-2		
-	0x24420001,	// 	addiu	$v0,$v0,1		
- };
+
 
 void ISR(int status)
 {
@@ -36,6 +27,10 @@ void ISR(int status)
 unsigned char rxBuf[4];
 int offset;
 
+void FlashBootLoad()
+{
+	// TODO: Load from Flash.
+}
 
 void UartBootLoad()
 {
@@ -43,8 +38,6 @@ void UartBootLoad()
 	int len = 0;
 	int val = 0;
 	int i = 0;
-	// Set baud rate based on switches
-	//MemoryWrite(UART_BAUD_DIV, MemoryRead(SWITCHES));
 	// Set baud to 460800
 	MemoryWrite(UART_BAUD_DIV, 1);
 	MemoryWrite(LEDS_OUT, 0xAA);
@@ -86,17 +79,9 @@ void UartBootLoad()
 		printChar(val);
 		MemoryWrite(LEDS_OUT, i);
 		MemoryWrite(offset+i, val);
-		//if((i & 0x3) == 0x3)
-		//{
-		//	MemoryWrite(offset+i, val);
-		//	checksum += val;
-		//}
 	}
 	MemoryWrite(LEDS_OUT, 0xFF);
 	readChar();
-	//write((char *)&checksum, 4);
-	//MemoryWrite(UART_CONTROL, 0x3);
-	//while((MemoryRead(UART_STATUS) & 0x10) == 0x10);
 }
 
 int main (void)
@@ -105,13 +90,12 @@ int main (void)
 	// If BTNR down, go into UartBootLoad routine.
 	if((MemoryRead(BUTTONS) & BUTTON_RIGHT_MASK) > 0)
 		UartBootLoad();
+	else	// Load program from ROM
+		FlashBootLoad();
 
-	// Load program from ROM
-
-
-	// Jump to BOOT_OFFSET
 	MemoryWrite(LEDS_OUT, 0x55);
-
+	
+	// Jump to BOOT_OFFSET
 	((void (*)(void))offset)();
 
 	MemoryWrite(LEDS_OUT, 0xFF);

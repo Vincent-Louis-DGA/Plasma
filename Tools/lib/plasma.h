@@ -1,12 +1,12 @@
-/*
-	Users of plasma.h should implement this function for interrupts.
-	At the very least do nothing, or else code won't compile.
-*/
+
 
 #ifndef __PLASMA_H__
 #define __PLASMA_H__
 
-
+/*
+	Users of plasma.h should implement this function for interrupts.
+	At the very least do nothing, or else code won't compile.
+*/
 int OS_AsmInterruptEnable(int enable);
 
 

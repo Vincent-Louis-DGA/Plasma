@@ -3,7 +3,7 @@
 # For applications loaded by BootLoader, this can be any location in memory, eg, 0x40000000 for external RAM.
 BOOT_OFFSET = 0x40000000
 
-# options for boot file are boot.s or boot_os.s.
+# options for boot file are boot.o or boot_os.o.
 # boot.o does not initialize any kind of stack, and presupposes that this is done previously, eg, by BootLoader.
 # boot_os.o initializes the stack, etc.  Use this if you wish the program to run from reset, as opposed to loaded by Bootloader.
 BOOT_FILE = boot.o

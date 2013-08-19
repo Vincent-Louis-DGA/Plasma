@@ -1,10 +1,12 @@
-﻿Build started 19/08/2013 12:26:52 p.m..
+﻿Build started 19/08/2013 1:23:00 p.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=Example && move /Y test.bin Example.bin
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
+         Example.c: In function `main':
+         Example.c:10: warning: unused variable `len'
          ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
          		..\..\Tools\lib\boot.o \
          		Example.o -o test.axf
@@ -13,7 +15,7 @@
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=1805=0x70d
+         Entry=0x40000000 length=1792=0x700
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_Example.vhd
                  1 file(s) moved.
@@ -21,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.45
+Time Elapsed 00:00:00.48
