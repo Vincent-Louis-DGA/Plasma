@@ -2,28 +2,27 @@
     MAKEFILE PROJECT : PlasmaBootLoader Project Overview
 ========================================================================
 
-AppWizard has created this PlasmaBootLoader project for you.  
+Boot loader code for Plasma 32-bit MIPS Microprocessor.
 
-This file contains a summary of what you will find in each of the files that
-make up your PlasmaBootLoader project.
+The purpose of this code is to act as a lightweight application that is run
+on system reset.  The application is designed to receive new program code
+(.bin file) on the UART port, copy it to local memory and then jump to it.  
+In the future I would also like to add the default option of reading program 
+code from Flash ROM.
+
+This code implements the full application boot sequence, that includes 
+initialising the stack. See Plasma/Tools/lib/boot_os.s for details.
+The code begins at offset 0x00, ie, it runs directly from reset.
+It is intended that this code be stored in FPGA Block RAM and hard-wired
+into the VHDL design.
 
 
-PlasmaBootLoader.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard. 
-    It contains information about the version of Visual C++ that generated the file, and 
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
+User Guide:
 
-PlasmaBootLoader.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
 
-This project allows you to build/clean/rebuild from within Visual Studio by calling the commands you have input 
-in the wizard. The build command can be nmake or any other tool you use.
-
-This project does not contain any files, so there are none displayed in Solution Explorer.
-
-/////////////////////////////////////////////////////////////////////////////
+1) While pressing reset (FPGA system reset) simultaneously press BTNR.
+2) Connect via UART at 460.8 kHz baud, 8 data bits, 0 parity, 1 stop bit.
+3) Transmit a 32-bit integer specifying length in bytes of .bin file.
+4) Send 32-bit integer address of new application offset.
+5) Send the .bin file, padding out to a multiple of 4 bytes.
+6) Boot loader will echo everything, and immediately begin the new program.

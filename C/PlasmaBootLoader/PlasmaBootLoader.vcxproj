@@ -78,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="makefile" />
+    <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlasmaBootLoader.c" />

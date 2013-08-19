@@ -24,5 +24,5 @@ target:
 		$(Target).o -o test.axf
 	objdump.bat test.axf $(Target).lst
 	convert_bin.exe	# Creates test.bin and code.txt from test.axf
-	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
+	ram_image.exe ram_xilinx.vhd \
 		code.txt ram_$(Target).vhd
