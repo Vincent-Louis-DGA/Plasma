@@ -14,9 +14,6 @@
 #include <plasma.h>
 #include <plasma_stdio.h>
 
-#define BOOT_OFFSET 0x00001000
-
-
 void ISR(int status)
 {
 	MemoryWrite(PMOD_TRIS, 0x00);
@@ -86,12 +83,15 @@ void UartBootLoad()
 
 int main (void)
 {
-
-	// If BTNR down, go into UartBootLoad routine.
-	if((MemoryRead(BUTTONS) & BUTTON_RIGHT_MASK) > 0)
-		UartBootLoad();
-	else	// Load program from ROM
-		FlashBootLoad();
+	offset = 0;
+	while(offset == 0)
+	{
+		// If BTNR down, go into UartBootLoad routine.
+		if((MemoryRead(BUTTONS) & BUTTON_RIGHT_MASK) > 0)
+			UartBootLoad();
+		else	// Load program from ROM
+			FlashBootLoad();
+	}
 
 	MemoryWrite(LEDS_OUT, 0x55);
 	
