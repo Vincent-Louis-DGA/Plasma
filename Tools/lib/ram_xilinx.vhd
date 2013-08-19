@@ -26,7 +26,7 @@ use work.mlite_pack.all;
 library UNISIM;
 use UNISIM.vcomponents.all;
 
-entity ram is
+entity ram_Program is
    generic(memory_type : string := "DEFAULT");
    port(clk               : in std_logic;
         enable            : in std_logic;
@@ -36,7 +36,7 @@ entity ram is
         data_read         : out std_logic_vector(31 downto 0));
 end; --entity ram
 
-architecture logic of ram is
+architecture logic of ram_Program is
 begin
 
    RAMB16_S9_inst0 : RAMB16_S9

@@ -1,4 +1,4 @@
-﻿Build started 19/08/2013 2:27:40 p.m..
+﻿Build started 19/08/2013 4:52:23 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.52
+Time Elapsed 00:00:00.66

@@ -11,7 +11,7 @@ use ieee.std_logic_unsigned.all;
 use work.plasmaPeriphRegisters.all;
 
 
-entity PlasmaBlockRam is
+entity PlasmaAtlysDDR is
   generic(
     log_file   : string    := "UNUSED";
     simulation : std_logic := '0'
@@ -29,8 +29,8 @@ entity PlasmaBlockRam is
     buttons  : in    std_logic_vector(4 downto 0);
     pmod     : inout std_logic_vector(7 downto 0);
 
-    Uart_bypassRx         : in  std_logic_vector(7 downto 0) :=(others => '0');
-    Uart_bypassRxWeToggle : in  std_logic := '0';
+    Uart_bypassRx         : in  std_logic_vector(7 downto 0);
+    Uart_bypassRxWeToggle : in  std_logic;
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
     Uart_bypassTxDv       : out std_logic;
 
@@ -52,12 +52,32 @@ entity PlasmaBlockRam is
     FlashCLK   : out   std_logic;
     FlashCS    : out   std_logic;
     FlashTris  : out   std_logic_vector(3 downto 0);
-    FlashMemDq : inout std_logic_vector(3 downto 0)
+    FlashMemDq : inout std_logic_vector(3 downto 0);
+
+    -- DDR2 SDRAM on ATLYS Board
+    ddr_d_dq     : inout std_logic_vector(15 downto 0) := (others => 'Z');
+    ddr_d_a      : out   std_logic_vector(12 downto 0);
+    ddr_d_ba     : out   std_logic_vector(2 downto 0);
+    ddr_d_ras_n  : out   std_logic;
+    ddr_d_cas_n  : out   std_logic;
+    ddr_d_we_n   : out   std_logic;
+    ddr_d_odt    : out   std_logic;
+    ddr_d_cke    : out   std_logic;
+    ddr_d_dm     : out   std_logic;
+    ddr_d_udqs   : inout std_logic := 'Z';
+    ddr_d_udqs_n : inout std_logic := 'Z';
+    ddr_d_rzq         : inout std_logic := 'Z';
+    ddr_d_zio         : inout std_logic := 'Z';
+    ddr_d_udm    : out   std_logic;
+    ddr_d_dqs    : inout std_logic := 'Z';
+    ddr_d_dqs_n  : inout std_logic := 'Z';
+    ddr_d_ck     : out   std_logic;
+    ddr_d_ck_n   : out   std_logic
     );
 end;
 
 
-architecture logic of PlasmaBlockRam is
+architecture logic of PlasmaAtlysDDR is
 
 
   
@@ -67,7 +87,7 @@ begin  --architecture
     generic map (
       log_file   => log_file,
       simulation => simulation,
-      ATLYS_DDR  => '0')
+      ATLYS_DDR  => '1')
     port map (
       clk_100       => clk_100,
       reset_ex_n    => reset_ex_n,

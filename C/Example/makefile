@@ -5,7 +5,8 @@ BOOT_OFFSET = 0x40000000
 
 # options for boot file are boot.o or boot_os.o.
 # boot.o does not initialize any kind of stack, and presupposes that this is done previously, eg, by BootLoader.
-# boot_os.o initializes the stack, etc.  Use this if you wish the program to run from reset, as opposed to loaded by Bootloader.
+# boot_os.o initializes the stack, etc.  Use this if you wish the program to run from reset, as opposed to loaded 
+# by Bootloader, eg, run it within a VHDL simulation.
 BOOT_FILE = boot.o
 
 BIN_MIPS = ..\..\Tools
@@ -24,5 +25,5 @@ target:
 		$(Target).o -o test.axf
 	objdump.bat test.axf $(Target).lst
 	convert_bin.exe	# Creates test.bin and code.txt from test.axf
-	ram_image.exe ram_xilinx.vhd \
+	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
 		code.txt ram_$(Target).vhd
