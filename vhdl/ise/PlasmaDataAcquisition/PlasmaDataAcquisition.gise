@@ -259,7 +259,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.lso"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.ngc"/>
@@ -282,6 +284,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.bld"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.ngd"/>
       <outfile xil_pn:name="PlasmaDataAcquisition_ngdbuild.xrpt"/>
@@ -291,6 +294,9 @@
     <transform xil_pn:end_ts="1376972254" xil_pn:in_ck="8667264650769601941" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1376972094">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.pcf"/>
       <outfile xil_pn:name="PlasmaDataAcquisition_map.map"/>
       <outfile xil_pn:name="PlasmaDataAcquisition_map.mrp"/>
@@ -304,6 +310,7 @@
     <transform xil_pn:end_ts="1376972340" xil_pn:in_ck="4881054394115382990" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1376972254">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.ncd"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.pad"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.par"/>
@@ -319,6 +326,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="plasmadataacquisition.bgn"/>
@@ -331,6 +339,7 @@
     <transform xil_pn:end_ts="1376972340" xil_pn:in_ck="-3344478135381411695" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1376972314">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.twr"/>
       <outfile xil_pn:name="PlasmaDataAcquisition.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
