@@ -29,6 +29,7 @@ void FlashBootLoad()
 	// TODO: Load from Flash.
 }
 
+
 void UartBootLoad()
 {
 	int checksum = 0;
@@ -84,6 +85,7 @@ void UartBootLoad()
 int main (void)
 {
 	offset = 0;
+	MemoryWrite(LEDS_OUT, 0x55);
 	while(offset == 0)
 	{
 		// If BTNR down, go into UartBootLoad routine.
@@ -92,12 +94,11 @@ int main (void)
 		else	// Load program from ROM
 			FlashBootLoad();
 	}
-
-	MemoryWrite(LEDS_OUT, 0x55);
+	
+	MemoryWrite(LEDS_OUT, 0xFF);
 	
 	// Jump to BOOT_OFFSET
 	((void (*)(void))offset)();
 
-	MemoryWrite(LEDS_OUT, 0xFF);
 	return 0;
 }

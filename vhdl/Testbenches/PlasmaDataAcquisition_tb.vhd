@@ -2,11 +2,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity PlasmaBlockRam_tb is
+entity PlasmaDataAcquisition_tb is
 
 end;
 
-architecture testbench of PlasmaBlockRam_tb is
+architecture testbench of PlasmaDataAcquisition_tb is
 
   constant uartLogFile : string := "log.dat";
 
@@ -19,15 +19,18 @@ architecture testbench of PlasmaBlockRam_tb is
   signal leds     : std_logic_vector(7 downto 0);
   signal pmod     : std_logic_vector(7 downto 0);
 
-  signal Uart_bypassRx         : std_logic_vector(7 downto 0);
-  signal Uart_bypassRxWeToggle : std_logic;
+  signal UartRx : std_logic := '1';
+  signal UartTx : std_logic := '1';
+
+  signal Uart_bypassRx         : std_logic_vector(7 downto 0) := (others => '0');
+  signal Uart_bypassRxWeToggle : std_logic                    := '0';
   signal Uart_bypassTx         : std_logic_vector(7 downto 0);
   signal Uart_bypassTxDv       : std_logic;
 
   
 begin  -- testbench
   
-  UUT : entity work.PlasmaBlockRam
+  UUT : entity work.PlasmaDataAcquisition
     generic map (simulation  => '1',
                  uartLogFile => uartLogFile)
     port map (
@@ -37,6 +40,8 @@ begin  -- testbench
       leds       => leds,
       buttons    => buttons,
       pmod       => pmod,
+      UartRx     => UartRx,
+      UartTx     => UartTx,
 
       Uart_bypassRx         => Uart_bypassRx,
       Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
@@ -45,8 +50,9 @@ begin  -- testbench
       );
 
   clk_100  <= not clk_100 after 5 ns;
-  switches <= X"03";
+  switches <= X"08";
   buttons  <= "00000";
+  pmod <= X"bd";
 
 
   TB : process

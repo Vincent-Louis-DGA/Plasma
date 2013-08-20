@@ -13,9 +13,9 @@ use work.plasmaPeriphRegisters.all;
 
 entity PlasmaTop is
   generic(
-    log_file   : string    := "UNUSED";
+    uartLogFile   : string    := "UNUSED";
     simulation : std_logic := '0';
-    ATLYS_DDR  : std_logic := '0'
+    AtlysDDR  : std_logic := '0'
     );
   port(
     clk_100    : in  std_logic;
@@ -35,17 +35,19 @@ entity PlasmaTop is
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
     Uart_bypassTxDv       : out std_logic;
 
-    FifoDin   : in  std_logic_vector(31 downto 0) := (others => '0');
-    FifoDout  : out std_logic_vector(31 downto 0);
+    FifoDin   : in  std_logic_vector(7 downto 0) := (others => '0');
+    FifoDout  : out std_logic_vector(7 downto 0);
     FifoWe    : in  std_logic                     := '0';
     FifoRe    : in  std_logic                     := '0';
     FifoFull  : out std_logic;
     FifoEmpty : out std_logic;
     FifoClear : in  std_logic                     := '0';
 
+    -- General purpose bus connected directly to CPU
     ExBusDin  : in  std_logic_vector(31 downto 0) := (others => '0');
     ExBusDout : out std_logic_vector(31 downto 0);
-    ExBusAddr : out std_logic_vector(31 downto 0);
+    -- Addresses are 32bit word aligned, ie, (1 downto 0) = "00"
+    ExBusAddr : out std_logic_vector(27 downto 0);
     ExBusRe   : out std_logic;
     ExBusWe   : out std_logic;
 
@@ -56,20 +58,20 @@ entity PlasmaTop is
     FlashMemDq : inout std_logic_vector(3 downto 0);
 
     -- DDR2 SDRAM on ATLYS Board
-    ddr_d_dq     : inout std_logic_vector(15 downto 0) := (others => 'Z');
-    ddr_d_a      : out   std_logic_vector(12 downto 0);
-    ddr_d_ba     : out   std_logic_vector(2 downto 0);
-    ddr_d_ras_n  : out   std_logic;
-    ddr_d_cas_n  : out   std_logic;
-    ddr_d_we_n   : out   std_logic;
-    ddr_d_odt    : out   std_logic;
-    ddr_d_cke    : out   std_logic;
-    ddr_d_dm     : out   std_logic;
+    ddr_s_dq     : inout std_logic_vector(15 downto 0) := (others => 'Z');
+    ddr_s_a      : out   std_logic_vector(12 downto 0);
+    ddr_s_ba     : out   std_logic_vector(2 downto 0);
+    ddr_s_ras_n  : out   std_logic;
+    ddr_s_cas_n  : out   std_logic;
+    ddr_s_we_n   : out   std_logic;
+    ddr_s_odt    : out   std_logic;
+    ddr_s_cke    : out   std_logic;
+    ddr_s_dm     : out   std_logic;
     ddr_d_udqs   : inout std_logic                     := 'Z';
     ddr_d_udqs_n : inout std_logic                     := 'Z';
-    ddr_d_rzq    : inout std_logic                     := 'Z';
-    ddr_d_zio    : inout std_logic                     := 'Z';
-    ddr_d_udm    : out   std_logic;
+    ddr_s_rzq    : inout std_logic                     := 'Z';
+    ddr_s_zio    : inout std_logic                     := 'Z';
+    ddr_s_udm    : out   std_logic;
     ddr_d_dqs    : inout std_logic                     := 'Z';
     ddr_d_dqs_n  : inout std_logic                     := 'Z';
     ddr_d_ck     : out   std_logic;
@@ -150,8 +152,8 @@ architecture logic of PlasmaTop is
   -----------------------------------------------------------------------------
   -- Fifo Signals
   -----------------------------------------------------------------------------
-  signal fifoDout_i  : std_logic_vector(31 downto 0);
-  signal fifoDin_i   : std_logic_vector(31 downto 0);
+  signal fifoDout_i  : std_logic_vector(7 downto 0);
+  signal fifoDin_i   : std_logic_vector(7 downto 0);
   signal fifoRe_i    : std_logic := '0';
   signal fifoWe_i    : std_logic := '0';
   signal fifoFull_i  : std_logic;
@@ -200,7 +202,7 @@ begin  --architecture
   fifoEmpty   <= fifoEmpty_i;
   fifoClear_i <= FifoClear or fifoClear_c;
 
-  fifoDin_i <= bus_din when (bus_address = FIFO_DIN_ADDR and periph_we = '1') else fifoDin;
+  fifoDin_i <= bus_din(7 downto 0) when (bus_address = FIFO_DIN_ADDR and periph_we = '1') else fifoDin;
 
   process (clk_50, reset_n_i)
   begin  -- process
@@ -214,10 +216,7 @@ begin  --architecture
     end if;
   end process;
 
-  FIFO : entity work.fifo64x8N
-    generic map (
-      N            => 4,
-      FALL_THROUGH => '0')
+  FIFO : entity work.fifo2048x8
     port map (
       rst    => fifoClear_i,
       wr_clk => clk_50,
@@ -233,10 +232,11 @@ begin  --architecture
 -- RAM and CPU
 -------------------------------------------------------------------------------
 
-  ExBusAddr <= bus_address(31 downto 2) & "00";
+  ExBusAddr <= bus_address(27 downto 2) & "00";
   ExBusDout <= bus_din;
   ExBusRe   <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
   ExBusWe   <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
+  bus_address(1 downto 0) <= "00";
 
   u1_plasma : entity work.PlasmaCore
     generic map (memory_type => "XILINX_16X",
@@ -258,7 +258,7 @@ begin  --architecture
       intr_vector  => INTERRUPT_VECTOR,
       mem_pause_in => mem_pause_in);
 
-  BLOCK_RAM : if ATLYS_DDR = '0' generate
+  BLOCK_RAM : if AtlysDDR = '0' generate
     u2_memory : entity work.dualRamMx8N
       generic map (
         N => 4,
@@ -303,21 +303,21 @@ begin  --architecture
     mem_pause_in <= '0';
     ex_ram_wbe2  <= ex_ram_wbe when ex_ram_address(29 downto EX_RAM_ADDR_WIDTH+2) = ZEROS32(29 downto EX_RAM_ADDR_WIDTH+2) else (others => '0');
 
-    ddr_d_a     <= (others => '0');
+    ddr_s_a     <= (others => '0');
     ddr_d_ck_n  <= '1';
-    ddr_d_we_n  <= '1';
-    ddr_d_dm    <= '1';
-    ddr_d_ba    <= (others => '0');
-    ddr_d_cas_n <= '1';
-    ddr_d_ras_n <= '1';
+    ddr_s_we_n  <= '1';
+    ddr_s_dm    <= '1';
+    ddr_s_ba    <= (others => '0');
+    ddr_s_cas_n <= '1';
+    ddr_s_ras_n <= '1';
     ddr_d_ck    <= '0';
-    ddr_d_cke   <= '0';
-    ddr_d_odt   <= '0';
-    ddr_d_udm   <= '0';
+    ddr_s_cke   <= '0';
+    ddr_s_odt   <= '0';
+    ddr_s_udm   <= '0';
     
   end generate BLOCK_RAM;
 
-  DDR_RAM : if ATLYS_DDR = '1' generate
+  DDR_RAM : if AtlysDDR = '1' generate
     
     u2_memory : entity work.ddr2_1Gb_wrapper
       generic map (
@@ -328,20 +328,20 @@ begin  --architecture
         clk50            => clk_50,
         clk_mem          => open,       -- using clk_mem isn't implementable...
         reset            => reset,
-        mcb3_dram_dq     => ddr_d_dq,
-        mcb3_dram_a      => ddr_d_a,
-        mcb3_dram_ba     => ddr_d_ba,
-        mcb3_dram_ras_n  => ddr_d_ras_n,
-        mcb3_dram_cas_n  => ddr_d_cas_n,
-        mcb3_dram_we_n   => ddr_d_we_n,
-        mcb3_dram_odt    => ddr_d_odt,
-        mcb3_dram_cke    => ddr_d_cke,
-        mcb3_dram_dm     => ddr_d_dm,
+        mcb3_dram_dq     => ddr_s_dq,
+        mcb3_dram_a      => ddr_s_a,
+        mcb3_dram_ba     => ddr_s_ba,
+        mcb3_dram_ras_n  => ddr_s_ras_n,
+        mcb3_dram_cas_n  => ddr_s_cas_n,
+        mcb3_dram_we_n   => ddr_s_we_n,
+        mcb3_dram_odt    => ddr_s_odt,
+        mcb3_dram_cke    => ddr_s_cke,
+        mcb3_dram_dm     => ddr_s_dm,
         mcb3_dram_udqs   => ddr_d_udqs,
         mcb3_dram_udqs_n => ddr_d_udqs_n,
-        mcb3_rzq         => ddr_d_rzq,
-        mcb3_zio         => ddr_d_zio,
-        mcb3_dram_udm    => ddr_d_udm,
+        mcb3_rzq         => ddr_s_rzq,
+        mcb3_zio         => ddr_s_zio,
+        mcb3_dram_udm    => ddr_s_udm,
         mcb3_dram_dqs    => ddr_d_dqs,
         mcb3_dram_dqs_n  => ddr_d_dqs_n,
         mcb3_dram_ck     => ddr_d_ck,
@@ -455,7 +455,7 @@ begin  --architecture
     elsif periph_address = FLASH_TRIS_ADDR then
       periph_dout <= X"0000000" & flash_tris;
     elsif periph_address = FIFO_DOUT_ADDR then
-      periph_dout <= fifoDout_i;
+      periph_dout <= X"000000" & fifoDout_i;
     elsif periph_address = FIFO_CON_ADDR then
       periph_dout <= X"0000000" & "00" & not fifoEmpty_i & fifoFull_i;
     else
@@ -609,9 +609,9 @@ begin  --architecture
 
   u4_uart : entity work.uartTopLevel
     generic map (
-      DEFAULT_DIVIDER => X"07",
+      DEFAULT_DIVIDER => X"01",         -- 460.8 kHz
       PRESCALE_DIV    => X"35",         -- 50 MHz / 921.6 kHz = 54.
-      log_file        => log_file)
+      log_file        => uartLogFile)
     port map (
       clk_uart         => clk_50,
       reset            => reset,

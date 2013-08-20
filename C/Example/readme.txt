@@ -14,6 +14,8 @@ Upon successful compilation there are two outputs of interest:
 					the required output for running the code in a VHDL simulation.  The makefile should specify BOOT_OFFSET
 					as 0x00 and boot_os.o for BOOT_FILE.
 
+The makefile builds the project twice: in the first instance it is built for the boot loader app and in the second for VHDL.
+
 NB: Main program file Example.c is named as per the project. This is a pattern I use for all the C projects.
 
 

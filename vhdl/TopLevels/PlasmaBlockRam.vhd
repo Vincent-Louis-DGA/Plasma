@@ -13,15 +13,15 @@ use work.plasmaPeriphRegisters.all;
 
 entity PlasmaBlockRam is
   generic(
-    log_file   : string    := "UNUSED";
-    simulation : std_logic := '0'
+    uartLogFile : string    := "UNUSED";
+    simulation  : std_logic := '0'
     );
   port(
     clk_100    : in  std_logic;
     reset_ex_n : in  std_logic;         -- external reset
     sysClk     : out std_logic;         -- 50 MHz system clock.
     reset_n    : out std_logic;         -- system generated reset
-    UartRx     : in  std_logic;
+    UartRx     : in  std_logic := '1';
     UartTx     : out std_logic;
 
     leds     : out   std_logic_vector(7 downto 0);
@@ -29,8 +29,8 @@ entity PlasmaBlockRam is
     buttons  : in    std_logic_vector(4 downto 0);
     pmod     : inout std_logic_vector(7 downto 0);
 
-    Uart_bypassRx         : in  std_logic_vector(7 downto 0) :=(others => '0');
-    Uart_bypassRxWeToggle : in  std_logic := '0';
+    Uart_bypassRx         : in  std_logic_vector(7 downto 0) := (others => '0');
+    Uart_bypassRxWeToggle : in  std_logic                    := '0';
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
     Uart_bypassTxDv       : out std_logic;
 
@@ -60,27 +60,27 @@ end;
 architecture logic of PlasmaBlockRam is
 
 
-  
+
 begin  --architecture
 
   MCU : entity work.PlasmaTop
     generic map (
-      log_file   => log_file,
-      simulation => simulation,
-      ATLYS_DDR  => '0')
+      uartLogFile => uartLogFile,
+      simulation  => simulation,
+      AtlysDDR    => '0')
     port map (
-      clk_100       => clk_100,
-      reset_ex_n    => reset_ex_n,
-      UartRx        => UartRx,
-      UartTx        => UartTx,
-      leds          => leds,
-      switches      => switches,
-      buttons       => buttons,
-      pmod          => pmod,
-      FlashClk      => FlashClk,
-      FlashCS       => FlashCS,
-      FlashTris     => FlashTris,
-      FlashMemDq    => FlashMemDq);
+      clk_100    => clk_100,
+      reset_ex_n => reset_ex_n,
+      UartRx     => UartRx,
+      UartTx     => UartTx,
+      leds       => leds,
+      switches   => switches,
+      buttons    => buttons,
+      pmod       => pmod,
+      FlashClk   => FlashClk,
+      FlashCS    => FlashCS,
+      FlashTris  => FlashTris,
+      FlashMemDq => FlashMemDq);
 
 
 end;  --architecture logic

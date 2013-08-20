@@ -1,0 +1,35 @@
+﻿Build started 20/08/2013 4:50:01 p.m..
+     1>Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" on node 2 (rebuild target(s)).
+     1>CoreClean:
+         del *.o *.map *.lst *.axf *.bin code.txt
+       Rebuild:
+         gmake target Target=PlasmaDataAcquisition && move /Y test.bin PlasmaDataAcquisition.bin
+         gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls -D BUFFER_LEN=0x1000 PlasmaDataAcquisition.c 
+         PlasmaDataAcquisition.c:10: warning: #warning Using user supplied BUFFER_LEN
+         ld.exe -Ttext 0x00000000 -e entry -Map PlasmaDataAcquisition_boot.map -s -N \
+         		..\..\Tools\lib\boot_os.o \
+         		PlasmaDataAcquisition.o -o test.axf
+         objdump.bat test.axf PlasmaDataAcquisition_boot.lst
+         
+         C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition_boot.lst 
+         convert_bin.exe	# Creates test.bin and code.txt from test.axf
+         test.axf -> code.txt & test.bin
+         Entry=0x0 length=2480=0x9b0
+         ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
+         		code.txt ram_PlasmaDataAcquisition.vhd
+         gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaDataAcquisition.c 
+         ld.exe -Ttext 0x40000000 -e entry -Map PlasmaDataAcquisition.map -s -N \
+         		..\..\Tools\lib\boot.o \
+         		PlasmaDataAcquisition.o -o test.axf
+         objdump.bat test.axf PlasmaDataAcquisition.lst
+         
+         C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition.lst 
+         convert_bin.exe	# Creates test.bin and code.txt from test.axf
+         test.axf -> code.txt & test.bin
+         Entry=0x40000000 length=2113=0x841
+                 1 file(s) moved.
+     1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.75

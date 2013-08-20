@@ -25,4 +25,5 @@ User Guide:
 3) Transmit a 32-bit integer specifying length in bytes of .bin file.
 4) Send 32-bit integer address of new application offset.
 5) Send the .bin file, padding out to a multiple of 4 bytes.
-6) Boot loader will echo everything, and immediately begin the new program.
+6) Boot loader will echo everything.
+7) Transmit one more byte (can be anything) to start the new program.

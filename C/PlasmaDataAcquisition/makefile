@@ -19,7 +19,7 @@ CFLAGS = -O2 -Wall -c -s
 CFLAGS += -fno-pic -mips1 -mno-abicalls
 
 target:
-	gcc.exe $(CFLAGS) $(Target).c 
+	gcc.exe $(CFLAGS) -D BUFFER_LEN=0x1000 $(Target).c 
 	ld.exe -Ttext 0x00000000 -e entry -Map $(Target)_boot.map -s -N \
 		$(PLASMA_LIB)\boot_os.o \
 		$(Target).o -o test.axf
@@ -27,6 +27,7 @@ target:
 	convert_bin.exe	# Creates test.bin and code.txt from test.axf
 	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
 		code.txt ram_$(Target).vhd
+	gcc.exe $(CFLAGS) $(Target).c 
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
 		$(PLASMA_LIB)\$(BOOT_FILE) \
 		$(Target).o -o test.axf

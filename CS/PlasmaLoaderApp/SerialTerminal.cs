@@ -59,7 +59,10 @@ namespace PlasmaLoaderApp
         void CloseLog()
         {
             if (log != null)
+            {
                 log.Dispose();
+                log = null;
+            }
         }
 
 		void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -78,7 +81,7 @@ namespace PlasmaLoaderApp
                     prevChars += bytes;
                 }
             }
-            if (log != null)
+            if (log != null && log.CanWrite)
                 log.Write(buffer, 0, buffer.Length);
 		}
 	}

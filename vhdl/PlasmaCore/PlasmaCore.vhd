@@ -209,7 +209,7 @@ begin  --architecture
         data_read         => in_ram_dout);
   end generate NOT_SIM;
     SIM : if SIMULATION = '1' generate
-    u2_prog_ram : entity work.ram_Example
+    u2_prog_ram : entity work.ram_Program
       generic map (memory_type => memory_type)
       port map (
         clk               => clk,

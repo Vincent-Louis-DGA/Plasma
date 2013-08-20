@@ -227,44 +227,31 @@ begin  -- logic
     end if;
   end process REG_INPUTS;
 
+
+  UART_CORE : entity work.uart
+    generic map (
+      PRESCALE_DIV => PRESCALE_DIV)
+    port map (
+      clk          => clk_u,
+      reset        => uart_reset,
+      enable_write => uart_we,
+      data_in      => uart_din,
+      data_out     => uart_dout,
+      uartRx       => rx_uc,
+      uartTx       => tx,
+      busy_write   => uart_busy,
+      data_avail   => uart_data_avail,
+      baud_div     => baud_div_uc);
+
   PS_GEN : if log_file = "UNUSED" generate
 
     clk_u <= clk_uart;
 
-    UART_CORE : entity work.uart
-      generic map (
-        PRESCALE_DIV => PRESCALE_DIV)
-      port map (
-        clk          => clk_u,
-        reset        => uart_reset,
-        enable_write => uart_we,
-        data_in      => uart_din,
-        data_out     => uart_dout,
-        uartRx       => rx_uc,
-        uartTx       => tx,
-        busy_write   => uart_busy,
-        data_avail   => uart_data_avail,
-        baud_div     => baud_div_uc);
   end generate PS_GEN;
 
   PS_LOG : if log_file /= "UNUSED" generate
 
     clk_u <= sys_clk;
-
-    UART_CORE : entity work.uart
-      generic map (
-        PRESCALE_DIV    => X"10")
-      port map (
-        clk          => clk_u,
-        reset        => uart_reset,
-        enable_write => uart_we,
-        data_in      => uart_din,
-        data_out     => uart_dout,
-        uartRx       => rx_uc,
-        uartTx       => tx,
-        busy_write   => uart_busy,
-        data_avail   => uart_data_avail,
-        baud_div     => baud_div_uc);
 
     log_proc : process(sys_clk)
       file store_file        : text open write_mode is log_file;

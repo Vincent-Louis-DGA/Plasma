@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlasmaBootLoader", "PlasmaB
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example", "Example\Example.vcxproj", "{8B54A43C-9B9E-466C-A72B-F63A106C78E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlasmaDataAcquisition", "PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj", "{E31AC51F-5199-48B3-9AF8-96297088044D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Debug|Win32.Build.0 = Debug|Win32
 		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Release|Win32.ActiveCfg = Release|Win32
 		{8B54A43C-9B9E-466C-A72B-F63A106C78E0}.Release|Win32.Build.0 = Release|Win32
+		{E31AC51F-5199-48B3-9AF8-96297088044D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E31AC51F-5199-48B3-9AF8-96297088044D}.Debug|Win32.Build.0 = Debug|Win32
+		{E31AC51F-5199-48B3-9AF8-96297088044D}.Release|Win32.ActiveCfg = Release|Win32
+		{E31AC51F-5199-48B3-9AF8-96297088044D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
