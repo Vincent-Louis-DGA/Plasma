@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/work_unsync/Plasma/vhdl/ise/PlasmaBlockRam/PlasmaBlockRam_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="attributes" />
+            <top_module name="mlite_pack" />
+            <top_module name="numeric_std" />
+            <top_module name="plasmablockram_tb" />
+            <top_module name="plasmaperiphregisters" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_misc" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/plasmablockram_tb/clk_100" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_100</obj_property>
+      <obj_property name="ObjectShortName">clk_100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/reset_ex_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_ex_n</obj_property>
+      <obj_property name="ObjectShortName">reset_ex_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/switches" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">switches[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switches[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/buttons" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buttons[4:0]</obj_property>
+      <obj_property name="ObjectShortName">buttons[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/pmod" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pmod[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pmod[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/uart_bypassrx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypassrx[7:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_bypassrx[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/uart_bypassrxwetoggle" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypassrxwetoggle</obj_property>
+      <obj_property name="ObjectShortName">uart_bypassrxwetoggle</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/uart_bypasstx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstx[7:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstx[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/uart_bypasstxdv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstxdv</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstxdv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/uartlogfile" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uartlogfile[1:7]</obj_property>
+      <obj_property name="ObjectShortName">uartlogfile[1:7]</obj_property>
+   </wvobject>
+</wave_config>

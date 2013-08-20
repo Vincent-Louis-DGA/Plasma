@@ -1,4 +1,4 @@
-﻿Build started 20/08/2013 12:39:31 p.m..
+﻿Build started 21/08/2013 9:35:36 a.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -6,8 +6,19 @@
          gmake target Target=PlasmaBootLoader && move /Y test.bin PlasmaBootLoader.bin
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaBootLoader.c 
          PlasmaBootLoader.c: In function `UartBootLoad':
-         PlasmaBootLoader.c:35: warning: unused variable `checksum'
-         ld.exe -Ttext 0x00000000 -e entry -Map PlasmaBootLoader.map -s -N \
+         PlasmaBootLoader.c:45: warning: unused variable `checksum'
+         ld.exe -Ttext 0x00000000 -e entry -Map PlasmaBootLoader_boot.map -s -N \
+         		..\..\Tools\lib\boot_os.o \
+         		PlasmaBootLoader.o -o test.axf
+         objdump.bat test.axf PlasmaBootLoader_boot.lst
+         
+         C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader_boot.lst 
+         convert_bin.exe	# Creates test.bin and code.txt from test.axf
+         test.axf -> code.txt & test.bin
+         Entry=0x0 length=1599=0x63f
+         ram_image.exe ram_xilinx.vhd \
+         		code.txt ram_PlasmaBootLoader.vhd
+         ld.exe -Ttext 0x40000000 -e entry -Map PlasmaBootLoader.map -s -N \
          		..\..\Tools\lib\boot_os.o \
          		PlasmaBootLoader.o -o test.axf
          objdump.bat test.axf PlasmaBootLoader.lst
@@ -15,12 +26,10 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=1512=0x5e8
-         ram_image.exe ram_xilinx.vhd \
-         		code.txt ram_PlasmaBootLoader.vhd
+         Entry=0x40000000 length=1599=0x63f
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.48
+Time Elapsed 00:00:02.94

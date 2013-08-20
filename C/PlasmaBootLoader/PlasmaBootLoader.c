@@ -29,6 +29,16 @@ void FlashBootLoad()
 	// TODO: Load from Flash.
 }
 
+int UartReadInt()
+{
+	int i,r = 0;
+	for(i = 0; i < 4; i++)
+	{
+		r = (r << 8) + readChar();
+		printChar(r);
+	}
+	return r;
+}
 
 void UartBootLoad()
 {
@@ -40,41 +50,17 @@ void UartBootLoad()
 	MemoryWrite(UART_BAUD_DIV, 1);
 	MemoryWrite(LEDS_OUT, 0xAA);
 	
-
 	// Read 32-bit length
-	i = readChar();
-	printChar(i);
-	len = (len << 8) + i;
-	i = readChar();
-	printChar(i);
-	len = (len << 8) + i;
-	i = readChar();
-	printChar(i);
-	len = (len << 8) + i;
-	i = readChar();
-	printChar(i);
-	len = (len << 8) + i;
+	len = UartReadInt();
 	MemoryWrite(LEDS_OUT, len);
 	// Read 32-bit boot offset
-	i = readChar();
-	offset = (offset << 8) + i;
-	printChar(i);
-	i = readChar();
-	offset = (offset << 8) + i;
-	printChar(i);
-	i = readChar();
-	offset = (offset << 8) + i;
-	printChar(i);
-	i = readChar();
-	offset = (offset << 8) + i;
-	printChar(i);
+	offset = UartReadInt();
 	MemoryWrite(LEDS_OUT, offset);
 
 	// Read 'len' bytes, writing out to BOOT_OFFSET
-	for(i = 0; i < len; i++)
+	for(i = 0; i < len; i+=4)
 	{
-		val = (val << 8) + readChar();
-		printChar(val);
+		val = UartReadInt();
 		MemoryWrite(LEDS_OUT, i);
 		MemoryWrite(offset+i, val);
 	}
