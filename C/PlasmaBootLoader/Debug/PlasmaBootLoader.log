@@ -1,4 +1,4 @@
-﻿Build started 21/08/2013 9:35:36 a.m..
+﻿Build started 21/08/2013 2:01:47 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -15,21 +15,21 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=1599=0x63f
+         Entry=0x0 length=1391=0x56f
          ram_image.exe ram_xilinx.vhd \
          		code.txt ram_PlasmaBootLoader.vhd
          ld.exe -Ttext 0x40000000 -e entry -Map PlasmaBootLoader.map -s -N \
-         		..\..\Tools\lib\boot_os.o \
+         		..\..\Tools\lib\boot.o \
          		PlasmaBootLoader.o -o test.axf
          objdump.bat test.axf PlasmaBootLoader.lst
          
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=1599=0x63f
+         Entry=0x40000000 length=1048=0x418
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.94
+Time Elapsed 00:00:00.61

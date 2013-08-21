@@ -13,9 +13,10 @@ use work.plasmaPeriphRegisters.all;
 
 entity PlasmaTop is
   generic(
-    uartLogFile   : string    := "UNUSED";
-    simulation : std_logic := '0';
-    AtlysDDR  : std_logic := '0'
+    uartLogFile     : string    := "UNUSED";
+    simulateRam     : std_logic := '0';
+    simulateProgram : std_logic := '0';
+    AtlysDDR        : std_logic := '0'
     );
   port(
     clk_100    : in  std_logic;
@@ -33,15 +34,15 @@ entity PlasmaTop is
     Uart_bypassRx         : in  std_logic_vector(7 downto 0) := (others => '0');
     Uart_bypassRxWeToggle : in  std_logic                    := '0';
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
-    Uart_bypassTxDv       : out std_logic;
+    Uart_bypassTxDvToggle : out std_logic;
 
     FifoDin   : in  std_logic_vector(7 downto 0) := (others => '0');
     FifoDout  : out std_logic_vector(7 downto 0);
-    FifoWe    : in  std_logic                     := '0';
-    FifoRe    : in  std_logic                     := '0';
+    FifoWe    : in  std_logic                    := '0';
+    FifoRe    : in  std_logic                    := '0';
     FifoFull  : out std_logic;
     FifoEmpty : out std_logic;
-    FifoClear : in  std_logic                     := '0';
+    FifoClear : in  std_logic                    := '0';
 
     -- General purpose bus connected directly to CPU
     ExBusDin  : in  std_logic_vector(31 downto 0) := (others => '0');
@@ -232,15 +233,15 @@ begin  --architecture
 -- RAM and CPU
 -------------------------------------------------------------------------------
 
-  ExBusAddr <= bus_address(27 downto 2) & "00";
-  ExBusDout <= bus_din;
-  ExBusRe   <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
-  ExBusWe   <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
+  ExBusAddr               <= bus_address(27 downto 2) & "00";
+  ExBusDout               <= bus_din;
+  ExBusRe                 <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
+  ExBusWe                 <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
   bus_address(1 downto 0) <= "00";
 
   u1_plasma : entity work.PlasmaCore
     generic map (memory_type => "XILINX_16X",
-                 SIMULATION  => SIMULATION)
+                 SIMULATION  => simulateProgram)
     port map (
       clk   => clk_50,
       reset => reset,
@@ -276,7 +277,7 @@ begin  --architecture
         dinb  => X"00000000",
         doutb => open
         );
-    BRS : if simulation = '1' generate
+    BRS : if simulateRam = '1' generate
       process (clk_100, reset_ex_n)
       begin  -- process
         if reset_ex_n = '0' then
@@ -288,7 +289,7 @@ begin  --architecture
         end if;
       end process;
     end generate BRS;
-    BRP : if simulation /= '1' generate
+    BRP : if simulateRam /= '1' generate
       
       u3_pll : entity work.systemPLL
         port map (
@@ -321,7 +322,7 @@ begin  --architecture
     
     u2_memory : entity work.ddr2_1Gb_wrapper
       generic map (
-        DO_SIMULATION => simulation)
+        DO_SIMULATION => simulateRam)
       port map (
         clk100           => clk_100,
         reset_n          => reset_ex_n,
@@ -627,7 +628,7 @@ begin  --architecture
       bypassRx         => Uart_bypassRx,
       bypassRxWeToggle => bypassRxWeToggle_sim,
       bypassTx         => Uart_bypassTx,
-      bypassTxDv       => Uart_bypassTxDv);
+      bypassTxDvToggle => Uart_bypassTxDvToggle);
 
   u5_leds : entity work.OutputPort
     generic map (
@@ -686,7 +687,7 @@ begin  --architecture
       din   => bus_din);
 
 
-  SIM : if SIMULATION = '1' generate
+  SIM : if simulateProgram = '1' or simulateRam = '1' generate
     bypassRxWeToggle_sim <= uart_bypassRxWeToggle;
   end generate SIM;
 

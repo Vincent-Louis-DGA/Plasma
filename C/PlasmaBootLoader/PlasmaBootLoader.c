@@ -48,7 +48,7 @@ void UartBootLoad()
 	int i = 0;
 	// Set baud to 460800
 	MemoryWrite(UART_BAUD_DIV, 1);
-	MemoryWrite(LEDS_OUT, 0xAA);
+	MemoryWrite(LEDS_OUT, 0x2A);
 	
 	// Read 32-bit length
 	len = UartReadInt();
@@ -71,7 +71,7 @@ void UartBootLoad()
 int main (void)
 {
 	offset = 0;
-	MemoryWrite(LEDS_OUT, 0x55);
+	MemoryWrite(LEDS_OUT, 0x54);
 	while(offset == 0)
 	{
 		// If BTNR down, go into UartBootLoad routine.

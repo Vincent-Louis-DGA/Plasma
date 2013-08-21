@@ -75,7 +75,7 @@ entity uartTopLevel is
     bypassRxWeToggle : in  std_logic;
     -- Use these signals to directly remove data written to Tx FIFO (sys_clk domain)
     bypassTx         : out std_logic_vector(7 downto 0);
-    bypassTxDv       : out std_logic
+    bypassTxDvToggle : out std_logic
     );
 
 end uartTopLevel;
@@ -118,6 +118,7 @@ architecture logic of uartTopLevel is
   signal bypassRxTg  : std_logic;
   signal bypassRxTg2 : std_logic;
   signal bypassRxReg : std_logic_vector(7 downto 0);
+  signal bypassTxTg  : std_logic;
   
 begin  -- logic
 
@@ -146,8 +147,6 @@ begin  -- logic
   rx_fifo_we  <= uart_data_avail or bypassRxWe;
   rx_fifo_din <= bypassRxReg when bypassRxWe = '1' else uart_dout;
 
-  bypassTx   <= tx_fifo_din;
-  bypassTxDv <= tx_fifo_we;
 
   CPU_REGISTERS : process (sys_clk, reset)
   begin  -- process CPU_REGISTERS
@@ -213,6 +212,8 @@ begin  -- logic
       bypassRxWe   <= '0';
       bypassRxTg   <= '0';
       bypassRxReg  <= (others => '0');
+      bypassTx     <= (others => '0');
+      bypassTxTg   <= '0';
     elsif rising_edge(clk_u) then
       bypassRxTg  <= bypassRxWeToggle;
       bypassRxTg2 <= bypassRxTg;
@@ -224,8 +225,13 @@ begin  -- logic
       baud_div_uc  <= X"0" & baud_divider;
       rx_uc        <= rx;
       uart_busy_uc <= uart_busy;
+      bypassTx     <= tx_fifo_din;
+      if tx_fifo_we = '1' then
+        bypassTxTg <= not bypassTxTg;
+      end if;
     end if;
   end process REG_INPUTS;
+  bypassTxDvToggle <= bypassTxTg;
 
 
   UART_CORE : entity work.uart
