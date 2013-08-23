@@ -141,17 +141,17 @@ int itoa_p(int value, char* result, int base) {
 
 
 // Convert integer to hex string
-int itox(int value, char* result)
+int itox(unsigned int value, char* result)
 {
 	int m;
-	char v;
+	unsigned char v;
 	int ret = 0;
 	result[ret++] = '0';
 	result[ret++] = 'x';
 	for(m = 28; m >= 0; m-=4)
 	{
 		v = ((value & (0xF << m)) >> m);
-		result[ret++] = "0123456789ABCDEF"[(int)v];
+		result[ret++] = "0123456789ABCDEF"[(unsigned int)v];
 	}
 	result[ret] = 0;
 	return ret;

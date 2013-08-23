@@ -17,7 +17,7 @@ int atoi_p(char * string, int * endOffset);
 int itoa_p(int value, char * result, int base);	
 /* Convert integer to hex string. Returns number of bytes, not including NULL.
 	Expect it to be faster than itoa, since it uses bit masks and shifts instead of division */
-int itox(int value, char * result);	
+int itox(unsigned int value, char * result);	
 int btox(char value, char* result);
 
 #include <plasma_string.c>

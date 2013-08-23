@@ -22,14 +22,15 @@ architecture testbench of PlasmaBlockRam_tb is
   signal Uart_bypassRx         : std_logic_vector(7 downto 0);
   signal Uart_bypassRxWeToggle : std_logic;
   signal Uart_bypassTx         : std_logic_vector(7 downto 0);
-  signal Uart_bypassTxDv       : std_logic;
+  signal Uart_bypassTxDvToggle : std_logic;
 
   
 begin  -- testbench
   
   UUT : entity work.PlasmaBlockRam
-    generic map (simulation  => '1',
-                 uartLogFile => uartLogFile)
+    generic map (simulateRam     => '1',
+                 simulateProgram => '0',
+                 uartLogFile     => uartLogFile)
     port map (
       clk_100    => clk_100,
       reset_ex_n => reset_ex_n,
@@ -41,7 +42,7 @@ begin  -- testbench
       Uart_bypassRx         => Uart_bypassRx,
       Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
       Uart_bypassTx         => Uart_bypassTx,
-      Uart_bypassTxDv       => Uart_bypassTxDv
+      Uart_bypassTxDvToggle => Uart_bypassTxDvToggle
       );
 
   clk_100  <= not clk_100 after 5 ns;

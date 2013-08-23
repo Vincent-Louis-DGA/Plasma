@@ -13,6 +13,8 @@
 
 #include <plasma.h>
 #include <plasma_stdio.h>
+#include <plasma_string.h>
+#include "FlashRam.c"
 
 void ISR(int status)
 {
@@ -22,11 +24,22 @@ void ISR(int status)
 }
 
 unsigned char rxBuf[4];
+
 int offset;
 
 void FlashBootLoad()
 {
-	// TODO: Load from Flash.
+	int len = 8;
+	char readBuffer[8];
+	char * offsetPointer;
+	FlashInit();
+	FlashReadMemory(0x200000, readBuffer, len);
+	PrintReadBuffer(0x200000, readBuffer, len);
+	offset = 0x40000000;
+	len = 0x700;
+	offsetPointer = (char*)offset;
+	FlashReadMemory(0x200000, offsetPointer, len);
+	
 }
 
 int UartReadInt()

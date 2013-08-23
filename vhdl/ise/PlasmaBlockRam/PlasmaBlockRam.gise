@@ -55,12 +55,12 @@
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PlasmaBlockRam_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="PlasmaBlockRam_summary.html"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="PlasmaBlockRam_summary.xml"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PlasmaBlockRam_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PlasmaBlockRam_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="PlasmaBlockRam_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="PlasmaBlockRam_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PlasmaBlockRam_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PlasmaBootLoader_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PlasmaBootLoader_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="PlasmaBootLoader_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="PlasmaTop.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="PlasmaTop.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="PlasmaTop.lso"/>
@@ -87,6 +87,7 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="plasmablockram.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="plasmablockram.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="plasmablockram.drc" xil_pn:subbranch="FPGAConfiguration"/>
@@ -103,7 +104,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1377048560" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1377048560">
+    <transform xil_pn:end_ts="1377215734" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1377215734">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
@@ -154,11 +155,11 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1377035914" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4185079287174691068" xil_pn:start_ts="1377035914">
+    <transform xil_pn:end_ts="1377215666" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="27813801514606308" xil_pn:start_ts="1377215666">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1377035914" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="527147249133577090" xil_pn:start_ts="1377035914">
+    <transform xil_pn:end_ts="1377215666" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3343145747278740322" xil_pn:start_ts="1377215666">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -166,7 +167,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1377048560" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1377048560">
+    <transform xil_pn:end_ts="1377215734" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1377215734">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
@@ -217,20 +218,22 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1377048570" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3358356254214979816" xil_pn:start_ts="1377048560">
+    <transform xil_pn:end_ts="1377215745" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6504214336676659288" xil_pn:start_ts="1377215734">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_beh.prj"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_beh.prj"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1377048570" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6231323341602536124" xil_pn:start_ts="1377048570">
+    <transform xil_pn:end_ts="1377215745" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6182879909316999876" xil_pn:start_ts="1377215745">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1376883140" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1376883140">
       <status xil_pn:value="SuccessfullyRun"/>

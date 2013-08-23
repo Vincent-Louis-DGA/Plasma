@@ -1,12 +1,18 @@
-﻿Build started 21/08/2013 2:01:47 p.m..
+﻿Build started 23/08/2013 2:25:39 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=PlasmaBootLoader && move /Y test.bin PlasmaBootLoader.bin
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaBootLoader.c 
+         FlashRam.c: In function `FlashInit':
+         In file included from PlasmaBootLoader.c:17:
+         FlashRam.c:266: warning: array subscript has type `char'
+         FlashRam.c:267: warning: array subscript has type `char'
+         FlashRam.c: In function `ReadAndPrintFlashId':
+         FlashRam.c:306: warning: unused variable `i'
          PlasmaBootLoader.c: In function `UartBootLoad':
-         PlasmaBootLoader.c:45: warning: unused variable `checksum'
+         PlasmaBootLoader.c:58: warning: unused variable `checksum'
          ld.exe -Ttext 0x00000000 -e entry -Map PlasmaBootLoader_boot.map -s -N \
          		..\..\Tools\lib\boot_os.o \
          		PlasmaBootLoader.o -o test.axf
@@ -15,7 +21,7 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=1391=0x56f
+         Entry=0x0 length=5335=0x14d7
          ram_image.exe ram_xilinx.vhd \
          		code.txt ram_PlasmaBootLoader.vhd
          ld.exe -Ttext 0x40000000 -e entry -Map PlasmaBootLoader.map -s -N \
@@ -26,10 +32,10 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=1048=0x418
+         Entry=0x40000000 length=4992=0x1380
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.61
+Time Elapsed 00:00:00.70
