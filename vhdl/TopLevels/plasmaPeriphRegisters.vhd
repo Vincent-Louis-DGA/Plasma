@@ -49,7 +49,7 @@ package plasmaPeriphRegisters is
   constant ZEROS32 : std_logic_vector(31 downto 0) := (others => '0');
   constant ONES32  : std_logic_vector(31 downto 0) := (others => '1');
 
-  constant EX_RAM_ADDR_WIDTH  : integer := 13;  -- 8 kB
+  constant EX_RAM_ADDR_WIDTH  : integer := 13;  -- 8192 words = 32 kB
   constant DDR_RAM_ADDR_WIDTH : integer := 27;  -- 1 Gbit = 128 MB
 
 end plasmaPeriphRegisters;

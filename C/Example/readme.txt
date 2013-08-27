@@ -4,7 +4,8 @@
 
 A simple Plasma 32-bit MIPS makefile project.
 
-Application transmits "Hello World" out of the UART, writes value of switches to LEDS and transmits value of switches out UART.
+Application transmits "Hello World" out of the UART, writes value of switches to LEDs and transmits value of switches out UART.
+It then enters an infinite loop of listening to the UART and echoing back to the UART and the LEDs.
 
 Upon successful compilation there are two outputs of interest: 
 1) Example.bin:		the program binary that would be transmitted to the boot loader via UART. In this case, BOOT_OFFSET 

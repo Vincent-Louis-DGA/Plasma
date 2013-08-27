@@ -19,6 +19,10 @@ int main(void)
 	// where NN is the value of the switches.
 
 	while(1)
-	{}
+	{
+		s = readChar();
+		MemoryWrite(LEDS_OUT,s);
+		writeChar(s);
+	}
 	return 0;
 }

@@ -1,4 +1,4 @@
-﻿Build started 20/08/2013 4:50:01 p.m..
+﻿Build started 27/08/2013 1:37:54 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -32,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.75
+Time Elapsed 00:00:03.58

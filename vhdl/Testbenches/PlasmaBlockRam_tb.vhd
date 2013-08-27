@@ -47,14 +47,17 @@ begin  -- testbench
 
   clk_100  <= not clk_100 after 5 ns;
   switches <= X"03";
-  buttons  <= "00000";
 
 
   TB : process
   begin  -- process TB
     reset_ex_n <= '0';
+    buttons  <= (others => '0');
     wait for 100 ns;
     reset_ex_n <= '1';
+
+    wait for 200 us;
+    buttons <= "00000";
     wait;
   end process TB;
   

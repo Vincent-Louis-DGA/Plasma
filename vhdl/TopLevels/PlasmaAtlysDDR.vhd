@@ -13,8 +13,9 @@ use work.plasmaPeriphRegisters.all;
 
 entity PlasmaAtlysDDR is
   generic(
-    uartLogFile   : string    := "UNUSED";
-    simulation : std_logic := '0'
+    uartLogFile     : string    := "UNUSED";
+    simulateRam     : std_logic := '0';
+    simulateProgram : std_logic := '0'
     );
   port(
     clk_100    : in  std_logic;
@@ -85,9 +86,10 @@ begin  --architecture
 
   MCU : entity work.PlasmaTop
     generic map (
-      uartLogFile   => uartLogFile,
-      simulation => simulation,
-      AtlysDDR  => '1')
+      uartLogFile     => uartLogFile,
+      simulateRam     => simulateRam,
+      simulateProgram => simulateProgram,
+      AtlysDDR        => '1')
     port map (
       clk_100      => clk_100,
       reset_ex_n   => reset_ex_n,

@@ -79,9 +79,11 @@ namespace PlasmaLoaderApp
                 argList.RemoveAt(0);
                 return;
             }
-
-			sourceFile = argList[0];
-			argList.RemoveAt(0);
+            if (argList.Count > 0)
+            {
+                sourceFile = argList[0];
+                argList.RemoveAt(0);
+            }
 		}
 
 		int parsePossibleHex(string hex)
@@ -93,11 +95,11 @@ namespace PlasmaLoaderApp
 
 		public void Load()
 		{
-			if (sourceFile == null)
-				throw new ArgumentException("Source filename was not specified");
-			if (!File.Exists(sourceFile))
+            bool loadSource = !string.IsNullOrWhiteSpace(sourceFile);
+			if (loadSource && !File.Exists(sourceFile))
 				throw new ArgumentException("Source file does not exist: " + sourceFile);
 
+            char[] bootChars = new char[0];
 			using (SerialPort sp = new SerialPort(serialPort, baudRate))
 			{
 				sp.ReadBufferSize = 0x100000;
@@ -107,38 +109,43 @@ namespace PlasmaLoaderApp
 				sp.DiscardInBuffer();
 				sp.DiscardOutBuffer();
 
-				int len = (int)(new FileInfo(sourceFile)).Length;
-				int len50th = (len / 50);
-				Console.WriteLine("Port: " + serialPort + ", Baud: " + baudRate + ", Offset: 0x" + bootOffset.ToString("X") + ", Length: " + len + "\nSource: " + sourceFile);
-				byte[] b = BitConverter.GetBytes(len).Reverse().ToArray();
-				byte[] r = new byte[4];
-				sp.Write(b, 0, 4);
-				System.Threading.Thread.Sleep(20);
-				int s = sp.Read(r, 0, 4);
-				if (!ArraysEqual(b, r))
-                    throw new BootLoaderException("Echo response incorrect. " + s + "," + r[0] + "," + r[1] + "," + r[2] + "," + r[3]+","+len);
-				b = BitConverter.GetBytes(bootOffset).Reverse().ToArray();
-				sp.Write(b, 0, 4);
-				System.Threading.Thread.Sleep(20);
-				s = sp.Read(r, 0, 4);
-				if (!ArraysEqual(b, r))
-					throw new BootLoaderException("Echo response incorrect.");
-				using (FileStream stream = new FileStream(sourceFile, FileMode.Open))
-				{
-					for (int i = 0; i < len; i ++)
-					{
-						stream.Read(b, 0, 1);
-						sp.Write(b, 0, 1);
-						System.Threading.Thread.Sleep(0);
-						s = sp.Read(r, 0, 1);
-						if (!ArraysEqual(b, r))
-							throw new BootLoaderException("Echo response incorrect: Byte " + i + " / " + len);
-						if (i % len50th == 0)
-							Console.Write(".");
-					}
-				}
+				Console.WriteLine("Port: " + serialPort + ", Baud: " + baudRate);
 
-                SerialTerminal terminal = new SerialTerminal(sp, new char[]{'0'}, logFile, silent);
+                if (loadSource)
+                {
+                    int len = (int)(new FileInfo(sourceFile)).Length;
+                    int len50th = (len / 50);
+                    Console.WriteLine("Offset: 0x" + bootOffset.ToString("X") + ", Length: " + len + "\nSource: " + sourceFile);
+                    byte[] b = BitConverter.GetBytes(len).Reverse().ToArray();
+                    byte[] r = new byte[4];
+                    sp.Write(b, 0, 4);
+                    System.Threading.Thread.Sleep(20);
+                    int s = sp.Read(r, 0, 4);
+                    if (!ArraysEqual(b, r))
+                        throw new BootLoaderException("Echo response incorrect. " + s + "," + r[0] + "," + r[1] + "," + r[2] + "," + r[3] + "," + len);
+                    b = BitConverter.GetBytes(bootOffset).Reverse().ToArray();
+                    sp.Write(b, 0, 4);
+                    System.Threading.Thread.Sleep(20);
+                    s = sp.Read(r, 0, 4);
+                    if (!ArraysEqual(b, r))
+                        throw new BootLoaderException("Echo response incorrect.");
+                    using (FileStream stream = new FileStream(sourceFile, FileMode.Open))
+                    {
+                        for (int i = 0; i < len; i++)
+                        {
+                            stream.Read(b, 0, 1);
+                            sp.Write(b, 0, 1);
+                            System.Threading.Thread.Sleep(0);
+                            s = sp.Read(r, 0, 1);
+                            if (!ArraysEqual(b, r))
+                                throw new BootLoaderException("Echo response incorrect: Byte " + i + " / " + len);
+                            if (i % len50th == 0)
+                                Console.Write(".");
+                        }
+                    }
+                    bootChars = new char[] { '0' };
+                }
+                SerialTerminal terminal = new SerialTerminal(sp, bootChars, logFile, silent);
                 
 
 				sp.Close();

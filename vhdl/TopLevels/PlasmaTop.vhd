@@ -658,7 +658,7 @@ begin  --architecture
   u7_switches : entity work.InputPort
     generic map (
       W => switches'length,
-      D => 8)
+      D => 12)
     port map (
       clk    => clk_50,
       reset  => reset,

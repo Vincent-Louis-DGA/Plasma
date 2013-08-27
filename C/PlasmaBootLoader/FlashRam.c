@@ -6,7 +6,7 @@
 
 #include <plasma.h>
 #include <plasma_stdio.h>
-#include <plasma_string.h>
+//#include <plasma_string.h>
 
 #define RDID_LEN 20
 #define FLASH_INSTR_RDVECR 0x65
@@ -171,7 +171,7 @@ int ReadNonVolatileConfigurationRegister()
 	FlashSpiRead(0xB5, 0,0,readBuffer, 2);
 	return (readBuffer[0] << 8) + readBuffer[1];
 }
-
+/*
 void PrintReadBuffer(int address, char * r, int readLen)
 {
 	int i = 0;
@@ -202,7 +202,7 @@ void ReadAndPrintFlash(int address)
 	FlashSpiRead(0x03, address, 3, r, 20);
 	PrintReadBuffer(address, r, 20);
 }
-
+*/
 
 
 char ReadSpiVecr()
@@ -274,7 +274,7 @@ void FlashInit()
 	else
 		FlashStatus.NumLines = 1;
 }
-
+/*
 void ReadAndPrintRegisters()
 {
 	int r;
@@ -326,3 +326,4 @@ void TestFlashRam()
 	ReadAndPrintFlash(0x180100);
 	ReadAndPrintFlash(0x200000);
 }
+*/

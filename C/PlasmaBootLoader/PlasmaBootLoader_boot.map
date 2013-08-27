@@ -3,7 +3,6 @@ Allocating common symbols
 Common symbol       size              file
 
 InitStack           0x200             ..\..\Tools\lib\boot_os.o
-rxBuf               0x4               PlasmaBootLoader.o
 offset              0x4               PlasmaBootLoader.o
 
 Memory Configuration
@@ -17,7 +16,7 @@ Address of section .text set to 0x0
 LOAD ..\..\Tools\lib\boot_os.o
 LOAD PlasmaBootLoader.o
 
-.text           0x00000000     0x13dc
+.text           0x00000000      0xcac
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x1e4 ..\..\Tools\lib\boot_os.o
@@ -29,50 +28,36 @@ LOAD PlasmaBootLoader.o
                 0x000001d8                OS_Syscall
                 0x00000148                OS_AsmInterruptEnable
                 0x0000004c                OS_DefaultISR
- .text          0x000001e4     0x11f8 PlasmaBootLoader.o
+ .text          0x000001e4      0xac8 PlasmaBootLoader.o
                 0x000002f4                readChar
-                0x000008f4                FlashSpiReadBuffer
-                0x000011b8                ISR
+                0x000004f4                FlashSpiReadBuffer
                 0x000001e4                print
-                0x000004e8                atoi_p
-                0x00000b3c                WriteDisable
-                0x00001160                TestFlashRam
-                0x00000650                itoa_p
-                0x00000aa4                FlashSpiWrite
-                0x00000d0c                ReadAndPrintFlash
-                0x00000780                FlashSpiStart
-                0x00000dc8                ReadDioVecr
-                0x00000ad8                FlashReadMemory
-                0x00000c24                PrintReadBuffer
-                0x0000098c                FlashSpiEnd
-                0x00000d70                ReadSpiVecr
-                0x00000e78                ReadVecr
-                0x00000ed0                FlashInit
-                0x000011e4                FlashBootLoad
-                0x00000424                xtoi
+                0x0000073c                WriteDisable
+                0x000006a4                FlashSpiWrite
+                0x00000380                FlashSpiStart
+                0x0000087c                ReadDioVecr
+                0x000006d8                FlashReadMemory
+                0x0000058c                FlashSpiEnd
+                0x00000824                ReadSpiVecr
+                0x0000092c                ReadVecr
+                0x00000984                FlashInit
+                0x00000aac                FlashBootLoad
                 0x00000248                write
-                0x00000380                strncmp_p
                 0x0000021c                printLine
-                0x000007b0                FlashSpiWriteBuffer
-                0x000010ec                ReadAndPrintFlashId
+                0x000003b0                FlashSpiWriteBuffer
                 0x000002a4                read
-                0x00000a6c                FlashSpiRead
-                0x00000be4                ReadNonVolatileConfigurationRegister
-                0x00000e20                ReadQioVecr
-                0x000004a8                dtoi
+                0x0000066c                FlashSpiRead
+                0x000007e4                ReadNonVolatileConfigurationRegister
+                0x000008d4                ReadQioVecr
                 0x0000033c                writeChar
-                0x00001354                main
-                0x000009a0                FlashSpiTransaction
-                0x00000b0c                WriteEnable
-                0x000008b8                FlashSpiAddress
-                0x00000720                itox
-                0x00000b6c                ReadVolatileConfigurationRegister
-                0x0000088c                FlashSpiCommand
-                0x0000123c                UartReadInt
-                0x00001298                UartBootLoad
-                0x000003e4                append
-                0x00000ff8                ReadAndPrintRegisters
-                0x00000470                btoi
+                0x00000c14                main
+                0x000005a0                FlashSpiTransaction
+                0x0000070c                WriteEnable
+                0x000004b8                FlashSpiAddress
+                0x0000076c                ReadVolatileConfigurationRegister
+                0x0000048c                FlashSpiCommand
+                0x00000afc                UartReadInt
+                0x00000b58                UartBootLoad
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -84,12 +69,12 @@ LOAD PlasmaBootLoader.o
 
 .fini
  *(.fini)
-                0x000013dc                _ecode=.
+                0x00000cac                _ecode=.
 
-.reginfo        0x000013dc       0x18
+.reginfo        0x00000cac       0x18
  *(.reginfo)
- .reginfo       0x000013dc       0x18 ..\..\Tools\lib\boot_os.o
- .reginfo       0x000013f4       0x18 PlasmaBootLoader.o
+ .reginfo       0x00000cac       0x18 ..\..\Tools\lib\boot_os.o
+ .reginfo       0x00000cc4       0x18 PlasmaBootLoader.o
 
 .ctors
  *(.ctors)
@@ -109,33 +94,33 @@ LOAD PlasmaBootLoader.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x000013f4       0xb5
+.rodata         0x00000cc4        0x3
  *(.rodata)
- .rodata        0x000013f4       0xb5 PlasmaBootLoader.o
+ .rodata        0x00000cc4        0x3 PlasmaBootLoader.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x000014a9                _etext=.
-                0x000014a9                PROVIDE (etext, .)
+                0x00000cc7                _etext=.
+                0x00000cc7                PROVIDE (etext, .)
 
-.data           0x000014a9       0x2a
-                0x000014a9                _fdata=.
+.data           0x00000cc7       0x28
+                0x00000cc7                _fdata=.
  *(.data)
- *fill*         0x000014a9        0x3
- .data          0x000014ac       0x27 PlasmaBootLoader.o
-                0x000014c8                FLASH_CODE_CNT
-                0x000014c4                FLASH_CODE_TRIS
-                0x000014cc                FLASH_CODE_RSHIFT
-                0x000014d0                FLASH_CODE_STEPS
-                0x000014c0                FLASH_CODE_LINES
-                0x000014ac                FLASH_LINES
+ *fill*         0x00000cc7        0x1
+ .data          0x00000cc8       0x27 PlasmaBootLoader.o
+                0x00000ce4                FLASH_CODE_CNT
+                0x00000ce0                FLASH_CODE_TRIS
+                0x00000ce8                FLASH_CODE_RSHIFT
+                0x00000cec                FLASH_CODE_STEPS
+                0x00000cdc                FLASH_CODE_LINES
+                0x00000cc8                FLASH_LINES
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x000094c3                _gp=(.+0x7ff0)
+                0x00008cdf                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -143,32 +128,31 @@ LOAD PlasmaBootLoader.o
 .lit4
  *(.lit4)
 
-.sdata          0x000014d4        0x3
+.sdata          0x00000cf0        0x3
  *(.sdata)
- .sdata         0x000014d4        0x3 PlasmaBootLoader.o
-                0x000014d4                FlashStatus
+ .sdata         0x00000cf0        0x3 PlasmaBootLoader.o
+                0x00000cf0                FlashStatus
  *(.gnu.linkonce.s*)
-                0x000014d7                _edata=.
-                0x000014d7                PROVIDE (edata, .)
-                0x000014d8                .=ALIGN(0x8)
-                0x000014d7                __bss_start=.
-                0x000014d8                _fbss=__bss_start
+                0x00000cf3                _edata=.
+                0x00000cf3                PROVIDE (edata, .)
+                0x00000cf8                .=ALIGN(0x8)
+                0x00000cf3                __bss_start=.
+                0x00000cf8                _fbss=__bss_start
 
-.sbss           0x000014d8        0x8
+.sbss           0x00000cf8        0x4
  *(.sbss)
  *(.scommon)
- .scommon       0x000014d8        0x8 PlasmaBootLoader.o
-                0x000014d8                rxBuf
-                0x000014dc                offset
+ .scommon       0x00000cf8        0x4 PlasmaBootLoader.o
+                0x00000cf8                offset
 
-.bss            0x000014e0      0x200
+.bss            0x00000d00      0x200
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x000014e0      0x200 ..\..\Tools\lib\boot_os.o
-                0x000014e0                InitStack
-                0x000016e0                _end=.
-                0x000016e0                PROVIDE (end, .)
+ COMMON         0x00000d00      0x200 ..\..\Tools\lib\boot_os.o
+                0x00000d00                InitStack
+                0x00000f00                _end=.
+                0x00000f00                PROVIDE (end, .)
 
 .stab
  *(.stab)

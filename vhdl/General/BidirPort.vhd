@@ -105,7 +105,7 @@ begin  -- logic
     DO_COUNT : process (clk, reset)
     begin  -- process DO_COUNT
       if reset = '1' then               -- asynchronous reset (active high)
-        counters(i) <= (others => RESET_VAL);
+        counters(i) <= '1' & min(D-2 downto 0);--(others => RESET_VAL);
         port_reg(i) <= RESET_VAL;
         reg_i(i)    <= RESET_VAL;
       elsif rising_edge(clk) then       -- rising clock edge

@@ -8,38 +8,30 @@
 	3.	Send the file (pad out to multiple of 4 if needed).
 	4.	Boot loader will echo everything.
 
-	TODO: write code to load from Flash ROM. This would be useful...
 */
 
 #include <plasma.h>
 #include <plasma_stdio.h>
-#include <plasma_string.h>
 #include "FlashRam.c"
 
-void ISR(int status)
-{
-	MemoryWrite(PMOD_TRIS, 0x00);
-	MemoryWrite(PMOD_OUT, 0xFA);
-	MemoryWrite(IRQ_STATUS, status);
-}
-
-unsigned char rxBuf[4];
+#define FLASH_OFFSET		0x180000		// Byte offset in FlashRAM to read from
+#define DEFAULT_BOOT_OFFSET	0x40000000		// Default offset to load FlashRAM to
+#define PROGRAM_LEN			0x8000			// Default (aka max) program length in FlashRAM
 
 int offset;
 
 void FlashBootLoad()
 {
-	int len = 8;
-	char readBuffer[8];
+	int len;
 	char * offsetPointer;
 	FlashInit();
-	FlashReadMemory(0x200000, readBuffer, len);
-	PrintReadBuffer(0x200000, readBuffer, len);
-	offset = 0x40000000;
-	len = 0x700;
+	offset = DEFAULT_BOOT_OFFSET;
+	len = PROGRAM_LEN;
 	offsetPointer = (char*)offset;
-	FlashReadMemory(0x200000, offsetPointer, len);
+	MemoryWrite(LEDS_OUT, 0x3C);
+	FlashReadMemory(FLASH_OFFSET, offsetPointer, len);
 	
+	MemoryWrite(LEDS_OUT, 0xC3);
 }
 
 int UartReadInt()
@@ -59,8 +51,7 @@ void UartBootLoad()
 	int len = 0;
 	int val = 0;
 	int i = 0;
-	// Set baud to 460800
-	MemoryWrite(UART_BAUD_DIV, 1);
+	MemoryWrite(UART_CONTROL, 0x03);
 	MemoryWrite(LEDS_OUT, 0x2A);
 	
 	// Read 32-bit length
@@ -83,6 +74,8 @@ void UartBootLoad()
 
 int main (void)
 {
+	// Set baud to 460800
+	MemoryWrite(UART_BAUD_DIV, 1);
 	offset = 0;
 	MemoryWrite(LEDS_OUT, 0x54);
 	while(offset == 0)

@@ -1,4 +1,4 @@
-﻿Build started 20/08/2013 4:55:36 p.m..
+﻿Build started 27/08/2013 4:42:09 p.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -15,7 +15,7 @@
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=2133=0x855
+         Entry=0x0 length=2169=0x879
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_Example.vhd
          ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
@@ -26,10 +26,10 @@
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=1792=0x700
+         Entry=0x40000000 length=1824=0x720
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:00.53
