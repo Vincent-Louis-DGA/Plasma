@@ -62,7 +62,9 @@ int OS_AsmInterruptEnable(int enable);
 #define UART_CONTROL	(UART_OFFSET+0xC)
 #define UART_BAUD_DIV	(UART_OFFSET+0x10)
 
-#define UART_TX_RDY	((MemoryRead(UART_STATUS)&0x01) == 0)
+#define UART_TX_RDY_MASK	0x01
+
+#define UART_TX_RDY	((MemoryRead(UART_STATUS)&UART_TX_RDY_MASK) == 0)
 
 #define	COUNTER1		(PERIPH_BASE+	0xA0)
 #define	COUNTER1_PS		(PERIPH_BASE+	0xA4)

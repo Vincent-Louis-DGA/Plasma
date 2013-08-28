@@ -143,7 +143,14 @@ namespace PlasmaLoaderApp
                                 Console.Write(".");
                         }
                     }
-                    bootChars = new char[] { '0' };
+                    len = 3-(len + 3) % 4;
+                    if (len > 0)
+                    {
+                        sp.Write(b, 0, len);
+                        System.Threading.Thread.Sleep(0);
+                        s = sp.Read(r, 0, len);
+                    }
+                    bootChars = new char[1];
                 }
                 SerialTerminal terminal = new SerialTerminal(sp, bootChars, logFile, silent);
                 

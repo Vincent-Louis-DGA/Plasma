@@ -31,8 +31,9 @@ architecture testbench of PlasmaDataAcquisition_tb is
 begin  -- testbench
   
   UUT : entity work.PlasmaDataAcquisition
-    generic map (simulation  => '1',
-                 uartLogFile => uartLogFile)
+    generic map (simulateRam     => '1',
+                 simulateProgram => '1',
+                 uartLogFile     => uartLogFile)
     port map (
       clk_100    => clk_100,
       reset_ex_n => reset_ex_n,
@@ -52,7 +53,7 @@ begin  -- testbench
   clk_100  <= not clk_100 after 5 ns;
   switches <= X"08";
   buttons  <= "00000";
-  pmod <= X"bd";
+  pmod     <= X"bd";
 
 
   TB : process

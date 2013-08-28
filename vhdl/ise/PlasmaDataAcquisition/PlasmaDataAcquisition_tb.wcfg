@@ -3,13 +3,14 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/work_unsync/Plasma/vhdl/ise/PlasmaDataAcquisition/PlasmaDataAcquisition_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/work_unsync/HIL/ImitationBoxPlasma/ImitationBoxPlasma_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="attributes" />
             <top_module name="generalpurposefunctions" />
+            <top_module name="imitationboxconstants" />
+            <top_module name="imitationboxplasma_tb" />
             <top_module name="mlite_pack" />
             <top_module name="numeric_std" />
-            <top_module name="plasmadataacquisition_tb" />
             <top_module name="plasmaperiphregisters" />
             <top_module name="std_logic_1164" />
             <top_module name="std_logic_arith" />
@@ -25,137 +26,149 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="33" />
-   <wvobject fp_name="/plasmadataacquisition_tb/clk_100" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">clk_100</obj_property>
-      <obj_property name="ObjectShortName">clk_100</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/reset_ex_n" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">reset_ex_n</obj_property>
-      <obj_property name="ObjectShortName">reset_ex_n</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/clk" type="logic" db_ref_id="1">
+   <WVObjectSize size="36" />
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/reset_n" type="logic" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/reset_n" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset_n</obj_property>
       <obj_property name="ObjectShortName">reset_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/uarttx" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">uarttx</obj_property>
-      <obj_property name="ObjectShortName">uarttx</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcstrobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcstrobe</obj_property>
+      <obj_property name="ObjectShortName">adcstrobe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/bus_address" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bus_address[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_address[31:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/drx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">drx[3:0]</obj_property>
+      <obj_property name="ObjectShortName">drx[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/bus_din" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bus_din[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_din[31:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dacclk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dacclk</obj_property>
+      <obj_property name="ObjectShortName">dacclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/periph_dout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_dout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">periph_dout[31:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dtx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dtx[3:0]</obj_property>
+      <obj_property name="ObjectShortName">dtx[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/periph_re" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_re</obj_property>
-      <obj_property name="ObjectShortName">periph_re</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/tcount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tcount[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tcount[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/periph_we" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_we</obj_property>
-      <obj_property name="ObjectShortName">periph_we</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dcount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dcount[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dcount[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/pmodreg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pmodreg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pmodreg[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simcount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">simcount[11:0]</obj_property>
+      <obj_property name="ObjectShortName">simcount[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/switchesreg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">switchesreg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">switchesreg[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/uart_bypasstx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstx[7:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstx[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/buttonsreg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">buttonsreg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">buttonsreg[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/uart_bypasstxdvtoggle" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstxdvtoggle</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstxdvtoggle</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/nonsensereg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">nonsensereg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">nonsensereg[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simstrobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simstrobe</obj_property>
+      <obj_property name="ObjectShortName">simstrobe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/counter" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcstrobe_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcstrobe_i</obj_property>
+      <obj_property name="ObjectShortName">adcstrobe_i</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/sampleprescale" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">sampleprescale[5:0]</obj_property>
-      <obj_property name="ObjectShortName">sampleprescale[5:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcvalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcvalid</obj_property>
+      <obj_property name="ObjectShortName">adcvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/samplecount" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">samplecount[15:0]</obj_property>
-      <obj_property name="ObjectShortName">samplecount[15:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcvalidlatch" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcvalidlatch</obj_property>
+      <obj_property name="ObjectShortName">adcvalidlatch</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/sample" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">sample</obj_property>
-      <obj_property name="ObjectShortName">sample</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcvalidlatch2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcvalidlatch2</obj_property>
+      <obj_property name="ObjectShortName">adcvalidlatch2</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/datamask" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">datamask[7:0]</obj_property>
-      <obj_property name="ObjectShortName">datamask[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifodatasources" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifodatasources[63:0]</obj_property>
+      <obj_property name="ObjectShortName">fifodatasources[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/samplediv" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">samplediv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">samplediv[31:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/adcregisters" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">adcregisters[7:0]</obj_property>
+      <obj_property name="ObjectShortName">adcregisters[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifodout_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">fifodout_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">fifodout_i[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dacregisters" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dacregisters[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dacregisters[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifodin_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">fifodin_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">fifodin_i[7:0]</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dacvalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dacvalid</obj_property>
+      <obj_property name="ObjectShortName">dacvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifore_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fifore_i</obj_property>
-      <obj_property name="ObjectShortName">fifore_i</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/dacclk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dacclk_i</obj_property>
+      <obj_property name="ObjectShortName">dacclk_i</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifowe_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fifowe_i</obj_property>
-      <obj_property name="ObjectShortName">fifowe_i</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simdacclk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simdacclk</obj_property>
+      <obj_property name="ObjectShortName">simdacclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifofull_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fifofull_i</obj_property>
-      <obj_property name="ObjectShortName">fifofull_i</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simdaccount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">simdaccount[15:0]</obj_property>
+      <obj_property name="ObjectShortName">simdaccount[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifoempty_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fifoempty_i</obj_property>
-      <obj_property name="ObjectShortName">fifoempty_i</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifodin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifodin[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fifodin[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifoclear_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fifoclear_i</obj_property>
-      <obj_property name="ObjectShortName">fifoclear_i</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifowe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifowe</obj_property>
+      <obj_property name="ObjectShortName">fifowe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusdin" type="array" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifoempty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifoempty</obj_property>
+      <obj_property name="ObjectShortName">fifoempty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifofull" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifofull</obj_property>
+      <obj_property name="ObjectShortName">fifofull</obj_property>
+   </wvobject>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/fifomask" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifomask[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifomask[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/exbusdin" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">exbusdin[31:0]</obj_property>
       <obj_property name="ObjectShortName">exbusdin[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusdout" type="array" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/exbusdout" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">exbusdout[31:0]</obj_property>
       <obj_property name="ObjectShortName">exbusdout[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusaddr" type="array" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/exbusaddr" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">exbusaddr[27:0]</obj_property>
       <obj_property name="ObjectShortName">exbusaddr[27:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusre" type="logic" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/exbusre" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">exbusre</obj_property>
       <obj_property name="ObjectShortName">exbusre</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbuswe" type="logic" db_ref_id="1">
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/exbuswe" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">exbuswe</obj_property>
       <obj_property name="ObjectShortName">exbuswe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/mem_pause_in" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_pause_in</obj_property>
-      <obj_property name="ObjectShortName">mem_pause_in</obj_property>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simulateram" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simulateram</obj_property>
+      <obj_property name="ObjectShortName">simulateram</obj_property>
+   </wvobject>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/simulateprogram" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simulateprogram</obj_property>
+      <obj_property name="ObjectShortName">simulateprogram</obj_property>
+   </wvobject>
+   <wvobject fp_name="/imitationboxplasma_tb/UUT/uartlogfile" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uartlogfile[1:7]</obj_property>
+      <obj_property name="ObjectShortName">uartlogfile[1:7]</obj_property>
    </wvobject>
 </wave_config>

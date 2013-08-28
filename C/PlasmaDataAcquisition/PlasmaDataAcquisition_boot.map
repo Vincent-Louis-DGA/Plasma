@@ -15,7 +15,7 @@ Address of section .text set to 0x0
 LOAD ..\..\Tools\lib\boot_os.o
 LOAD PlasmaDataAcquisition.o
 
-.text           0x00000000      0x934
+.text           0x00000000      0x95c
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x1e4 ..\..\Tools\lib\boot_os.o
@@ -27,7 +27,7 @@ LOAD PlasmaDataAcquisition.o
                 0x000001d8                OS_Syscall
                 0x00000148                OS_AsmInterruptEnable
                 0x0000004c                OS_DefaultISR
- .text          0x000001e4      0x750 PlasmaDataAcquisition.o
+ .text          0x000001e4      0x778 PlasmaDataAcquisition.o
                 0x000002f4                readChar
                 0x000001e4                print
                 0x000004e8                atoi_p
@@ -55,12 +55,12 @@ LOAD PlasmaDataAcquisition.o
 
 .fini
  *(.fini)
-                0x00000934                _ecode=.
+                0x0000095c                _ecode=.
 
-.reginfo        0x00000934       0x18
+.reginfo        0x0000095c       0x18
  *(.reginfo)
- .reginfo       0x00000934       0x18 ..\..\Tools\lib\boot_os.o
- .reginfo       0x0000094c       0x18 PlasmaDataAcquisition.o
+ .reginfo       0x0000095c       0x18 ..\..\Tools\lib\boot_os.o
+ .reginfo       0x00000974       0x18 PlasmaDataAcquisition.o
 
 .ctors
  *(.ctors)
@@ -80,25 +80,25 @@ LOAD PlasmaDataAcquisition.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x0000094c       0x5d
+.rodata         0x00000974       0x5d
  *(.rodata)
- .rodata        0x0000094c       0x5d PlasmaDataAcquisition.o
+ .rodata        0x00000974       0x5d PlasmaDataAcquisition.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x000009a9                _etext=.
-                0x000009a9                PROVIDE (etext, .)
+                0x000009d1                _etext=.
+                0x000009d1                PROVIDE (etext, .)
 
-.data           0x000009a9        0x0
-                0x000009a9                _fdata=.
+.data           0x000009d1        0x0
+                0x000009d1                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x00008999                _gp=(.+0x7ff0)
+                0x000089c1                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -106,29 +106,29 @@ LOAD PlasmaDataAcquisition.o
 .lit4
  *(.lit4)
 
-.sdata          0x000009ac        0x4
+.sdata          0x000009d4        0x4
  *(.sdata)
- .sdata         0x000009ac        0x4 PlasmaDataAcquisition.o
-                0x000009ac                buffer
+ .sdata         0x000009d4        0x4 PlasmaDataAcquisition.o
+                0x000009d4                buffer
  *(.gnu.linkonce.s*)
-                0x000009b0                _edata=.
-                0x000009b0                PROVIDE (edata, .)
-                0x000009b0                .=ALIGN(0x8)
-                0x000009b0                __bss_start=.
-                0x000009b0                _fbss=__bss_start
+                0x000009d8                _edata=.
+                0x000009d8                PROVIDE (edata, .)
+                0x000009d8                .=ALIGN(0x8)
+                0x000009d8                __bss_start=.
+                0x000009d8                _fbss=__bss_start
 
 .sbss
  *(.sbss)
  *(.scommon)
 
-.bss            0x000009b0      0x200
+.bss            0x000009e0      0x200
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x000009b0      0x200 ..\..\Tools\lib\boot_os.o
-                0x000009b0                InitStack
-                0x00000bb0                _end=.
-                0x00000bb0                PROVIDE (end, .)
+ COMMON         0x000009e0      0x200 ..\..\Tools\lib\boot_os.o
+                0x000009e0                InitStack
+                0x00000be0                _end=.
+                0x00000be0                PROVIDE (end, .)
 
 .stab
  *(.stab)
