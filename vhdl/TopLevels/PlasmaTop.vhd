@@ -509,6 +509,9 @@ begin  --architecture
 -- Interrupts
 -----------------------------------------------------------------------------
 
+  -----------------------------------------------------------------------------
+  -- Add interrupt sources in here
+  -----------------------------------------------------------------------------
   SET_IRQ : process (clk_50, reset)
   begin  -- process SET_IRQ
     if reset = '1' then                 -- asynchronous reset (active high)
@@ -535,7 +538,7 @@ begin  --architecture
     end if;
   end process SET_IRQ;
 
-  periph_irq <= '1' when irq_status /= X"00000000" else '0';
+  periph_irq <= '1' when (irq_status and irq_mask) > 0 else '0';
 
 -------------------------------------------------------------------------------
 -- Flash

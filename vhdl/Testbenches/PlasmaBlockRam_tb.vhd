@@ -56,8 +56,12 @@ begin  -- testbench
     wait for 100 ns;
     reset_ex_n <= '1';
 
-    wait for 200 us;
+    wait for 20 us;
+    buttons <= "00001";
+    wait for 20 us;
     buttons <= "00000";
+    wait for 20 us;
+    buttons <= "00001";
     wait;
   end process TB;
   

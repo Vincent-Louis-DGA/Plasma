@@ -28,7 +28,7 @@ target:
 	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
 		code.txt ram_$(Target).vhd
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
-		$(PLASMA_LIB)\$(BOOT_FILE) \
+		$(PLASMA_LIB)\boot.o \
 		$(Target).o -o test.axf
 	objdump.bat test.axf $(Target).lst
 	convert_bin.exe	# Creates test.bin and code.txt from test.axf

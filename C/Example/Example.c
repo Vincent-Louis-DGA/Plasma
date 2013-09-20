@@ -6,9 +6,9 @@ int count = 0;
 
 void InterruptServiceRoutine(int status)
 {
-	MemoryWrite(IRQ_STATUS_CLR,status);
 	count++;
-	MemoryWrite(LEDS_OUT,count);
+	MemoryWrite(IRQ_STATUS_CLR,status);
+	MemoryWrite(LEDS_OUT, count);
 
 }
 
@@ -39,11 +39,19 @@ int main(void)
 	asm("nop");
 	asm("nop");
 	asm("nop");
+
 	
+	s = MemoryRead(SWITCHES);
+	s = s + 1;
+	
+	// Example Interrupt setup
 	MemoryWrite(IRQ_STATUS,0);	// Clear all interrupts
 	MemoryWrite(IRQ_VECTOR, (unsigned int)InterruptServiceRoutine); // interrupt vector to ISR
 	MemoryWrite(IRQ_MASK,0xFF);	// Enable specific interrupts.
+	
 	OS_AsmInterruptEnable(1);	// Global enable.
+	
+	MemoryWrite(LEDS_OUT, s);
 
 	print("Hello World ");
 	itoa_p(s, buffer, 10);
@@ -55,7 +63,6 @@ int main(void)
 	while(1)
 	{
 		s = readChar();
-		MemoryWrite(LEDS_OUT,s);
 		writeChar(s);
 	}
 	return 0;
