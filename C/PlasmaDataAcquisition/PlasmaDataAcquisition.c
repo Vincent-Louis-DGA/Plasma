@@ -4,7 +4,7 @@
 
 
 #ifndef BUFFER_LEN 
-#define BUFFER_LEN 0x400000
+#define BUFFER_LEN 0x2000000
 char buffer [BUFFER_LEN];
 #else
 #warning Using user supplied BUFFER_LEN
@@ -29,21 +29,21 @@ int main(void)
 	int v;
 	int writeIndex;
 	int readIndex;
-	int maxLen = 0x1000;
+	int maxLen = 0x2000000;
 
 	if(maxLen > BUFFER_LEN)
 		maxLen = BUFFER_LEN;
 
-	MemoryWrite(0x30000008, 1);
+	MemoryWrite(0x30000008, 0);
 
 	while(1)
 	{
 		MemoryWrite(LEDS_OUT, 0x99);
 		v = MemoryRead(SWITCHES);
 		
-		MemoryWrite(0x30000004,(v<<16)+v);					// Set the data mask
+		MemoryWrite(0x30000004,0xA800CC40);					// Set the data mask
 		MemoryWrite(0x30000000, countBits(v));	// Set the sample divider
-		MemoryWrite(FIFO_CON, 0x04);				// Clear FIFO
+		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
 		writeIndex = 0;
 		readIndex = 0;
 		while(readIndex < maxLen)
@@ -71,12 +71,14 @@ int main(void)
 			// Break early if CENTRE button pressed.
 			if((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == BUTTON_CENTRE_MASK)
 			{
+				MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
 				break;
 			}
 		}
 		MemoryWrite(LEDS_OUT,0xCC);
 		// Wait for CENTRE button press
 		while((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == 0);
+		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
 		while((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == BUTTON_CENTRE_MASK);
 	}
 

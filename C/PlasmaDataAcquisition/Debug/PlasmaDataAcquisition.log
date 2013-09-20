@@ -1,4 +1,4 @@
-﻿Build started 28/08/2013 5:19:15 p.m..
+﻿Build started 5/09/2013 3:56:31 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -14,7 +14,7 @@
          C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=2520=0x9d8
+         Entry=0x0 length=2564=0xa04
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_PlasmaDataAcquisition.vhd
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaDataAcquisition.c 
@@ -26,10 +26,10 @@
          C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=2165=0x875
+         Entry=0x40000000 length=2209=0x8a1
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.62
+Time Elapsed 00:00:04.17

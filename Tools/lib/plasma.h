@@ -80,6 +80,7 @@ int OS_AsmInterruptEnable(int enable);
 #define FIFO_DIN		(PERIPH_BASE+	0xD0)
 #define FIFO_DOUT		(PERIPH_BASE+	0xD4)
 #define	FIFO_CON		(PERIPH_BASE+	0xD8)
+#define FIFO_CLEAR_MASK	0x04
 #define FIFO_DOUT_RDY		((MemoryRead(FIFO_CON) & 0x02) == 0x02)
 
 #define LOGIC_AN_CON	0x21000000

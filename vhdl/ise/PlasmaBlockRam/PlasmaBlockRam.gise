@@ -104,13 +104,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1377215734" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1377215734">
+    <transform xil_pn:end_ts="1379638937" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1379638936">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -171,14 +167,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1377215734" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1377215734">
+    <transform xil_pn:end_ts="1379638937" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1379638937">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -227,14 +218,9 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1377215745" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6504214336676659288" xil_pn:start_ts="1377215734">
+    <transform xil_pn:end_ts="1379638951" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6504214336676659288" xil_pn:start_ts="1379638937">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaBlockRam_tb_beh.prj"/>
       <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -242,12 +228,9 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1377215745" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6182879909316999876" xil_pn:start_ts="1377215745">
+    <transform xil_pn:end_ts="1379638951" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6182879909316999876" xil_pn:start_ts="1379638951">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>

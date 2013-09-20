@@ -18,15 +18,6 @@
 --   0x40000000 - 0x7fffffff   External RAM (Up to 1024 MB)
 --   0x80000000 - 0xffffffff   Unused space
 -- See plasmaPeriphRegisters.vhd for peripheral addresses.
---   IRQ bits:
---      7   GPIO31
---      6   GPIO30
---      5  ^GPIO31
---      4  ^GPIO30
---      3   Counter(18)
---      2  ^Counter(18)
---      1  ^UartWriteBusy
---      0   UartDataAvailable
 ---------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;

@@ -29,7 +29,7 @@ begin  -- testbench
   
   UUT : entity work.PlasmaBlockRam
     generic map (simulateRam     => '1',
-                 simulateProgram => '0',
+                 simulateProgram => '1',
                  uartLogFile     => uartLogFile)
     port map (
       clk_100    => clk_100,

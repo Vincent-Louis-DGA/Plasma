@@ -8,7 +8,7 @@ use IEEE.STD_LOGIC_1164.all;
 
 package plasmaPeriphRegisters is
 
-  constant INTERRUPT_VECTOR : std_logic_vector(31 downto 0) := X"0000005C";
+  constant INTERRUPT_VECTOR : std_logic_vector(31 downto 0) := X"00000058";
   
   constant UART_OFFSET : std_logic_vector(31 downto 6) := X"200000" & "00";
 

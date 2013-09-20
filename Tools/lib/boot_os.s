@@ -66,7 +66,7 @@ OS_DefaultISR:
 
 
 ###################################################
-   #address 0x5c
+   #address 0x58
    .global interrupt_service_routine
    .ent interrupt_service_routine
 interrupt_service_routine:

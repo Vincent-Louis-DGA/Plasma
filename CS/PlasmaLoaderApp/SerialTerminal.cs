@@ -65,6 +65,8 @@ namespace PlasmaLoaderApp
             }
         }
 
+        int dots = 0;
+
 		void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
 			int bytes = serialPort.BytesToRead;
@@ -75,9 +77,17 @@ namespace PlasmaLoaderApp
             else
             {
                 silentChars += bytes;
-                if ((silentChars - prevChars) > 256)
+                if ((silentChars - prevChars) > 1024)
                 {
-                    Console.Write(".");
+                    if (dots % 64 == 0)
+                        Console.WriteLine();
+                    if (dots % 16 == 0)
+                        Console.Write(dots.ToString("X"));
+                    else
+                        Console.Write(".");
+
+                    dots++;
+
                     prevChars += bytes;
                 }
             }

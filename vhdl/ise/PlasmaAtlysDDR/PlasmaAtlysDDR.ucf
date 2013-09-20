@@ -71,15 +71,15 @@ NET "MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc?_wrapper_inst/memc?_mcb_raw_wra
 
 NET "ddr_d_*"				      IOSTANDARD = DIFF_SSTL18_II;
 NET "ddr_s_*"				      IOSTANDARD = SSTL18_II;
-NET "ddr_s_dq[*]"                                 IN_TERM = NONE;
-NET "ddr_d_dqs"                                   IN_TERM = NONE;
-NET "ddr_d_dqs_n"                                 IN_TERM = NONE;
-NET "ddr_d_udqs"                                  IN_TERM = NONE;
-NET "ddr_d_udqs_n"                                IN_TERM = NONE;
+NET "ddr_*dq*"                                 IN_TERM = NONE;
+#NET "ddr_d_dqs"                                   IN_TERM = NONE;
+#NET "ddr_d_dqs_n"                                 IN_TERM = NONE;
+#NET "ddr_d_udqs"                                  IN_TERM = NONE;
+#NET "ddr_d_udqs_n"                                IN_TERM = NONE;
 
 # SDRAM Related
-CONFIG VCCAUX=2.5; # Valid values are 2.5 and 3.3
-CONFIG MCB_PERFORMANCE= STANDARD;
+#CONFIG VCCAUX=2.5; # Valid values are 2.5 and 3.3
+#CONFIG MCB_PERFORMANCE= STANDARD;
 
 
 NET  "ddr_s_a[0]"                            LOC = "J7" ;

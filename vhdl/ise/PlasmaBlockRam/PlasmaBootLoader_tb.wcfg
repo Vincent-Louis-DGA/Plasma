@@ -23,45 +23,33 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="10" />
-   <wvobject fp_name="/plasmablockram_tb/UUT/flashclk" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">flashclk</obj_property>
-      <obj_property name="ObjectShortName">flashclk</obj_property>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/plasmablockram_tb/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/flashcs" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">flashcs</obj_property>
-      <obj_property name="ObjectShortName">flashcs</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/u1_plasma/u1_cpu/mem_data_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_data_r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_r[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/flashtris" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">flashtris[3:0]</obj_property>
-      <obj_property name="ObjectShortName">flashtris[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/flashmemdq" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">flashmemdq[3:0]</obj_property>
-      <obj_property name="ObjectShortName">flashmemdq[3:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/u1_plasma/line_number" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line_number[31:0]</obj_property>
+      <obj_property name="ObjectShortName">line_number[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/plasmablockram_tb/buttons" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">buttons[4:0]</obj_property>
       <obj_property name="ObjectShortName">buttons[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/buttons_reg2" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">buttons_reg2[4:0]</obj_property>
-      <obj_property name="ObjectShortName">buttons_reg2[4:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/irq_status" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">irq_status[31:0]</obj_property>
+      <obj_property name="ObjectShortName">irq_status[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/bus_address" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bus_address[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_address[31:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/irq_mask" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">irq_mask[31:0]</obj_property>
+      <obj_property name="ObjectShortName">irq_mask[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/bus_din" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bus_din[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_din[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/periph_we" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_we</obj_property>
-      <obj_property name="ObjectShortName">periph_we</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/periph_re" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_re</obj_property>
-      <obj_property name="ObjectShortName">periph_re</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/intr_vector" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">intr_vector[31:0]</obj_property>
+      <obj_property name="ObjectShortName">intr_vector[31:0]</obj_property>
    </wvobject>
 </wave_config>

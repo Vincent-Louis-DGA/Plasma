@@ -8,6 +8,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
+
 use work.plasmaPeriphRegisters.all;
 
 
@@ -522,6 +523,7 @@ begin  --architecture
 
       if periph_we = '1' then
         case bus_address is
+          when IRQ_STATUS_ADDR     => irq_status  <= bus_din;
           when IRQ_STATUS_CLR_ADDR => irq_status  <= irq_status and not bus_din;
           when IRQ_VECTOR_ADDR     => intr_vector <= bus_din;
           when IRQ_MASK_ADDR       => irq_mask    <= bus_din;
