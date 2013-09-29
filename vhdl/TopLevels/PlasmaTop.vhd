@@ -524,6 +524,10 @@ begin  --architecture
         irq_status(0) <= '1';
       end if;
 
+      if counter1_psc = counter1_ps and counter1 = counter1_tc then
+        irq_status(1) <= '1';
+      end if;
+
       if periph_we = '1' then
         case bus_address is
           when IRQ_STATUS_ADDR     => irq_status  <= bus_din;

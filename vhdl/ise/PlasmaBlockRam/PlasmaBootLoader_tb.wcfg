@@ -23,7 +23,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="7" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/plasmablockram_tb/leds" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">leds[7:0]</obj_property>
       <obj_property name="ObjectShortName">leds[7:0]</obj_property>
@@ -51,5 +51,17 @@
    <wvobject fp_name="/plasmablockram_tb/UUT/MCU/intr_vector" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">intr_vector[31:0]</obj_property>
       <obj_property name="ObjectShortName">intr_vector[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/counter1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/counter1_ps" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter1_ps[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter1_ps[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/MCU/counter1_tc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter1_tc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter1_tc[31:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -1,35 +1,33 @@
-﻿Build started 20/09/2013 3:14:42 p.m..
+﻿Build started 26/09/2013 12:51:52 p.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=Example && move /Y test.bin Example.bin
+         as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
-         Example.c: In function `main':
-         Example.c:18: warning: unused variable `len'
          ld.exe -Ttext 0x00000000 -e entry -Map Example_boot.map -s -N \
-         		..\..\Tools\lib\boot_os.o \
-         		Example.o -o test.axf
+         		boot_os.o Example.o -o test.axf
          objdump.bat test.axf Example_boot.lst
          
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=2340=0x924
+         Entry=0x0 length=605=0x25d
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_Example.vhd
+         as.exe ..\..\Tools\lib\boot.s -o boot.o
          ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
-         		..\..\Tools\lib\boot.o \
-         		Example.o -o test.axf
+         		boot.o Example.o -o test.axf
          objdump.bat test.axf Example.lst
          
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=1992=0x7c8
+         Entry=0x40000000 length=264=0x108
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.84
+Time Elapsed 00:00:00.55

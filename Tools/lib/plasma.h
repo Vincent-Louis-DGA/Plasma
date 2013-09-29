@@ -68,7 +68,7 @@ int OS_AsmInterruptEnable(int enable);
 
 #define	COUNTER1		(PERIPH_BASE+	0xA0)
 #define	COUNTER1_PS		(PERIPH_BASE+	0xA4)
-#define	COUNTER1_TS		(PERIPH_BASE+	0xA8)
+#define	COUNTER1_TC		(PERIPH_BASE+	0xA8)
 
 #define	CACHE_HITCOUNT		(PERIPH_BASE+	0xB0)
 #define	CACHE_READCOUNT		(PERIPH_BASE+	0xB4)

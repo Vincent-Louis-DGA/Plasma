@@ -7,34 +7,20 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
 Address of section .text set to 0x40000000
-LOAD ..\..\Tools\lib\boot.o
+LOAD boot.o
 LOAD Example.o
 
-.text           0x40000000      0x73c
+.text           0x40000000       0xdc
                 0x40000000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 ..\..\Tools\lib\boot.o
+ .text          0x40000000       0x88 boot.o
                 0x40000050                longjmp
                 0x40000000                entry
                 0x40000018                setjmp
                 0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088      0x6b4 Example.o
-                0x40000198                readChar
+ .text          0x40000088       0x54 Example.o
                 0x40000088                print
-                0x4000038c                atoi_p
-                0x400004f4                itoa_p
-                0x400002c8                xtoi
-                0x400000ec                write
-                0x40000224                strncmp_p
-                0x400000c0                printLine
-                0x40000148                read
-                0x4000034c                dtoi
-                0x400001e0                writeChar
-                0x4000064c                main
-                0x40000624                InterruptServiceRoutine
-                0x400005c4                itox
-                0x40000288                append
-                0x40000314                btoi
+                0x400000c0                main
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -46,12 +32,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x4000073c                _ecode=.
+                0x400000dc                _ecode=.
 
-.reginfo        0x4000073c       0x18
+.reginfo        0x400000dc       0x18
  *(.reginfo)
- .reginfo       0x4000073c       0x18 ..\..\Tools\lib\boot.o
- .reginfo       0x40000754       0x18 Example.o
+ .reginfo       0x400000dc       0x18 boot.o
+ .reginfo       0x400000f4       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -71,25 +57,25 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x40000754       0x6d
+.rodata         0x400000f4        0xd
  *(.rodata)
- .rodata        0x40000754       0x6d Example.o
+ .rodata        0x400000f4        0xd Example.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x400007c1                _etext=.
-                0x400007c1                PROVIDE (etext, .)
+                0x40000101                _etext=.
+                0x40000101                PROVIDE (etext, .)
 
-.data           0x400007c1        0x0
-                0x400007c1                _fdata=.
+.data           0x40000101        0x0
+                0x40000101                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x400087b1                _gp=(.+0x7ff0)
+                0x400080f1                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -97,27 +83,25 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata          0x400007c4        0x4
+.sdata
  *(.sdata)
- .sdata         0x400007c4        0x4 Example.o
-                0x400007c4                count
  *(.gnu.linkonce.s*)
-                0x400007c8                _edata=.
-                0x400007c8                PROVIDE (edata, .)
-                0x400007c8                .=ALIGN(0x8)
-                0x400007c8                __bss_start=.
-                0x400007c8                _fbss=__bss_start
+                0x40000101                _edata=.
+                0x40000101                PROVIDE (edata, .)
+                0x40000108                .=ALIGN(0x8)
+                0x40000101                __bss_start=.
+                0x40000108                _fbss=__bss_start
 
 .sbss
  *(.sbss)
  *(.scommon)
 
-.bss            0x400007c8        0x0
+.bss            0x40000108        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
-                0x400007c8                _end=.
-                0x400007c8                PROVIDE (end, .)
+                0x40000108                _end=.
+                0x40000108                PROVIDE (end, .)
 
 .stab
  *(.stab)

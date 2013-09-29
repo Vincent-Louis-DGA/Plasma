@@ -1,3 +1,22 @@
+
+
+// The following is a very simple Hello World Program with no external dependencies
+
+#define MemoryWrite(A,V) *(volatile unsigned int*)(A)=(V)
+#define UART_TX	0x20000000
+
+void print(char * buf) {
+	while(*buf != 0)
+		MemoryWrite(UART_TX,*buf++);
+}
+
+int main(void) {
+	print("Hello World\n");
+	while(1) { }
+}
+
+
+/*
 #include <plasma.h>
 #include <plasma_stdio.h>
 #include <plasma_string.h>
@@ -9,7 +28,6 @@ void InterruptServiceRoutine(int status)
 	count++;
 	MemoryWrite(IRQ_STATUS_CLR,status);
 	MemoryWrite(LEDS_OUT, count);
-
 }
 
 int main(void)
@@ -48,7 +66,6 @@ int main(void)
 	MemoryWrite(IRQ_STATUS,0);	// Clear all interrupts
 	MemoryWrite(IRQ_VECTOR, (unsigned int)InterruptServiceRoutine); // interrupt vector to ISR
 	MemoryWrite(IRQ_MASK,0xFF);	// Enable specific interrupts.
-	
 	OS_AsmInterruptEnable(1);	// Global enable.
 	
 	MemoryWrite(LEDS_OUT, s);
@@ -66,4 +83,4 @@ int main(void)
 		writeChar(s);
 	}
 	return 0;
-}
+}*/
