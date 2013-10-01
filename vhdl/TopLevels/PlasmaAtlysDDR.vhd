@@ -20,8 +20,6 @@ entity PlasmaAtlysDDR is
   port(
     clk_100    : in  std_logic;
     reset_ex_n : in  std_logic;         -- external reset
-    sysClk     : out std_logic;         -- 50 MHz system clock.
-    reset_n    : out std_logic;         -- system generated reset
     UartRx     : in  std_logic;
     UartTx     : out std_logic;
 

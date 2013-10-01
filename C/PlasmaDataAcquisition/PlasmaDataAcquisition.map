@@ -12,18 +12,18 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
 Address of section .text set to 0x40000000
-LOAD ..\..\Tools\lib\boot.o
+LOAD boot.o
 LOAD PlasmaDataAcquisition.o
 
-.text           0x40000000      0x82c
+.text           0x40000000      0x808
                 0x40000000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 ..\..\Tools\lib\boot.o
+ .text          0x40000000       0x88 boot.o
                 0x40000050                longjmp
                 0x40000000                entry
                 0x40000018                setjmp
                 0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088      0x7a4 PlasmaDataAcquisition.o
+ .text          0x40000088      0x780 PlasmaDataAcquisition.o
                 0x40000198                readChar
                 0x40000088                print
                 0x4000038c                atoi_p
@@ -51,12 +51,12 @@ LOAD PlasmaDataAcquisition.o
 
 .fini
  *(.fini)
-                0x4000082c                _ecode=.
+                0x40000808                _ecode=.
 
-.reginfo        0x4000082c       0x18
+.reginfo        0x40000808       0x18
  *(.reginfo)
- .reginfo       0x4000082c       0x18 ..\..\Tools\lib\boot.o
- .reginfo       0x40000844       0x18 PlasmaDataAcquisition.o
+ .reginfo       0x40000808       0x18 boot.o
+ .reginfo       0x40000820       0x18 PlasmaDataAcquisition.o
 
 .ctors
  *(.ctors)
@@ -76,25 +76,25 @@ LOAD PlasmaDataAcquisition.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x40000844       0x5d
+.rodata         0x40000820       0x5d
  *(.rodata)
- .rodata        0x40000844       0x5d PlasmaDataAcquisition.o
+ .rodata        0x40000820       0x5d PlasmaDataAcquisition.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x400008a1                _etext=.
-                0x400008a1                PROVIDE (etext, .)
+                0x4000087d                _etext=.
+                0x4000087d                PROVIDE (etext, .)
 
-.data           0x400008a1        0x0
-                0x400008a1                _fdata=.
+.data           0x4000087d        0x0
+                0x4000087d                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x40008891                _gp=(.+0x7ff0)
+                0x4000886d                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -105,24 +105,24 @@ LOAD PlasmaDataAcquisition.o
 .sdata
  *(.sdata)
  *(.gnu.linkonce.s*)
-                0x400008a1                _edata=.
-                0x400008a1                PROVIDE (edata, .)
-                0x400008a8                .=ALIGN(0x8)
-                0x400008a1                __bss_start=.
-                0x400008a8                _fbss=__bss_start
+                0x4000087d                _edata=.
+                0x4000087d                PROVIDE (edata, .)
+                0x40000880                .=ALIGN(0x8)
+                0x4000087d                __bss_start=.
+                0x40000880                _fbss=__bss_start
 
 .sbss
  *(.sbss)
  *(.scommon)
 
-.bss            0x400008b0  0x2000000
+.bss            0x40000880  0x2000000
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x400008b0  0x2000000 PlasmaDataAcquisition.o
-                0x400008b0                buffer
-                0x420008b0                _end=.
-                0x420008b0                PROVIDE (end, .)
+ COMMON         0x40000880  0x2000000 PlasmaDataAcquisition.o
+                0x40000880                buffer
+                0x42000880                _end=.
+                0x42000880                PROVIDE (end, .)
 
 .stab
  *(.stab)
@@ -226,4 +226,4 @@ LOAD PlasmaDataAcquisition.o
 .gptab.sbss
  *(.gptab.bss)
  *(.gptab.sbss)
-OUTPUT(test.axf elf32-bigmips)
+OUTPUT(PlasmaDataAcquisition.axf elf32-bigmips)

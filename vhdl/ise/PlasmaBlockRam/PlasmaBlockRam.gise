@@ -284,7 +284,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaBlockRam.lso"/>
       <outfile xil_pn:name="PlasmaBlockRam.ngc"/>
@@ -307,6 +309,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaBlockRam.bld"/>
       <outfile xil_pn:name="PlasmaBlockRam.ngd"/>
       <outfile xil_pn:name="PlasmaBlockRam_ngdbuild.xrpt"/>
@@ -316,6 +319,9 @@
     <transform xil_pn:end_ts="1380594313" xil_pn:in_ck="2761956235303973245" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1380594213">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaBlockRam.pcf"/>
       <outfile xil_pn:name="PlasmaBlockRam_map.map"/>
       <outfile xil_pn:name="PlasmaBlockRam_map.mrp"/>
@@ -329,6 +335,7 @@
     <transform xil_pn:end_ts="1380594372" xil_pn:in_ck="2437980336730184254" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1380594313">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaBlockRam.ncd"/>
       <outfile xil_pn:name="PlasmaBlockRam.pad"/>
       <outfile xil_pn:name="PlasmaBlockRam.par"/>
@@ -343,6 +350,7 @@
     <transform xil_pn:end_ts="1380594401" xil_pn:in_ck="7800609671172675468" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1380594372">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaBlockRam.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="plasmablockram.bgn"/>
@@ -355,6 +363,7 @@
     <transform xil_pn:end_ts="1380594372" xil_pn:in_ck="2488702935532468193" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1380594356">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="PlasmaBlockRam.twr"/>
       <outfile xil_pn:name="PlasmaBlockRam.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

@@ -28,4 +28,3 @@ target:
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
 		boot.o $(Target).o -o $(Target).axf
 	objdump.bat $(Target).axf $(Target).lst
-	#convert_bin.exe	# Creates test.bin and code.txt from test.axf

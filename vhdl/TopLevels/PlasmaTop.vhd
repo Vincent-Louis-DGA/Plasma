@@ -84,6 +84,7 @@ end;
 
 architecture logic of PlasmaTop is
 
+  signal InputDebounceLength : integer := 20;
 
   attribute keep : string;
 
@@ -663,26 +664,52 @@ begin  --architecture
       reg_dout => pmod_reg(pmod'left downto 0),
       port_io  => pmod);
 
+  InputDebounceLength <= 1 when simulateProgram = '1' else 20;
 
-  u7_switches : entity work.InputPort
-    generic map (
-      W => switches'length,
-      D => 12)
-    port map (
-      clk    => clk_50,
-      reset  => reset,
-      port_i => switches,
-      reg_i  => switches_reg);
+  Debounce2 : if simulateProgram = '1' generate
+    u7_switches : entity work.InputPort
+      generic map (
+        W => switches'length,
+        D => 2)
+      port map (
+        clk    => clk_50,
+        reset  => reset,
+        port_i => switches,
+        reg_i  => switches_reg);
 
-  u8_buttons : entity work.InputPort
-    generic map (
-      W => buttons'length,
-      D => 12)
-    port map (
-      clk    => clk_50,
-      reset  => reset,
-      port_i => buttons,
-      reg_i  => buttons_reg);
+    u8_buttons : entity work.InputPort
+      generic map (
+        W => buttons'length,
+        D => 2)
+      port map (
+        clk    => clk_50,
+        reset  => reset,
+        port_i => buttons,
+        reg_i  => buttons_reg);
+  end generate Debounce2;
+  
+  Debounce20 : if simulateProgram /= '1' generate
+    u7_switches : entity work.InputPort
+      generic map (
+        W => switches'length,
+        D => 20)
+      port map (
+        clk    => clk_50,
+        reset  => reset,
+        port_i => switches,
+        reg_i  => switches_reg);
+
+    u8_buttons : entity work.InputPort
+      generic map (
+        W => buttons'length,
+        D => 20)
+      port map (
+        clk    => clk_50,
+        reset  => reset,
+        port_i => buttons,
+        reg_i  => buttons_reg);
+  end generate Debounce20;
+
 
   u9_random : entity work.random
     generic map (

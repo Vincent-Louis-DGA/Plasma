@@ -3,67 +3,79 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/work_unsync/HIL/ImitationBoxPlasma/Processor_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/work_unsync/Plasma/vhdl/ise/PlasmaDataAcquisition/PlasmaDataAcquisition_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
-            <top_module name="imitationboxconstants" />
-            <top_module name="processor_tb" />
+            <top_module name="attributes" />
+            <top_module name="generalpurposefunctions" />
+            <top_module name="mlite_pack" />
+            <top_module name="numeric_std" />
+            <top_module name="plasmadataacquisition_tb" />
+            <top_module name="plasmaperiphregisters" />
             <top_module name="std_logic_1164" />
             <top_module name="std_logic_arith" />
+            <top_module name="std_logic_misc" />
+            <top_module name="std_logic_textio" />
             <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="txt_util" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <WVObjectSize size="13" />
-   <wvobject fp_name="/processor_tb/Proc/clk" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/reset_n" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">reset_n</obj_property>
-      <obj_property name="ObjectShortName">reset_n</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/filedata" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">filedata[5:0]</obj_property>
-      <obj_property name="ObjectShortName">filedata[5:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/port_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_i[7:0]</obj_property>
+      <obj_property name="ObjectShortName">port_i[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/options" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">options[31:0]</obj_property>
-      <obj_property name="ObjectShortName">options[31:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reg_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_i[7:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_i[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/dacregisters" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">dacregisters[7:0]</obj_property>
-      <obj_property name="ObjectShortName">dacregisters[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/pulse_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pulse_i[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pulse_i[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/dacvalid" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">dacvalid</obj_property>
-      <obj_property name="ObjectShortName">dacvalid</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/counters" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counters[7:0]</obj_property>
+      <obj_property name="ObjectShortName">counters[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/adcregisters" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">adcregisters[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adcregisters[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/port_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_reg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">port_reg[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/adcvalid" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">adcvalid</obj_property>
-      <obj_property name="ObjectShortName">adcvalid</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reg2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/debug" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">debug[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debug[31:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/w" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">w</obj_property>
+      <obj_property name="ObjectShortName">w</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/adcregisters_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">adcregisters_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adcregisters_i[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/d" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">d</obj_property>
+      <obj_property name="ObjectShortName">d</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/adcvalid_i" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">adcvalid_i</obj_property>
-      <obj_property name="ObjectShortName">adcvalid_i</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reset_val" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_val</obj_property>
+      <obj_property name="ObjectShortName">reset_val</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/detector" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">detector[23:0]</obj_property>
-      <obj_property name="ObjectShortName">detector[23:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/max" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">max[19:0]</obj_property>
+      <obj_property name="ObjectShortName">max[19:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/processor_tb/Proc/audio" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">audio[15:0]</obj_property>
-      <obj_property name="ObjectShortName">audio[15:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/min" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">min[19:0]</obj_property>
+      <obj_property name="ObjectShortName">min[19:0]</obj_property>
    </wvobject>
 </wave_config>
