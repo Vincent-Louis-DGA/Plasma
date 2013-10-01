@@ -6,21 +6,21 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
-Address of section .text set to 0x40000000
+Address of section .text set to 0x2000
 LOAD boot.o
 LOAD Example.o
 
-.text           0x40000000       0xdc
-                0x40000000                _ftext=.
+.text           0x00002000       0xdc
+                0x00002000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 boot.o
-                0x40000050                longjmp
-                0x40000000                entry
-                0x40000018                setjmp
-                0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088       0x54 Example.o
-                0x40000088                print
-                0x400000c0                main
+ .text          0x00002000       0x88 boot.o
+                0x00002050                longjmp
+                0x00002000                entry
+                0x00002018                setjmp
+                0x0000200c                OS_AsmInterruptEnable
+ .text          0x00002088       0x54 Example.o
+                0x00002088                print
+                0x000020c0                main
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -32,12 +32,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x400000dc                _ecode=.
+                0x000020dc                _ecode=.
 
-.reginfo        0x400000dc       0x18
+.reginfo        0x000020dc       0x18
  *(.reginfo)
- .reginfo       0x400000dc       0x18 boot.o
- .reginfo       0x400000f4       0x18 Example.o
+ .reginfo       0x000020dc       0x18 boot.o
+ .reginfo       0x000020f4       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -57,25 +57,25 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x400000f4        0xd
+.rodata         0x000020f4        0xc
  *(.rodata)
- .rodata        0x400000f4        0xd Example.o
+ .rodata        0x000020f4        0xc Example.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x40000101                _etext=.
-                0x40000101                PROVIDE (etext, .)
+                0x00002100                _etext=.
+                0x00002100                PROVIDE (etext, .)
 
-.data           0x40000101        0x0
-                0x40000101                _fdata=.
+.data           0x00002100        0x0
+                0x00002100                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x400080f1                _gp=(.+0x7ff0)
+                0x0000a0f0                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -86,22 +86,22 @@ LOAD Example.o
 .sdata
  *(.sdata)
  *(.gnu.linkonce.s*)
-                0x40000101                _edata=.
-                0x40000101                PROVIDE (edata, .)
-                0x40000108                .=ALIGN(0x8)
-                0x40000101                __bss_start=.
-                0x40000108                _fbss=__bss_start
+                0x00002100                _edata=.
+                0x00002100                PROVIDE (edata, .)
+                0x00002100                .=ALIGN(0x8)
+                0x00002100                __bss_start=.
+                0x00002100                _fbss=__bss_start
 
 .sbss
  *(.sbss)
  *(.scommon)
 
-.bss            0x40000108        0x0
+.bss            0x00002100        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
-                0x40000108                _end=.
-                0x40000108                PROVIDE (end, .)
+                0x00002100                _end=.
+                0x00002100                PROVIDE (end, .)
 
 .stab
  *(.stab)
@@ -205,4 +205,4 @@ LOAD Example.o
 .gptab.sbss
  *(.gptab.bss)
  *(.gptab.sbss)
-OUTPUT(test.axf elf32-bigmips)
+OUTPUT(Example.axf elf32-bigmips)

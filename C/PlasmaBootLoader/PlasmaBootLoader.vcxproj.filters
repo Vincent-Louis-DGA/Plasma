@@ -25,5 +25,8 @@
     <ClCompile Include="FlashRam.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ElfReader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

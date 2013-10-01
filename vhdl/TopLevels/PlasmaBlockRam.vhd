@@ -20,8 +20,6 @@ entity PlasmaBlockRam is
   port(
     clk_100    : in  std_logic;
     reset_ex_n : in  std_logic;         -- external reset
-    sysClk     : out std_logic;         -- 50 MHz system clock.
-    reset_n    : out std_logic;         -- system generated reset
     UartRx     : in  std_logic := '1';
     UartTx     : out std_logic;
 
@@ -52,7 +50,6 @@ entity PlasmaBlockRam is
     -- Flash
     FlashCLK   : out   std_logic;
     FlashCS    : out   std_logic;
-    FlashTris  : out   std_logic_vector(3 downto 0);
     FlashMemDq : inout std_logic_vector(3 downto 0)
     );
 end;
@@ -60,7 +57,8 @@ end;
 
 architecture logic of PlasmaBlockRam is
 
-
+  signal sysClk : std_logic;
+  signal reset_n : std_logic;
 
 begin  --architecture
 
@@ -87,7 +85,6 @@ begin  --architecture
       pmod                  => pmod,
       FlashClk              => FlashClk,
       FlashCS               => FlashCS,
-      FlashTris             => FlashTris,
       FlashMemDq            => FlashMemDq);
 
 

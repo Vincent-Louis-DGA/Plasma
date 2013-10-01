@@ -11,9 +11,11 @@ use ieee.std_logic_unsigned.all;
 entity UartFileReader is
   
   generic (
-    SourceFile : string;
-    DestFile   : string    := "default.bin";
-    SIM_UART   : std_logic := '1');
+    SourceFile    : string;
+    DestFile      : string    := "default.bin";
+    EchoToConsole : std_logic := '0';
+    ReadPeriod : std_logic_vector(7 downto 0) := X"04";
+    SIM_UART      : std_logic := '1');
 
   port (
     clk_uart         : in  std_logic;   -- This should be same as FPGA uses.
@@ -33,12 +35,12 @@ end UartFileReader;
 
 architecture testbench of UartFileReader is
 
-  signal readerEnable  : std_logic;
-  signal readerValid   : std_logic;
-  signal readerDout    : std_logic_vector(7 downto 0);
-  signal readerToggle  : std_logic;
-  signal count         : std_logic_vector(3 downto 0);
-  signal EndOfSource : std_logic;
+  signal readerEnable : std_logic;
+  signal readerValid  : std_logic;
+  signal readerDout   : std_logic_vector(7 downto 0);
+  signal readerToggle : std_logic;
+  signal count        : std_logic_vector(7 downto 0);
+  signal EndOfSource  : std_logic;
 
   signal writerEnable : std_logic;
   signal writerDin    : std_logic_vector(7 downto 0);
@@ -63,8 +65,9 @@ begin  -- testbench
       readerEnable <= '0';
       regDout      <= readerDout;
       regDvToggle  <= readerToggle;
-      if count(2 downto 0) = "001" and readEnable = '1' and EndOfSource = '0' then
+      if count = (ReadPeriod-1) and readEnable = '1' and EndOfSource = '0' then
         readerEnable <= '1';
+        count <= (others => '0');
       end if;
       if readerEnable = '1' then
         readerToggle <= not readerToggle;
@@ -96,7 +99,8 @@ begin  -- testbench
 
   u3_fileWriter : entity work.BinaryFileWriter
     generic map (
-      FileName => DestFile)
+      FileName      => DestFile,
+      EchoToConsole => EchoToConsole)
     port map (
       clk    => clk_uart,
       enable => writerEnable,

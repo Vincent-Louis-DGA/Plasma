@@ -9,9 +9,9 @@ Program Header:
     LOAD off    0x00000094 vaddr 0x00000000 paddr 0x00000000 align 2**2
          filesz 0x00000238 memsz 0x00000238 flags rwx
     LOAD off    0x000002cc vaddr 0x00000250 paddr 0x00000250 align 2**2
-         filesz 0x0000000d memsz 0x0000000d flags r--
-    LOAD off    0x000002dd vaddr 0x0000025d paddr 0x0000025d align 2**4
-         filesz 0x00000000 memsz 0x00000803 flags rw-
+         filesz 0x0000000c memsz 0x0000000c flags r--
+    LOAD off    0x000002dc vaddr 0x0000025c paddr 0x0000025c align 2**4
+         filesz 0x00000000 memsz 0x00000804 flags rw-
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, CODE
   1 .reginfo      00000018  00000238  00000238  000002e0  2**2
                   CONTENTS, READONLY
-  2 .rodata       0000000d  00000250  00000250  000002cc  2**2
+  2 .rodata       0000000c  00000250  00000250  000002cc  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .data         00000000  0000025d  0000025d  000002dd  2**0
+  3 .data         00000000  0000025c  0000025c  000002dc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   4 .bss          00000800  00000260  00000260  000002e0  2**4
                   ALLOC
 No symbols in "test.axf".
 Contents of section .text:
- 0000 3c1c0001 279c824d 3c050000 24a50260  <...'..M<...$..`
+ 0000 3c1c0001 279c824c 3c050000 24a50260  <...'..L<...$..`
  0010 3c040000 24840a60 3c1d0000 27bd0448  <...$..`<...'..H
  0020 aca00000 00a4182a 1460fffd 24a50004  .......*.`..$...
  0030 3c020000 2442004c 3c032000 ac62004c  <...$B.L<. ..b.L
@@ -65,15 +65,15 @@ Contents of section .text:
  0230 1000ffff 00000000                    ........        
 Contents of section .reginfo:
  0238 fffffffe 00000000 00000000 00000000  ................
- 0248 00000000 0000824d                    .......M        
+ 0248 00000000 0000824c                    .......L        
 Contents of section .rodata:
- 0250 48656c6c 6f20576f 726c640a 00        Hello World..   
+ 0250 48656c6c 6f20576f 726c6400           Hello World.    
 Contents of section .data:
 Disassembly of section .text:
 
 00000000 <.text>:
    0:	3c1c0001 	lui	$gp,0x1
-   4:	279c824d 	addiu	$gp,$gp,-32179
+   4:	279c824c 	addiu	$gp,$gp,-32180
    8:	3c050000 	lui	$a1,0x0
    c:	24a50260 	addiu	$a1,$a1,608
   10:	3c040000 	lui	$a0,0x0
@@ -219,6 +219,5 @@ Disassembly of section .rodata:
 00000250 <.rodata>:
  250:	48656c6c 	0x48656c6c
  254:	6f20576f 	0x6f20576f
- 258:	726c640a 	0x726c640a
-	...
+ 258:	726c6400 	0x726c6400
 Disassembly of section .data:

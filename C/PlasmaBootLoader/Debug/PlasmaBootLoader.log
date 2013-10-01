@@ -1,16 +1,10 @@
-﻿Build started 27/08/2013 4:58:57 p.m..
+﻿Build started 1/10/2013 3:20:32 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=PlasmaBootLoader && move /Y test.bin PlasmaBootLoader.bin
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaBootLoader.c 
-         FlashRam.c: In function `FlashInit':
-         In file included from PlasmaBootLoader.c:15:
-         FlashRam.c:266: warning: array subscript has type `char'
-         FlashRam.c:267: warning: array subscript has type `char'
-         PlasmaBootLoader.c: In function `UartBootLoad':
-         PlasmaBootLoader.c:50: warning: unused variable `checksum'
          ld.exe -Ttext 0x00000000 -e entry -Map PlasmaBootLoader_boot.map -s -N \
          		..\..\Tools\lib\boot_os.o \
          		PlasmaBootLoader.o -o test.axf
@@ -19,21 +13,19 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=3320=0xcf8
+         Entry=0x0 length=4924=0x133c
          ram_image.exe ram_xilinx.vhd \
          		code.txt ram_PlasmaBootLoader.vhd
          ld.exe -Ttext 0x40000000 -e entry -Map PlasmaBootLoader.map -s -N \
          		..\..\Tools\lib\boot.o \
-         		PlasmaBootLoader.o -o test.axf
-         objdump.bat test.axf PlasmaBootLoader.lst
+         		PlasmaBootLoader.o -o PlasmaBootLoader.axf
+         objdump.bat PlasmaBootLoader.axf PlasmaBootLoader.lst
          
-         C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader.lst 
-         convert_bin.exe	# Creates test.bin and code.txt from test.axf
-         test.axf -> code.txt & test.bin
-         Entry=0x40000000 length=2967=0xb97
+         C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls PlasmaBootLoader.axf  1>PlasmaBootLoader.lst 
+         #convert_bin.exe	# Creates test.bin and code.txt from test.axf
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.29
+Time Elapsed 00:00:00.92

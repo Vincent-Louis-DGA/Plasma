@@ -28,6 +28,6 @@ target:
 		code.txt ram_$(Target).vhd
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
 		$(PLASMA_LIB)\$(BOOT_FILE) \
-		$(Target).o -o test.axf
-	objdump.bat test.axf $(Target).lst
-	convert_bin.exe	# Creates test.bin and code.txt from test.axf
+		$(Target).o -o $(Target).axf
+	objdump.bat $(Target).axf $(Target).lst
+	#convert_bin.exe	# Creates test.bin and code.txt from test.axf

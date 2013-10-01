@@ -66,25 +66,25 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x00000250        0xd
+.rodata         0x00000250        0xc
  *(.rodata)
- .rodata        0x00000250        0xd Example.o
+ .rodata        0x00000250        0xc Example.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x0000025d                _etext=.
-                0x0000025d                PROVIDE (etext, .)
+                0x0000025c                _etext=.
+                0x0000025c                PROVIDE (etext, .)
 
-.data           0x0000025d        0x0
-                0x0000025d                _fdata=.
+.data           0x0000025c        0x0
+                0x0000025c                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x0000824d                _gp=(.+0x7ff0)
+                0x0000824c                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -95,10 +95,10 @@ LOAD Example.o
 .sdata
  *(.sdata)
  *(.gnu.linkonce.s*)
-                0x0000025d                _edata=.
-                0x0000025d                PROVIDE (edata, .)
+                0x0000025c                _edata=.
+                0x0000025c                PROVIDE (edata, .)
                 0x00000260                .=ALIGN(0x8)
-                0x0000025d                __bss_start=.
+                0x0000025c                __bss_start=.
                 0x00000260                _fbss=__bss_start
 
 .sbss

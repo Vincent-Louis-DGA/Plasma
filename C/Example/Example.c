@@ -3,7 +3,9 @@
 // The following is a very simple Hello World Program with no external dependencies
 
 #define MemoryWrite(A,V) *(volatile unsigned int*)(A)=(V)
+#define MemoryRead(A) (*(volatile unsigned int*)(A))
 #define UART_TX	0x20000000
+#define UART_RX	0x20000004
 
 void print(char * buf) {
 	while(*buf != 0)
@@ -11,8 +13,10 @@ void print(char * buf) {
 }
 
 int main(void) {
-	print("Hello World\n");
-	while(1) { }
+	int i;
+	print("Hello World");
+	while(1) { 
+	}
 }
 
 
@@ -83,4 +87,5 @@ int main(void)
 		writeChar(s);
 	}
 	return 0;
-}*/
+}
+*/

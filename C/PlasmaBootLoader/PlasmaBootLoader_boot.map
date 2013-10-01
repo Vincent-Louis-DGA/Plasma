@@ -2,8 +2,9 @@
 Allocating common symbols
 Common symbol       size              file
 
+progHeaders         0x200             PlasmaBootLoader.o
 InitStack           0x200             ..\..\Tools\lib\boot_os.o
-offset              0x4               PlasmaBootLoader.o
+buffer              0x400             PlasmaBootLoader.o
 
 Memory Configuration
 
@@ -16,7 +17,7 @@ Address of section .text set to 0x0
 LOAD ..\..\Tools\lib\boot_os.o
 LOAD PlasmaBootLoader.o
 
-.text           0x00000000      0xcac
+.text           0x00000000     0x12e0
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x1e4 ..\..\Tools\lib\boot_os.o
@@ -28,36 +29,43 @@ LOAD PlasmaBootLoader.o
                 0x000001d8                OS_Syscall
                 0x00000148                OS_AsmInterruptEnable
                 0x0000004c                OS_DefaultISR
- .text          0x000001e4      0xac8 PlasmaBootLoader.o
+ .text          0x000001e4     0x10fc PlasmaBootLoader.o
                 0x000002f4                readChar
                 0x000004f4                FlashSpiReadBuffer
                 0x000001e4                print
                 0x0000073c                WriteDisable
                 0x000006a4                FlashSpiWrite
+                0x00000aac                ElfSetReadFunctionPtr
+                0x00000e0c                AdvanceToFileOffset
                 0x00000380                FlashSpiStart
                 0x0000087c                ReadDioVecr
                 0x000006d8                FlashReadMemory
+                0x00000ab8                ElfReadFileHeader
                 0x0000058c                FlashSpiEnd
                 0x00000824                ReadSpiVecr
                 0x0000092c                ReadVecr
                 0x00000984                FlashInit
-                0x00000aac                FlashBootLoad
                 0x00000248                write
+                0x00000b90                IsInvalidElfFile
+                0x00000e8c                ElfReadFile
                 0x0000021c                printLine
                 0x000003b0                FlashSpiWriteBuffer
+                0x000010fc                ElfBranch
                 0x000002a4                read
+                0x00000c38                ReadProgramHeaders
                 0x0000066c                FlashSpiRead
                 0x000007e4                ReadNonVolatileConfigurationRegister
                 0x000008d4                ReadQioVecr
                 0x0000033c                writeChar
-                0x00000c14                main
+                0x000011f8                main
                 0x000005a0                FlashSpiTransaction
                 0x0000070c                WriteEnable
                 0x000004b8                FlashSpiAddress
                 0x0000076c                ReadVolatileConfigurationRegister
                 0x0000048c                FlashSpiCommand
-                0x00000afc                UartReadInt
-                0x00000b58                UartBootLoad
+                0x00001148                ReadFlash
+                0x00001120                InitFlash
+                0x00001188                ReadAndEchoUart
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -69,12 +77,12 @@ LOAD PlasmaBootLoader.o
 
 .fini
  *(.fini)
-                0x00000cac                _ecode=.
+                0x000012e0                _ecode=.
 
-.reginfo        0x00000cac       0x18
+.reginfo        0x000012e0       0x18
  *(.reginfo)
- .reginfo       0x00000cac       0x18 ..\..\Tools\lib\boot_os.o
- .reginfo       0x00000cc4       0x18 PlasmaBootLoader.o
+ .reginfo       0x000012e0       0x18 ..\..\Tools\lib\boot_os.o
+ .reginfo       0x000012f8       0x18 PlasmaBootLoader.o
 
 .ctors
  *(.ctors)
@@ -94,33 +102,33 @@ LOAD PlasmaBootLoader.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x00000cc4        0x3
+.rodata         0x000012f8        0x3
  *(.rodata)
- .rodata        0x00000cc4        0x3 PlasmaBootLoader.o
+ .rodata        0x000012f8        0x3 PlasmaBootLoader.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x00000cc7                _etext=.
-                0x00000cc7                PROVIDE (etext, .)
+                0x000012fb                _etext=.
+                0x000012fb                PROVIDE (etext, .)
 
-.data           0x00000cc7       0x28
-                0x00000cc7                _fdata=.
+.data           0x000012fb       0x28
+                0x000012fb                _fdata=.
  *(.data)
- *fill*         0x00000cc7        0x1
- .data          0x00000cc8       0x27 PlasmaBootLoader.o
-                0x00000ce4                FLASH_CODE_CNT
-                0x00000ce0                FLASH_CODE_TRIS
-                0x00000ce8                FLASH_CODE_RSHIFT
-                0x00000cec                FLASH_CODE_STEPS
-                0x00000cdc                FLASH_CODE_LINES
-                0x00000cc8                FLASH_LINES
+ *fill*         0x000012fb        0x1
+ .data          0x000012fc       0x27 PlasmaBootLoader.o
+                0x00001318                FLASH_CODE_CNT
+                0x00001314                FLASH_CODE_TRIS
+                0x0000131c                FLASH_CODE_RSHIFT
+                0x00001320                FLASH_CODE_STEPS
+                0x00001310                FLASH_CODE_LINES
+                0x000012fc                FLASH_LINES
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x00008cdf                _gp=(.+0x7ff0)
+                0x00009313                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -128,31 +136,36 @@ LOAD PlasmaBootLoader.o
 .lit4
  *(.lit4)
 
-.sdata          0x00000cf0        0x3
+.sdata          0x00001324       0x18
  *(.sdata)
- .sdata         0x00000cf0        0x3 PlasmaBootLoader.o
-                0x00000cf0                FlashStatus
+ .sdata         0x00001324       0x18 PlasmaBootLoader.o
+                0x00001338                FlashReadPosition
+                0x00001334                ElfProgramOffset
+                0x0000132c                ExpectedMipsHeader
+                0x00001324                FlashStatus
+                0x00001328                ReadFunctionPtr
  *(.gnu.linkonce.s*)
-                0x00000cf3                _edata=.
-                0x00000cf3                PROVIDE (edata, .)
-                0x00000cf8                .=ALIGN(0x8)
-                0x00000cf3                __bss_start=.
-                0x00000cf8                _fbss=__bss_start
+                0x0000133c                _edata=.
+                0x0000133c                PROVIDE (edata, .)
+                0x00001340                .=ALIGN(0x8)
+                0x0000133c                __bss_start=.
+                0x00001340                _fbss=__bss_start
 
-.sbss           0x00000cf8        0x4
+.sbss
  *(.sbss)
  *(.scommon)
- .scommon       0x00000cf8        0x4 PlasmaBootLoader.o
-                0x00000cf8                offset
 
-.bss            0x00000d00      0x200
+.bss            0x00001340      0x800
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x00000d00      0x200 ..\..\Tools\lib\boot_os.o
-                0x00000d00                InitStack
-                0x00000f00                _end=.
-                0x00000f00                PROVIDE (end, .)
+ COMMON         0x00001340      0x200 ..\..\Tools\lib\boot_os.o
+                0x00001340                InitStack
+ COMMON         0x00001540      0x600 PlasmaBootLoader.o
+                0x00001540                progHeaders
+                0x00001740                buffer
+                0x00001b40                _end=.
+                0x00001b40                PROVIDE (end, .)
 
 .stab
  *(.stab)
