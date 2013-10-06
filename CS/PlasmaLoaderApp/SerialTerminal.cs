@@ -25,7 +25,8 @@ namespace PlasmaLoaderApp
 			if (!serialPort.IsOpen)
 				serialPort.Open();
             this.serialPort.Encoding = ASCIIEncoding.UTF8;
-			this.serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+            this.serialPort.DataReceived += (o, e) => ReceiveBytes();
+            ReceiveBytes();
 
             for (int i = 0; i < initialChars.Length; i++)
                 WriteChar(initialChars[i]);
@@ -67,16 +68,17 @@ namespace PlasmaLoaderApp
 
         int dots = 0;
 
-		void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-		{
-			int bytes = serialPort.BytesToRead;
-			byte [] buffer = new byte[bytes];
-			serialPort.Read(buffer, 0, bytes);
+
+        private void ReceiveBytes()
+        {
+            int bytes = serialPort.BytesToRead;
+            byte[] buffer = new byte[bytes];
+            serialPort.Read(buffer, 0, bytes);
             if (!silent)
                 Console.Write(UTF8Encoding.UTF8.GetString(buffer));
             else
             {
-                silentChars += bytes;
+                silentChars += buffer.Length;
                 if ((silentChars - prevChars) > 1024)
                 {
                     if (dots % 64 == 0)
@@ -88,11 +90,11 @@ namespace PlasmaLoaderApp
 
                     dots++;
 
-                    prevChars += bytes;
+                    prevChars += buffer.Length;
                 }
             }
             if (log != null && log.CanWrite)
                 log.Write(buffer, 0, buffer.Length);
-		}
+        }
 	}
 }

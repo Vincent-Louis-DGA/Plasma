@@ -29,7 +29,7 @@ int main(void)
 	int v;
 	int writeIndex;
 	int readIndex;
-	int maxLen = 0x2000000;
+	int maxLen = BUFFER_LEN;
 
 	if(maxLen > BUFFER_LEN)
 		maxLen = BUFFER_LEN;
@@ -41,9 +41,9 @@ int main(void)
 		MemoryWrite(LEDS_OUT, 0x99);
 		v = MemoryRead(SWITCHES);
 		
-		MemoryWrite(0x30000004,0xA800CC40);					// Set the data mask
-		MemoryWrite(0x30000000, countBits(v));	// Set the sample divider
-		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
+		MemoryWrite(0x30000004,0xA800CC40);			// Set the data mask
+		MemoryWrite(0x30000000, 100);				// Set the sample divider
+		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);		// Clear FIFO
 		writeIndex = 0;
 		readIndex = 0;
 		while(readIndex < maxLen)

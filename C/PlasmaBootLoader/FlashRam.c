@@ -263,8 +263,8 @@ void FlashInit()
 	else
 		FlashStatus.NumLines = 1;
 	wb[0] = 0xFF;
-	FlashSpiTransaction(0x06, 0, 0, (char*)0, 0,(char*)0, 0,FLASH_LINES[FlashStatus.NumLines]);  //enable writing
-	FlashSpiTransaction(0x61, 0,0, wb,1,(char*)0, 0,FLASH_LINES[FlashStatus.NumLines]);  //write to VECR
+	FlashSpiTransaction(0x06, 0, 0, (char*)0, 0,(char*)0, 0,FLASH_LINES[(int)FlashStatus.NumLines]);  //enable writing
+	FlashSpiTransaction(0x61, 0,0, wb,1,(char*)0, 0,FLASH_LINES[(int)FlashStatus.NumLines]);  //write to VECR
 	r = ReadVecr();
 	FlashStatus.VolatileEnhancedConfigurationRegister = r;
 	if((r & 0xE0) == 0x40 || (r & 0xE0) == 0x00)

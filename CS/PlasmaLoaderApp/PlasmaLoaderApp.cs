@@ -16,7 +16,6 @@ namespace PlasmaLoaderApp
 	{
 		string serialPort = "COM1";
 		int baudRate = 921600;
-		int bootOffset = 0x00000800;
 		string sourceFile = null;
         string logFile = null;
         bool silent = false;
@@ -56,16 +55,6 @@ namespace PlasmaLoaderApp
 				argList.RemoveAt(0);
 				return;
 			}
-			if (argList[0].Equals("-o") && argList.Count >= 2)
-			{
-				int bo = bootOffset;
-				try { bo = parsePossibleHex(argList[1]); }
-				catch (Exception) { throw new ArgumentException("Could not parse bootOffset: " + argList[1]); } 
-				bootOffset = bo;
-				argList.RemoveAt(1);
-				argList.RemoveAt(0);
-				return;
-            }
             if (argList[0].Equals("-l") && argList.Count >= 2)
             {
                 logFile = argList[1];
@@ -115,20 +104,10 @@ namespace PlasmaLoaderApp
                 {
                     int len = (int)(new FileInfo(sourceFile)).Length;
                     int len50th = (len / 50);
-                    Console.WriteLine("Offset: 0x" + bootOffset.ToString("X") + ", Length: " + len + "\nSource: " + sourceFile);
-                    byte[] b = BitConverter.GetBytes(len).Reverse().ToArray();
+                    Console.WriteLine("Length: " + len + "\nSource: " + sourceFile);
+                    int s;
+                    byte [] b = new byte[4];
                     byte[] r = new byte[4];
-                    sp.Write(b, 0, 4);
-                    System.Threading.Thread.Sleep(20);
-                    int s = sp.Read(r, 0, 4);
-                    if (!ArraysEqual(b, r))
-                        throw new BootLoaderException("Echo response incorrect. " + s + "," + r[0] + "," + r[1] + "," + r[2] + "," + r[3] + "," + len);
-                    b = BitConverter.GetBytes(bootOffset).Reverse().ToArray();
-                    sp.Write(b, 0, 4);
-                    System.Threading.Thread.Sleep(20);
-                    s = sp.Read(r, 0, 4);
-                    if (!ArraysEqual(b, r))
-                        throw new BootLoaderException("Echo response incorrect.");
                     using (FileStream stream = new FileStream(sourceFile, FileMode.Open))
                     {
                         for (int i = 0; i < len; i++)
@@ -143,14 +122,7 @@ namespace PlasmaLoaderApp
                                 Console.Write(".");
                         }
                     }
-                    len = 3-(len + 3) % 4;
-                    if (len > 0)
-                    {
-                        sp.Write(b, 0, len);
-                        System.Threading.Thread.Sleep(0);
-                        s = sp.Read(r, 0, len);
-                    }
-                    bootChars = new char[1];
+                    bootChars = new char[0];
                 }
                 SerialTerminal terminal = new SerialTerminal(sp, bootChars, logFile, silent);
                 
@@ -187,7 +159,8 @@ namespace PlasmaLoaderApp
 		{
 			Console.WriteLine("Usage: PlasmaBootLoader [options] <sourceFile>");
 			Console.WriteLine("Options: -b <baudRate>\n\t -c <comPort>\n\t -o <bootOffset>\n");
-			Console.WriteLine("Example: PlasmaBootLoader -b 115200 -c COM9 -o 0x800 test.bin\n");
+            Console.WriteLine("\t -s = silent mode\n\t -l <logFile>\n");
+			Console.WriteLine("Example: PlasmaBootLoader -b 115200 -c COM9 -l log.txt test.axf\n");
 		}
 	}
 }

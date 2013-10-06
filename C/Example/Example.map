@@ -1,4 +1,9 @@
 
+Allocating common symbols
+Common symbol       size              file
+
+heap                0x4               Example.o
+
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -7,20 +12,41 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
 Address of section .text set to 0x40000000
-LOAD boot.o
+LOAD boot_os.o
 LOAD Example.o
 
-.text           0x40000000       0xdc
+.text           0x40000000      0x990
                 0x40000000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 boot.o
-                0x40000050                longjmp
+ .text          0x40000000      0x200 boot_os.o
+                0x400001a8                longjmp
                 0x40000000                entry
-                0x40000018                setjmp
-                0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088       0x54 Example.o
-                0x40000088                print
-                0x400000c0                main
+                0x40000170                setjmp
+                0x40000048                OS_GetHeap
+                0x400001e0                OS_AsmMult
+                0x40000080                interrupt_service_routine
+                0x400001f4                OS_Syscall
+                0x40000064                OS_AsmInterruptEnable
+                0x40000058                OS_DefaultISR
+ .text          0x40000200      0x790 Example.o
+                0x40000310                readChar
+                0x40000200                print
+                0x40000504                atoi_p
+                0x4000066c                itoa_p
+                0x40000440                xtoi
+                0x40000264                write
+                0x4000039c                strncmp_p
+                0x40000848                StackExercise
+                0x40000238                printLine
+                0x400002c0                read
+                0x400004c4                dtoi
+                0x40000358                writeChar
+                0x40000894                main
+                0x4000079c                InterruptServiceRoutine
+                0x4000073c                itox
+                0x40000400                append
+                0x400007c4                HeapExercise
+                0x4000048c                btoi
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -32,12 +58,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x400000dc                _ecode=.
+                0x40000990                _ecode=.
 
-.reginfo        0x400000dc       0x18
+.reginfo        0x40000990       0x18
  *(.reginfo)
- .reginfo       0x400000dc       0x18 boot.o
- .reginfo       0x400000f4       0x18 Example.o
+ .reginfo       0x40000990       0x18 boot_os.o
+ .reginfo       0x400009a8       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -57,25 +83,25 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x400000f4        0xd
+.rodata         0x400009a8       0x79
  *(.rodata)
- .rodata        0x400000f4        0xd Example.o
+ .rodata        0x400009a8       0x79 Example.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x40000101                _etext=.
-                0x40000101                PROVIDE (etext, .)
+                0x40000a21                _etext=.
+                0x40000a21                PROVIDE (etext, .)
 
-.data           0x40000101        0x0
-                0x40000101                _fdata=.
+.data           0x40000a21        0x0
+                0x40000a21                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x400080f1                _gp=(.+0x7ff0)
+                0x40008a11                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -83,25 +109,29 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata
+.sdata          0x40000a24        0x4
  *(.sdata)
+ .sdata         0x40000a24        0x4 Example.o
+                0x40000a24                count
  *(.gnu.linkonce.s*)
-                0x40000101                _edata=.
-                0x40000101                PROVIDE (edata, .)
-                0x40000108                .=ALIGN(0x8)
-                0x40000101                __bss_start=.
-                0x40000108                _fbss=__bss_start
+                0x40000a28                _edata=.
+                0x40000a28                PROVIDE (edata, .)
+                0x40000a28                .=ALIGN(0x8)
+                0x40000a28                __bss_start=.
+                0x40000a28                _fbss=__bss_start
 
-.sbss
+.sbss           0x40000a28        0x4
  *(.sbss)
  *(.scommon)
+ .scommon       0x40000a28        0x4 Example.o
+                0x40000a28                heap
 
-.bss            0x40000108        0x0
+.bss            0x40000a2c        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
-                0x40000108                _end=.
-                0x40000108                PROVIDE (end, .)
+                0x40000a2c                _end=.
+                0x40000a2c                PROVIDE (end, .)
 
 .stab
  *(.stab)
@@ -205,4 +235,4 @@ LOAD Example.o
 .gptab.sbss
  *(.gptab.bss)
  *(.gptab.sbss)
-OUTPUT(test.axf elf32-bigmips)
+OUTPUT(Example.axf elf32-bigmips)

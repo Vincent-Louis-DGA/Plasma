@@ -81,6 +81,7 @@
     <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ElfReader.c" />
     <ClCompile Include="FlashRam.c" />
     <ClCompile Include="PlasmaBootLoader.c" />
   </ItemGroup>
