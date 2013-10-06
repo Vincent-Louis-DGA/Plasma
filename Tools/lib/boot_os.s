@@ -1,16 +1,24 @@
 ##################################################################
 # TITLE: Boot Up Code
-# AUTHOR: Steve Rhoads (rhoadss@yahoo.com)
-# DATE CREATED: 1/12/02
-# FILENAME: boot.asm
+# AUTHOR: Adrian Jongenelen  (http://github.com/adrianj/Plasma)
+# DATE CREATED: 1/1/13
+# FILENAME: boot_os.s
 # PROJECT: Plasma CPU core
 # COPYRIGHT: Software placed into the public domain by the author.
 #    Software 'as is' without warranty.  Author liable for nothing.
 # DESCRIPTION:
 #    Initializes the stack pointer and jumps to main().
 ##################################################################
-   #Reserve 2048 bytes for stack
-   .comm InitStack, 2048
+.text
+   #define location of stack.
+   .ifndef StackLoc
+   .set StackLoc, 0x08000
+   .endif
+
+   #define location of heap.
+   .ifndef HeapLoc
+   .set HeapLoc, _end
+   .endif
    
    # Make sure these registers match the hardware!
    .equiv IRQ_STATUS,		0x40
@@ -18,19 +26,19 @@
    .equiv IRQ_VECTOR,		0x4C
    .equiv IRQ_MASK,			0x50
 
-   .text
-   .align 2
+   #.align 2
    .global entry
    .ent	entry
 entry:
    .set noreorder
 
    #These four instructions should be the first instructions.
-   #convert.exe previously initialized $gp, .sbss_start, .bss_end, $sp
+   # NB: la = two instructions: lui + addiu
    la    $gp, _gp             #initialize global pointer
    la    $5, __bss_start      #$5 = .sbss_start
    la    $4, _end             #$2 = .bss_end
-   la    $sp, InitStack+488   #initialize stack pointer
+   la    $sp, StackLoc
+   
 
 $BSS_CLEAR:
    sw    $0, 0($5)
@@ -51,14 +59,27 @@ $L1:
    .end entry
 
 ###################################################
+# int OS_GetHeap()
+# Gets a pointer to 'Heap' space, typically an area 
+# of memory beyond the bss section.
+###################################################
+   .global OS_GetHeap
+   .ent OS_GetHeap
+OS_GetHeap:
+	la  $2, HeapLoc
+	jr	$31
+	nop
+   .end OS_GetHeap
+
+###################################################
+# A simple interrupt handler that does nothing 
+# except clear the relevant flag.
+###################################################
    .global OS_DefaultISR
    .ent OS_DefaultISR
 OS_DefaultISR:
    .set noreorder
-	# Writes 'status' parameter back to IRQ_STATUS_CLR to clear flag
-	# then returns.
 	lui	$2,0x2000
-	#ori	$2,$2,0x40
 	jr	$31
 	sw	$4,IRQ_STATUS_CLR($2)
    .set reorder
@@ -66,7 +87,27 @@ OS_DefaultISR:
 
 
 ###################################################
-   #address 0x58
+# int OS_AsmInterruptEnable(int enable)
+# Global interrupt enable (enable == 1)
+# Returns previous enable state.
+###################################################
+   .global OS_AsmInterruptEnable
+   .ent OS_AsmInterruptEnable
+OS_AsmInterruptEnable:
+   mfc0  $2, $12
+   jr    $31
+   mtc0  $4, $12            #STATUS=1; enable interrupts
+   .end OS_AsmInterruptEnable
+
+
+###################################################
+# Interrupt service routine:
+# Saves current context,
+# Jumps to address of user defined IRQ_VECTOR_ADDR,
+# [function of type void handler(int status)      ]
+# Restores context.
+###################################################
+   .balign 0x80
    .global interrupt_service_routine
    .ent interrupt_service_routine
 interrupt_service_routine:
@@ -146,19 +187,6 @@ isr_return:
 
    .end interrupt_service_routine
    .set at
-
-
-###################################################
-   .global OS_AsmInterruptEnable
-   .ent OS_AsmInterruptEnable
-OS_AsmInterruptEnable:
-   .set noreorder
-   mfc0  $2, $12
-   jr    $31
-   mtc0  $4, $12            #STATUS=1; enable interrupts
-   #nop
-   .set reorder
-   .end OS_AsmInterruptEnable
 
 
 ###################################################

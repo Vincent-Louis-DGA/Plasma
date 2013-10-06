@@ -1,15 +1,15 @@
-﻿Build started 1/10/2013 3:51:55 p.m..
+﻿Build started 7/10/2013 11:25:23 a.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
-         C:\work_unsync\Plasma\C\Example\Example.axf
-         The process cannot access the file because it is being used by another process.
        Rebuild:
          gmake target Target=Example && move /Y test.bin Example.bin
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
+         ..\..\Tools\lib\boot_os.s: Assembler messages:
+         ..\..\Tools\lib\boot_os.s:69: Warning: Macro instruction expanded into multiple instructions in branch delay slot
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
          Example.c: In function `main':
-         Example.c:16: warning: unused variable `i'
+         Example.c:71: warning: unused variable `len'
          ld.exe -Ttext 0x00000000 -e entry -Map Example_boot.map -s -N \
          		boot_os.o Example.o -o test.axf
          objdump.bat test.axf Example_boot.lst
@@ -17,16 +17,14 @@
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=604=0x25c
+         Entry=0x0 length=2600=0xa28
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_Example.vhd
-         as.exe ..\..\Tools\lib\boot.s -o boot.o
-         ld.exe -Ttext 0x00002000 -e entry -Map Example.map -s -N \
-         		boot.o Example.o -o Example.axf
+         ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
+         		boot_os.o Example.o -o Example.axf
          objdump.bat Example.axf Example.lst
          
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls Example.axf  1>Example.lst 
-         #convert_bin.exe	# Creates test.bin and code.txt from test.axf
                  1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" (rebuild target(s)).
 

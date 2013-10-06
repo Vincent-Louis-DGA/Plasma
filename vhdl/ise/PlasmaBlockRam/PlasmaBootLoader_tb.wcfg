@@ -3,12 +3,12 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/work_unsync/Plasma/vhdl/ise/PlasmaBlockRam/PlasmaBootLoader_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/work_unsync/Plasma/vhdl/ise/PlasmaBlockRam/PlasmaBlockRam_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="attributes" />
             <top_module name="mlite_pack" />
             <top_module name="numeric_std" />
-            <top_module name="plasmabootloader_tb" />
+            <top_module name="plasmablockram_tb" />
             <top_module name="plasmaperiphregisters" />
             <top_module name="std_logic_1164" />
             <top_module name="std_logic_arith" />
@@ -24,144 +24,150 @@
       </db_ref>
    </db_ref_list>
    <WVObjectSize size="35" />
-   <wvobject fp_name="/plasmabootloader_tb/clk_100" type="logic" db_ref_id="1">
+   <wvobject fp_name="divider43" type="divider">
+      <obj_property name="label">internal RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider49" type="divider">
+      <obj_property name="label">program</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider68" type="divider">
+      <obj_property name="label">external block RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/clk_100" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk_100</obj_property>
       <obj_property name="ObjectShortName">clk_100</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/clk_50" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">clk_50</obj_property>
-      <obj_property name="ObjectShortName">clk_50</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/reset_ex_n" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/reset_ex_n" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset_ex_n</obj_property>
       <obj_property name="ObjectShortName">reset_ex_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/reset_n" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">reset_n</obj_property>
-      <obj_property name="ObjectShortName">reset_n</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/uartrx" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uartrx</obj_property>
+      <obj_property name="ObjectShortName">uartrx</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/switches" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">switches[7:0]</obj_property>
-      <obj_property name="ObjectShortName">switches[7:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/uarttx" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttx</obj_property>
+      <obj_property name="ObjectShortName">uarttx</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/buttons" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">buttons[4:0]</obj_property>
-      <obj_property name="ObjectShortName">buttons[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/leds" type="array" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/leds" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">leds[7:0]</obj_property>
       <obj_property name="ObjectShortName">leds[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/pmod" type="array" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/switches" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">switches[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switches[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/buttons" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buttons[4:0]</obj_property>
+      <obj_property name="ObjectShortName">buttons[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/pmod" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pmod[7:0]</obj_property>
       <obj_property name="ObjectShortName">pmod[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/boottoggle" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">boottoggle</obj_property>
-      <obj_property name="ObjectShortName">boottoggle</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/bootdata" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bootdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">bootdata[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/filetoggle" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">filetoggle</obj_property>
-      <obj_property name="ObjectShortName">filetoggle</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/filedata" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">filedata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">filedata[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/fileenable" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">fileenable</obj_property>
-      <obj_property name="ObjectShortName">fileenable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/filelength" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">filelength[31:0]</obj_property>
-      <obj_property name="ObjectShortName">filelength[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/endofsourcefile" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">endofsourcefile</obj_property>
-      <obj_property name="ObjectShortName">endofsourcefile</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/uart_bypassrx" type="array" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/uart_bypassrx" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">uart_bypassrx[7:0]</obj_property>
       <obj_property name="ObjectShortName">uart_bypassrx[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/uart_bypassrxwetoggle" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/uart_bypassrxwetoggle" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">uart_bypassrxwetoggle</obj_property>
       <obj_property name="ObjectShortName">uart_bypassrxwetoggle</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/uart_bypasstx" type="array" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/uart_bypasstx" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">uart_bypasstx[7:0]</obj_property>
       <obj_property name="ObjectShortName">uart_bypasstx[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/uart_bypasstxdvtoggle" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/uart_bypasstxdvtoggle" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">uart_bypasstxdvtoggle</obj_property>
       <obj_property name="ObjectShortName">uart_bypasstxdvtoggle</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/uartlogfile" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">uartlogfile[1:17]</obj_property>
-      <obj_property name="ObjectShortName">uartlogfile[1:17]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifodin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifodin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifodin[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/codefile" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">codefile[1:30]</obj_property>
-      <obj_property name="ObjectShortName">codefile[1:30]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifodout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifodout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifodout[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/periph_dout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_dout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">periph_dout[31:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifowe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifowe</obj_property>
+      <obj_property name="ObjectShortName">fifowe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/periph_we" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_we</obj_property>
-      <obj_property name="ObjectShortName">periph_we</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifore" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifore</obj_property>
+      <obj_property name="ObjectShortName">fifore</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/periph_re" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">periph_re</obj_property>
-      <obj_property name="ObjectShortName">periph_re</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifofull" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifofull</obj_property>
+      <obj_property name="ObjectShortName">fifofull</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/mem_address" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_address[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_address[31:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifoempty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifoempty</obj_property>
+      <obj_property name="ObjectShortName">fifoempty</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/mem_data_read" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_data_read[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_read[31:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/fifoclear" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifoclear</obj_property>
+      <obj_property name="ObjectShortName">fifoclear</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/mem_data_write" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_data_write[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_write[31:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/exbusdin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusdin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusdin[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u1_plasma/mem_wbe" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mem_wbe[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_wbe[3:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/exbusdout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusdout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusdout[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/FileReader/regdout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">regdout[7:0]</obj_property>
-      <obj_property name="ObjectShortName">regdout[7:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/exbusaddr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusaddr[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/FileReader/regdvtoggle" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">regdvtoggle</obj_property>
-      <obj_property name="ObjectShortName">regdvtoggle</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/exbusre" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusre</obj_property>
+      <obj_property name="ObjectShortName">exbusre</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/fileenablecount" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">fileenablecount[3:0]</obj_property>
-      <obj_property name="ObjectShortName">fileenablecount[3:0]</obj_property>
+   <wvobject fp_name="/plasmablockram_tb/UUT/exbuswe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">exbuswe</obj_property>
+      <obj_property name="ObjectShortName">exbuswe</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/MCU/u4_uart/status_reg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">status_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">status_reg[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/flashclk" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/flashclk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">flashclk</obj_property>
       <obj_property name="ObjectShortName">flashclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/flashcs" type="logic" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/flashcs" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">flashcs</obj_property>
       <obj_property name="ObjectShortName">flashcs</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmabootloader_tb/UUT/flashmemdq" type="array" db_ref_id="1">
+   <wvobject fp_name="/plasmablockram_tb/UUT/flashmemdq" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">flashmemdq[3:0]</obj_property>
       <obj_property name="ObjectShortName">flashmemdq[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/sysclk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sysclk</obj_property>
+      <obj_property name="ObjectShortName">sysclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/reset_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/simulateram" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simulateram</obj_property>
+      <obj_property name="ObjectShortName">simulateram</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/simulateprogram" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">simulateprogram</obj_property>
+      <obj_property name="ObjectShortName">simulateprogram</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmablockram_tb/UUT/uartlogfile" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uartlogfile[1:7]</obj_property>
+      <obj_property name="ObjectShortName">uartlogfile[1:7]</obj_property>
    </wvobject>
 </wave_config>

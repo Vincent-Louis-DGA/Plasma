@@ -29,7 +29,7 @@ int main(void)
 	int v;
 	int writeIndex;
 	int readIndex;
-	int maxLen = 0x2000000;
+	int maxLen = BUFFER_LEN;
 
 	if(maxLen > BUFFER_LEN)
 		maxLen = BUFFER_LEN;

@@ -55,12 +55,12 @@
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PlasmaBlockRam_par.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="PlasmaBlockRam_summary.html"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="PlasmaBlockRam_summary.xml"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PlasmaBlockRam_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PlasmaBlockRam_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="PlasmaBlockRam_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="PlasmaBlockRam_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PlasmaBlockRam_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PlasmaBootLoader_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PlasmaBootLoader_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="PlasmaBootLoader_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="PlasmaTop.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="PlasmaTop.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="PlasmaTop.lso"/>
@@ -104,13 +104,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1380593572" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1380593572">
+    <transform xil_pn:end_ts="1380853214" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1380853214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -159,11 +155,11 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1380585618" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4185079287174691068" xil_pn:start_ts="1380585618">
+    <transform xil_pn:end_ts="1380853214" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="27813801514606308" xil_pn:start_ts="1380853214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1380585618" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="527147249133577090" xil_pn:start_ts="1380585618">
+    <transform xil_pn:end_ts="1380853214" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3343145747278740322" xil_pn:start_ts="1380853214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -171,14 +167,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1380593572" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1380593572">
+    <transform xil_pn:end_ts="1380853214" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1380853214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/ram_Example.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -227,28 +218,20 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1380593581" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3358356254214979816" xil_pn:start_ts="1380593572">
+    <transform xil_pn:end_ts="1380853224" xil_pn:in_ck="575384621385932695" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="6504214336676659288" xil_pn:start_ts="1380853214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_beh.prj"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_beh.prj"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1380593582" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6231323341602536124" xil_pn:start_ts="1380593581">
+    <transform xil_pn:end_ts="1380853224" xil_pn:in_ck="-4691586006717521734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2337850990617335061" xil_pn:start_ts="1380853224">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="PlasmaBootLoader_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="PlasmaBlockRam_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>

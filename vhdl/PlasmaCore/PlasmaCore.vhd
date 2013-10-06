@@ -3,14 +3,15 @@
 -- Original Author, see below.
 ---------------------------------------------------------------------
 -- TITLE: Plasma (CPU core with memory)
--- AUTHOR: Steve Rhoads (rhoadss@yahoo.com)
+-- AUTHOR: Adrian Jongenelen
 -- DATE CREATED: 6/4/02
 -- FILENAME: plasma.vhd
 -- PROJECT: Plasma CPU core
 -- COPYRIGHT: Software placed into the public domain by the author.
 --    Software 'as is' without warranty.  Author liable for nothing.
 -- DESCRIPTION:
---    This entity combines the CPU core with memory and a UART.
+--    This entity combines the CPU core with program and general
+--    purpose memory.
 -------------------------------------------------------------------------------
 -- Memory Map:
 --   0x00000000 - 0x1fffffff   Memory mapped peripherals
@@ -22,6 +23,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use work.mlite_pack.all;
+
+use work.plasmaPeriphRegisters.all;
 
 entity PlasmaCore is
   generic(memory_type : string    := "XILINX_X16";
@@ -50,9 +53,6 @@ end;  --entity plasma
 
 architecture logic of PlasmaCore is
 
-  constant IN_RAM_OFFSET : std_logic_vector(2 downto 0) := "000";
-  constant EX_RAM_OFFSET : std_logic_vector(2 downto 0) := "010";
-  constant PERIPH_OFFSET : std_logic_vector(2 downto 0) := "001";
 
   signal mem_address_reg : std_logic_vector(31 downto 2);
   signal mem_pause       : std_logic;

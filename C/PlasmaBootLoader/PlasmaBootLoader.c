@@ -41,11 +41,14 @@ void ReadAndEchoUart(char * buffer, int len)
 	}
 }
 
+
+
 int main (void)
 {
 	int error = 0;
 	int i = 0;
-	
+	//asm(".equiv STACK_SIZE, 0x4000");
+	//asm(".comm InitStack, STACK_SIZE");
 	// Set baud to 460800
 	MemoryWrite(UART_BAUD_DIV, 1);
 	MemoryWrite(LEDS_OUT, 0x54);
@@ -76,4 +79,5 @@ int main (void)
 		MemoryWrite(LEDS_OUT,0);
 		for(i = 0; i < 2000000; i++);
 	}
+	
 }

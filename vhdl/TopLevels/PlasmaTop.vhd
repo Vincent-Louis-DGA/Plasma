@@ -664,9 +664,7 @@ begin  --architecture
       reg_dout => pmod_reg(pmod'left downto 0),
       port_io  => pmod);
 
-  InputDebounceLength <= 1 when simulateProgram = '1' else 20;
-
-  Debounce2 : if simulateProgram = '1' generate
+  Debounce2 : if simulateProgram = '1' or simulateRam = '1' generate
     u7_switches : entity work.InputPort
       generic map (
         W => switches'length,
@@ -688,7 +686,7 @@ begin  --architecture
         reg_i  => buttons_reg);
   end generate Debounce2;
   
-  Debounce20 : if simulateProgram /= '1' generate
+  Debounce20 : if simulateProgram /= '1' and simulateRam /= '1' generate
     u7_switches : entity work.InputPort
       generic map (
         W => switches'length,

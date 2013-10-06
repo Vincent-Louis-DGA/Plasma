@@ -48,9 +48,7 @@ StreamReadPtr ReadFunctionPtr = 0;
 // {0x7f'E''L''F', 32-bit, big endian, MIPS I }
 Elf_HeaderId ExpectedMipsHeader = { 0x7F454C46, 1, 2, 8 };
 unsigned int ElfProgramOffset = 0;
-char buffer [ELF32_BUFFER_SIZE];
-Elf32_Phdr progHeaders [ELF32_MAX_SEGMENTS];
-//Elf32_Fhdr * fhdr;
+
 
 #pragma endregion
 
@@ -91,7 +89,7 @@ int IsInvalidElfFile(char * buffer)
 	return 0;
 }
 
-void ReadProgramHeaders(char * buffer, int numHeaders)
+void ReadProgramHeaders(char * buffer, int numHeaders, Elf32_Phdr * progHeaders)
 {
 	int i;
 	for(i = 0; i < numHeaders; i++)
@@ -116,6 +114,7 @@ int AdvanceToFileOffset(char * buffer, int currentOffset, int len)
 	}
 	return currentOffset;
 }
+	
 
 int ElfReadFile()
 {
@@ -124,6 +123,8 @@ int ElfReadFile()
 	int r = 0;
 	int a,b,c;
 	Elf32_Fhdr fhdr;
+	char buffer [ELF32_BUFFER_SIZE];
+	Elf32_Phdr progHeaders [ELF32_MAX_SEGMENTS];
 
 	// Read ELF header.
 	ReadFunctionPtr(buffer, ELF32_FHDR_LEN);
@@ -148,7 +149,7 @@ int ElfReadFile()
 	i = ELF32_PHDR_LEN * fhdr.programHeaderNum;
 	ReadFunctionPtr(buffer, i);
 	r += i;
-	ReadProgramHeaders(buffer, fhdr.programHeaderNum);
+	ReadProgramHeaders(buffer, fhdr.programHeaderNum, progHeaders);
 	
 	
 	
@@ -169,8 +170,11 @@ int ElfReadFile()
 			
 			// write to final location
 			if(progHeaders[i].p_type == 1)
-				for(b = 0; b < a; b+=4)
-					MemoryWrite(c + b + progHeaders[i].p_vaddr, MemoryRead((int)buffer+b));//CHAR_TO_INT32(buffer,b));
+				for(b = 0; b < a; b++)
+				{
+					*(char*)(c + b + progHeaders[i].p_vaddr) = buffer[b];
+					//MemoryWrite(c + b + progHeaders[i].p_vaddr, buffer+b);//MemoryRead((int)buffer+b));
+				}
 			c += a;
 		}
 	}

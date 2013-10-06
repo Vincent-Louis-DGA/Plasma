@@ -1,10 +1,4 @@
 
-Allocating common symbols
-Common symbol       size              file
-
-progHeaders         0x200             PlasmaBootLoader.o
-buffer              0x400             PlasmaBootLoader.o
-
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -12,55 +6,60 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
-Address of section .text set to 0x40000000
-LOAD ..\..\Tools\lib\boot.o
+Address of section .text set to 0x0
+LOAD boot_os.o
 LOAD PlasmaBootLoader.o
 
-.text           0x40000000     0x1184
-                0x40000000                _ftext=.
+.text           0x00000000     0x12e0
+                0x00000000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 ..\..\Tools\lib\boot.o
-                0x40000050                longjmp
-                0x40000000                entry
-                0x40000018                setjmp
-                0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088     0x10fc PlasmaBootLoader.o
-                0x40000198                readChar
-                0x40000398                FlashSpiReadBuffer
-                0x40000088                print
-                0x400005e0                WriteDisable
-                0x40000548                FlashSpiWrite
-                0x40000950                ElfSetReadFunctionPtr
-                0x40000cb0                AdvanceToFileOffset
-                0x40000224                FlashSpiStart
-                0x40000720                ReadDioVecr
-                0x4000057c                FlashReadMemory
-                0x4000095c                ElfReadFileHeader
-                0x40000430                FlashSpiEnd
-                0x400006c8                ReadSpiVecr
-                0x400007d0                ReadVecr
-                0x40000828                FlashInit
-                0x400000ec                write
-                0x40000a34                IsInvalidElfFile
-                0x40000d30                ElfReadFile
-                0x400000c0                printLine
-                0x40000254                FlashSpiWriteBuffer
-                0x40000fa0                ElfBranch
-                0x40000148                read
-                0x40000adc                ReadProgramHeaders
-                0x40000510                FlashSpiRead
-                0x40000688                ReadNonVolatileConfigurationRegister
-                0x40000778                ReadQioVecr
-                0x400001e0                writeChar
-                0x4000109c                main
-                0x40000444                FlashSpiTransaction
-                0x400005b0                WriteEnable
-                0x4000035c                FlashSpiAddress
-                0x40000610                ReadVolatileConfigurationRegister
-                0x40000330                FlashSpiCommand
-                0x40000fec                ReadFlash
-                0x40000fc4                InitFlash
-                0x4000102c                ReadAndEchoUart
+ .text          0x00000000      0x200 boot_os.o
+                0x000001a8                longjmp
+                0x00000000                entry
+                0x00000170                setjmp
+                0x00000048                OS_GetHeap
+                0x000001e0                OS_AsmMult
+                0x00000080                interrupt_service_routine
+                0x000001f4                OS_Syscall
+                0x00000064                OS_AsmInterruptEnable
+                0x00000058                OS_DefaultISR
+ .text          0x00000200     0x10e0 PlasmaBootLoader.o
+                0x00000310                readChar
+                0x00000510                FlashSpiReadBuffer
+                0x00000200                print
+                0x00000758                WriteDisable
+                0x000006c0                FlashSpiWrite
+                0x00000ac8                ElfSetReadFunctionPtr
+                0x00000e1c                AdvanceToFileOffset
+                0x0000039c                FlashSpiStart
+                0x00000898                ReadDioVecr
+                0x000006f4                FlashReadMemory
+                0x00000ad4                ElfReadFileHeader
+                0x000005a8                FlashSpiEnd
+                0x00000840                ReadSpiVecr
+                0x00000948                ReadVecr
+                0x000009a0                FlashInit
+                0x00000264                write
+                0x00000bac                IsInvalidElfFile
+                0x00000e9c                ElfReadFile
+                0x00000238                printLine
+                0x000003cc                FlashSpiWriteBuffer
+                0x000010fc                ElfBranch
+                0x000002c0                read
+                0x00000c54                ReadProgramHeaders
+                0x00000688                FlashSpiRead
+                0x00000800                ReadNonVolatileConfigurationRegister
+                0x000008f0                ReadQioVecr
+                0x00000358                writeChar
+                0x000011f8                main
+                0x000005bc                FlashSpiTransaction
+                0x00000728                WriteEnable
+                0x000004d4                FlashSpiAddress
+                0x00000788                ReadVolatileConfigurationRegister
+                0x000004a8                FlashSpiCommand
+                0x00001148                ReadFlash
+                0x00001120                InitFlash
+                0x00001188                ReadAndEchoUart
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -72,12 +71,12 @@ LOAD PlasmaBootLoader.o
 
 .fini
  *(.fini)
-                0x40001184                _ecode=.
+                0x000012e0                _ecode=.
 
-.reginfo        0x40001184       0x18
+.reginfo        0x000012e0       0x18
  *(.reginfo)
- .reginfo       0x40001184       0x18 ..\..\Tools\lib\boot.o
- .reginfo       0x4000119c       0x18 PlasmaBootLoader.o
+ .reginfo       0x000012e0       0x18 boot_os.o
+ .reginfo       0x000012f8       0x18 PlasmaBootLoader.o
 
 .ctors
  *(.ctors)
@@ -97,33 +96,33 @@ LOAD PlasmaBootLoader.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x4000119c        0x3
+.rodata         0x000012f8        0x3
  *(.rodata)
- .rodata        0x4000119c        0x3 PlasmaBootLoader.o
+ .rodata        0x000012f8        0x3 PlasmaBootLoader.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x4000119f                _etext=.
-                0x4000119f                PROVIDE (etext, .)
+                0x000012fb                _etext=.
+                0x000012fb                PROVIDE (etext, .)
 
-.data           0x4000119f       0x28
-                0x4000119f                _fdata=.
+.data           0x000012fb       0x28
+                0x000012fb                _fdata=.
  *(.data)
- *fill*         0x4000119f        0x1
- .data          0x400011a0       0x27 PlasmaBootLoader.o
-                0x400011bc                FLASH_CODE_CNT
-                0x400011b8                FLASH_CODE_TRIS
-                0x400011c0                FLASH_CODE_RSHIFT
-                0x400011c4                FLASH_CODE_STEPS
-                0x400011b4                FLASH_CODE_LINES
-                0x400011a0                FLASH_LINES
+ *fill*         0x000012fb        0x1
+ .data          0x000012fc       0x27 PlasmaBootLoader.o
+                0x00001318                FLASH_CODE_CNT
+                0x00001314                FLASH_CODE_TRIS
+                0x0000131c                FLASH_CODE_RSHIFT
+                0x00001320                FLASH_CODE_STEPS
+                0x00001310                FLASH_CODE_LINES
+                0x000012fc                FLASH_LINES
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x400091b7                _gp=(.+0x7ff0)
+                0x00009313                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -131,34 +130,31 @@ LOAD PlasmaBootLoader.o
 .lit4
  *(.lit4)
 
-.sdata          0x400011c8       0x18
+.sdata          0x00001324       0x18
  *(.sdata)
- .sdata         0x400011c8       0x18 PlasmaBootLoader.o
-                0x400011dc                FlashReadPosition
-                0x400011d8                ElfProgramOffset
-                0x400011d0                ExpectedMipsHeader
-                0x400011c8                FlashStatus
-                0x400011cc                ReadFunctionPtr
+ .sdata         0x00001324       0x18 PlasmaBootLoader.o
+                0x00001338                FlashReadPosition
+                0x00001334                ElfProgramOffset
+                0x0000132c                ExpectedMipsHeader
+                0x00001324                FlashStatus
+                0x00001328                ReadFunctionPtr
  *(.gnu.linkonce.s*)
-                0x400011e0                _edata=.
-                0x400011e0                PROVIDE (edata, .)
-                0x400011e0                .=ALIGN(0x8)
-                0x400011e0                __bss_start=.
-                0x400011e0                _fbss=__bss_start
+                0x0000133c                _edata=.
+                0x0000133c                PROVIDE (edata, .)
+                0x00001340                .=ALIGN(0x8)
+                0x0000133c                __bss_start=.
+                0x00001340                _fbss=__bss_start
 
 .sbss
  *(.sbss)
  *(.scommon)
 
-.bss            0x400011e0      0x600
+.bss            0x00001340        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x400011e0      0x600 PlasmaBootLoader.o
-                0x400011e0                progHeaders
-                0x400013e0                buffer
-                0x400017e0                _end=.
-                0x400017e0                PROVIDE (end, .)
+                0x00001340                _end=.
+                0x00001340                PROVIDE (end, .)
 
 .stab
  *(.stab)
@@ -262,4 +258,4 @@ LOAD PlasmaBootLoader.o
 .gptab.sbss
  *(.gptab.bss)
  *(.gptab.sbss)
-OUTPUT(PlasmaBootLoader.axf elf32-bigmips)
+OUTPUT(test.axf elf32-bigmips)
