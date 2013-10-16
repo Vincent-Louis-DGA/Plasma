@@ -6,7 +6,7 @@ This design is an extension of work by Steve Rhoades at http://opencores.org/pro
 
 I have modified the design to target the Digilent ATLYS Spartan-6 FPGA Development Board, http://www.digilentinc.com/Products/Detail.cfm?Prod=ATLYS
 
-Development environment is MS Windows 7, Xilinx ISE v13.3, MS Visual C++ Express 2010, MX Visual C# Express 2010.
+Development environment is MS Windows 7, Xilinx ISE v13.3, MS Visual C++ Express 2010, MS Visual C# Express 2010.
 
 
 
