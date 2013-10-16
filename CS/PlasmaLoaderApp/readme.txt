@@ -1,11 +1,18 @@
 ﻿Plasma/CS/PlasmaLoaderApp
 
-Use this windows application to load programs in to the Plasma microprocessor using the PlasmaBootLoader.
+Windows application for transmitting a file to the Plasma Microprocessor.
+After transmission completes a terminal is opened to communicate with the
+device.
 
-See Plasma/C/PlasmaBootLoader for more information no the boot loader.
+Usage: PlasmaBootLoader [options...] [file]
+Options:
+         -b <baudRate>, default = 460800
+         -c <comPort>,  default = COM10
+         -l <logFile>
+         -s    = silent mode
+         -?    = print this information
+         -Help = same as -?
 
-Usage: PlasmaBootLoader [options] <sourceFile>
+Omitting the [file] parameter will open a console without sending anything.
 
-Options: -b <baudRate>\n\t -c <comPort>\n\t -o <bootOffset>
-
-Example: PlasmaBootLoader -b 460800 -c COM10 -o 0x40000000 -l log.dat "..\..\..\..\C\Example\Example.bin"
+Example: PlasmaBootLoader -b 115200 -c COM9 -l log.txt test.axf

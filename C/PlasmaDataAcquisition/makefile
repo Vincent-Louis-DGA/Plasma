@@ -24,8 +24,7 @@ target:
 	convert_bin.exe	# Creates test.bin and code.txt from test.axf
 	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
 		code.txt ram_$(Target).vhd
-	as.exe $(PLASMA_LIB)\boot.s -o boot.o
 	gcc.exe $(CFLAGS) $(Target).c 
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
-		boot.o $(Target).o -o $(Target).axf
+		boot_os.o $(Target).o -o $(Target).axf
 	objdump.bat test.axf $(Target).lst

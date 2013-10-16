@@ -25,57 +25,133 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="13" />
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/clk" type="logic" db_ref_id="1">
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reset" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/reset_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/port_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">port_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">port_i[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/debounce2/u8_buttons/port_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">port_i[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reg_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">reg_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">reg_i[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/debounce2/u8_buttons/reg_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_i[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_i[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/pulse_i" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pulse_i[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pulse_i[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/pmodreg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pmodreg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pmodreg[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/counters" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">counters[7:0]</obj_property>
-      <obj_property name="ObjectShortName">counters[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/switchesreg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">switchesreg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switchesreg[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/port_reg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">port_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">port_reg[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/buttonsreg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buttonsreg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buttonsreg[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reg2" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">reg2[7:0]</obj_property>
-      <obj_property name="ObjectShortName">reg2[7:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/nonsensereg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">nonsensereg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">nonsensereg[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/w" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">w</obj_property>
-      <obj_property name="ObjectShortName">w</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/d" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">d</obj_property>
-      <obj_property name="ObjectShortName">d</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/sampleprescale" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sampleprescale[5:0]</obj_property>
+      <obj_property name="ObjectShortName">sampleprescale[5:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/reset_val" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">reset_val</obj_property>
-      <obj_property name="ObjectShortName">reset_val</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/samplecount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">samplecount[15:0]</obj_property>
+      <obj_property name="ObjectShortName">samplecount[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/max" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">max[19:0]</obj_property>
-      <obj_property name="ObjectShortName">max[19:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/sample" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sample</obj_property>
+      <obj_property name="ObjectShortName">sample</obj_property>
    </wvobject>
-   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u7_switches/min" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">min[19:0]</obj_property>
-      <obj_property name="ObjectShortName">min[19:0]</obj_property>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/datamask" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">datamask[7:0]</obj_property>
+      <obj_property name="ObjectShortName">datamask[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/samplediv" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">samplediv[31:0]</obj_property>
+      <obj_property name="ObjectShortName">samplediv[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/fifodin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fifodin[7:0]</obj_property>
+      <obj_property name="ObjectShortName">fifodin[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifowe_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifowe_i</obj_property>
+      <obj_property name="ObjectShortName">fifowe_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifore_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifore_i</obj_property>
+      <obj_property name="ObjectShortName">fifore_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/fifofull_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifofull_i</obj_property>
+      <obj_property name="ObjectShortName">fifofull_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusdin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusdin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusdin[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusdout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusdout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusdout[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusaddr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusaddr[27:0]</obj_property>
+      <obj_property name="ObjectShortName">exbusaddr[27:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbusre" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">exbusre</obj_property>
+      <obj_property name="ObjectShortName">exbusre</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/exbuswe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">exbuswe</obj_property>
+      <obj_property name="ObjectShortName">exbuswe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u1_plasma/mem_re" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_re</obj_property>
+      <obj_property name="ObjectShortName">mem_re</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u1_plasma/mem_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_address[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u1_plasma/mem_data_read" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_data_read[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_read[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/uart_bypasstx" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstx[7:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstx[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/uart_bypasstxdv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uart_bypasstxdv</obj_property>
+      <obj_property name="ObjectShortName">uart_bypasstxdv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u4_uart/BIDIR_BUFFER/tx_fifo_re" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_fifo_re</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_re</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u4_uart/BIDIR_BUFFER/tx_fifo_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_fifo_we</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u4_uart/BIDIR_BUFFER/tx_fifo_full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/plasmadataacquisition_tb/UUT/MCU/u4_uart/BIDIR_BUFFER/tx_fifo_empty" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_empty</obj_property>
    </wvobject>
 </wave_config>

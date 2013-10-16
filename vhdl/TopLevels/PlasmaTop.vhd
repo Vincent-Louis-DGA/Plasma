@@ -668,7 +668,7 @@ begin  --architecture
     u7_switches : entity work.InputPort
       generic map (
         W => switches'length,
-        D => 2)
+        D => 4)
       port map (
         clk    => clk_50,
         reset  => reset,
@@ -678,7 +678,7 @@ begin  --architecture
     u8_buttons : entity work.InputPort
       generic map (
         W => buttons'length,
-        D => 2)
+        D => 4)
       port map (
         clk    => clk_50,
         reset  => reset,

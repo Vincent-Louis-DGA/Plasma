@@ -3,8 +3,23 @@
 #define ELF32_SHDR_LEN 40	// Length in bytes of 32-bit ELF section header.
 #define ELF32_MAX_SEGMENTS 32	// Max number of program segments
 
-// Need this much space on the heap
+// Need this much space on the stack
 #define ELF32_BUFFER_SIZE (ELF32_MAX_SEGMENTS*ELF32_PHDR_LEN)
+
+#define MAGIC_NUM 0x7F454C46	// { 0x7F, 'E', 'L', 'F' }
+#define BIT_FMT 1				// 32-bit
+#define ENDIANNESS 2			// big endian
+#define ARCHITECTURE 8			// MIPS-I
+#define MIN_VADDR 0x2000
+
+#define ERR_MAGIC_NUM 1
+#define ERR_BIT_FMT 2
+#define ERR_ENDIAN 3
+#define ERR_ARCH 4
+#define ERR_PROG_HDR_LEN 5
+#define ERR_PROG_HDR_NUM 6
+#define ERR_SEC_HDR_LEN 7
+#define ERR_VADDR 8
 
 #pragma region typedefs
 
@@ -45,8 +60,7 @@ typedef void (*StreamReadPtr)(char *,int);
 #pragma region local variables
 
 StreamReadPtr ReadFunctionPtr = 0;
-// {0x7f'E''L''F', 32-bit, big endian, MIPS I }
-Elf_HeaderId ExpectedMipsHeader = { 0x7F454C46, 1, 2, 8 };
+Elf_HeaderId ExpectedMipsHeader = { MAGIC_NUM, BIT_FMT, ENDIANNESS, ARCHITECTURE };
 unsigned int ElfProgramOffset = 0;
 
 
@@ -79,13 +93,13 @@ int IsInvalidElfFile(char * buffer)
 	id.endianness = buffer[5];
 	id.architecture = CHAR_TO_INT16(buffer,0x12);//(buffer[0x12]<<8)+buffer[0x13];
 	if(id.magicNumber != ExpectedMipsHeader.magicNumber)
-		return 1;
+		return ERR_MAGIC_NUM;
 	if(id.bitFormat != ExpectedMipsHeader.bitFormat)
-		return 2;
+		return ERR_BIT_FMT;
 	if(id.endianness != ExpectedMipsHeader.endianness)
-		return 3;
+		return ERR_ENDIAN;
 	if(id.architecture != ExpectedMipsHeader.architecture)
-		return 4;
+		return ERR_ARCH;
 	return 0;
 }
 
@@ -134,13 +148,11 @@ int ElfReadFile()
 		return error;
 	ElfReadFileHeader(buffer, &fhdr);
 	if(fhdr.programHeaderSize != ELF32_PHDR_LEN)
-		return 10;
+		return ERR_PROG_HDR_LEN;
 	if(fhdr.programHeaderNum > ELF32_MAX_SEGMENTS)
-		return 11;
+		return ERR_PROG_HDR_NUM;
 	if(fhdr.sectionHeaderSize != ELF32_SHDR_LEN)
-		return 12;
-	if(fhdr.entryPoint < 0x2000)
-		return 13;
+		return ERR_SEC_HDR_LEN;
 
 	// Advance (in chunks of BUFFER_SIZE) to beginning of Program Header
 	r = AdvanceToFileOffset(buffer, r, fhdr.programHeaderOffset);
@@ -156,6 +168,8 @@ int ElfReadFile()
 	// Read and copy segments.
 	for(i = 0; i < fhdr.programHeaderNum; i++)
 	{
+		if(progHeaders[i].p_vaddr < MIN_VADDR)
+			return ERR_VADDR;
 		// advance to start of segment, in chunks of buffer size
 		r = AdvanceToFileOffset(buffer, r, progHeaders[i].p_offset);
 

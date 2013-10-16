@@ -12,7 +12,7 @@
 .text
    #define location of stack.
    .ifndef StackLoc
-   .set StackLoc, 0x08000
+   .set StackLoc, 0x8000
    .endif
 
    #define location of heap.
@@ -59,7 +59,7 @@ $L1:
    .end entry
 
 ###################################################
-# int OS_GetHeap()
+# void* OS_GetHeap()
 # Gets a pointer to 'Heap' space, typically an area 
 # of memory beyond the bss section.
 ###################################################

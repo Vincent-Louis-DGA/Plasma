@@ -1,12 +1,14 @@
-﻿Build started 1/10/2013 4:43:04 p.m..
+﻿Build started 15/10/2013 10:24:15 a.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaDataAcquisition\PlasmaDataAcquisition.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=PlasmaDataAcquisition && move /Y test.bin PlasmaDataAcquisition.bin
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
+         ..\..\Tools\lib\boot_os.s: Assembler messages:
+         ..\..\Tools\lib\boot_os.s:69: Warning: Macro instruction expanded into multiple instructions in branch delay slot
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls -D BUFFER_LEN=0x1000 PlasmaDataAcquisition.c 
-         PlasmaDataAcquisition.c:10: warning: #warning Using user supplied BUFFER_LEN
+         PlasmaDataAcquisition.c:9: warning: #warning Using user supplied BUFFER_LEN
          ld.exe -Ttext 0x00000000 -e entry -Map PlasmaDataAcquisition_boot.map -s -N \
          		boot_os.o PlasmaDataAcquisition.o -o test.axf
          objdump.bat test.axf PlasmaDataAcquisition_boot.lst
@@ -14,13 +16,12 @@
          C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=2528=0x9e0
+         Entry=0x0 length=968=0x3c8
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_PlasmaDataAcquisition.vhd
-         as.exe ..\..\Tools\lib\boot.s -o boot.o
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaDataAcquisition.c 
          ld.exe -Ttext 0x40000000 -e entry -Map PlasmaDataAcquisition.map -s -N \
-         		boot.o PlasmaDataAcquisition.o -o PlasmaDataAcquisition.axf
+         		boot_os.o PlasmaDataAcquisition.o -o PlasmaDataAcquisition.axf
          objdump.bat test.axf PlasmaDataAcquisition.lst
          
          C:\work_unsync\Plasma\C\PlasmaDataAcquisition>objdump.exe -Dxls test.axf  1>PlasmaDataAcquisition.lst 
@@ -29,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.70
+Time Elapsed 00:00:00.78

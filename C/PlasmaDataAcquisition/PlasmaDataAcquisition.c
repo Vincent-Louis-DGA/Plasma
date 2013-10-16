@@ -1,14 +1,12 @@
 #include <plasma.h>
-#include <plasma_stdio.h>
-#include <plasma_string.h>
+//#include <plasma_stdio.h>
+//#include <plasma_string.h>
 
 
 #ifndef BUFFER_LEN 
-#define BUFFER_LEN 0x2000000
-char buffer [BUFFER_LEN];
+#define BUFFER_LEN (RAM_SDRAM_SIZE/2)
 #else
 #warning Using user supplied BUFFER_LEN
-char * buffer = (char*)0x40000000;
 #endif
 
 int countBits(int i)
@@ -23,63 +21,49 @@ int countBits(int i)
 	return r;
 }
 
+char * buffer;
+
 int main(void)
 {
-	int i = 0;
-	int v;
-	int writeIndex;
-	int readIndex;
-	int maxLen = BUFFER_LEN;
+	int value,writeIndex,readIndex;
+	int maxLen = (RAM_SDRAM_SIZE / 2);
 
-	if(maxLen > BUFFER_LEN)
-		maxLen = BUFFER_LEN;
-
+	buffer = (char*)OS_GetHeap();
 	MemoryWrite(0x30000008, 0);
 
 	while(1)
 	{
 		MemoryWrite(LEDS_OUT, 0x99);
-		v = MemoryRead(SWITCHES);
+		value = MemoryRead(SWITCHES);
 		
-		MemoryWrite(0x30000004,0xA800CC40);			// Set the data mask
-		MemoryWrite(0x30000000, 100);				// Set the sample divider
-		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);		// Clear FIFO
+		MemoryWrite(0x30000004,0xA800CC11);		// Set the selector
+		MemoryWrite(0x30000000, 1);			// Set the sample divider
+		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);
 		writeIndex = 0;
 		readIndex = 0;
 		while(readIndex < maxLen)
 		{
-			if(writeIndex > readIndex)
+			if(writeIndex > readIndex && UART_TX_RDY)
 			{
-				if(UART_TX_RDY)
-				{
-					v = buffer[readIndex];
-					MemoryWrite(UART_TX, v);
-					MemoryWrite(LEDS_OUT,readIndex>>10);
-					readIndex++;
-				}
+				value = buffer[readIndex];
+				MemoryWrite(UART_TX, value);
+				MemoryWrite(LEDS_OUT,readIndex>>10);
+				readIndex++;
 			}
-			while(FIFO_DOUT_RDY)
+			while(writeIndex < BUFFER_LEN && FIFO_DOUT_RDY)
 			{
-				v = MemoryRead(FIFO_DOUT);
-				if(writeIndex < BUFFER_LEN)
-				{
-					buffer[writeIndex] = v;
-					writeIndex ++;
-				}
-				i++;
+				value = MemoryRead(FIFO_DOUT);
+				buffer[writeIndex] = value;
+				writeIndex ++;
 			}
 			// Break early if CENTRE button pressed.
-			if((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == BUTTON_CENTRE_MASK)
-			{
-				MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
+			if(BUTTON_CENTRE_DOWN)
 				break;
-			}
 		}
 		MemoryWrite(LEDS_OUT,0xCC);
 		// Wait for CENTRE button press
-		while((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == 0);
-		MemoryWrite(FIFO_CON, FIFO_CLEAR_MASK);				// Clear FIFO
-		while((MemoryRead(BUTTONS) & BUTTON_CENTRE_MASK) == BUTTON_CENTRE_MASK);
+		while(!BUTTON_CENTRE_DOWN);
+		while(BUTTON_CENTRE_DOWN);
 	}
 
 	return 0;

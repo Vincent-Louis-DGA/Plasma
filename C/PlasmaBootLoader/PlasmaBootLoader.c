@@ -25,6 +25,12 @@ void InitFlash()
 	FlashInit();
 }
 
+void InitUart()
+{
+	// Set baud to 460800
+	MemoryWrite(UART_BAUD_DIV, 1);
+}
+
 void ReadFlash(char * buffer, int len)
 {
 	FlashReadMemory(FlashReadPosition, buffer, len);
@@ -47,20 +53,18 @@ int main (void)
 {
 	int error = 0;
 	int i = 0;
-	//asm(".equiv STACK_SIZE, 0x4000");
-	//asm(".comm InitStack, STACK_SIZE");
-	// Set baud to 460800
-	MemoryWrite(UART_BAUD_DIV, 1);
-	MemoryWrite(LEDS_OUT, 0x54);
+
 
 	// If BTNR down, Use Uart Read function.
 	if((MemoryRead(BUTTONS) & BUTTON_RIGHT_MASK) > 0)
 	{
 		MemoryWrite(LEDS_OUT, 0x66);
+		InitUart();
 		ElfSetReadFunctionPtr(ReadAndEchoUart);
 	}
 	else
 	{
+		MemoryWrite(LEDS_OUT, 0x54);
 		InitFlash();
 		ElfSetReadFunctionPtr(ReadFlash);
 	}

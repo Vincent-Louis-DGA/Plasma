@@ -2,7 +2,7 @@
 Allocating common symbols
 Common symbol       size              file
 
-buffer              0x2000000         PlasmaDataAcquisition.o
+buffer              0x4               PlasmaDataAcquisition.o
 
 Memory Configuration
 
@@ -12,34 +12,25 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
 Address of section .text set to 0x40000000
-LOAD boot.o
+LOAD boot_os.o
 LOAD PlasmaDataAcquisition.o
 
-.text           0x40000000      0x808
+.text           0x40000000      0x3cc
                 0x40000000                _ftext=.
  *(.text)
- .text          0x40000000       0x88 boot.o
-                0x40000050                longjmp
+ .text          0x40000000      0x200 boot_os.o
+                0x400001a8                longjmp
                 0x40000000                entry
-                0x40000018                setjmp
-                0x4000000c                OS_AsmInterruptEnable
- .text          0x40000088      0x780 PlasmaDataAcquisition.o
-                0x40000198                readChar
-                0x40000088                print
-                0x4000038c                atoi_p
-                0x400004f4                itoa_p
-                0x400002c8                xtoi
-                0x400000ec                write
-                0x40000224                strncmp_p
-                0x400000c0                printLine
-                0x40000148                read
-                0x4000034c                dtoi
-                0x400001e0                writeChar
-                0x40000644                main
-                0x400005c4                itox
-                0x40000624                countBits
-                0x40000288                append
-                0x40000314                btoi
+                0x40000170                setjmp
+                0x40000048                OS_GetHeap
+                0x400001e0                OS_AsmMult
+                0x40000080                interrupt_service_routine
+                0x400001f4                OS_Syscall
+                0x40000064                OS_AsmInterruptEnable
+                0x40000058                OS_DefaultISR
+ .text          0x40000200      0x1cc PlasmaDataAcquisition.o
+                0x40000220                main
+                0x40000200                countBits
  *(.stub)
  *(.gnu.warning)
  *(.gnu.linkonce.t*)
@@ -51,12 +42,12 @@ LOAD PlasmaDataAcquisition.o
 
 .fini
  *(.fini)
-                0x40000808                _ecode=.
+                0x400003cc                _ecode=.
 
-.reginfo        0x40000808       0x18
+.reginfo        0x400003cc       0x18
  *(.reginfo)
- .reginfo       0x40000808       0x18 boot.o
- .reginfo       0x40000820       0x18 PlasmaDataAcquisition.o
+ .reginfo       0x400003cc       0x18 boot_os.o
+ .reginfo       0x400003e4       0x18 PlasmaDataAcquisition.o
 
 .ctors
  *(.ctors)
@@ -76,25 +67,24 @@ LOAD PlasmaDataAcquisition.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x40000820       0x5d
+.rodata
  *(.rodata)
- .rodata        0x40000820       0x5d PlasmaDataAcquisition.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x4000087d                _etext=.
-                0x4000087d                PROVIDE (etext, .)
+                0x400003fc                _etext=.
+                0x400003fc                PROVIDE (etext, .)
 
-.data           0x4000087d        0x0
-                0x4000087d                _fdata=.
+.data           0x400003e4        0x0
+                0x400003e4                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x4000886d                _gp=(.+0x7ff0)
+                0x400083d4                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -105,24 +95,24 @@ LOAD PlasmaDataAcquisition.o
 .sdata
  *(.sdata)
  *(.gnu.linkonce.s*)
-                0x4000087d                _edata=.
-                0x4000087d                PROVIDE (edata, .)
-                0x40000880                .=ALIGN(0x8)
-                0x4000087d                __bss_start=.
-                0x40000880                _fbss=__bss_start
+                0x400003e4                _edata=.
+                0x400003e4                PROVIDE (edata, .)
+                0x400003e8                .=ALIGN(0x8)
+                0x400003e4                __bss_start=.
+                0x400003e8                _fbss=__bss_start
 
-.sbss
+.sbss           0x400003e8        0x4
  *(.sbss)
  *(.scommon)
+ .scommon       0x400003e8        0x4 PlasmaDataAcquisition.o
+                0x400003e8                buffer
 
-.bss            0x40000880  0x2000000
+.bss            0x400003ec        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x40000880  0x2000000 PlasmaDataAcquisition.o
-                0x40000880                buffer
-                0x42000880                _end=.
-                0x42000880                PROVIDE (end, .)
+                0x400003ec                _end=.
+                0x400003ec                PROVIDE (end, .)
 
 .stab
  *(.stab)

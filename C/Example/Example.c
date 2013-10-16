@@ -37,7 +37,6 @@ void InterruptServiceRoutine(int status)
 }
 
 
-extern void * OS_GetHeap();
 int * heap;
 
 void HeapExercise()

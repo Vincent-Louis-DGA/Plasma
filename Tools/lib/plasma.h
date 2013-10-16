@@ -3,12 +3,8 @@
 #ifndef __PLASMA_H__
 #define __PLASMA_H__
 
-/*
-	Users of plasma.h should implement this function for interrupts.
-	At the very least do nothing, or else code won't compile.
-*/
-int OS_AsmInterruptEnable(int enable);
-
+extern void* OS_GetHeap();
+extern int OS_AsmInterruptEnable(int enable);
 
 
 
@@ -16,7 +12,7 @@ int OS_AsmInterruptEnable(int enable);
 #define RAM_INTERNAL_BASE	0x00000000
 #define RAM_INTERNAL_SIZE	0x00008000 // 32 kB
 #define RAM_EXTERNAL_BASE	0x40000000
-#define RAM_EXTERNAL_SIZE	0x00008000 // 32 kB
+#define RAM_BRAM_SIZE		0x00008000 // 32 kB
 #define RAM_SDRAM_SIZE		0x08000000 // 128 MB
 
 #define PERIPH_BASE		0x20000000
@@ -41,6 +37,7 @@ int OS_AsmInterruptEnable(int enable);
 #define BUTTON_DOWN_MASK	0x04
 #define BUTTON_RIGHT_MASK	0x08
 #define BUTTON_CENTRE_MASK	0x10
+#define BUTTON_CENTRE_DOWN ((MemoryRead(BUTTONS)&BUTTON_CENTRE_MASK) != 0)
 
 #define RAND_GEN		(PERIPH_BASE+	0x78)
 

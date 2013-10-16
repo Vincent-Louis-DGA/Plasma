@@ -5,6 +5,7 @@ using System.Linq;
 using System.IO;
 using System.IO.Ports;
 using System.Text;
+using System.Reflection;
 
 namespace PlasmaLoaderApp
 {
@@ -14,14 +15,16 @@ namespace PlasmaLoaderApp
 
 	public class PlasmaLoaderApp
 	{
-		string serialPort = "COM1";
-		int baudRate = 921600;
+		string serialPort = "COM10";
+		int baudRate = 460800;
 		string sourceFile = null;
         string logFile = null;
         bool silent = false;
+        public bool ArgsValid { get; set; }
 
         public PlasmaLoaderApp(string[] args)
 		{
+            ArgsValid = true;
 			processArgs(args);
 		}
 
@@ -31,11 +34,19 @@ namespace PlasmaLoaderApp
 			while (argList.Count > 0)
 			{
 				processArg(argList);
+                if (!ArgsValid)
+                    return;
 			}
 		}
 
 		void processArg(List<string> argList)
 		{
+            if (argList[0].Equals("-?") || argList[0].Equals("-Help"))
+            {
+                ArgsValid = false;
+                argList.RemoveAt(0);
+                return;
+            }
 			if (argList[0].Equals("-b") && argList.Count >= 2)
 			{
 				int br = baudRate;
@@ -85,20 +96,21 @@ namespace PlasmaLoaderApp
 		public void Load()
 		{
             bool loadSource = !string.IsNullOrWhiteSpace(sourceFile);
-			if (loadSource && !File.Exists(sourceFile))
-				throw new ArgumentException("Source file does not exist: " + sourceFile);
+            if (loadSource && !File.Exists(sourceFile))
+            {
+                throw new ArgumentException("Source file does not exist: " + sourceFile);
+            }
 
-            char[] bootChars = new char[0];
-			using (SerialPort sp = new SerialPort(serialPort, baudRate))
-			{
-				sp.ReadBufferSize = 0x100000;
-				sp.WriteBufferSize = 0x100000;
-				sp.ReadTimeout = 1000;
-				sp.Open();
-				sp.DiscardInBuffer();
-				sp.DiscardOutBuffer();
+            using (SerialPort sp = new SerialPort(serialPort, baudRate))
+            {
+                sp.ReadBufferSize = 0x100000;
+                sp.WriteBufferSize = 0x100000;
+                sp.ReadTimeout = 1000;
+                sp.Open();
+                sp.DiscardInBuffer();
+                sp.DiscardOutBuffer();
 
-				Console.WriteLine("Port: " + serialPort + ", Baud: " + baudRate);
+                Console.WriteLine("Port: " + serialPort + ", Baud: " + baudRate);
 
                 if (loadSource)
                 {
@@ -106,7 +118,7 @@ namespace PlasmaLoaderApp
                     int len50th = (len / 50);
                     Console.WriteLine("Length: " + len + "\nSource: " + sourceFile);
                     int s;
-                    byte [] b = new byte[4];
+                    byte[] b = new byte[4];
                     byte[] r = new byte[4];
                     using (FileStream stream = new FileStream(sourceFile, FileMode.Open))
                     {
@@ -122,13 +134,13 @@ namespace PlasmaLoaderApp
                                 Console.Write(".");
                         }
                     }
-                    bootChars = new char[0];
                 }
-                SerialTerminal terminal = new SerialTerminal(sp, bootChars, logFile, silent);
-                
+                SerialTerminal terminal = new SerialTerminal(sp, new char[0], logFile, silent);
 
-				sp.Close();
-			}
+                // Do nothing... control passed to terminal.
+
+                sp.Close();
+            }
 		}
 
 
@@ -157,10 +169,11 @@ namespace PlasmaLoaderApp
 
 		public static void PrintUsage()
 		{
-			Console.WriteLine("Usage: PlasmaBootLoader [options] <sourceFile>");
-			Console.WriteLine("Options: -b <baudRate>\n\t -c <comPort>\n\t -o <bootOffset>\n");
-            Console.WriteLine("\t -s = silent mode\n\t -l <logFile>\n");
-			Console.WriteLine("Example: PlasmaBootLoader -b 115200 -c COM9 -l log.txt test.axf\n");
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            StreamReader reader = new StreamReader(assembly.GetManifestResourceStream("PlasmaLoaderApp.readme.txt"));
+            string readme = reader.ReadToEnd();
+            Console.WriteLine(readme);
+
 		}
 	}
 }

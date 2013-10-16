@@ -15,7 +15,7 @@ architecture testbench of PlasmaDataAcquisition_tb is
 
 
   signal switches : std_logic_vector(7 downto 0);
-  signal buttons  : std_logic_vector(4 downto 0);
+  signal buttons  : std_logic_vector(4 downto 0) := (others => '0');
   signal leds     : std_logic_vector(7 downto 0);
   signal pmod     : std_logic_vector(7 downto 0);
 
@@ -47,12 +47,12 @@ begin  -- testbench
       Uart_bypassRx         => Uart_bypassRx,
       Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
       Uart_bypassTx         => Uart_bypassTx,
-      Uart_bypassTxDv       => Uart_bypassTxDv
+      Uart_bypassTxDvToggle => Uart_bypassTxDv
       );
 
   clk_100  <= not clk_100 after 5 ns;
   switches <= X"08";
-  buttons  <= "00000";
+  buttons  <= "00010" after 100 us;
   pmod     <= X"bd";
 
 
