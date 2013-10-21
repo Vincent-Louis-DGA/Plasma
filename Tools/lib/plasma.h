@@ -79,6 +79,7 @@ extern int OS_AsmInterruptEnable(int enable);
 #define	FIFO_CON		(PERIPH_BASE+	0xD8)
 #define FIFO_CLEAR_MASK	0x04
 #define FIFO_DOUT_RDY		((MemoryRead(FIFO_CON) & 0x02) == 0x02)
+#define FIFO_SIZE		0x800	// 2 kB
 
 #define LOGIC_AN_CON	0x21000000
 #define	LOGIC_AN_BASE	0x22000000

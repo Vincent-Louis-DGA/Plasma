@@ -82,6 +82,8 @@ end uartTopLevel;
 
 architecture logic of uartTopLevel is
 
+  type data_file_t is file of character;
+
   -- FIFO signals
   signal tx_fifo_reset : std_logic;
   signal tx_fifo_we    : std_logic;
@@ -260,7 +262,7 @@ begin  -- logic
     clk_u <= sys_clk;
 
     log_proc : process(sys_clk)
-      file store_file        : text open write_mode is log_file;
+      file store_file        : data_file_t open write_mode is log_file;
       variable console_line  : line;
       variable hex_file_line : line;
       variable c             : character;
@@ -270,16 +272,16 @@ begin  -- logic
       if rising_edge(sys_clk) then
         if tx_fifo_we = '1' then
           index := conv_integer(tx_fifo_din);
+          c     := character'val(index);
+          write(store_file, c);
           if index /= 10 and index /= 13 then
-            c           := character'val(index);
-            write(hex_file_line, c);
+            --write(hex_file_line, c);
             write(console_line, c);
             line_length := line_length + 1;
           end if;
           if index = 10 or line_length >= 72 then
-            --The following line had to be commented out for synthesis
             writeline(output, console_line);
-            writeline(store_file, hex_file_line);
+            --writeline(store_file, hex_file_line);
             line_length := 0;
           end if;
         end if;  -- tx_fifo_we

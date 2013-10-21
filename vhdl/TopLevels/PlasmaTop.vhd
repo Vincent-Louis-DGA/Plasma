@@ -421,7 +421,8 @@ begin  --architecture
                         intr_vector, counter1, counter1_ps,
                         counter1_tc, cache_hitcount, cache_readcount,
                         flash_dq_in, flash_sclk, flash_tris, flash_cs,
-                        fifoFull_i, fifoEmpty_i, fifoDout_i)
+                        fifoFull_i, fifoEmpty_i, fifoDout_i,
+                        ExBusDin)
   begin  -- process PERIPH_MUX
     if periph_address(31 downto UART_OFFSET'right) = UART_OFFSET then
       periph_dout <= ZEROS32(31 downto uart_dout'length) & uart_dout;
@@ -461,6 +462,8 @@ begin  --architecture
       periph_dout <= X"000000" & fifoDout_i;
     elsif periph_address = FIFO_CON_ADDR then
       periph_dout <= X"0000000" & "00" & not fifoEmpty_i & fifoFull_i;
+    elsif periph_address(31 downto 28) = EX_BUS_OFFSET then
+      periph_dout <= ExBusDin;
     else
       periph_dout <= X"DEADC0DE";
     end if;
@@ -685,7 +688,7 @@ begin  --architecture
         port_i => buttons,
         reg_i  => buttons_reg);
   end generate Debounce2;
-  
+
   Debounce20 : if simulateProgram /= '1' and simulateRam /= '1' generate
     u7_switches : entity work.InputPort
       generic map (
