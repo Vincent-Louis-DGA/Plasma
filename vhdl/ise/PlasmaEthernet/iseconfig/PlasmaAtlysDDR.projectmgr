@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="PlasmaAtlysDDR" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u1_plasma - PlasmaCore - logic</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u1_plasma - PlasmaCore - logic/u1_cpu - mlite_cpu - logic</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u2_memory - ddr2_1Gb_wrapper - Behavioral</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u2_memory - ddr2_1Gb_wrapper - Behavioral/u0_sdram_model - atlys_ddr2_sim_model - model</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u2_memory - ddr2_1Gb_wrapper - Behavioral/u1_sdram - atlys_ddr2 - arc</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u3_memCache - ddr2_cache - logic</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u4_uart - uartTopLevel - logic</ClosedNode>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic/u6_pmod - BidirPort - logic</ClosedNode>
+         <ClosedNode>/PlasmaBlockRam - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaBlockRam.vhd</ClosedNode>
+         <ClosedNode>/PlasmaTop - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaTop.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>MCU - PlasmaTop - logic (C:/work_unsync/Plasma/vhdl/TopLevels/PlasmaTop.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000020c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000020c0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>MCU - PlasmaTop - logic (C:/work_unsync/Plasma/vhdl/TopLevels/PlasmaTop.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001e5000000010000000100000000000000000000000064ffffffff000000810000000000000001000001e50000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>..\..\TopLevels\plasmaPeriphRegisters.vhd</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000307000000040101000100000000000000000000000064ffffffff0000008100000000000000040000015300000001000000000000009d0000000100000000000000660000000100000000000000b10000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>..\..\TopLevels\plasmaPeriphRegisters.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000109000000010001000100000000000000000000000064ffffffff000000810000000000000001000001090000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_NGC" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001aa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001aa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000022d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000022d0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <CopyAdditionalFiles/>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000040100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/PlasmaAtlysDDR - logic C:|work_unsync|Plasma|vhdl|TopLevels|PlasmaAtlysDDR.vhd/MCU - PlasmaTop - logic</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>PlasmaAtlysDDR - logic (C:/work_unsync/Plasma/vhdl/TopLevels/PlasmaAtlysDDR.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000016b000000020000000000000000000000000200000064ffffffff0000008100000003000000020000016b0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>PlasmaAtlysDDR - logic (C:/work_unsync/Plasma/vhdl/TopLevels/PlasmaAtlysDDR.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001e5000000010000000100000000000000000000000064ffffffff000000810000000000000001000001e50000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>ISim Simulator</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001e5000000010000000100000000000000000000000064ffffffff000000810000000000000001000001e50000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+</Project>

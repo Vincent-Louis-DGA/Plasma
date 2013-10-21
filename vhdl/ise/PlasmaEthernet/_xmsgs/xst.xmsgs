@@ -1,0 +1,1762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\PlasmaCore\PlasmaCore.vhd" Line 107: Assignment to <arg fmt="%s" index="1">ex_ram_en2</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 582: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 586: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2445: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2446: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2447: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2448: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2449: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2450: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2451: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2452: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2453: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2454: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2455: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2456: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2457: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2458: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2459: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2460: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2861: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2862: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2863: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2864: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2865: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2866: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2867: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2868: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2903: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2904: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2905: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2906: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2907: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2908: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2909: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2910: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2945: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2946: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2947: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2948: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2949: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2950: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2951: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2952: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2988: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2989: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2990: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2991: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2992: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2993: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2994: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 2995: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3029: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3030: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3031: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3032: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3033: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3034: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3035: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3036: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3072: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3073: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3074: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3075: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3076: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3077: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3078: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3079: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3111: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3112: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3113: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3114: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3115: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3116: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3117: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3118: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3156: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3157: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3158: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3159: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3160: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3161: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3162: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3163: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3495: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3757: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 3964: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 534: Assignment to <arg fmt="%s" index="1">half_mv_du</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 536: Assignment to <arg fmt="%s" index="1">half_mv_dd</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 598: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 870: Assignment to <arg fmt="%s" index="1">state_start_dyncal_r1</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 927: Assignment to <arg fmt="%s" index="1">mcb_uodatavalid_u</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration.vhd" Line 971: Assignment to <arg fmt="%s" index="1">iodrpctrlr_use_bkst</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_soft_calibration_top.vhd" Line 395: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 6993: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7024: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7025: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7050: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7051: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7075: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7086: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7087: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7091: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\mcb_raw_wrapper.vhd" Line 7092: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\AtlysDDR\ddr2_cache.vhd" Line 168: Assignment to <arg fmt="%s" index="1">ddr_wbe2</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\TopLevels\PlasmaTop.vhd" Line 485: Assignment to <arg fmt="%s" index="1">periph_din_debug</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\General\uartTopLevel.vhd" Line 151: Assignment to <arg fmt="%s" index="1">int_enable</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\work_unsync\Plasma\vhdl\General\BidirPort.vhd" Line 185: Assignment to <arg fmt="%s" index="1">db1</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="746" delta="old" >"C:\work_unsync\Plasma\vhdl\General\BidirPort.vhd" Line 108: Range is empty (null range)
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\work_unsync\Plasma\vhdl\TopLevels\PlasmaTop.vhd" Line 147: Net &lt;<arg fmt="%s" index="1">bypassRxWeToggle_sim</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">Uart_bypassRx&lt;7:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FifoDin&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ExBusDin&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">Uart_bypassRxWeToggle</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FifoWe</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FifoRe</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">FifoClear</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">Uart_bypassTx</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">FifoDout</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">ExBusDout</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">ExBusAddr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">sysClk</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">reset_n</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">Uart_bypassTxDvToggle</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">FifoFull</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">FifoEmpty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">ExBusRe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmaatlysddr.vhd</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">ExBusWe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">MCU</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ExBusDin&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">Uart_bypassRxWeToggle</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">243</arg>: Output port &lt;<arg fmt="%s" index="3">line_number</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u1_plasma</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_0_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_0_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_1_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_2_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">clk_mem</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">calib_done</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_0_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_0_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_0_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_0_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_0_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_0_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_0_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_0_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_0_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_1_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_1_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_1_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_1_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_1_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_1_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_1_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_2_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">cmd_2_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_2_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_2_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_2_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">wr_2_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">324</arg>: Output port &lt;<arg fmt="%s" index="3">rd_2_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u2_memory</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">373</arg>: Output port &lt;<arg fmt="%s" index="3">debug</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">DDR_RAM.u3_memCache</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">620</arg>: Output port &lt;<arg fmt="%s" index="3">irq</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u4_uart</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">667</arg>: Output port &lt;<arg fmt="%s" index="3">pulse_i</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u7_switches</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/toplevels/plasmatop.vhd</arg>&quot; line <arg fmt="%s" index="2">677</arg>: Output port &lt;<arg fmt="%s" index="3">pulse_i</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u8_buttons</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">bypassRxWeToggle_sim</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">PlasmaTop</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">0</arg>).
+</msg>
+
+<msg type="info" file="Xst" num="2774" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">KEEP</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">clk_50</arg> may hinder XST clustering optimizations.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/plasmacore/plasmacore.vhd</arg>&quot; line <arg fmt="%s" index="2">156</arg>: Output port &lt;<arg fmt="%s" index="3">mem_re</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u1_cpu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/plasmacore/plasmacore.vhd</arg>&quot; line <arg fmt="%s" index="2">214</arg>: Output port &lt;<arg fmt="%s" index="3">doutb</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u3_ram</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">opcode&lt;22:21&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">imm_in&lt;5:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">address&lt;31:13&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">raddra&lt;12:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">raddrb&lt;12:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/atlys_ddr2.vhd</arg>&quot; line <arg fmt="%s" index="2">564</arg>: Output port &lt;<arg fmt="%s" index="3">selfrefresh_mode</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">sys_clk_p</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">sys_clk_n</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">selfrefresh_enter</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_wr_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_wr_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_wr_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_count</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">status</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_cmd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_cmd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_wr_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_wr_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_wr_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_wr_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p3_rd_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_cmd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_cmd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_wr_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_wr_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_wr_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_wr_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p4_rd_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_cmd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_cmd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_wr_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_wr_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_wr_underrun</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_wr_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_overflow</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">p5_rd_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">mcbx_dram_ddr3_rst</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_data_valid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_cmd_ready_in</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_refrsh_flag</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_cal_start</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/memc3_wrapper.vhd</arg>&quot; line <arg fmt="%s" index="2">669</arg>: Output port &lt;<arg fmt="%s" index="3">uo_sdo</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">memc3_mcb_raw_wrapper_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p0_cmd_byte_addr&lt;29:27&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p0_cmd_byte_addr&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p1_cmd_byte_addr&lt;29:27&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p1_cmd_byte_addr&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p2_cmd_byte_addr&lt;29:27&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p2_cmd_byte_addr&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_cmd_instr&lt;2:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_cmd_bl&lt;5:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_cmd_byte_addr&lt;29:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_wr_mask&lt;3:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_wr_data&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_cmd_instr&lt;2:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_cmd_bl&lt;5:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_cmd_byte_addr&lt;29:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_wr_mask&lt;3:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_wr_data&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_cmd_instr&lt;2:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_cmd_bl&lt;5:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_cmd_byte_addr&lt;29:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_wr_mask&lt;3:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_wr_data&lt;31:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_addr&lt;4:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_dqcount&lt;3:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_arb_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_cmd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_cmd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_wr_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_wr_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_rd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p3_rd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_arb_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_cmd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_cmd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_wr_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_wr_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_rd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p4_rd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_arb_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_cmd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_cmd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_wr_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_wr_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_rd_clk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">p5_rd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">calib_recal</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_read</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_add</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_cs</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_sdi</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_broadcast</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_drp_update</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_done_cal</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_cmd</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_cmd_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_cmd_en</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_dq_lower_dec</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_dq_lower_inc</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_dq_upper_dec</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_dq_upper_inc</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_udqs_inc</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_udqs_dec</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_ldqs_inc</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ui_ldqs_dec</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_wr_count</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_count</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_wr_count</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_count</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_wr_full</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_wr_empty</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_wr_underrun</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_wr_error</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_full</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_empty</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_overflow</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p4_rd_error</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_wr_full</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_wr_empty</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_wr_underrun</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_wr_error</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_full</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_empty</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_overflow</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p5_rd_error</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">mcbx_dram_ddr3_rst</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">selfrefresh_enter_r1</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mcb_raw_wrapper</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">selfrefresh_enter_r2</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mcb_raw_wrapper</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">selfrefresh_enter_r3</arg>&lt;<arg fmt="%d" index="2">5</arg>:<arg fmt="%d" index="3">5</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mcb_raw_wrapper</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/mcb_soft_calibration_top.vhd</arg>&quot; line <arg fmt="%s" index="2">291</arg>: Output port &lt;<arg fmt="%s" index="3">Max_Value</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">mcb_soft_calibration_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">MCB_UODATA&lt;7:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">MCB_UODATAVALID</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">MCB_UOCMDREADY</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">MCB_UO_CAL_START</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/mcb_soft_calibration.vhd</arg>&quot; line <arg fmt="%s" index="2">558</arg>: Output port &lt;<arg fmt="%s" index="3">DRP_BKST</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">iodrp_controller_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/mcb_soft_calibration.vhd</arg>&quot; line <arg fmt="%s" index="2">576</arg>: Output port &lt;<arg fmt="%s" index="3">read_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">iodrp_mcb_controller_inst</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="1799" delta="old" >State <arg fmt="%s" index="1">111010</arg> is never reached in FSM &lt;<arg fmt="%s" index="2">STATE</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">MCB_UICMDIN</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">drp_ioi_addr&lt;4:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">addr&lt;31:30&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/atlysddr/ddr2_cache.vhd</arg>&quot; line <arg fmt="%s" index="2">238</arg>: Output port &lt;<arg fmt="%s" index="3">doutb</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u1_cache</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">raddra&lt;9:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">raddrb&lt;9:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">bypassRxTg</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">uartTopLevel</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">bypassRxReg</arg>&lt;<arg fmt="%d" index="2">7</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">uartTopLevel</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">baud_div_uc</arg>&lt;<arg fmt="%d" index="2">11</arg>:<arg fmt="%d" index="3">8</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">uartTopLevel</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/general/uartcore.vhd</arg>&quot; line <arg fmt="%s" index="2">62</arg>: Output port &lt;<arg fmt="%s" index="3">pulse_i</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u1_rx_in</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">c:/work_unsync/plasma/vhdl/general/bidirport.vhd</arg>&quot; line <arg fmt="%s" index="2">221</arg>: Output port &lt;<arg fmt="%s" index="3">pulse_i</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">u1_in</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_17&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_22&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_18&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_23&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_19&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_24&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_25&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_26&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_27&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">cache_we_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;cache_we_1&gt; &lt;cache_we_2&gt; &lt;cache_we_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">mig_cmd_bl_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;mig_cmd_bl_1&gt; &lt;mig_cmd_bl_2&gt; &lt;mig_cmd_bl_3&gt; &lt;mig_cmd_bl_4&gt; &lt;mig_cmd_bl_5&gt; &lt;mig_cmd_instr_0&gt; &lt;ddr_hold_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">mig_cmd_instr_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;mig_cmd_instr_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_20&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_16&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">addrToInsert_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;addr_reg_21&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">periph_address_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;periph_address_1&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">periph_address_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">MCU</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">ex_ram_addr_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">u1_plasma</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">ex_ram_addr_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">u1_plasma</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">mig_cmd_instr_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">DDR_RAM.u3_memCache</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">addr_reg_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">DDR_RAM.u3_memCache</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">addr_reg_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">DDR_RAM.u3_memCache</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">bypassRxTg2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">u4_uart</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">soft_cal_selfrefresh_req</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">memc3_mcb_raw_wrapper_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UICMD</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">WarmEnough</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_MCB_REQ</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_mcb_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_mcb_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_mcb_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_mcb_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration_inst</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">addr_reg_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">addr_reg_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">mig_cmd_byte_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">mig_cmd_byte_addr_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">mig_cmd_byte_addr_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">mig_cmd_byte_addr_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">DDR_RAM.u3_memCache</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ex_ram_addr_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">u1_plasma</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ex_ram_addr_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">u1_plasma</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ex_ram_addr_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">u1_plasma</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">mig_cmd_instr</arg>&lt;<arg fmt="%d" index="2">2</arg>:<arg fmt="%d" index="3">1</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">ddr2_cache</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/u1_cache/Mram_ram_2</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/u1_cache/Mram_ram_3</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/u1_cache/Mram_ram_1</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/u1_cache/Mram_ram_0</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">u1_plasma/u3_ram/Mram_ram_3</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">u1_plasma/u3_ram/Mram_ram_2</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">u1_plasma/u3_ram/Mram_ram_1</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">u1_plasma/u3_ram/Mram_ram_0</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram__n0386</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_mem_proc.mem_re_var</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u1_plasma/ex_ram_addr_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">u1_plasma/ex_ram_addr_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">periph_address_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaTop</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">periph_address_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaTop</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addr_reg_29</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaTop</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_cmd_byte_addr_29</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaTop</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">soft_cal_selfrefresh_req</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_raw_wrapper</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCB_UICMD</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIDQCOUNT_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_MEMCELL_ADDR_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">DRP_BKST</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">bypassRxTg2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">uartTopLevel</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/cache_we_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/cache_we_1&gt; &lt;DDR_RAM.u3_memCache/cache_we_2&gt; &lt;DDR_RAM.u3_memCache/cache_we_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_addr_offset_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/prev_addr_offset_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_addr_offset_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/prev_addr_offset_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_addr_offset_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/prev_addr_offset_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_addr_offset_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/prev_addr_offset_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_20&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_16&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_21&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_17&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_22&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_18&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_23&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_19&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_24&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_25&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_26&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/addrToInsert_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/addr_reg_27&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/mig_cmd_instr</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">8 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/mig_cmd_bl_0&gt; &lt;DDR_RAM.u3_memCache/mig_cmd_bl_1&gt; &lt;DDR_RAM.u3_memCache/mig_cmd_bl_2&gt; &lt;DDR_RAM.u3_memCache/mig_cmd_bl_3&gt; &lt;DDR_RAM.u3_memCache/mig_cmd_bl_4&gt; &lt;DDR_RAM.u3_memCache/mig_cmd_bl_5&gt; &lt;DDR_RAM.u3_memCache/ddr_re_cmd&gt; &lt;DDR_RAM.u3_memCache/ddr_hold_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DDR_RAM.u3_memCache/ddr_hold_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaTop</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;DDR_RAM.u3_memCache/ddr_re_cmd2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">iodrp_controller</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;memcell_addr_reg_4&gt; &lt;memcell_addr_reg_5&gt; &lt;memcell_addr_reg_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">iodrp_mcb_controller</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;memcell_addr_reg_4&gt; &lt;memcell_addr_reg_5&gt; &lt;memcell_addr_reg_6&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_MCB_REQ</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">WarmEnough</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">SELFREFRESH_REQ_R3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">WAIT_SELFREFRESH_EXIT_DQS_CAL</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">PERFORM_START_DYN_CAL_AFTER_SELFREFRESH</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">WaitCountEnable</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">PERFORM_START_DYN_CAL_AFTER_SELFREFRESH_R1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SELFREFRESH_MCB_MODE_R3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">START_DYN_CAL_STATE_R1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_controller</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">memcell_addr_reg_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">iodrp_mcb_controller</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">DQS_DELAY_INITIAL_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">TARGET_DQS_DELAY_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">IODRPCTRLR_WRITE_DATA_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mcb_soft_calibration</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">bypassRxWe</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">uartTopLevel</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">u1_plasma/NOT_SIM.u2_prog_ram/RAMB16_S9_inst3</arg> in unit <arg fmt="%s" index="2">PlasmaTop</arg> of type <arg fmt="%s" index="3">RAMB16_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16BWER</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">u1_plasma/NOT_SIM.u2_prog_ram/RAMB16_S9_inst2</arg> in unit <arg fmt="%s" index="2">PlasmaTop</arg> of type <arg fmt="%s" index="3">RAMB16_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16BWER</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">u1_plasma/NOT_SIM.u2_prog_ram/RAMB16_S9_inst1</arg> in unit <arg fmt="%s" index="2">PlasmaTop</arg> of type <arg fmt="%s" index="3">RAMB16_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16BWER</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">u1_plasma/NOT_SIM.u2_prog_ram/RAMB16_S9_inst0</arg> in unit <arg fmt="%s" index="2">PlasmaTop</arg> of type <arg fmt="%s" index="3">RAMB16_S9</arg> has been replaced by <arg fmt="%s" index="4">RAMB16BWER</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U_BUFG_CLK1</arg> in unit <arg fmt="%s" index="2">memc3_infrastructure</arg> of type <arg fmt="%s" index="3">BUFGCE</arg> has been replaced by <arg fmt="%s" index="4">BUFGMUX</arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MCB_UIADDR_int_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mcb_soft_calibration</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MCB_UIADDR_int_3&gt; &lt;MCB_UIADDR_int_4&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/mig_cmd_byte_addr_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/mig_cmd_byte_addr_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/mig_cmd_byte_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/addr_reg_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/addr_reg_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u1_plasma/ex_ram_addr_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u1_plasma/ex_ram_addr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MCU/u6_pmod/reg_addr1_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MCU/periph_address_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MCU/u6_pmod/reg_addr1_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MCU/periph_address_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MCU/u6_pmod/reg_addr1_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MCU/periph_address_4&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/mig_cmd_byte_addr_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCU/u1_plasma/ex_ram_addr_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller_inst/data_reg_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/data_reg_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u3_memCache/addr_reg_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/reg2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u7_switches/pulse_i_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/reg2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/reg2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/reg2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/reg2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/reg2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/pulse_i_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/pulse_i_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/pulse_i_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/pulse_i_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u8_buttons/pulse_i_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/DDR_RAM.u2_memory/NOT_SIM.u1_sdram/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller_inst/read_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTxTg</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/bypassTx_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/UART_CORE/u1_rx_in/pulse_i_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u4_uart/UART_CORE/u1_rx_in/reg2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/reg2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">MCU/u6_pmod/u1_in/pulse_i_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MCU/u1_plasma/ex_ram_addr_29</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">PlasmaAtlysDDR</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MCU/u4_uart/BIDIR_BUFFER/io_tx_we</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">PlasmaAtlysDDR</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MCU/u4_uart/BIDIR_BUFFER/tx_fifo_re2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/RX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/u4_uart/BIDIR_BUFFER/TX_FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MCU/FIFO</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i&gt; </arg>
+</msg>
+
+</messages>
+
