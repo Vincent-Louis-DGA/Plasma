@@ -17,6 +17,7 @@ entity PlasmaTop is
     uartLogFile     : string    := "UNUSED";
     simulateRam     : std_logic := '0';
     simulateProgram : std_logic := '0';
+    includeEthernet : std_logic := '0';
     AtlysDDR        : std_logic := '0'
     );
   port(
@@ -58,6 +59,24 @@ entity PlasmaTop is
     FlashCS    : out   std_logic;
     FlashTris  : out   std_logic_vector(3 downto 0);
     FlashMemDq : inout std_logic_vector(3 downto 0);
+
+
+    -- Ethernet
+    ethernetMDIO    : inout std_logic                    := '0';
+    ethernetMDC     : out   std_logic                    := '0';
+    ethernetINT_n   : out   std_logic                    := '0';
+    ethernetRESET_n : out   std_logic                    := '1';
+    ethernetCOL     : in    std_logic                    := '0';
+    ethernetCRS     : in    std_logic                    := '0';
+    ethernetRXDV    : in    std_logic                    := '0';
+    ethernetRXCLK   : in    std_logic                    := '0';
+    ethernetRXER    : in    std_logic                    := '0';
+    ethernetRXD     : in    std_logic_vector(7 downto 0) := (others => '0');
+    ethernetGTXCLK  : out   std_logic                    := '0';
+    ethernetTXCLK   : in    std_logic                    := '0';
+    ethernetTXER    : out   std_logic                    := '0';
+    ethernetTXEN    : out   std_logic                    := '0';
+    ethernetTXD     : out   std_logic_vector(7 downto 0) := (others => '0');
 
     -- DDR2 SDRAM on ATLYS Board
     ddr_s_dq     : inout std_logic_vector(15 downto 0) := (others => 'Z');
@@ -105,6 +124,7 @@ architecture logic of PlasmaTop is
   signal periph_dout       : std_logic_vector(31 downto 0);
   signal periph_re         : std_logic;
   signal periph_we         : std_logic;
+  signal periph_wbe        : std_logic_vector(3 downto 0);
   signal periph_irq        : std_logic;
   signal periph_din_debug  : std_logic_vector(31 downto 0);
   signal periph_addr_read  : std_logic_vector(31 downto 0);
@@ -116,6 +136,14 @@ architecture logic of PlasmaTop is
   signal uart_we   : std_logic;
   signal uart_dout : std_logic_vector(7 downto 0);
   signal uart_irq  : std_logic;
+
+  -- Ethernet
+  signal etherDin  : std_logic_vector(31 downto 0);
+  signal etherDout : std_logic_vector(31 downto 0) := (others => '0');
+  signal etherAddr : std_logic_vector(15 downto 0);
+  signal etherRe   : std_logic;
+  signal etherWbe  : std_logic_vector(3 downto 0);
+
 
   signal ex_ram_address  : std_logic_vector(31 downto 0);
   signal ex_ram_dout     : std_logic_vector(31 downto 0);
@@ -256,6 +284,7 @@ begin  --architecture
       ex_ram_en    => ex_ram_en,
       periph_dout  => periph_dout,
       periph_we    => periph_we,
+      periph_wbe   => periph_wbe,
       periph_re    => periph_re,
       periph_irq   => periph_irq,
       intr_vector  => INTERRUPT_VECTOR,
@@ -422,7 +451,7 @@ begin  --architecture
                         counter1_tc, cache_hitcount, cache_readcount,
                         flash_dq_in, flash_sclk, flash_tris, flash_cs,
                         fifoFull_i, fifoEmpty_i, fifoDout_i,
-                        ExBusDin)
+                        ExBusDin, etherDout)
   begin  -- process PERIPH_MUX
     if periph_address(31 downto UART_OFFSET'right) = UART_OFFSET then
       periph_dout <= ZEROS32(31 downto uart_dout'length) & uart_dout;
@@ -434,6 +463,8 @@ begin  --architecture
       periph_dout <= ZEROS32(31 downto buttons'length) & buttons_reg;
     elsif periph_address(31 downto PMOD_OFFSET'right) = PMOD_OFFSET then
       periph_dout <= ZEROS32(31 downto pmod'length) & pmod_reg;
+    elsif periph_address(31 downto ETHERNET_OFFSET'right) = ETHERNET_OFFSET then
+      periph_dout <= etherDout;
     elsif periph_address = RAND_ADDR then
       periph_dout <= rand_reg;
     elsif periph_address = IRQ_STATUS_ADDR then
@@ -728,6 +759,46 @@ begin  --architecture
     bypassRxWeToggle_sim <= uart_bypassRxWeToggle;
   end generate SIM;
 
+
+  -----------------------------------------------------------------------------
+  -- Ethernet
+  -----------------------------------------------------------------------------
+  DoEthernet : if includeEthernet = '1' generate
+
+    etherRe <= periph_re when
+               bus_address(31 downto ETHERNET_OFFSET'right) = ETHERNET_OFFSET
+               else '0';
+    etherWbe <= periph_wbe when
+                bus_address(31 downto ETHERNET_OFFSET'right) = ETHERNET_OFFSET
+                else X"0";
+
+    u10_ethernet : entity work.EthernetTop
+      port map (
+        clk_50          => clk_50,
+        reset_n         => reset_n_i,
+        ethernetMDIO    => ethernetMDIO,
+        ethernetMDC     => ethernetMDC,
+        ethernetINT_n   => ethernetINT_n,
+        ethernetRESET_n => ethernetRESET_n,
+        ethernetCOL     => ethernetCOL,
+        ethernetCRS     => ethernetCRS,
+        ethernetRXDV    => ethernetRXDV,
+        ethernetRXCLK   => ethernetRXCLK,
+        ethernetRXER    => ethernetRXER,
+        ethernetRXD     => ethernetRXD,
+        ethernetGTXCLK  => ethernetGTXCLK,
+        ethernetTXCLK   => ethernetTXCLK,
+        ethernetTXER    => ethernetTXER,
+        ethernetTXEN    => ethernetTXEN,
+        ethernetTXD     => ethernetTXD,
+        etherAddr       => bus_address(ETHERNET_OFFSET'right-1 downto 0),
+        etherDin        => bus_din,
+        etherDout       => etherDout,
+        etherRe         => etherRe,
+        etherWbe        => etherWbe
+        );
+
+  end generate DoEthernet;
 
 end;  --architecture logic
 

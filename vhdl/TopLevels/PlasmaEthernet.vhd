@@ -31,21 +31,24 @@ entity PlasmaEthernet is
     Uart_bypassRx         : in  std_logic_vector(7 downto 0);
     Uart_bypassRxWeToggle : in  std_logic;
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
-    Uart_bypassTxDv       : out std_logic;
+    Uart_bypassTxDvToggle : out std_logic;
 
-    FifoDin   : in  std_logic_vector(31 downto 0) := (others => '0');
-    FifoDout  : out std_logic_vector(31 downto 0);
-    FifoWe    : in  std_logic                     := '0';
-    FifoRe    : in  std_logic                     := '0';
-    FifoFull  : out std_logic;
-    FifoEmpty : out std_logic;
-    FifoClear : in  std_logic                     := '0';
-
-    ExBusDin  : in  std_logic_vector(31 downto 0) := (others => '0');
-    ExBusDout : out std_logic_vector(31 downto 0);
-    ExBusAddr : out std_logic_vector(31 downto 0);
-    ExBusRe   : out std_logic;
-    ExBusWe   : out std_logic;
+    -- Ethernet
+    ethernetMDIO    : inout std_logic                    := '0';
+    ethernetMDC     : out   std_logic                    := '0';
+    ethernetINT_n   : out   std_logic                    := '0';
+    ethernetRESET_n : out   std_logic                    := '1';
+    ethernetCOL     : in    std_logic                    := '0';
+    ethernetCRS     : in    std_logic                    := '0';
+    ethernetRXDV    : in    std_logic                    := '0';
+    ethernetRXCLK   : in    std_logic                    := '0';
+    ethernetRXER    : in    std_logic                    := '0';
+    ethernetRXD     : in    std_logic_vector(7 downto 0) := (others => '0');
+    ethernetGTXCLK  : out   std_logic                    := '0';
+    ethernetTXCLK   : in    std_logic                    := '0';
+    ethernetTXER    : out   std_logic                    := '0';
+    ethernetTXEN    : out   std_logic                    := '0';
+    ethernetTXD     : out   std_logic_vector(7 downto 0) := (others => '0');
 
     -- Flash
     FlashCLK   : out   std_logic;
@@ -78,47 +81,101 @@ end;
 
 architecture logic of PlasmaEthernet is
 
+  signal clk_50  : std_logic;
+  signal reset_n : std_logic;
 
+  signal FifoDin   : std_logic_vector(7 downto 0) := (others => '0');
+  signal FifoDout  : std_logic_vector(7 downto 0);
+  signal FifoWe    : std_logic                    := '0';
+  signal FifoRe    : std_logic                    := '0';
+  signal FifoFull  : std_logic;
+  signal FifoEmpty : std_logic;
+  signal FifoClear : std_logic                    := '0';
 
+  signal ExBusDin  : std_logic_vector(31 downto 0) := (others => '0');
+  signal ExBusDout : std_logic_vector(31 downto 0);
+  signal ExBusAddr : std_logic_vector(27 downto 0);
+  signal ExBusRe   : std_logic;
+  signal ExBusWe   : std_logic;
+
+  
 begin  --architecture
+
+  
+
+
+
 
   MCU : entity work.PlasmaTop
     generic map (
       uartLogFile     => uartLogFile,
       simulateRam     => simulateRam,
       simulateProgram => simulateProgram,
-      AtlysDDR        => '1')
+      includeEthernet => '1',
+      AtlysDDR        => '0')
     port map (
-      clk_100      => clk_100,
-      reset_ex_n   => reset_ex_n,
-      UartRx       => UartRx,
-      UartTx       => UartTx,
-      leds         => leds,
-      switches     => switches,
-      buttons      => buttons,
-      pmod         => pmod,
-      FlashClk     => FlashClk,
-      FlashCS      => FlashCS,
-      FlashTris    => FlashTris,
-      FlashMemDq   => FlashMemDq,
-      ddr_s_dq     => ddr_s_dq,
-      ddr_s_a      => ddr_s_a,
-      ddr_s_ba     => ddr_s_ba,
-      ddr_s_ras_n  => ddr_s_ras_n,
-      ddr_s_cas_n  => ddr_s_cas_n,
-      ddr_s_we_n   => ddr_s_we_n,
-      ddr_s_odt    => ddr_s_odt,
-      ddr_s_cke    => ddr_s_cke,
-      ddr_s_dm     => ddr_s_dm,
-      ddr_d_udqs   => ddr_d_udqs,
-      ddr_d_udqs_n => ddr_d_udqs_n,
-      ddr_s_rzq    => ddr_s_rzq,
-      ddr_s_zio    => ddr_s_zio,
-      ddr_s_udm    => ddr_s_udm,
-      ddr_d_dqs    => ddr_d_dqs,
-      ddr_d_dqs_n  => ddr_d_dqs_n,
-      ddr_d_ck     => ddr_d_ck,
-      ddr_d_ck_n   => ddr_d_ck_n);
+      clk_100               => clk_100,
+      reset_ex_n            => reset_ex_n,
+      sysClk                => clk_50,
+      reset_n               => reset_n,
+      UartRx                => UartRx,
+      UartTx                => UartTx,
+      Uart_bypassRx         => Uart_bypassRx,
+      Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
+      Uart_bypassTx         => Uart_bypassTx,
+      Uart_bypassTxDvToggle => Uart_bypassTxDvToggle,
+      leds                  => leds,
+      switches              => switches,
+      buttons               => buttons,
+      pmod                  => pmod,
+      FlashClk              => FlashClk,
+      FlashCS               => FlashCS,
+      FlashTris             => FlashTris,
+      FlashMemDq            => FlashMemDq,
+      FifoDin               => FifoDin,
+      FifoDout              => FifoDout,
+      FifoWe                => FifoWe,
+      FifoRe                => FifoRe,
+      FifoFull              => FifoFull,
+      FifoEmpty             => FifoEmpty,
+      ExBusDin              => ExBusDin,
+      ExBusDout             => ExBusDout,
+      ExBusAddr             => ExBusAddr,
+      ExBusRe               => ExBusRe,
+      ExBusWe               => ExBusWe,
+      ethernetMDIO          => ethernetMDIO,
+      ethernetMDC           => ethernetMDC,
+      ethernetINT_n         => ethernetINT_n,
+      ethernetRESET_n       => ethernetRESET_n,
+      ethernetCOL           => ethernetCOL,
+      ethernetCRS           => ethernetCRS,
+      ethernetRXDV          => ethernetRXDV,
+      ethernetRXCLK         => ethernetRXCLK,
+      ethernetRXER          => ethernetRXER,
+      ethernetRXD           => ethernetRXD,
+      ethernetGTXCLK        => ethernetGTXCLK,
+      ethernetTXCLK         => ethernetTXCLK,
+      ethernetTXER          => ethernetTXER,
+      ethernetTXEN          => ethernetTXEN,
+      ethernetTXD           => ethernetTXD,
+      ddr_s_dq              => ddr_s_dq,
+      ddr_s_a               => ddr_s_a,
+      ddr_s_ba              => ddr_s_ba,
+      ddr_s_ras_n           => ddr_s_ras_n,
+      ddr_s_cas_n           => ddr_s_cas_n,
+      ddr_s_we_n            => ddr_s_we_n,
+      ddr_s_odt             => ddr_s_odt,
+      ddr_s_cke             => ddr_s_cke,
+      ddr_s_dm              => ddr_s_dm,
+      ddr_d_udqs            => ddr_d_udqs,
+      ddr_d_udqs_n          => ddr_d_udqs_n,
+      ddr_s_rzq             => ddr_s_rzq,
+      ddr_s_zio             => ddr_s_zio,
+      ddr_s_udm             => ddr_s_udm,
+      ddr_d_dqs             => ddr_d_dqs,
+      ddr_d_dqs_n           => ddr_d_dqs_n,
+      ddr_d_ck              => ddr_d_ck,
+      ddr_d_ck_n            => ddr_d_ck_n);
 
 
 end;  --architecture logic

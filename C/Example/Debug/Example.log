@@ -1,4 +1,4 @@
-﻿Build started 14/10/2013 11:49:03 a.m..
+﻿Build started 24/10/2013 9:39:09 a.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -9,7 +9,8 @@
          ..\..\Tools\lib\boot_os.s:69: Warning: Macro instruction expanded into multiple instructions in branch delay slot
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
          Example.c: In function `main':
-         Example.c:70: warning: unused variable `len'
+         Example.c:120: warning: unused variable `len'
+         Example.c:119: warning: unused variable `i'
          ld.exe -Ttext 0x00000000 -e entry -Map Example_boot.map -s -N \
          		boot_os.o Example.o -o test.axf
          objdump.bat test.axf Example_boot.lst
@@ -17,7 +18,7 @@
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example_boot.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=2600=0xa28
+         Entry=0x0 length=3200=0xc80
          ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
          		code.txt ram_Example.vhd
          ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
@@ -30,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:03.70

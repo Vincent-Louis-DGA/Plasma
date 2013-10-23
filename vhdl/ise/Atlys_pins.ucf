@@ -60,3 +60,33 @@ NET "UartTx" LOC = "B16"; # Bank = 0, Pin name = IO_L66P_SCP1, Sch name = USBB-T
  NET "FlashMemDq<3>" LOC = "V14"; # Bank = 2, Pin name = IO_L12N_D2_MISO3_2, 		 Sch name = DQ3
 
 
+# Ethernet PHY
+NET "ethernetMDIO"	LOC = "N17";  
+NET "ethernetMDC" 	LOC = "F16";    
+NET "ethernetINT_n" 	LOC = "L16";
+NET "ethernetRESET_n" 	LOC = "G13";
+NET "ethernetCOL"	LOC = "C17";
+NET "ethernetCRS"     	LOC = "C18";
+NET "ethernetRXDV"    	LOC = "F17";
+NET "ethernetRXCLK"   	LOC = "K15";
+NET "ethernetRXER"    	LOC = "F18";
+NET "ethernetRXD<0>"   	LOC = "G16";
+NET "ethernetRXD<1>"   	LOC = "H14";
+NET "ethernetRXD<2>"   	LOC = "E16";
+NET "ethernetRXD<3>"   	LOC = "F15";
+NET "ethernetRXD<4>"   	LOC = "F14";
+NET "ethernetRXD<5>"   	LOC = "E18";
+NET "ethernetRXD<6>"   	LOC = "D16";
+NET "ethernetRXD<7>"   	LOC = "D17";
+NET "ethernetGTXCLK"  	LOC = "L12";
+NET "ethernetTXCLK"   	LOC = "K16";
+NET "ethernetTXER"    	LOC = "G18";
+NET "ethernetTXEN"    	LOC = "H15";
+NET "ethernetTXD<0>"   	LOC = "H16";
+NET "ethernetTXD<1>"   	LOC = "H13";
+NET "ethernetTXD<2>"   	LOC = "K14";
+NET "ethernetTXD<3>"   	LOC = "K13";
+NET "ethernetTXD<4>"   	LOC = "J13";
+NET "ethernetTXD<5>"   	LOC = "G14";
+NET "ethernetTXD<6>"   	LOC = "H12";
+NET "ethernetTXD<7>"   	LOC = "K12";

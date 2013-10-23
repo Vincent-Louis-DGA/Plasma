@@ -42,6 +42,7 @@ entity PlasmaCore is
 
        periph_dout : in  std_logic_vector(31 downto 0);
        periph_we   : out std_logic;
+       periph_wbe  : out std_logic_vector(3 downto 0);
        periph_re   : out std_logic;
        periph_irq  : in  std_logic;
 
@@ -89,6 +90,8 @@ begin  --architecture
 
   periph_we <= '1' when mem_address_reg(31 downto 29) = PERIPH_OFFSET
                and mem_wbe_reg /= "0000" else '0';
+  periph_wbe <= mem_wbe_reg when mem_address_reg(31 downto 29) = PERIPH_OFFSET
+                else X"0";
 
   periph_re <= '1' when (mem_address(31 downto 29) = PERIPH_OFFSET and
                          mem_wbe = X"0") else '0';
@@ -108,11 +111,11 @@ begin  --architecture
   begin  -- process REG_ADDR
     if reset = '1' then                 -- asynchronous reset (active high)
       --mem_address_reg <= (others => '0');
-      mem_pause_int   <= '0';
-      mem_wbe_reg     <= (others => '0');
-      ex_ram_en2      <= '0';
-      ex_ram_en1      <= '0';
-      ex_ram_addr     <= (others => '0');
+      mem_pause_int <= '0';
+      mem_wbe_reg   <= (others => '0');
+      ex_ram_en2    <= '0';
+      ex_ram_en1    <= '0';
+      ex_ram_addr   <= (others => '0');
     elsif rising_edge(clk) then         -- rising clock edge
       ex_ram_en1    <= '0';
       ex_ram_en2    <= '0';
@@ -199,7 +202,7 @@ begin  --architecture
         data_write        => in_ram_din,
         data_read         => in_ram_dout);
   end generate NOT_SIM;
-    SIM : if SIMULATION = '1' generate
+  SIM : if SIMULATION = '1' generate
     u2_prog_ram : entity work.ram_Program
       generic map (memory_type => memory_type)
       port map (

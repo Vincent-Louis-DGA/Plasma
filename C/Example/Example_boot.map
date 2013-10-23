@@ -15,7 +15,7 @@ Address of section .text set to 0x0
 LOAD boot_os.o
 LOAD Example.o
 
-.text           0x00000000      0x990
+.text           0x00000000      0xbd8
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x200 boot_os.o
@@ -28,11 +28,12 @@ LOAD Example.o
                 0x000001f4                OS_Syscall
                 0x00000064                OS_AsmInterruptEnable
                 0x00000058                OS_DefaultISR
- .text          0x00000200      0x790 Example.o
+ .text          0x00000200      0x9d8 Example.o
                 0x00000310                readChar
                 0x00000200                print
                 0x00000504                atoi_p
                 0x0000066c                itoa_p
+                0x00000894                EthernetExercise
                 0x00000440                xtoi
                 0x00000264                write
                 0x0000039c                strncmp_p
@@ -41,7 +42,7 @@ LOAD Example.o
                 0x000002c0                read
                 0x000004c4                dtoi
                 0x00000358                writeChar
-                0x00000894                main
+                0x00000ad0                main
                 0x0000079c                InterruptServiceRoutine
                 0x0000073c                itox
                 0x00000400                append
@@ -58,12 +59,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x00000990                _ecode=.
+                0x00000bd8                _ecode=.
 
-.reginfo        0x00000990       0x18
+.reginfo        0x00000bd8       0x18
  *(.reginfo)
- .reginfo       0x00000990       0x18 boot_os.o
- .reginfo       0x000009a8       0x18 Example.o
+ .reginfo       0x00000bd8       0x18 boot_os.o
+ .reginfo       0x00000bf0       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -83,25 +84,25 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x000009a8       0x79
+.rodata         0x00000bf0       0x89
  *(.rodata)
- .rodata        0x000009a8       0x79 Example.o
+ .rodata        0x00000bf0       0x89 Example.o
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x00000a21                _etext=.
-                0x00000a21                PROVIDE (etext, .)
+                0x00000c79                _etext=.
+                0x00000c79                PROVIDE (etext, .)
 
-.data           0x00000a21        0x0
-                0x00000a21                _fdata=.
+.data           0x00000c79        0x0
+                0x00000c79                _fdata=.
  *(.data)
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x00008a11                _gp=(.+0x7ff0)
+                0x00008c69                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -109,29 +110,29 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata          0x00000a24        0x4
+.sdata          0x00000c7c        0x4
  *(.sdata)
- .sdata         0x00000a24        0x4 Example.o
-                0x00000a24                count
+ .sdata         0x00000c7c        0x4 Example.o
+                0x00000c7c                count
  *(.gnu.linkonce.s*)
-                0x00000a28                _edata=.
-                0x00000a28                PROVIDE (edata, .)
-                0x00000a28                .=ALIGN(0x8)
-                0x00000a28                __bss_start=.
-                0x00000a28                _fbss=__bss_start
+                0x00000c80                _edata=.
+                0x00000c80                PROVIDE (edata, .)
+                0x00000c80                .=ALIGN(0x8)
+                0x00000c80                __bss_start=.
+                0x00000c80                _fbss=__bss_start
 
-.sbss           0x00000a28        0x4
+.sbss           0x00000c80        0x4
  *(.sbss)
  *(.scommon)
- .scommon       0x00000a28        0x4 Example.o
-                0x00000a28                heap
+ .scommon       0x00000c80        0x4 Example.o
+                0x00000c80                heap
 
-.bss            0x00000a2c        0x0
+.bss            0x00000c84        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
-                0x00000a2c                _end=.
-                0x00000a2c                PROVIDE (end, .)
+                0x00000c84                _end=.
+                0x00000c84                PROVIDE (end, .)
 
 .stab
  *(.stab)

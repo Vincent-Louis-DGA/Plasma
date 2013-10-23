@@ -87,7 +87,7 @@ begin  --architecture
       uartLogFile     => uartLogFile,
       simulateRam     => simulateRam,
       simulateProgram => simulateProgram,
-      AtlysDDR        => '1')
+      AtlysDDR        => '0')
     port map (
       clk_100      => clk_100,
       reset_ex_n   => reset_ex_n,

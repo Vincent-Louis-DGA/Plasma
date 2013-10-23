@@ -15,6 +15,7 @@ package plasmaPeriphRegisters is
   constant INTERRUPT_VECTOR : std_logic_vector(31 downto 0) := X"00000080";
   
   constant UART_OFFSET : std_logic_vector(31 downto 6) := X"200000" & "00";
+  constant ETHERNET_OFFSET : std_logic_vector(31 downto 16) := X"2001";
 
   constant IRQ_STATUS_ADDR     : std_logic_vector(31 downto 0) := X"20000040";
   constant IRQ_STATUS_CLR_ADDR : std_logic_vector(31 downto 0) := X"20000044";
