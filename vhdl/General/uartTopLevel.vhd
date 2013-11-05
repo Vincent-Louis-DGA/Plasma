@@ -275,13 +275,11 @@ begin  -- logic
           c     := character'val(index);
           write(store_file, c);
           if index /= 10 and index /= 13 then
-            --write(hex_file_line, c);
             write(console_line, c);
             line_length := line_length + 1;
           end if;
           if index = 10 or line_length >= 72 then
             writeline(output, console_line);
-            --writeline(store_file, hex_file_line);
             line_length := 0;
           end if;
         end if;  -- tx_fifo_we

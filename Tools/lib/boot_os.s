@@ -55,7 +55,7 @@ $BSS_CLEAR:
    nop
 $L1:
    j $L1
-
+   nop
    .end entry
 
 ###################################################
@@ -78,11 +78,9 @@ OS_GetHeap:
    .global OS_DefaultISR
    .ent OS_DefaultISR
 OS_DefaultISR:
-   .set noreorder
 	lui	$2,0x2000
 	jr	$31
 	sw	$4,IRQ_STATUS_CLR($2)
-   .set reorder
    .end OS_DefaultISR
 
 

@@ -88,10 +88,10 @@ void ElfReadFileHeader(char * buffer, Elf32_Fhdr * fhdr)
 int IsInvalidElfFile(char * buffer)
 {
 	Elf_HeaderId id;
-	id.magicNumber = CHAR_TO_INT32(buffer,0);//(buffer[0]<<24)+(buffer[1]<<16)+(buffer[2]<<8)+buffer[3];
+	id.magicNumber = CHAR_TO_INT32(buffer,0);
 	id.bitFormat = buffer[4];
 	id.endianness = buffer[5];
-	id.architecture = CHAR_TO_INT16(buffer,0x12);//(buffer[0x12]<<8)+buffer[0x13];
+	id.architecture = CHAR_TO_INT16(buffer,0x12);
 	if(id.magicNumber != ExpectedMipsHeader.magicNumber)
 		return ERR_MAGIC_NUM;
 	if(id.bitFormat != ExpectedMipsHeader.bitFormat)

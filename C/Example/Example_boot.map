@@ -3,6 +3,7 @@ Allocating common symbols
 Common symbol       size              file
 
 heap                0x4               Example.o
+transactionId       0x4               Example.o
 
 Memory Configuration
 
@@ -15,38 +16,60 @@ Address of section .text set to 0x0
 LOAD boot_os.o
 LOAD Example.o
 
-.text           0x00000000      0xbd8
+.text           0x00000000     0x16bc
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x200 boot_os.o
                 0x000001a8                longjmp
                 0x00000000                entry
                 0x00000170                setjmp
-                0x00000048                OS_GetHeap
+                0x0000004c                OS_GetHeap
                 0x000001e0                OS_AsmMult
                 0x00000080                interrupt_service_routine
                 0x000001f4                OS_Syscall
-                0x00000064                OS_AsmInterruptEnable
-                0x00000058                OS_DefaultISR
- .text          0x00000200      0x9d8 Example.o
+                0x00000068                OS_AsmInterruptEnable
+                0x0000005c                OS_DefaultISR
+ .text          0x00000200     0x14bc Example.o
+                0x00000e34                EthernetSetTxMacDest
                 0x00000310                readChar
+                0x00000a80                EthernetInterruptHandler
+                0x00000df0                Checksum16
                 0x00000200                print
                 0x00000504                atoi_p
                 0x0000066c                itoa_p
-                0x00000894                EthernetExercise
+                0x00000ecc                CreatePingRequest
+                0x0000155c                ProcessEthernetPacket
+                0x0000112c                DoDhcp
+                0x00001298                EthernetExercise
                 0x00000440                xtoi
                 0x00000264                write
+                0x000009e0                ProcessIcmpPacket
+                0x00000e50                FillIpHeader
+                0x00000a00                ProcessTcpPacket
                 0x0000039c                strncmp_p
-                0x00000848                StackExercise
+                0x00000878                StackExercise
                 0x00000238                printLine
+                0x00000a20                ProcessUdpPacket
                 0x000002c0                read
+                0x00000a40                DefaultProcessIpPacket
+                0x00000a60                ProcessArpPacket
                 0x000004c4                dtoi
                 0x00000358                writeChar
-                0x00000ad0                main
-                0x0000079c                InterruptServiceRoutine
+                0x00000f8c                CreateUdpPacket
+                0x000013b0                main
+                0x000007cc                InterruptServiceRoutine
+                0x00000c74                CharToIp
+                0x0000101c                CreateDhcpDiscover
                 0x0000073c                itox
+                0x000014b8                ProcessIpPacket
+                0x0000079c                byteToHex
+                0x00000d00                IpToHex
+                0x000008c4                CreateIpFilter
                 0x00000400                append
-                0x000007c4                HeapExercise
+                0x00000954                ProcessDhcpPacket
+                0x00000d7c                EthernetInit
+                0x000008e8                PassesIpFilter
+                0x000007f4                HeapExercise
                 0x0000048c                btoi
  *(.stub)
  *(.gnu.warning)
@@ -59,12 +82,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x00000bd8                _ecode=.
+                0x000016bc                _ecode=.
 
-.reginfo        0x00000bd8       0x18
+.reginfo        0x000016bc       0x18
  *(.reginfo)
- .reginfo       0x00000bd8       0x18 boot_os.o
- .reginfo       0x00000bf0       0x18 Example.o
+ .reginfo       0x000016bc       0x18 boot_os.o
+ .reginfo       0x000016d4       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -84,25 +107,29 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x00000bf0       0x89
+.rodata         0x000016d4       0x9d
  *(.rodata)
- .rodata        0x00000bf0       0x89 Example.o
+ .rodata        0x000016d4       0x9d Example.o
+                0x00001720                HexDigits
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x00000c79                _etext=.
-                0x00000c79                PROVIDE (etext, .)
+                0x00001771                _etext=.
+                0x00001771                PROVIDE (etext, .)
 
-.data           0x00000c79        0x0
-                0x00000c79                _fdata=.
+.data           0x00001771        0xf
+                0x00001771                _fdata=.
  *(.data)
+ *fill*         0x00001771        0x3
+ .data          0x00001774        0xc Example.o
+                0x00001774                ipFilter
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x00008c69                _gp=(.+0x7ff0)
+                0x00009770                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -110,29 +137,36 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata          0x00000c7c        0x4
+.sdata          0x00001780       0x1c
  *(.sdata)
- .sdata         0x00000c7c        0x4 Example.o
-                0x00000c7c                count
+ .sdata         0x00001780       0x1c Example.o
+                0x00001788                IrqVectorReg
+                0x00001794                ipLease
+                0x00001784                IrqStatusClrReg
+                0x00001798                ownIpAddress
+                0x0000178c                IrqMaskReg
+                0x00001790                count
+                0x00001780                IrqStatusReg
  *(.gnu.linkonce.s*)
-                0x00000c80                _edata=.
-                0x00000c80                PROVIDE (edata, .)
-                0x00000c80                .=ALIGN(0x8)
-                0x00000c80                __bss_start=.
-                0x00000c80                _fbss=__bss_start
+                0x0000179c                _edata=.
+                0x0000179c                PROVIDE (edata, .)
+                0x000017a0                .=ALIGN(0x8)
+                0x0000179c                __bss_start=.
+                0x000017a0                _fbss=__bss_start
 
-.sbss           0x00000c80        0x4
+.sbss           0x000017a0        0x8
  *(.sbss)
  *(.scommon)
- .scommon       0x00000c80        0x4 Example.o
-                0x00000c80                heap
+ .scommon       0x000017a0        0x8 Example.o
+                0x000017a0                heap
+                0x000017a4                transactionId
 
-.bss            0x00000c84        0x0
+.bss            0x000017a8        0x0
  *(.dynbss)
  *(.bss)
  *(COMMON)
-                0x00000c84                _end=.
-                0x00000c84                PROVIDE (end, .)
+                0x000017a8                _end=.
+                0x000017a8                PROVIDE (end, .)
 
 .stab
  *(.stab)

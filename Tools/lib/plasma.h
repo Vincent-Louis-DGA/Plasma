@@ -19,10 +19,15 @@ extern int OS_AsmInterruptEnable(int enable);
 
 #define UART_OFFSET		(PERIPH_BASE+	0x00)
 
+
 #define IRQ_STATUS		(PERIPH_BASE+	0x40)
+unsigned int* IrqStatusReg = (unsigned int*)IRQ_STATUS;
 #define IRQ_STATUS_CLR	(PERIPH_BASE+	0x44)
+unsigned int* IrqStatusClrReg = (unsigned int*)IRQ_STATUS_CLR;
 #define IRQ_VECTOR		(PERIPH_BASE+	0x4C)
+unsigned int* IrqVectorReg = (unsigned int*)IRQ_VECTOR;
 #define IRQ_MASK		(PERIPH_BASE+	0x50)
+unsigned int* IrqMaskReg = (unsigned int*)IRQ_MASK;
 #define IRQ_MASK_SET	(PERIPH_BASE+	0x54)
 #define IRQ_MASK_CLR	(PERIPH_BASE+	0x58)
 

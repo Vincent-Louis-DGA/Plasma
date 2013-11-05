@@ -23,6 +23,8 @@ int main(void) {
 
 
 
+
+
 #include <plasma.h>
 #include <plasma_stdio.h>
 #include <plasma_string.h>
@@ -34,7 +36,9 @@ void InterruptServiceRoutine(int status)
 	count++;
 	MemoryWrite(IRQ_STATUS_CLR,status);
 	MemoryWrite(LEDS_OUT, count);
+	
 }
+
 
 
 int * heap;
@@ -64,62 +68,14 @@ void StackExercise(int g)
 		StackExercise(g+1);
 }
 
-#define ETHER_WRITE 0x20010000
-#define ETHER_RD_AD 0x20010004
-#define ETHER_READ	0x20010008
-#define ETHER_STATUS 0x2001000C
-#define ETHER_TX_PRD 0x20010010
-#define ETHER_RX_PRD 0x20010014
-#define ETHER_RXD	0x20010020
-
-void EthernetExercise(char * buffer)
-{
-	int i, s, len;
-
-	buffer[0] = ' ';
-	buffer[1] = ' ';
-	buffer[2] = ' ';
-
-	for(i = 0; i < 2; i++)
-	{
-
-	while((MemoryRead(ETHER_STATUS) & 1) == 0);
-	MemoryWrite(ETHER_RD_AD, i << 24);
-	while((MemoryRead(ETHER_STATUS) & 1) == 0);
-	s = MemoryRead(ETHER_READ);
-	
-	len = itoa_p(i, buffer, 16);
-	buffer[len] = ' ';
-	itoa_p(s, buffer+3, 16);
-	printLine(buffer);
-	
-	}
-
-	s = MemoryRead(ETHER_TX_PRD);
-	itoa_p((s*625)>>5, buffer, 10);
-	print("TxPrd ");
-	printLine(buffer);
-	s = MemoryRead(ETHER_RX_PRD);
-	itoa_p((s*625)>>5, buffer, 10);
-	print("RxPrd ");
-	printLine(buffer);
-
-	MemoryWrite(ETHER_STATUS, 0x8); // RxFifoClear
-	while(UART_TX_RDY)
-	{
-		while((MemoryRead(ETHER_STATUS) & 2) != 0);
-		s = MemoryRead(ETHER_RXD);
-		writeChar(s);
-	}
-}
-
+#include "Ethernet.c"
 
 int main(void)
 {
 	int s,i;
-	int len = 0;
 	char buffer [64];
 	
+
 	EthernetExercise(buffer);
 
 	

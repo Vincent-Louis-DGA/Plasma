@@ -3,6 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 use work.plasmaPeriphRegisters.all;
+use work.EthernetRegisters.all;
+use work.EthernetTestPackets.all;
 
 entity PlasmaEthernet_tb is
 
@@ -43,14 +45,14 @@ architecture testbench of PlasmaEthernet_tb is
   signal ethernetTXEN    : std_logic;
   signal ethernetTXD     : std_logic_vector(7 downto 0);
 
-  type Vector8 is array (natural range <>) of std_logic_vector(7 downto 0);
-  signal ArpPacket : Vector8(0 to 75) := (
-    X"55", X"55", X"55", X"55", X"55", X"55", X"55", X"5D",
-    X"70", X"f3", X"95", X"00", X"72", X"1f", X"30", X"f7", X"0d", X"ef", X"01", X"4e", X"08", X"06", X"00", X"01",
-    X"08", X"00", X"06", X"04", X"00", X"02", X"30", X"f7", X"0d", X"ef", X"01", X"4e", X"c0", X"a8", X"68", X"fe",
-    X"70", X"f3", X"95", X"00", X"72", X"1f", X"c0", X"a8", X"68", X"40", X"00", X"00", X"00", X"00", X"00", X"00",
-    X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00",
-    X"AB", X"CD", X"EF", X"89");
+  -- Ethernet TX Source
+  signal clk_50     : std_logic                     := '0';
+  signal etherDin2  : std_logic_vector(31 downto 0) := (others => '0');
+  signal etherDout2 : std_logic_vector(31 downto 0);
+  signal etherAddr2 : std_logic_vector(15 downto 0) := (others => '0');
+  signal etherRe2   : std_logic                     := '0';
+  signal etherWbe2  : std_logic_vector(3 downto 0)  := (others => '0');
+
 
 begin  -- testbench
 
@@ -97,50 +99,73 @@ begin  -- testbench
       ethernetTXD     => ethernetTXD
       );
 
+  
+
   clk_100       <= not clk_100       after 5 ns;
+  clk_50        <= not clk_50        after 10 ns;
   ethernetRXCLK <= not ethernetRXCLK after 4 ns;
   ethernetTXCLK <= not ethernetTXCLK after 20 ns;
   switches      <= X"03";
 
 
-  TB : process
+  UUT2 : entity work.EthernetTop
+    port map (
+      clk_50        => clk_50,
+      reset_n       => reset_ex_n,
+      ethernetRXCLK => ethernetRXCLK,
+      ethernetTXCLK => ethernetTXCLK,
+      ethernetTXD   => ethernetRXD,
+      ethernetTXEN  => ethernetRXDV,
+      etherAddr     => etherAddr2,
+      etherDin      => etherDin2,
+      etherDout     => etherDout2,
+      etherRe       => etherRe2,
+      etherWbe      => etherWbe2);
+
+  tb : process
+  begin  -- process tb
+    wait until reset_ex_n = '1';
+    wait for 200 ns;
+    
+    CpuWrite(X"000070F3", ETHER_MAC_HIGH, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00009500", ETHER_MAC_MID, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"0000721F", ETHER_MAC_LOW, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00000800", TX_ETHERTYPE, clk_50, etherDin2, etherWbe2, etherAddr2);
+    wait for 5 us;
+
+    CpuSendPacket(PingRequest,clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    wait for 5 us;
+
+    CpuWrite(X"0000020A", TX_DEST_MAC_HIGH, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00003544", TX_DEST_MAC_MID, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00005441", TX_DEST_MAC_LOW, clk_50, etherDin2, etherWbe2, etherAddr2);
+
+    wait for 15 us;
+    CpuSendPacket(ShortPacket, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+
+    wait for 20 us;
+    CpuSendPacket(PingRequest, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+
+    wait for 20 us;
+    CpuSendPacket(ArpPacket, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    wait for 20 us;
+    CpuSendPacket(UdpPacket16, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    wait for 20 us;
+    CpuSendPacket(UdpPacket16, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+
+
+    wait;
+  end process tb;
+
+  RX_TB : process
   begin  -- process TB
     reset_ex_n <= '0';
     buttons    <= (others => '0');
     wait for 100 ns;
     reset_ex_n <= '1';
 
-    wait for 20 us;
-    buttons <= "00001";
-    wait for 20 us;
-    buttons <= "00000";
-    wait for 20 us;
-    buttons <= "00001";
     wait;
-  end process TB;
+  end process RX_TB;
 
-  SEND_TO_RX : process
-  begin  -- process SEND_TO_RX
-    ethernetRXDV <= '0';
-    ethernetRXD  <= (others => 'U');
-    wait for 1 us;
-
-    for i in 0 to ArpPacket'right loop
-      
-      wait until ethernetRXCLK = '1';
-      wait for 0.5 ns;
-      ethernetRXD  <= (others => 'U');
-      ethernetRXDV <= '1';
-      wait for 5 ns;
-      ethernetRXD  <= ArpPacket(i);
-      
-    end loop;  -- i
-    wait until ethernetRXCLK = '1';
-    wait for 0.5 ns;
-    ethernetRXDV <= '0';
-    ethernetRXD  <= (others => 'U');
-
-    wait for 2 us;
-  end process SEND_TO_RX;
   
 end testbench;

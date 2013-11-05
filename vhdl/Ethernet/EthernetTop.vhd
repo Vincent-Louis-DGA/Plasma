@@ -2,6 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
+use work.EthernetRegisters.all;
+
 entity EthernetTop is
   
   port (
@@ -25,12 +27,14 @@ entity EthernetTop is
     ethernetTXEN    : out   std_logic                    := '0';
     ethernetTXD     : out   std_logic_vector(7 downto 0) := (others => '0');
 
-    -- Ex Bus
+    -- Cpu Bus
     etherDin  : in  std_logic_vector(31 downto 0) := (others => '0');
     etherDout : out std_logic_vector(31 downto 0);
     etherAddr : in  std_logic_vector(15 downto 0);
     etherRe   : in  std_logic;
-    etherWbe  : in  std_logic_vector(3 downto 0)
+    etherWbe  : in  std_logic_vector(3 downto 0);
+
+    etherIrq : out std_logic
     );
 
 end EthernetTop;
@@ -47,20 +51,12 @@ architecture rtl of EthernetTop is
   signal eReadData  : std_logic_vector(15 downto 0);
   signal eWriteData : std_logic_vector(15 downto 0);
 
-  signal etherConDout : std_logic_vector(31 downto 0);
-  signal etherAddrReg : std_logic_vector(15 downto 0);
-  signal etherRxDout : std_logic_vector(31 downto 0);
-  signal etherTxDout : std_logic_vector(31 downto 0);
-
-  constant ETHER_MDIO_WR_ADDR : std_logic_vector(15 downto 0) := X"0000";
-  constant ETHER_MDIO_RE_ADDR : std_logic_vector(15 downto 0) := X"0004";
-  constant ETHER_MDIO_RD_ADDR : std_logic_vector(15 downto 0) := X"0008";
-  constant ETHER_STATUS_ADDR  : std_logic_vector(15 downto 0) := X"000C";
-
-
-  constant ETHER_RX_PRD   : std_logic_vector(15 downto 0) := X"0014";
-  constant ETHER_TX_PRD   : std_logic_vector(15 downto 0) := X"0010";
-  constant ETHER_RXD_ADDR : std_logic_vector(15 downto 0) := X"0020";
+  signal etherConDout   : std_logic_vector(31 downto 0);
+  signal etherAddrReg   : std_logic_vector(15 downto 0);
+  signal etherRxConDout : std_logic_vector(31 downto 0);
+  signal etherTxConDout : std_logic_vector(31 downto 0);
+  signal etherRxDout    : std_logic_vector(31 downto 0);
+  signal etherTxDout    : std_logic_vector(31 downto 0);
 
 
   signal rxClk1024   : std_logic;
@@ -72,17 +68,10 @@ architecture rtl of EthernetTop is
   signal rxClkPeriod : std_logic_vector(31 downto 0);
   signal txClkPeriod : std_logic_vector(31 downto 0);
 
+  signal MacHigh : std_logic_vector(15 downto 0);
+  signal MacMid  : std_logic_vector(15 downto 0);
+  signal MacLow  : std_logic_vector(15 downto 0);
 
-
-  signal rxFifoWe    : std_logic;
-  signal rxFifoRe    : std_logic;
-  signal rxFifoEmpty : std_logic;
-  signal rxFifoDin   : std_logic_vector(7 downto 0);
-  signal rxFifoDout  : std_logic_vector(7 downto 0);
-  signal rxFifoReset : std_logic;
-
-  type   STATE is (interframe, preamble, data, check, done);
-  signal RxState : STATE := interframe;
   
 begin  -- rtl
   
@@ -137,37 +126,6 @@ begin  -- rtl
   end process;
 
 
-  RXD_REG : process (ethernetRXCLK, reset_n)
-  begin  -- process RXD_REG
-    if reset_n = '0' then                  -- asynchronous reset (active low)
-      rxFifoWe  <= '0';
-      rxFifoDin <= (others => '0');
-      RxState   <= interframe;
-    elsif rising_edge(ethernetRXCLK) then  -- rising clock edge
-      rxFifoWe <= '0';
-
-      if ethernetRXDV = '1' then
-        case RxState is
-          when interframe =>
-            RxState <= preamble;
-          when preamble =>
-            if ethernetRXD = X"5D" then
-              RxState <= data;
-            end if;
-          when data =>
-            rxFifoWe  <= ethernetRXDV;
-            rxFifoDin <= ethernetRXD;
-          when others =>
-            RxState <= interframe;
-        end case;
-        
-      else
-        RxState <= interframe;
-      end if;
-
-    end if;
-  end process RXD_REG;
-
   etherWe <= '0' when etherWbe = X"0" else '1';
 
   CPU_BUS : process (clk_50, reset_n)
@@ -178,54 +136,100 @@ begin  -- rtl
       eWe          <= '0';
       eRe          <= '0';
       etherConDout <= (others => '0');
-      rxFifoReset  <= '0';
-      rxFifoRe     <= '0';
       etherAddrReg <= (others => '0');
+      MacHigh      <= DEFAULT_ETHER_MAC(47 downto 32);
+      MacMid       <= DEFAULT_ETHER_MAC(31 downto 16);
+      MacLow       <= DEFAULT_ETHER_MAC(15 downto 0);
     elsif rising_edge(clk_50) then      -- rising clock edge
       eWe          <= '0';
       eRe          <= '0';
-      rxFifoReset  <= '0';
-      rxFifoRe     <= '0';
-      etherAddrReg <= etherAddr;
+      etherAddrReg <= etherAddr(15 downto 0);
       if etherWe = '1' then
-        case etherAddr is
-          when ETHER_MDIO_WR_ADDR =>
+        case etherAddr(15 downto 0) is
+          when MDIO_WRITE_ADDR =>
             eWriteData <= etherDin(15 downto 0);
             eAddr      <= etherDin(28 downto 24);
             eWe        <= '1';
-          when ETHER_MDIO_RE_ADDR =>
+          when MDIO_READADDR_ADDR =>
             eAddr <= etherDin(28 downto 24);
             eRe   <= '1';
-          when ETHER_STATUS_ADDR =>
-            rxFifoReset <= etherDin(3);
+            
+          when ETHER_MAC_LOW  => MacLow  <= etherDin(15 downto 0);
+          when ETHER_MAC_MID  => MacMid  <= etherDin(15 downto 0);
+          when ETHER_MAC_HIGH => MacHigh <= etherDin(15 downto 0);
+
           when others => null;
         end case;
       end if;
-      case etherAddr is
-        when ETHER_MDIO_RD_ADDR => etherConDout <= X"0000" & eReadData;
-        when ETHER_STATUS_ADDR  => etherConDout <= X"0000000" & "00"
-                                                   & rxFifoEmpty & eRts;
-        when ETHER_TX_PRD   => etherConDout <= txClkPeriod;
-        when ETHER_RX_PRD   => etherConDout <= rxClkPeriod;
-        when ETHER_RXD_ADDR =>
-          etherConDout <= X"000000" & rxFifoDout;
-          rxFifoRe     <= etherRe;
-        when others => null;
+      case etherAddr(15 downto 0) is
+        when MDIO_READ_ADDR => etherConDout <= X"0000" & eReadData;
+        when STATUS_ADDR    => etherConDout <= X"0000000" & "000" & eRts;
+        when TX_PRD         => etherConDout <= txClkPeriod;
+        when RX_PRD         => etherConDout <= rxClkPeriod;
+
+        when ETHER_MAC_LOW  => etherConDout <= X"0000" & MacLow;
+        when ETHER_MAC_MID  => etherConDout <= X"0000" & MacMid;
+        when ETHER_MAC_HIGH => etherConDout <= X"0000" & MacHigh;
+        when others         => null;
       end case;
     end if;
   end process CPU_BUS;
 
-  CPU_DOUT : process (etherAddrReg, etherConDout, etherRxDout, etherTxDout)
+  CPU_DOUT : process (etherAddrReg, etherConDout, etherRxDout, etherTxDout,
+                      etherRxConDout, etherTxConDout)
   begin  -- process CPU_DOUT
-    if etherAddrReg(15 downto 14) = "00" then
+    if etherAddrReg(15 downto ETHER_RXCON_OFFSET'right) = ETHER_RXCON_OFFSET then
+      etherDout <= etherRxConDout;
+    elsif etherAddrReg(15 downto ETHER_TXCON_OFFSET'right) = ETHER_TXCON_OFFSET then
+      etherDout <= etherTxConDout;
+    elsif etherAddrReg(15 downto ETHER_CON_OFFSET'right) = ETHER_CON_OFFSET then
       etherDout <= etherConDout;
-    elsif etherAddrReg(15 downto 14) = "01" then
+    elsif etherAddrReg(15 downto ETHER_TXBUF_OFFSET'right) = ETHER_TXBUF_OFFSET then
       etherDout <= etherTxDout;
     else
       etherDout <= etherRxDout;
     end if;
   end process CPU_DOUT;
 
+
+  RXD_IF : entity work.EthernetRx
+    port map (
+      clk_50         => clk_50,
+      reset_n        => reset_n,
+      ethernetRXDV   => ethernetRXDV,
+      ethernetRXCLK  => ethernetRXCLK,
+      ethernetRXER   => ethernetRXER,
+      ethernetRXD    => ethernetRXD,
+      etherDin       => etherDin,
+      etherRxDout    => etherRxDout,
+      etherRxConDout => etherRxConDout,
+      etherAddr      => etherAddr,
+      etherRe        => etherRe,
+      etherWbe       => etherWbe,
+      etherIrq       => etherIrq,
+      MacHigh        => MacHigh,
+      MacMid         => MacMid,
+      MacLow         => MacLow);
+
+
+  TXD_IF : entity work.EthernetTx
+    port map (
+      clk_50         => clk_50,
+      reset_n        => reset_n,
+      ethernetTXEN   => ethernetTXEN,
+      ethernetTXCLK  => ethernetRXCLK,
+      ethernetGTXCLK => ethernetGTXCLK,
+      ethernetTXER   => ethernetTXER,
+      ethernetTXD    => ethernetTXD,
+      etherDin       => etherDin,
+      etherTxDout    => etherTxDout,
+      etherTxConDout => etherTxConDout,
+      etherAddr      => etherAddr,
+      etherRe        => etherRe,
+      etherWbe       => etherWbe,
+      MacHigh        => MacHigh,
+      MacMid         => MacMid,
+      MacLow         => MacLow);
 
   MDIO_IF : entity work.EthernetMDIO
     port map (
@@ -240,19 +244,7 @@ begin  -- rtl
       re        => eRe,
       rts       => eRts);
 
-  
-  
 
-  RX_FIFO : entity work.fallThroughFifo2048x8
-    port map (
-      rst    => rxFifoReset,
-      wr_clk => ethernetRXCLK,
-      rd_clk => clk_50,
-      din    => rxFifoDin,
-      wr_en  => rxFifoWe,
-      rd_en  => rxFifoRe,
-      dout   => rxFifoDout,
-      full   => open,
-      empty  => rxFifoEmpty);
+
 
 end rtl;

@@ -138,12 +138,12 @@ architecture logic of PlasmaTop is
   signal uart_irq  : std_logic;
 
   -- Ethernet
-  signal etherDin  : std_logic_vector(31 downto 0);
+  --signal etherDin  : std_logic_vector(31 downto 0);
   signal etherDout : std_logic_vector(31 downto 0) := (others => '0');
-  signal etherAddr : std_logic_vector(15 downto 0);
+  --signal etherAddr : std_logic_vector(15 downto 0);
   signal etherRe   : std_logic;
   signal etherWbe  : std_logic_vector(3 downto 0);
-
+  signal etherIrq  : std_logic                     := '0';
 
   signal ex_ram_address  : std_logic_vector(31 downto 0);
   signal ex_ram_dout     : std_logic_vector(31 downto 0);
@@ -563,6 +563,8 @@ begin  --architecture
         irq_status(1) <= '1';
       end if;
 
+      irq_status(2) <= etherIrq;
+
       if periph_we = '1' then
         case bus_address is
           when IRQ_STATUS_ADDR     => irq_status  <= bus_din;
@@ -795,7 +797,8 @@ begin  --architecture
         etherDin        => bus_din,
         etherDout       => etherDout,
         etherRe         => etherRe,
-        etherWbe        => etherWbe
+        etherWbe        => etherWbe,
+        etherIrq        => etherIrq
         );
 
   end generate DoEthernet;

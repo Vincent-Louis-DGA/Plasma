@@ -139,6 +139,7 @@ int itoa_p(int value, char* result, int base) {
 	return ret;
 }
 
+const char HexDigits [] = "0123456789ABCDEF";
 
 // Convert integer to hex string
 int itox(unsigned int value, char* result)
@@ -151,9 +152,18 @@ int itox(unsigned int value, char* result)
 	for(m = 28; m >= 0; m-=4)
 	{
 		v = ((value & (0xF << m)) >> m);
-		result[ret++] = "0123456789ABCDEF"[(unsigned int)v];
+		result[ret++] = HexDigits[(unsigned int)v];
 	}
 	result[ret] = 0;
 	return ret;
+}
+
+void byteToHex(char value, char* result)
+{
+	unsigned char v;
+	v = (value >> 4) & 0xF;
+	result[0] = HexDigits[v];
+	v = (value) & 0xF;
+	result[1] = HexDigits[v];
 }
 

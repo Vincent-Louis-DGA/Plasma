@@ -110,7 +110,7 @@ begin  --architecture
   REGISTERS : process (clk, reset)
   begin  -- process REG_ADDR
     if reset = '1' then                 -- asynchronous reset (active high)
-      --mem_address_reg <= (others => '0');
+      mem_address_reg <= (others => '0');
       mem_pause_int <= '0';
       mem_wbe_reg   <= (others => '0');
       ex_ram_en2    <= '0';

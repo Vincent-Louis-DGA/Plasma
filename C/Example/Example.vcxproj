@@ -52,6 +52,7 @@
     <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ethernet.c" />
     <ClCompile Include="Example.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

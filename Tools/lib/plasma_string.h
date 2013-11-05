@@ -19,6 +19,7 @@ int itoa_p(int value, char * result, int base);
 	Expect it to be faster than itoa, since it uses bit masks and shifts instead of division */
 int itox(unsigned int value, char * result);	
 int btox(char value, char* result);
+void byteToHex(char value, char * result);
 
 #include <plasma_string.c>
 
