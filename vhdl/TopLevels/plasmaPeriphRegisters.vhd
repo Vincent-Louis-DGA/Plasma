@@ -48,6 +48,8 @@ package plasmaPeriphRegisters is
   constant LOGIC_AN_CON_ADDR : std_logic_vector(31 downto 0)  := X"21000000";
   constant LOGIC_AN_OFFSET   : std_logic_vector(31 downto 16) := X"2200";
 
+  constant ROMEM_GUARD_ADDR : std_logic_vector(31 downto 0) := X"2ABCDEF0";
+  
   constant EX_BUS_OFFSET : std_logic_vector(31 downto 28) := X"3";
 
 

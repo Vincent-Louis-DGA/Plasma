@@ -3,6 +3,7 @@
 
 #include <plasma.h>
 #include <plasma_stdio.h>
+#include <plasma_string.h>
 
 
 #define ETHER_OFFSET	0x20010000
@@ -150,7 +151,7 @@ void ProcessArpPacket(char * buffer, unsigned int bufferSelect)
 inline void ProcessIpPacket(char * buffer)
 {
 	IpFilter_t* pFilter;
-	//writeChar('i');
+
 	CreateIpFilter(buffer, pFilter);
 	if(PassesIpFilter(pFilter, &ipFilter) == 0)
 		return;

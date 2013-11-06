@@ -48,14 +48,16 @@ entity PlasmaCore is
 
        mem_pause_in : in  std_logic;
        intr_vector  : in  std_logic_vector(31 downto 0);
-       line_number  : out std_logic_vector(31 downto 0)
+       line_number  : out std_logic_vector(31 downto 0);
+
+       ReadOnlyMemoryGuard : in std_logic_vector(31 downto 0)
        );
 end;  --entity plasma
 
 architecture logic of PlasmaCore is
 
 
-  signal mem_address_reg : std_logic_vector(31 downto 2);
+  signal mem_address_reg : std_logic_vector(31 downto 0);
   signal mem_pause       : std_logic;
   signal mem_pause_int   : std_logic;
 
@@ -102,7 +104,7 @@ begin  --architecture
   ex_ram_wbe <= mem_wbe_reg when mem_address_reg(31 downto 29) = EX_RAM_OFFSET
                 else (others => '0');
 
-  bus_address <= mem_address_reg;
+  bus_address <= mem_address_reg(31 downto 2);
 
   mem_pause <= mem_pause_int or mem_pause_in;
   --ex_ram_addr <= "000" & mem_address(28 downto 0);
@@ -130,7 +132,7 @@ begin  --architecture
       if mem_address_reg(31 downto 29) = EX_RAM_OFFSET then
         ex_ram_en2 <= '1';
       end if;
-      mem_address_reg <= mem_address(31 downto 2);
+      mem_address_reg <= mem_address(31 downto 2) & "00";
       mem_wbe_reg     <= mem_wbe;
       if mem_re = '1' and mem_pause = '0' then
         mem_pause_int <= '1';
@@ -172,7 +174,7 @@ begin  --architecture
       line_number => line_number);
 
   in_ram_din <= mem_data_write;
-  in_ram_wbe <= mem_wbe;
+  in_ram_wbe <= mem_wbe when mem_address > ReadOnlyMemoryGuard else X"0";
 
   process (mem_address, mem_wbe)
   begin  -- process

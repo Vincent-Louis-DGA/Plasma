@@ -1,12 +1,10 @@
-﻿Build started 14/10/2013 11:49:06 a.m..
+﻿Build started 6/11/2013 1:56:34 p.m..
      1>Project "C:\work_unsync\Plasma\C\PlasmaBootLoader\PlasmaBootLoader.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
        Rebuild:
          gmake target Target=PlasmaBootLoader && move /Y test.bin PlasmaBootLoader.bin
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o --defsym StackLoc=0x8000
-         ..\..\Tools\lib\boot_os.s: Assembler messages:
-         ..\..\Tools\lib\boot_os.s:69: Warning: Macro instruction expanded into multiple instructions in branch delay slot
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls PlasmaBootLoader.c 
          ld.exe -Ttext 0x00000000 -e entry -Map PlasmaBootLoader.map -s -N \
          		boot_os.o	PlasmaBootLoader.o -o test.axf
@@ -15,7 +13,7 @@
          C:\work_unsync\Plasma\C\PlasmaBootLoader>objdump.exe -Dxls test.axf  1>PlasmaBootLoader.lst 
          convert_bin.exe	# Creates test.bin and code.txt from test.axf
          test.axf -> code.txt & test.bin
-         Entry=0x0 length=4960=0x1360
+         Entry=0x0 length=4992=0x1380
          ram_image.exe ram_xilinx.vhd \
          		code.txt ram_PlasmaBootLoader.vhd
                  1 file(s) moved.
@@ -23,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.53
+Time Elapsed 00:00:00.44

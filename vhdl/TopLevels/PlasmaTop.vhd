@@ -155,6 +155,8 @@ architecture logic of PlasmaTop is
   signal cache_hitcount  : std_logic_vector(31 downto 0);
   signal cache_readcount : std_logic_vector(31 downto 0);
 
+  signal ReadOnlyMemoryGuard : std_logic_vector(31 downto 0);
+
   signal leds_reg     : std_logic_vector(31 downto 0);
   signal leds_we      : std_logic := '0';
   signal buttons_reg  : std_logic_vector(buttons'left downto 0);
@@ -226,14 +228,18 @@ begin  --architecture
 -------------------------------------------------------------------------------
 -- FIFO
 -------------------------------------------------------------------------------
-  fifoRe_i    <= '1' when fifoRe = '1' else periph_re when bus_address = FIFO_DOUT_ADDR else '0';
-  fifoWe_i    <= '1' when fifoWe = '1' else periph_we when bus_address = FIFO_DIN_ADDR else '0';
+  fifoRe_i <= '1' when fifoRe = '1' else
+              periph_re when bus_address = FIFO_DOUT_ADDR else '0';
+  fifoWe_i <= '1' when fifoWe = '1' else
+              periph_we when bus_address = FIFO_DIN_ADDR else '0';
   fifoDout    <= fifoDout_i;
   fifoFull    <= fifoFull_i;
   fifoEmpty   <= fifoEmpty_i;
   fifoClear_i <= FifoClear or fifoClear_c;
 
-  fifoDin_i <= bus_din(7 downto 0) when (bus_address = FIFO_DIN_ADDR and periph_we = '1') else fifoDin;
+  fifoDin_i <= bus_din(7 downto 0) when
+               (bus_address = FIFO_DIN_ADDR and periph_we = '1') else
+               fifoDin;
 
   process (clk_50, reset_n_i)
   begin  -- process
@@ -269,6 +275,17 @@ begin  --architecture
   ExBusWe                 <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
   bus_address(1 downto 0) <= "00";
 
+  process (clk_50, reset_n_i)
+  begin  -- process
+    if reset_n_i = '0' then             -- asynchronous reset (active low)
+      ReadOnlyMemoryGuard <= (others => '0');
+    elsif rising_edge(clk_50) then      -- rising clock edge
+      if periph_wbe = X"F" and bus_address = ROMEM_GUARD_ADDR then
+        ReadOnlyMemoryGuard <= bus_din;
+      end if;
+    end if;
+  end process;
+
   u1_plasma : entity work.PlasmaCore
     generic map (memory_type => "XILINX_16X",
                  SIMULATION  => simulateProgram)
@@ -276,19 +293,20 @@ begin  --architecture
       clk   => clk_50,
       reset => reset,
 
-      bus_address  => bus_address(31 downto 2),
-      bus_din      => bus_din,
-      ex_ram_addr  => ex_ram_address,
-      ex_ram_dout  => ex_ram_dout,
-      ex_ram_wbe   => ex_ram_wbe,
-      ex_ram_en    => ex_ram_en,
-      periph_dout  => periph_dout,
-      periph_we    => periph_we,
-      periph_wbe   => periph_wbe,
-      periph_re    => periph_re,
-      periph_irq   => periph_irq,
-      intr_vector  => INTERRUPT_VECTOR,
-      mem_pause_in => mem_pause_in);
+      bus_address         => bus_address(31 downto 2),
+      bus_din             => bus_din,
+      ex_ram_addr         => ex_ram_address,
+      ex_ram_dout         => ex_ram_dout,
+      ex_ram_wbe          => ex_ram_wbe,
+      ex_ram_en           => ex_ram_en,
+      periph_dout         => periph_dout,
+      periph_we           => periph_we,
+      periph_wbe          => periph_wbe,
+      periph_re           => periph_re,
+      periph_irq          => periph_irq,
+      intr_vector         => INTERRUPT_VECTOR,
+      mem_pause_in        => mem_pause_in,
+      ReadOnlyMemoryGuard => ReadOnlyMemoryGuard);
 
   BLOCK_RAM : if AtlysDDR = '0' generate
     u2_memory : entity work.dualRamMx8N
@@ -451,7 +469,7 @@ begin  --architecture
                         counter1_tc, cache_hitcount, cache_readcount,
                         flash_dq_in, flash_sclk, flash_tris, flash_cs,
                         fifoFull_i, fifoEmpty_i, fifoDout_i,
-                        ExBusDin, etherDout)
+                        ExBusDin, etherDout, ReadOnlyMemoryGuard)
   begin  -- process PERIPH_MUX
     if periph_address(31 downto UART_OFFSET'right) = UART_OFFSET then
       periph_dout <= ZEROS32(31 downto uart_dout'length) & uart_dout;
@@ -495,6 +513,8 @@ begin  --architecture
       periph_dout <= X"0000000" & "00" & not fifoEmpty_i & fifoFull_i;
     elsif periph_address(31 downto 28) = EX_BUS_OFFSET then
       periph_dout <= ExBusDin;
+    elsif periph_address = ROMEM_GUARD_ADDR then
+      periph_dout <= ReadOnlyMemoryGuard;
     else
       periph_dout <= X"DEADC0DE";
     end if;

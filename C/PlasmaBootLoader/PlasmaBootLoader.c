@@ -54,7 +54,6 @@ int main (void)
 	int error = 0;
 	int i = 0;
 
-
 	// If BTNR down, Use Uart Read function.
 	if((MemoryRead(BUTTONS) & BUTTON_RIGHT_MASK) > 0)
 	{
@@ -74,6 +73,8 @@ int main (void)
 	if(!error) 
 	{
 		MemoryWrite(LEDS_OUT, 0xFF);
+		i = (int)OS_GetHeap();
+		*ReadOnlyMemoryGuard = i-1;
 		error = ElfBranch();
 	}
 	while(1)

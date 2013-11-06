@@ -47,7 +47,7 @@ LOAD Example.o
                 0x40000e50                FillIpHeader
                 0x40000a00                ProcessTcpPacket
                 0x4000039c                strncmp_p
-                0x40000878                StackExercise
+                0x400007f4                StackExercise
                 0x40000238                printLine
                 0x40000a20                ProcessUdpPacket
                 0x400002c0                read
@@ -69,7 +69,7 @@ LOAD Example.o
                 0x40000954                ProcessDhcpPacket
                 0x40000d7c                EthernetInit
                 0x400008e8                PassesIpFilter
-                0x400007f4                HeapExercise
+                0x40000840                HeapExercise
                 0x4000048c                btoi
  *(.stub)
  *(.gnu.warning)
@@ -137,21 +137,22 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata          0x40001780       0x1c
+.sdata          0x40001780       0x20
  *(.sdata)
- .sdata         0x40001780       0x1c Example.o
-                0x40001788                IrqVectorReg
-                0x40001794                ipLease
-                0x40001784                IrqStatusClrReg
-                0x40001798                ownIpAddress
-                0x4000178c                IrqMaskReg
-                0x40001790                count
-                0x40001780                IrqStatusReg
+ .sdata         0x40001780       0x20 Example.o
+                0x4000178c                IrqVectorReg
+                0x40001798                ipLease
+                0x40001788                IrqStatusClrReg
+                0x4000179c                ownIpAddress
+                0x40001790                IrqMaskReg
+                0x40001794                count
+                0x40001780                ReadOnlyMemoryGuard
+                0x40001784                IrqStatusReg
  *(.gnu.linkonce.s*)
-                0x4000179c                _edata=.
-                0x4000179c                PROVIDE (edata, .)
+                0x400017a0                _edata=.
+                0x400017a0                PROVIDE (edata, .)
                 0x400017a0                .=ALIGN(0x8)
-                0x4000179c                __bss_start=.
+                0x400017a0                __bss_start=.
                 0x400017a0                _fbss=__bss_start
 
 .sbss           0x400017a0        0x8

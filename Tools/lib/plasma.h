@@ -15,6 +15,8 @@ extern int OS_AsmInterruptEnable(int enable);
 #define RAM_BRAM_SIZE		0x00008000 // 32 kB
 #define RAM_SDRAM_SIZE		0x08000000 // 128 MB
 
+volatile unsigned int* ReadOnlyMemoryGuard = (unsigned int*)0x2ABCDEF0;
+
 #define PERIPH_BASE		0x20000000
 
 #define UART_OFFSET		(PERIPH_BASE+	0x00)

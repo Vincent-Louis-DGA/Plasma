@@ -141,7 +141,7 @@ int itoa_p(int value, char* result, int base) {
 
 const char HexDigits [] = "0123456789ABCDEF";
 
-// Convert integer to hex string
+// Convert integer to 8 character hex string
 int itox(unsigned int value, char* result)
 {
 	int m;

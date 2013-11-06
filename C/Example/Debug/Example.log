@@ -1,4 +1,4 @@
-﻿Build started 6/11/2013 12:37:07 p.m..
+﻿Build started 6/11/2013 2:21:23 p.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf *.bin code.txt
@@ -7,7 +7,7 @@
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
          Ethernet.c: In function `ProcessUdpPacket':
-         In file included from Example.c:71:
+         In file included from Example.c:78:
          Ethernet.c:133: warning: unused variable `destPort'
          Ethernet.c:132: warning: unused variable `sourcePort'
          Ethernet.c: In function `EthernetInterruptHandler':
@@ -16,7 +16,7 @@
          Ethernet.c: In function `EthernetExercise':
          Ethernet.c:395: warning: unused variable `u'
          Example.c: In function `main':
-         Example.c:75: warning: unused variable `i'
+         Example.c:82: warning: unused variable `i'
          Ethernet.c: In function `ProcessIpPacket':
          Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
          Ethernet.c: In function `ProcessEthernetPacket':
@@ -42,4 +42,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.58
+Time Elapsed 00:00:00.97

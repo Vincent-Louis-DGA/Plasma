@@ -7,20 +7,26 @@
 //#define UART_TX	0x20000000
 //#define UART_RX	0x20000004
 
+
 void print(char * buf) {
 	while(*buf != 0)
 		MemoryWrite(UART_TX,*buf++);
 }
 
+
 int main(void) {
 	int i;
-	MemoryWrite(LEDS_OUT,0x77);
-	nothing(0);
+	for(i = 0; i < 32; i+=4)
+		MemoryWrite(0x220+i, (int)&test);
+	test = (int)&test;
+	MemoryWrite(LEDS_OUT,test);
+	StackExercise(0);
+	MemoryWrite(LEDS_OUT,test>>24);
 	print("Hello World\n");
 	while(1) { 
 	}
-}*/
-
+}
+*/
 
 
 
@@ -40,6 +46,15 @@ void InterruptServiceRoutine(int status)
 }
 
 
+void StackExercise(int g)
+{
+	MemoryWrite(LEDS_OUT,g);
+	if(g > 10000)
+		print("\nStacked!\n");
+	else
+		StackExercise(g+1);
+	
+}
 
 int * heap;
 
@@ -59,14 +74,6 @@ void HeapExercise()
 		MemoryWrite(LEDS_OUT,s);
 }
 
-void StackExercise(int g)
-{
-	MemoryWrite(LEDS_OUT,g);
-	if(g > 100)
-		print("\nStacked!\n");
-	else
-		StackExercise(g+1);
-}
 
 #include "Ethernet.c"
 

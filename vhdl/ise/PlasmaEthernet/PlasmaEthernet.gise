@@ -72,6 +72,7 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="plasmaethernet.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="plasmaethernet.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="plasmaethernet.drc" xil_pn:subbranch="FPGAConfiguration"/>
@@ -88,7 +89,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1383603704" xil_pn:in_ck="7750512155505998131" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1383603703">
+    <transform xil_pn:end_ts="1383699943" xil_pn:in_ck="-1107527357206740351" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1383699943">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -109,7 +110,7 @@
       <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration_top.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/memc3_infrastructure.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/memc3_wrapper.vhd"/>
-      <outfile xil_pn:name="../../Ethernet/CrcGenerator2.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/CrcGenerator.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetMDIO.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetOnly_tb.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetRegisters.vhd"/>
@@ -165,7 +166,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1383603704" xil_pn:in_ck="7750512155505998131" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1383603704">
+    <transform xil_pn:end_ts="1383699943" xil_pn:in_ck="-1107527357206740351" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1383699943">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -187,7 +188,7 @@
       <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration_top.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/memc3_infrastructure.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/memc3_wrapper.vhd"/>
-      <outfile xil_pn:name="../../Ethernet/CrcGenerator2.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/CrcGenerator.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetMDIO.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetOnly_tb.vhd"/>
       <outfile xil_pn:name="../../Ethernet/EthernetRegisters.vhd"/>
@@ -231,11 +232,10 @@
       <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
       <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1383603714" xil_pn:in_ck="7750512155505998131" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3623602663281659264" xil_pn:start_ts="1383603704">
+    <transform xil_pn:end_ts="1383699953" xil_pn:in_ck="-1107527357206740351" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3623602663281659264" xil_pn:start_ts="1383699943">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
@@ -244,17 +244,18 @@
       <outfile xil_pn:name="PlasmaEthernet_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1383603714" xil_pn:in_ck="-6419576859879484698" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5008102776891394116" xil_pn:start_ts="1383603714">
+    <transform xil_pn:end_ts="1383699954" xil_pn:in_ck="-6419576859879484698" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5008102776891394116" xil_pn:start_ts="1383699953">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaEthernet_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1382567317" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="3676593907140837519" xil_pn:start_ts="1382567317">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -280,7 +281,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1383618846" xil_pn:in_ck="2777994860059904970" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-5979877018770591336" xil_pn:start_ts="1383618769">
+    <transform xil_pn:end_ts="1383700252" xil_pn:in_ck="-8945471137784707752" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-5979877018770591336" xil_pn:start_ts="1383700139">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -303,7 +304,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1383618856" xil_pn:in_ck="-8261422444566364189" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="538754940612020106" xil_pn:start_ts="1383618846">
+    <transform xil_pn:end_ts="1383700265" xil_pn:in_ck="-8261422444566364189" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="538754940612020106" xil_pn:start_ts="1383700252">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -313,7 +314,7 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1383619005" xil_pn:in_ck="6873981772678433788" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1383618856">
+    <transform xil_pn:end_ts="1383700435" xil_pn:in_ck="6873981772678433788" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1383700265">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="PlasmaEthernet.pcf"/>
@@ -326,7 +327,7 @@
       <outfile xil_pn:name="PlasmaEthernet_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1383619099" xil_pn:in_ck="-4249959131089962731" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1383619005">
+    <transform xil_pn:end_ts="1383700528" xil_pn:in_ck="-4249959131089962731" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1383700435">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -341,7 +342,7 @@
       <outfile xil_pn:name="PlasmaEthernet_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1383619135" xil_pn:in_ck="7964166889677441312" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1383619099">
+    <transform xil_pn:end_ts="1383700570" xil_pn:in_ck="7964166889677441312" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1383700528">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -354,7 +355,7 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1383619099" xil_pn:in_ck="6873981772678433656" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1383619080">
+    <transform xil_pn:end_ts="1383700528" xil_pn:in_ck="6873981772678433656" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1383700509">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="PlasmaEthernet.twr"/>
