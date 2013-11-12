@@ -8,11 +8,12 @@ CFLAGS = -O2 -Wall -c -s
 CFLAGS += -fno-pic -mips1 -mno-abicalls
 
 target:
-	as.exe $(PLASMA_LIB)\boot_os.s -o boot_os.o --defsym StackLoc=0x8000
+	as.exe $(PLASMA_LIB)\boot_os.s -o boot_os.o
 	gcc.exe $(CFLAGS) $(Target).c 
 	ld.exe -Ttext 0x00000000 -e entry -Map $(Target).map -s -N \
-		boot_os.o	$(Target).o -o test.axf
+		boot_os.o	$(Target).o -o $(Target).axf
 	objdump.bat test.axf $(Target).lst
-	convert_bin.exe	# Creates test.bin and code.txt from test.axf
-	ram_image.exe ram_xilinx.vhd \
-		code.txt ram_$(Target).vhd
+	#convert_bin.exe	# Creates test.bin and code.txt from test.axf
+	#ram_image.exe ram_xilinx.vhd \
+	#	code.txt ram_$(Target).vhd
+	ConvertAxfToVhdl.exe -i $(Target).axf -o Ram_$(Target).vhd

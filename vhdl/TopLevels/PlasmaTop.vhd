@@ -107,14 +107,14 @@ architecture logic of PlasmaTop is
 
   attribute keep : string;
 
-  signal clk_50             : std_logic;
-  signal clk_mem            : std_logic;
-  attribute keep of clk_50  : signal is "true";
-  attribute keep of clk_mem : signal is "true";
+  signal sysClk_i            : std_logic := '1';
+  signal clk_mem             : std_logic;
+  attribute keep of sysClk_i : signal is "true";
+  attribute keep of clk_mem  : signal is "true";
 
   signal reset_ex  : std_logic;
   signal reset     : std_logic;
-  signal reset_n_i : std_logic;
+  signal reset_n_i : std_logic := '0';
 
   signal bus_address    : std_logic_vector(31 downto 0);
   signal periph_address : std_logic_vector(31 downto 0);
@@ -138,12 +138,13 @@ architecture logic of PlasmaTop is
   signal uart_irq  : std_logic;
 
   -- Ethernet
+  signal clk_125 : std_logic;
   --signal etherDin  : std_logic_vector(31 downto 0);
-  signal etherDout : std_logic_vector(31 downto 0) := (others => '0');
+  signal etherDout   : std_logic_vector(31 downto 0) := (others => '0');
   --signal etherAddr : std_logic_vector(15 downto 0);
-  signal etherRe   : std_logic;
-  signal etherWbe  : std_logic_vector(3 downto 0);
-  signal etherIrq  : std_logic                     := '0';
+  signal etherRe     : std_logic;
+  signal etherWbe    : std_logic_vector(3 downto 0);
+  signal etherIrq    : std_logic                     := '0';
 
   signal ex_ram_address  : std_logic_vector(31 downto 0);
   signal ex_ram_dout     : std_logic_vector(31 downto 0);
@@ -220,7 +221,7 @@ architecture logic of PlasmaTop is
   
 begin  --architecture
 
-  sysClk   <= clk_50;
+  sysClk   <= sysClk_i;
   reset_n  <= reset_n_i;
   reset_ex <= not reset_ex_n;
 
@@ -241,11 +242,11 @@ begin  --architecture
                (bus_address = FIFO_DIN_ADDR and periph_we = '1') else
                fifoDin;
 
-  process (clk_50, reset_n_i)
+  process (sysClk_i, reset_n_i)
   begin  -- process
     if reset_n_i = '0' then             -- asynchronous reset (active low)
       fifoClear_c <= '1';
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       fifoClear_c <= '0';
       if bus_address = FIFO_CON_ADDR and periph_we = '1' then
         fifoClear_c <= bus_din(2);
@@ -256,8 +257,8 @@ begin  --architecture
   FIFO : entity work.fifo2048x8
     port map (
       rst    => fifoClear_i,
-      wr_clk => clk_50,
-      rd_clk => clk_50,
+      wr_clk => sysClk_i,
+      rd_clk => sysClk_i,
       din    => fifoDin_i,
       wr_en  => fifoWe_i,
       rd_en  => fifoRe_i,
@@ -273,13 +274,12 @@ begin  --architecture
   ExBusDout               <= bus_din;
   ExBusRe                 <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
   ExBusWe                 <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
-  bus_address(1 downto 0) <= "00";
 
-  process (clk_50, reset_n_i)
+  process (sysClk_i, reset_n_i)
   begin  -- process
     if reset_n_i = '0' then             -- asynchronous reset (active low)
       ReadOnlyMemoryGuard <= (others => '0');
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       if periph_wbe = X"F" and bus_address = ROMEM_GUARD_ADDR then
         ReadOnlyMemoryGuard <= bus_din;
       end if;
@@ -290,10 +290,10 @@ begin  --architecture
     generic map (memory_type => "XILINX_16X",
                  SIMULATION  => simulateProgram)
     port map (
-      clk   => clk_50,
+      clk   => sysClk_i,
       reset => reset,
 
-      bus_address         => bus_address(31 downto 2),
+      bus_address         => bus_address,
       bus_din             => bus_din,
       ex_ram_addr         => ex_ram_address,
       ex_ram_dout         => ex_ram_dout,
@@ -314,38 +314,38 @@ begin  --architecture
         N => 4,
         M => EX_RAM_ADDR_WIDTH)
       port map (
-        clka  => clk_50,
+        clka  => sysClk_i,
         wea   => ex_ram_wbe2,
         addra => ex_ram_address(EX_RAM_ADDR_WIDTH+1 downto 2),
         dina  => bus_din,
         douta => ex_ram_dout,
 
-        clkb  => clk_50,
+        clkb  => sysClk_i,
         web   => X"0",
         addrb => "1111000000000",
         dinb  => X"00000000",
         doutb => open
         );
     BRS : if simulateRam = '1' generate
-      process (clk_100, reset_ex_n)
-      begin  -- process
-        if reset_ex_n = '0' then
-          clk_50    <= '1';
-          reset_n_i <= '0';
-        elsif rising_edge(clk_100) then  -- rising clock edge
-          clk_50    <= not clk_50;
-          reset_n_i <= '1';
-        end if;
-      end process;
+      signal clkS : std_logic := '0';
+      signal clkE : std_logic := '0';
+    begin
+      
+      clkS        <= not clkS             after 10 ns;
+      clkE        <= not clkE             after 4 ns;
+      reset_n_i   <= transport reset_ex_n after 200 ns;
+      sysClk_i    <= clkS when reset_ex_n = '1' else '0';
+      clk_125 <= clkE    when reset_ex_n = '1' else '0';
+      
     end generate BRS;
     BRP : if simulateRam /= '1' generate
       
       u3_pll : entity work.systemPLL
         port map (
           clk_100   => clk_100,
-          clk_50_0  => clk_50,
-          clk_100_0 => open,
-          clk_19_0  => open,
+          sysClk    => sysClk_i,
+          clk_125_0 => clk_125,
+          clkUart   => open,
           reset     => reset_ex,
           locked    => reset_n_i);
     end generate BRP;
@@ -375,7 +375,7 @@ begin  --architecture
       port map (
         clk100           => clk_100,
         reset_n          => reset_ex_n,
-        clk50            => clk_50,
+        clk50            => sysClk_i,
         clk_mem          => open,       -- using clk_mem isn't implementable...
         reset            => reset,
         mcb3_dram_dq     => ddr_s_dq,
@@ -399,19 +399,19 @@ begin  --architecture
 
 
         -- port 0
-        cmd_0_clk       => clk_50,
+        cmd_0_clk       => sysClk_i,
         cmd_0_en        => cmd_0_en,
         cmd_0_instr     => cmd_0_instr,
         cmd_0_bl        => cmd_0_bl,
         cmd_0_byte_addr => cmd_0_byte_addr,
         cmd_0_empty     => open,
         cmd_0_full      => open,
-        wr_0_clk        => clk_50,
+        wr_0_clk        => sysClk_i,
         wr_0_en         => wr_0_en,
         wr_0_mask       => wr_0_mask,
         wr_0_data       => wr_0_data,
         wr_0_full       => wr_0_full,
-        rd_0_clk        => clk_50,
+        rd_0_clk        => sysClk_i,
         rd_0_en         => rd_0_en,
         rd_0_data       => rd_0_data,
         rd_0_empty      => rd_0_empty
@@ -420,7 +420,7 @@ begin  --architecture
 
     u3_memCache : entity work.ddr2_cache
       port map (
-        sys_clk            => clk_50,
+        sys_clk            => sysClk_i,
         reset              => reset,
         mig_cmd_en         => cmd_0_en,
         mig_cmd_bl         => cmd_0_bl,
@@ -429,7 +429,7 @@ begin  --architecture
         mig_wr_data        => wr_0_data,
         mig_wr_en          => wr_0_en,
         mig_wr_mask        => wr_0_mask,
-        mig_rd_clk         => clk_50,
+        mig_rd_clk         => sysClk_i,
         mig_rd_data        => rd_0_data,
         mig_rd_en          => rd_0_en,
         mig_rd_empty       => rd_0_empty,
@@ -454,11 +454,11 @@ begin  --architecture
 -------------------------------------------------------------------------------
 
 
-  REGISTERS : process (clk_50, reset)
+  REGISTERS : process (sysClk_i, reset)
   begin  -- process REG_ADDR
     if reset = '1' then                 -- asynchronous reset (active high)
       periph_address <= (others => '0');
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       periph_address <= bus_address;
     end if;
   end process REGISTERS;
@@ -537,7 +537,7 @@ begin  --architecture
   leds <= leds_reg(leds'left downto 0);
 
 
-  PERIPH_DEBUG : process(clk_50, reset)
+  PERIPH_DEBUG : process(sysClk_i, reset)
   begin
     if reset = '1' then
       periph_din_debug  <= (others => '0');
@@ -545,7 +545,7 @@ begin  --architecture
       periph_re2        <= '0';
       periph_addr_read  <= (others => '0');
       periph_addr_write <= (others => '0');
-    elsif rising_edge(clk_50) then
+    elsif rising_edge(sysClk_i) then
       periph_re2 <= periph_re;
       if periph_we = '1' then
         periph_addr_write <= bus_address;
@@ -567,13 +567,13 @@ begin  --architecture
   -----------------------------------------------------------------------------
   -- Add interrupt sources in here
   -----------------------------------------------------------------------------
-  SET_IRQ : process (clk_50, reset)
+  SET_IRQ : process (sysClk_i, reset)
   begin  -- process SET_IRQ
     if reset = '1' then                 -- asynchronous reset (active high)
       irq_status   <= (others => '0');
       irq_mask     <= (others => '1');
       buttons_reg2 <= (others => '0');
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       buttons_reg2 <= buttons_reg;
       if buttons_reg(0) = '1' and buttons_reg2(0) = '0' then
         irq_status(0) <= '1';
@@ -613,7 +613,7 @@ begin  --architecture
   FlashCLK      <= Flash_sclk;
   FlashTris     <= flash_tris;
 
-  SET_FLASH : process (clk_50, reset)
+  SET_FLASH : process (sysClk_i, reset)
   begin  -- process SET_FLASH
     if reset = '1' then                 -- asynchronous reset (active high)
       flash_tris   <= (others => '1');
@@ -621,7 +621,7 @@ begin  --architecture
       flash_dq_in  <= (others => '0');
       flash_sclk   <= '0';
       flash_cs     <= '1';
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       flash_dq_in <= FlashMemDq;
       if periph_we = '1' then
         if bus_address = FLASH_CON_ADDR then
@@ -639,14 +639,14 @@ begin  --architecture
 -------------------------------------------------------------------------------
 -- Counters
 -------------------------------------------------------------------------------
-  DO_COUNTERS : process (clk_50, reset)
+  DO_COUNTERS : process (sysClk_i, reset)
   begin  -- process DO_COUNTERS
     if reset = '1' then                 -- asynchronous reset (active high)
       counter1     <= (others => '0');
       counter1_ps  <= (others => '0');
       counter1_psc <= (others => '0');
       counter1_tc  <= (others => '1');
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(sysClk_i) then    -- rising clock edge
       if counter1_psc = counter1_ps then
         counter1_psc <= (others => '0');
         if counter1 = counter1_tc then
@@ -680,11 +680,11 @@ begin  --architecture
       PRESCALE_DIV    => X"35",         -- 50 MHz / 921.6 kHz = 54.
       log_file        => uartLogFile)
     port map (
-      clk_uart         => clk_50,
+      clk_uart         => sysClk_i,
       reset            => reset,
       tx               => uartTx,
       rx               => uartRx,
-      sys_clk          => clk_50,
+      sys_clk          => sysClk_i,
       reg_addr         => bus_address(UART_OFFSET'right-1 downto 2),
       reg_din          => bus_din(7 downto 0),
       reg_dout         => uart_dout,
@@ -700,7 +700,7 @@ begin  --architecture
     generic map (
       W => 32)
     port map (
-      clk      => clk_50,
+      clk      => sysClk_i,
       reset    => reset,
       port_o   => leds_reg,
       reg_din  => bus_din,
@@ -712,7 +712,7 @@ begin  --architecture
       W => pmod'length,
       D => 1)
     port map (
-      clk      => clk_50,
+      clk      => sysClk_i,
       reset    => reset,
       reg_din  => bus_din(pmod'left downto 0),
       reg_we   => pmod_we,
@@ -726,7 +726,7 @@ begin  --architecture
         W => switches'length,
         D => 4)
       port map (
-        clk    => clk_50,
+        clk    => sysClk_i,
         reset  => reset,
         port_i => switches,
         reg_i  => switches_reg);
@@ -736,7 +736,7 @@ begin  --architecture
         W => buttons'length,
         D => 4)
       port map (
-        clk    => clk_50,
+        clk    => sysClk_i,
         reset  => reset,
         port_i => buttons,
         reg_i  => buttons_reg);
@@ -748,7 +748,7 @@ begin  --architecture
         W => switches'length,
         D => 20)
       port map (
-        clk    => clk_50,
+        clk    => sysClk_i,
         reset  => reset,
         port_i => switches,
         reg_i  => switches_reg);
@@ -758,7 +758,7 @@ begin  --architecture
         W => buttons'length,
         D => 20)
       port map (
-        clk    => clk_50,
+        clk    => sysClk_i,
         reset  => reset,
         port_i => buttons,
         reg_i  => buttons_reg);
@@ -769,7 +769,7 @@ begin  --architecture
     generic map (
       WIDTH => 32)
     port map (
-      clk   => clk_50,
+      clk   => sysClk_i,
       reset => reset,
       dout  => rand_reg,
       we    => rand_we,
@@ -796,7 +796,8 @@ begin  --architecture
 
     u10_ethernet : entity work.EthernetTop
       port map (
-        clk_50          => clk_50,
+        clk          => sysClk_i,
+        clk_125         => clk_125,
         reset_n         => reset_n_i,
         ethernetMDIO    => ethernetMDIO,
         ethernetMDC     => ethernetMDC,

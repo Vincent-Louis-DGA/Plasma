@@ -32,7 +32,7 @@ entity PlasmaCore is
   port(clk   : in std_logic;
        reset : in std_logic;
 
-       bus_address : out std_logic_vector(31 downto 2);
+       bus_address : out std_logic_vector(31 downto 0);
        bus_din     : out std_logic_vector(31 downto 0);
 
        ex_ram_addr : out std_logic_vector(31 downto 0);
@@ -72,9 +72,6 @@ architecture logic of PlasmaCore is
   signal in_ram_wbe  : std_logic_vector(3 downto 0);
   signal in_ram_dout : std_logic_vector(31 downto 0);
 
-  signal in_ram_en     : std_logic;
-  signal bulk_ram_wbe  : std_logic_vector(3 downto 0);
-  signal bulk_ram_dout : std_logic_vector(31 downto 0);
 
   signal ex_ram_en1 : std_logic;
   signal ex_ram_en2 : std_logic;
@@ -104,7 +101,7 @@ begin  --architecture
   ex_ram_wbe <= mem_wbe_reg when mem_address_reg(31 downto 29) = EX_RAM_OFFSET
                 else (others => '0');
 
-  bus_address <= mem_address_reg(31 downto 2);
+  bus_address <= mem_address_reg;
 
   mem_pause <= mem_pause_int or mem_pause_in;
   --ex_ram_addr <= "000" & mem_address(28 downto 0);
@@ -113,11 +110,11 @@ begin  --architecture
   begin  -- process REG_ADDR
     if reset = '1' then                 -- asynchronous reset (active high)
       mem_address_reg <= (others => '0');
-      mem_pause_int <= '0';
-      mem_wbe_reg   <= (others => '0');
-      ex_ram_en2    <= '0';
-      ex_ram_en1    <= '0';
-      ex_ram_addr   <= (others => '0');
+      mem_pause_int   <= '0';
+      mem_wbe_reg     <= (others => '0');
+      ex_ram_en2      <= '0';
+      ex_ram_en1      <= '0';
+      ex_ram_addr     <= (others => '0');
     elsif rising_edge(clk) then         -- rising clock edge
       ex_ram_en1    <= '0';
       ex_ram_en2    <= '0';
@@ -142,14 +139,14 @@ begin  --architecture
 
 
 
-  SET_MEM_READ : process (mem_address_reg, ex_ram_dout, in_ram_dout, periph_dout, bulk_ram_dout)
+  SET_MEM_READ : process (mem_address_reg, ex_ram_dout, in_ram_dout, periph_dout)
   begin  -- process SET_MEM_READ
     case mem_address_reg(31 downto 29) is
       when IN_RAM_OFFSET =>
-        if mem_address_reg(28 downto 13) = ZEROS(28 downto 13) then
+        if mem_address_reg(28 downto 15) = ZEROS(28 downto 15) then
           mem_data_read <= in_ram_dout;
         else
-          mem_data_read <= bulk_ram_dout;
+          mem_data_read <= (others => '0');
         end if;
       when PERIPH_OFFSET => mem_data_read <= periph_dout;
       when EX_RAM_OFFSET => mem_data_read <= ex_ram_dout;
@@ -173,66 +170,39 @@ begin  --architecture
       mem_pause   => mem_pause,
       line_number => line_number);
 
-  in_ram_din <= mem_data_write;
-  in_ram_wbe <= mem_wbe when mem_address > ReadOnlyMemoryGuard else X"0";
 
-  process (mem_address, mem_wbe)
+  process (mem_address, mem_wbe, ReadOnlyMemoryGuard)
   begin  -- process
-    if mem_address(31 downto 13) = ZEROS(31 downto 13) then
-      bulk_ram_wbe <= (others => '0');
-      in_ram_en    <= '1';
-    elsif mem_address(31 downto 13) = (ZEROS(31 downto 14) & '1') then
-      bulk_ram_wbe <= mem_wbe;
-      in_ram_en    <= '0';
-    elsif mem_address(31 downto 14) = (ZEROS(31 downto 15) & '1') then
-      bulk_ram_wbe <= mem_wbe;
-      in_ram_en    <= '0';
+    if (mem_address(31 downto 15) = ZEROS(31 downto 15))
+      and (mem_address > ReadOnlyMemoryGuard) then
+      in_ram_wbe <= mem_wbe;
     else
-      bulk_ram_wbe <= (others => '0');
-      in_ram_en    <= '0';
+      in_ram_wbe <= X"0";
     end if;
   end process;
 
   NOT_SIM : if SIMULATION /= '1' generate
     u2_prog_ram : entity work.ram_PlasmaBootLoader
-      generic map (memory_type => memory_type)
       port map (
-        clk               => clk,
-        enable            => in_ram_en,
-        write_byte_enable => in_ram_wbe,
-        address           => mem_address(31 downto 2),
-        data_write        => in_ram_din,
-        data_read         => in_ram_dout);
+        clka  => clk,
+        wea   => in_ram_wbe,
+        addra => mem_address(14 downto 2),
+        dina  => mem_data_write,
+        douta => in_ram_dout,
+        clkb  => clk,
+        doutb => open);
   end generate NOT_SIM;
   SIM : if SIMULATION = '1' generate
     u2_prog_ram : entity work.ram_Program
-      generic map (memory_type => memory_type)
       port map (
-        clk               => clk,
-        enable            => in_ram_en,
-        write_byte_enable => in_ram_wbe,
-        address           => mem_address(31 downto 2),
-        data_write        => in_ram_din,
-        data_read         => in_ram_dout);
+        clka  => clk,
+        wea   => in_ram_wbe,
+        addra => mem_address(14 downto 2),
+        dina  => mem_data_write,
+        douta => in_ram_dout,
+        clkb  => clk,
+        doutb => open);
   end generate SIM;
-
-  u3_ram : entity work.dualRamMx8N
-    generic map (
-      N => 4,
-      M => 13)
-    port map (
-      clka   => clk,
-      wea    => bulk_ram_wbe,
-      addra  => mem_address(14 downto 2),
-      dina   => in_ram_din,
-      raddra => mem_address(14 downto 2),
-      douta  => bulk_ram_dout,
-      clkb   => '1',
-      web    => X"0",
-      addrb  => "1111111111111",
-      dinb   => X"00000000",
-      doutb  => open
-      );
 
 
 end;  --architecture logic
