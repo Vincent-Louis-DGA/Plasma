@@ -57,6 +57,9 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="PlasmaAtlysDDR_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="PlasmaAtlysDDR_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PlasmaAtlysDDR_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PlasmaDDR_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PlasmaDDR_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="PlasmaDDR_tb_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -64,17 +67,164 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="plasmaatlysddr.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="plasmaatlysddr.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="plasmaatlysddr.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1389213072" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1389213072">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213174" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1389213174">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="../../../C/Example/Ram_Program.vhd"/>
+      <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2_sim_model.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/cache_table.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/ddr2_1Gb_wrapper.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/ddr2_cache.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/iodrp_controller.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/iodrp_mcb_controller.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_raw_wrapper.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration_top.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/memc3_infrastructure.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/memc3_wrapper.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/CrcGenerator.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetMDIO.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetRegisters.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetRx.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetTop.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetTx.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/PCK_CRC32_D8.vhd"/>
+      <outfile xil_pn:name="../../General/BiDirFifoBuffer.vhd"/>
+      <outfile xil_pn:name="../../General/BidirPort.vhd"/>
+      <outfile xil_pn:name="../../General/GeneralPurposeFunctions.vhd"/>
+      <outfile xil_pn:name="../../General/Random.vhd"/>
+      <outfile xil_pn:name="../../General/dualRamMx8N.vhd"/>
+      <outfile xil_pn:name="../../General/fifo64x8N.vhd"/>
+      <outfile xil_pn:name="../../General/txt_util.vhd"/>
+      <outfile xil_pn:name="../../General/uartCore.vhd"/>
+      <outfile xil_pn:name="../../General/uartTopLevel.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/PlasmaCore.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/alu.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/bus_mux.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/control.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mem_ctrl.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mlite_cpu.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mlite_pack.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mult.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/pc_next.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/pipeline.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/reg_bank.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/shifter.vhd"/>
+      <outfile xil_pn:name="../../Testbenches/PlasmaDDR_tb.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/PlasmaAtlysDDR.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/PlasmaTop.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/plasmaPeriphRegisters.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo2048x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo512x36.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo64x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fifo2048x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213072" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6426781024275068147" xil_pn:start_ts="1389213072">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213072" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3136528755772215153" xil_pn:start_ts="1389213072">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213072" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="4979769761367104167" xil_pn:start_ts="1389213072">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213174" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1389213174">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="../../../C/Example/Ram_Program.vhd"/>
+      <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2_sim_model.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/cache_table.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/ddr2_1Gb_wrapper.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/ddr2_cache.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/iodrp_controller.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/iodrp_mcb_controller.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_raw_wrapper.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/mcb_soft_calibration_top.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/memc3_infrastructure.vhd"/>
+      <outfile xil_pn:name="../../AtlysDDR/memc3_wrapper.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/CrcGenerator.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetMDIO.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetRegisters.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetRx.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetTop.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/EthernetTx.vhd"/>
+      <outfile xil_pn:name="../../Ethernet/PCK_CRC32_D8.vhd"/>
+      <outfile xil_pn:name="../../General/BiDirFifoBuffer.vhd"/>
+      <outfile xil_pn:name="../../General/BidirPort.vhd"/>
+      <outfile xil_pn:name="../../General/GeneralPurposeFunctions.vhd"/>
+      <outfile xil_pn:name="../../General/Random.vhd"/>
+      <outfile xil_pn:name="../../General/dualRamMx8N.vhd"/>
+      <outfile xil_pn:name="../../General/fifo64x8N.vhd"/>
+      <outfile xil_pn:name="../../General/txt_util.vhd"/>
+      <outfile xil_pn:name="../../General/uartCore.vhd"/>
+      <outfile xil_pn:name="../../General/uartTopLevel.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/PlasmaCore.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/alu.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/bus_mux.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/control.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mem_ctrl.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mlite_cpu.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mlite_pack.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/mult.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/pc_next.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/pipeline.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/reg_bank.vhd"/>
+      <outfile xil_pn:name="../../PlasmaCore/shifter.vhd"/>
+      <outfile xil_pn:name="../../Testbenches/PlasmaDDR_tb.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/PlasmaAtlysDDR.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/PlasmaTop.vhd"/>
+      <outfile xil_pn:name="../../TopLevels/plasmaPeriphRegisters.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo2048x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo512x36.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fallThroughFifo64x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fifo2048x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/fifo64x8.vhd"/>
+      <outfile xil_pn:name="../../XilinxCoregen/systemPLL.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213185" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7466370148863137066" xil_pn:start_ts="1389213174">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaDDR_tb_beh.prj"/>
+      <outfile xil_pn:name="PlasmaDDR_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1389213185" xil_pn:in_ck="9012258745758879836" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8818735670064190403" xil_pn:start_ts="1389213185">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaDDR_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+    </transform>
     <transform xil_pn:end_ts="1376956342" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1376956342">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -103,14 +253,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1380596384" xil_pn:in_ck="-9213107209006126195" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1741529296722082816" xil_pn:start_ts="1380596315">
+    <transform xil_pn:end_ts="1389213055" xil_pn:in_ck="7477655973093071845" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1741529296722082816" xil_pn:start_ts="1389212959">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.lso"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.ngc"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.ngr"/>
@@ -131,65 +279,51 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.bld"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.ngd"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_ngdbuild.xrpt"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1380596553" xil_pn:in_ck="-3889090596818288547" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1380596394">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.pcf"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_map.map"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_map.mrp"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_map.ncd"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_map.ngm"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_map.xrpt"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_summary.xml"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_usage.xml"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1380596632" xil_pn:in_ck="8965676931098191158" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1380596553">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.ncd"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.pad"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.par"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.ptwx"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.unroutes"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.xpi"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_pad.csv"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_pad.txt"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR_par.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1380596665" xil_pn:in_ck="7762212224777505672" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1380596632">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.ut"/>
-      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
-      <outfile xil_pn:name="plasmaatlysddr.bgn"/>
-      <outfile xil_pn:name="plasmaatlysddr.bit"/>
-      <outfile xil_pn:name="plasmaatlysddr.drc"/>
-      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
-      <outfile xil_pn:name="webtalk.log"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1380596632" xil_pn:in_ck="523594901476656857" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1380596608">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.twr"/>
-      <outfile xil_pn:name="PlasmaAtlysDDR.twx"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

@@ -7,7 +7,8 @@ use work.EthernetRegisters.all;
 entity EthernetTop is
   
   port (
-    clk_50  : in std_logic;
+    clk     : in std_logic;
+    clk_125 : in std_logic;
     reset_n : in std_logic;
 
     -- Ethernet
@@ -77,26 +78,8 @@ begin  -- rtl
   
   ethernetRESET_n <= reset_n;
 
-  process (ethernetRXCLK, reset_n)
-  begin  -- process
-    if reset_n = '0' then                  -- asynchronous reset (active low)
-      count_r <= (others => '0');
-    elsif rising_edge(ethernetRXCLK) then  -- rising clock edge
-      count_r <= count_r + 1;
-    end if;
-  end process;
 
-  process (ethernetTXCLK, reset_n)
-  begin  -- process
-    if reset_n = '0' then                  -- asynchronous reset (active low)
-      count_t <= (others => '0');
-    elsif rising_edge(ethernetTXCLK) then  -- rising clock edge
-      count_t <= count_t + 1;
-    end if;
-  end process;
-
-
-  process (clk_50, reset_n)
+  process (clk, reset_n)
   begin  -- process
     if reset_n = '0' then               -- asynchronous reset (active low)
       rxClk1024   <= '0';
@@ -107,7 +90,7 @@ begin  -- rtl
       txClkCount  <= (others => '0');
       rxClkPeriod <= (others => '0');
       txClkPeriod <= (others => '0');
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(clk) then         -- rising clock edge
       rxClk1024   <= count_r(9);
       txClk1024   <= count_t(9);
       rxClk1024_i <= rxClk1024;
@@ -128,7 +111,7 @@ begin  -- rtl
 
   etherWe <= '0' when etherWbe = X"0" else '1';
 
-  CPU_BUS : process (clk_50, reset_n)
+  CPU_BUS : process (clk, reset_n)
   begin  -- process EX_BUS
     if reset_n = '0' then               -- asynchronous reset (active low)
       eWriteData   <= (others => '0');
@@ -140,7 +123,7 @@ begin  -- rtl
       MacHigh      <= DEFAULT_ETHER_MAC(47 downto 32);
       MacMid       <= DEFAULT_ETHER_MAC(31 downto 16);
       MacLow       <= DEFAULT_ETHER_MAC(15 downto 0);
-    elsif rising_edge(clk_50) then      -- rising clock edge
+    elsif rising_edge(clk) then         -- rising clock edge
       eWe          <= '0';
       eRe          <= '0';
       etherAddrReg <= etherAddr(15 downto 0);
@@ -194,7 +177,7 @@ begin  -- rtl
 
   RXD_IF : entity work.EthernetRx
     port map (
-      clk_50         => clk_50,
+      clk_50         => clk,
       reset_n        => reset_n,
       ethernetRXDV   => ethernetRXDV,
       ethernetRXCLK  => ethernetRXCLK,
@@ -214,10 +197,11 @@ begin  -- rtl
 
   TXD_IF : entity work.EthernetTx
     port map (
-      clk_50         => clk_50,
+      clk_50         => clk,
+      clk_125        => clk_125,
       reset_n        => reset_n,
       ethernetTXEN   => ethernetTXEN,
-      ethernetTXCLK  => ethernetRXCLK,
+      ethernetTXCLK  => ethernetTXCLK,
       ethernetGTXCLK => ethernetGTXCLK,
       ethernetTXER   => ethernetTXER,
       ethernetTXD    => ethernetTXD,
@@ -233,7 +217,7 @@ begin  -- rtl
 
   MDIO_IF : entity work.EthernetMDIO
     port map (
-      clk_50    => clk_50,
+      clk_50    => clk,
       reset_n   => reset_n,
       MDC       => ethernetMDC,
       MDIO      => ethernetMDIO,

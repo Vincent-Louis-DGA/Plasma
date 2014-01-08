@@ -15,6 +15,7 @@ architecture testbench of PlasmaEthernet_tb is
   constant uartLogFile : string := "log.dat";
 
   signal clk_100    : std_logic := '1';
+  signal clk_125    : std_logic := '0';
   signal reset_ex_n : std_logic := '0';
 
 
@@ -46,7 +47,7 @@ architecture testbench of PlasmaEthernet_tb is
   signal ethernetTXD     : std_logic_vector(7 downto 0);
 
   -- Ethernet TX Source
-  signal clk_50     : std_logic                     := '0';
+  signal clk        : std_logic                     := '0';
   signal etherDin2  : std_logic_vector(31 downto 0) := (others => '0');
   signal etherDout2 : std_logic_vector(31 downto 0);
   signal etherAddr2 : std_logic_vector(15 downto 0) := (others => '0');
@@ -102,7 +103,8 @@ begin  -- testbench
   
 
   clk_100       <= not clk_100       after 5 ns;
-  clk_50        <= not clk_50        after 10 ns;
+  clk_125       <= not clk_125       after 4 ns;
+  clk           <= not clk           after 8 ns;
   ethernetRXCLK <= not ethernetRXCLK after 4 ns;
   ethernetTXCLK <= not ethernetTXCLK after 20 ns;
   switches      <= X"03";
@@ -110,7 +112,8 @@ begin  -- testbench
 
   UUT2 : entity work.EthernetTop
     port map (
-      clk_50        => clk_50,
+      clk           => clk,
+      clk_125       => clk_125,
       reset_n       => reset_ex_n,
       ethernetRXCLK => ethernetRXCLK,
       ethernetTXCLK => ethernetTXCLK,
@@ -122,36 +125,37 @@ begin  -- testbench
       etherRe       => etherRe2,
       etherWbe      => etherWbe2);
 
+
   tb : process
   begin  -- process tb
     wait until reset_ex_n = '1';
     wait for 200 ns;
-    
-    CpuWrite(X"000070F3", ETHER_MAC_HIGH, clk_50, etherDin2, etherWbe2, etherAddr2);
-    CpuWrite(X"00009500", ETHER_MAC_MID, clk_50, etherDin2, etherWbe2, etherAddr2);
-    CpuWrite(X"0000721F", ETHER_MAC_LOW, clk_50, etherDin2, etherWbe2, etherAddr2);
-    CpuWrite(X"00000800", TX_ETHERTYPE, clk_50, etherDin2, etherWbe2, etherAddr2);
+
+    CpuWrite(X"000070F3", ETHER_MAC_HIGH, clk, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00009500", ETHER_MAC_MID, clk, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"0000721F", ETHER_MAC_LOW, clk, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00000800", TX_ETHERTYPE, clk, etherDin2, etherWbe2, etherAddr2);
     wait for 5 us;
 
-    CpuSendPacket(PingRequest,clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(PingRequest, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
     wait for 5 us;
 
-    CpuWrite(X"0000020A", TX_DEST_MAC_HIGH, clk_50, etherDin2, etherWbe2, etherAddr2);
-    CpuWrite(X"00003544", TX_DEST_MAC_MID, clk_50, etherDin2, etherWbe2, etherAddr2);
-    CpuWrite(X"00005441", TX_DEST_MAC_LOW, clk_50, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"0000020A", TX_DEST_MAC_HIGH, clk, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00003544", TX_DEST_MAC_MID, clk, etherDin2, etherWbe2, etherAddr2);
+    CpuWrite(X"00005441", TX_DEST_MAC_LOW, clk, etherDin2, etherWbe2, etherAddr2);
 
     wait for 15 us;
-    CpuSendPacket(ShortPacket, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(ShortPacket, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
 
     wait for 20 us;
-    CpuSendPacket(PingRequest, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(PingRequest, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
 
     wait for 20 us;
-    CpuSendPacket(ArpPacket, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(ArpPacket, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
     wait for 20 us;
-    CpuSendPacket(UdpPacket16, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(UdpPacket16, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
     wait for 20 us;
-    CpuSendPacket(UdpPacket16, clk_50, etherDin2, etherWbe2, etherAddr2, etherDout2);
+    CpuSendPacket(UdpPacket16, clk, etherDin2, etherWbe2, etherAddr2, etherDout2);
 
 
     wait;

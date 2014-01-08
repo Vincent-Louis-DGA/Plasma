@@ -20,7 +20,7 @@ entity PlasmaAtlysDDR is
   port(
     clk_100    : in  std_logic;
     reset_ex_n : in  std_logic;         -- external reset
-    UartRx     : in  std_logic;
+    UartRx     : in  std_logic := '1';
     UartTx     : out std_logic;
 
     leds     : out   std_logic_vector(7 downto 0);
@@ -31,7 +31,7 @@ entity PlasmaAtlysDDR is
     Uart_bypassRx         : in  std_logic_vector(7 downto 0);
     Uart_bypassRxWeToggle : in  std_logic;
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
-    Uart_bypassTxDv       : out std_logic;
+    Uart_bypassTxDvToggle       : out std_logic;
 
     FifoDin   : in  std_logic_vector(31 downto 0) := (others => '0');
     FifoDout  : out std_logic_vector(31 downto 0);
@@ -52,6 +52,23 @@ entity PlasmaAtlysDDR is
     FlashCS    : out   std_logic;
     FlashTris  : out   std_logic_vector(3 downto 0);
     FlashMemDq : inout std_logic_vector(3 downto 0);
+    
+    -- Ethernet
+    ethernetMDIO    : inout std_logic                    := '0';
+    ethernetMDC     : out   std_logic                    := '0';
+    ethernetINT_n   : out   std_logic                    := '0';
+    ethernetRESET_n : out   std_logic                    := '1';
+    ethernetCOL     : in    std_logic                    := '0';
+    ethernetCRS     : in    std_logic                    := '0';
+    ethernetRXDV    : in    std_logic                    := '0';
+    ethernetRXCLK   : in    std_logic                    := '0';
+    ethernetRXER    : in    std_logic                    := '0';
+    ethernetRXD     : in    std_logic_vector(7 downto 0) := (others => '0');
+    ethernetGTXCLK  : out   std_logic                    := '0';
+    ethernetTXCLK   : in    std_logic                    := '0';
+    ethernetTXER    : out   std_logic                    := '0';
+    ethernetTXEN    : out   std_logic                    := '0';
+    ethernetTXD     : out   std_logic_vector(7 downto 0) := (others => '0');
 
     -- DDR2 SDRAM on ATLYS Board
     ddr_s_dq     : inout std_logic_vector(15 downto 0) := (others => 'Z');
@@ -87,12 +104,17 @@ begin  --architecture
       uartLogFile     => uartLogFile,
       simulateRam     => simulateRam,
       simulateProgram => simulateProgram,
+      includeEthernet => '1',
       AtlysDDR        => '0')
     port map (
       clk_100      => clk_100,
       reset_ex_n   => reset_ex_n,
       UartRx       => UartRx,
       UartTx       => UartTx,
+      Uart_bypassRx         => Uart_bypassRx,
+      Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
+      Uart_bypassTx         => Uart_bypassTx,
+      Uart_bypassTxDvToggle => Uart_bypassTxDvToggle,
       leds         => leds,
       switches     => switches,
       buttons      => buttons,
@@ -101,6 +123,21 @@ begin  --architecture
       FlashCS      => FlashCS,
       FlashTris    => FlashTris,
       FlashMemDq   => FlashMemDq,
+      ethernetMDIO          => ethernetMDIO,
+      ethernetMDC           => ethernetMDC,
+      ethernetINT_n         => ethernetINT_n,
+      ethernetRESET_n       => ethernetRESET_n,
+      ethernetCOL           => ethernetCOL,
+      ethernetCRS           => ethernetCRS,
+      ethernetRXDV          => ethernetRXDV,
+      ethernetRXCLK         => ethernetRXCLK,
+      ethernetRXER          => ethernetRXER,
+      ethernetRXD           => ethernetRXD,
+      ethernetGTXCLK        => ethernetGTXCLK,
+      ethernetTXCLK         => ethernetTXCLK,
+      ethernetTXER          => ethernetTXER,
+      ethernetTXEN          => ethernetTXEN,
+      ethernetTXD           => ethernetTXD,
       ddr_s_dq     => ddr_s_dq,
       ddr_s_a      => ddr_s_a,
       ddr_s_ba     => ddr_s_ba,

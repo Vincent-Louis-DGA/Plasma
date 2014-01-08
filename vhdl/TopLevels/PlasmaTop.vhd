@@ -126,7 +126,6 @@ architecture logic of PlasmaTop is
   signal periph_we         : std_logic;
   signal periph_wbe        : std_logic_vector(3 downto 0);
   signal periph_irq        : std_logic;
-  signal periph_din_debug  : std_logic_vector(31 downto 0);
   signal periph_addr_read  : std_logic_vector(31 downto 0);
   signal periph_dout_debug : std_logic_vector(31 downto 0);
   signal periph_addr_write : std_logic_vector(31 downto 0);
@@ -139,9 +138,7 @@ architecture logic of PlasmaTop is
 
   -- Ethernet
   signal clk_125 : std_logic;
-  --signal etherDin  : std_logic_vector(31 downto 0);
   signal etherDout   : std_logic_vector(31 downto 0) := (others => '0');
-  --signal etherAddr : std_logic_vector(15 downto 0);
   signal etherRe     : std_logic;
   signal etherWbe    : std_logic_vector(3 downto 0);
   signal etherIrq    : std_logic                     := '0';
@@ -375,7 +372,7 @@ begin  --architecture
       port map (
         clk100           => clk_100,
         reset_n          => reset_ex_n,
-        clk50            => sysClk_i,
+        clk_50            => sysClk_i,
         clk_mem          => open,       -- using clk_mem isn't implementable...
         reset            => reset,
         mcb3_dram_dq     => ddr_s_dq,
@@ -540,7 +537,6 @@ begin  --architecture
   PERIPH_DEBUG : process(sysClk_i, reset)
   begin
     if reset = '1' then
-      periph_din_debug  <= (others => '0');
       periph_dout_debug <= (others => '0');
       periph_re2        <= '0';
       periph_addr_read  <= (others => '0');
@@ -549,7 +545,6 @@ begin  --architecture
       periph_re2 <= periph_re;
       if periph_we = '1' then
         periph_addr_write <= bus_address;
-        periph_din_debug  <= bus_din;
       end if;
       if periph_re = '1' then
         periph_addr_read <= bus_address;

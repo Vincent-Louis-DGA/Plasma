@@ -25,7 +25,8 @@ entity ddr2_1Gb_wrapper is
     DO_SIMULATION : std_logic := '0');
   port (clk100  : in  std_logic;        -- from pin
         reset_n : in  std_logic;        -- from pin
-        clk50   : out std_logic;        -- sys_clk
+        clk_50   : out std_logic;        -- sys_clk
+        clk_125 : out std_logic;        -- 125 MHz clk for ethernet
         clk_mem : out std_logic;        -- memory clock
         reset   : out std_logic;        -- active high sys_reset
 
@@ -152,7 +153,7 @@ begin
         c3_sys_clk    => clk100,
         c3_sys_rst_i  => c3_sys_rst_i,
         c3_calib_done => calib_done_i,
-        c3_clk0       => clk50,
+        c3_clk0       => clk_50,
         c3_rst0       => reset_i,
         clk_mem       => clk_mem,
 
@@ -229,7 +230,7 @@ begin
         c3_sys_clk       => clk100,
         c3_sys_rst_i     => c3_sys_rst_i,
         c3_calib_done    => calib_done_i,
-        c3_clk0          => clk50,
+        c3_clk0          => clk_50,
         c3_rst0          => reset_i,
         clk_mem          => clk_mem,
         mcb3_dram_udm    => mcb3_dram_udm,

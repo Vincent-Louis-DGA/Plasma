@@ -173,7 +173,6 @@ architecture logic of BidirPort is
   signal tris      : std_logic_vector(W-1 downto 0) := (others => '1');
   signal op_we     : std_logic                      := '0';
   signal reg_addr1 : std_logic_vector(2 downto 0)   := (others => '0');
-  signal db1       : std_logic                      := '0';
   signal db2       : std_logic                      := '0';
   
 begin  -- logic
@@ -187,15 +186,12 @@ begin  -- logic
     if reset = '1' then                 -- asynchronous reset (active high)
       tris      <= (others => '1');
       reg_addr1 <= (others => '0');
-      db1       <= '0';
       db2       <= '0';
     elsif rising_edge(clk) then         -- rising clock edge
-      db1       <= '0';
       db2       <= '0';
       reg_addr1 <= reg_addr;
       if reg_addr = "101" and reg_we = '1' then
         tris <= reg_din;
-        db1  <= '1';
       end if;
       if reg_addr1 = "100" then
         db2 <= '1';

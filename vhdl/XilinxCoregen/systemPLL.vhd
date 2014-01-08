@@ -79,10 +79,10 @@ port
  (-- Clock in ports
   clk_100           : in     std_logic;
   -- Clock out ports
-  clk_100_0          : out    std_logic;
-  clk_100_90          : out    std_logic;
-  clk_50_0          : out    std_logic;
-  clk_19_0          : out    std_logic;
+  clk_125_0          : out    std_logic;
+  clk_125_90          : out    std_logic;
+  sysClk          : out    std_logic;
+  clkUart          : out    std_logic;
   -- Status and control signals
   reset             : in     std_logic;
   locked            : out    std_logic
@@ -128,18 +128,18 @@ begin
     CLK_FEEDBACK         => "CLKFBOUT",
     COMPENSATION         => "SYSTEM_SYNCHRONOUS",
     DIVCLK_DIVIDE        => 1,
-    CLKFBOUT_MULT        => 6,
+    CLKFBOUT_MULT        => 10,         -- 100 * 10 = 1000
     CLKFBOUT_PHASE       => 0.000,
-    CLKOUT0_DIVIDE       => 6,
+    CLKOUT0_DIVIDE       => 8,         -- 125 (GigEthernet)
     CLKOUT0_PHASE        => 0.000,
     CLKOUT0_DUTY_CYCLE   => 0.500,
-    CLKOUT1_DIVIDE       => 6,
+    CLKOUT1_DIVIDE       => 8,          -- 125 + 90 degrees
     CLKOUT1_PHASE        => 90.000,
     CLKOUT1_DUTY_CYCLE   => 0.500,
-    CLKOUT2_DIVIDE       => 12,
+    CLKOUT2_DIVIDE       => 20,         -- 50 (sysClk)
     CLKOUT2_PHASE        => 0.000,
     CLKOUT2_DUTY_CYCLE   => 0.500,
-    CLKOUT3_DIVIDE       => 31,
+    CLKOUT3_DIVIDE       => 31,         -- 32.258 (~921.6 kHz * 35)
     CLKOUT3_PHASE        => 0.000,
     CLKOUT3_DUTY_CYCLE   => 0.500,
     CLKIN_PERIOD         => 10.000,
@@ -170,24 +170,24 @@ begin
 
   clkout1_buf : BUFG
   port map
-   (O   => clk_100_0,
+   (O   => clk_125_0,
     I   => clkout0);
 
 
 
   clkout2_buf : BUFG
   port map
-   (O   => clk_100_90,
+   (O   => clk_125_90,
     I   => clkout1);
 
   clkout3_buf : BUFG
   port map
-   (O   => clk_50_0,
+   (O   => sysClk,
     I   => clkout2);
 
   clkout4_buf : BUFG
   port map
-   (O   => clk_19_0,
+   (O   => clkUart,
     I   => clkout3);
 
 end xilinx;

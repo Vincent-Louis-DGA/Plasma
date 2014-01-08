@@ -54,7 +54,8 @@ begin  -- testbench
 
   UUT1 : entity work.EthernetTop
     port map (
-      clk_50          => clk_50,
+      clk          => clk_50,
+      clk_125 => ethernetRXCLK,
       reset_n         => reset_n,
       ethernetMDIO    => ethernetMDIO,
       ethernetMDC     => ethernetMDC,
@@ -81,7 +82,8 @@ begin  -- testbench
 
   UUT2 : entity work.EthernetTop
     port map (
-      clk_50        => clk_50,
+      clk        => clk_50,
+      clk_125 => ethernetRXCLK,
       reset_n       => reset_n,
       ethernetRXCLK => ethernetRXCLK,
       ethernetTXCLK => ethernetTXCLK,
@@ -92,6 +94,16 @@ begin  -- testbench
       etherDout     => etherDout2,
       etherRe       => etherRe2,
       etherWbe      => etherWbe2);
+
+  RM : entity work.Ram_Program
+    port map (
+      clka  => clk_50,
+      addra => etherAddr2(14 downto 2),
+      dina  => etherDin2,
+      wea   => etherWbe2,
+      douta => open,
+      clkb => clk_50);
+    
 
   tb : process
   begin  -- process tb

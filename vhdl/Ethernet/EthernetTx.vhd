@@ -3,12 +3,17 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
+Library UNISIM;
+use UNISIM.vcomponents.all;
+
 use work.EthernetRegisters.all;
 
 entity EthernetTx is
-  
+  generic (
+    FPGAType : string := "Spartan6");
   port (
     clk_50  : in std_logic;
+    clk_125 : in std_logic;
     reset_n : in std_logic;
 
     ethernetTXEN   : out std_logic                    := '0';
@@ -34,7 +39,7 @@ end EthernetTx;
 architecture rtl of EthernetTx is
 
   constant MinFrameLength : std_logic_vector(11 downto 0) := X"004";  -- 60?
-                                                                      
+
   constant MaxFrameLength : std_logic_vector(11 downto 0) := X"5DC";  -- 1500
 
   type TxState_t is (idle, preamble, header, data, crc, interframe);
@@ -64,7 +69,6 @@ architecture rtl of EthernetTx is
   
 begin  -- rtl
 
-  ethernetGTXCLK <= ethernetTXCLK;
 
   FILL_FIFO : process (clk_50, reset_n)
   begin  -- process FILL_FIFO
@@ -203,7 +207,7 @@ begin  -- rtl
       doutb => ramDout);
 
   -----------------------------------------------------------------------------
-  -- ethernetTXCLK domain
+  -- clk_125 domain
   -----------------------------------------------------------------------------
 
   TXCLK_GEN : if true generate
@@ -228,10 +232,10 @@ begin  -- rtl
   begin
 
 
-    process (ethernetTXCLK, reset_n)
+    process (clk_125, reset_n)
       variable begin1, begin2 : std_logic;
     begin  -- process
-      if reset_n = '0' then                  -- asynchronous reset (active low)
+      if reset_n = '0' then             -- asynchronous reset (active low)
         TxState      <= idle;
         txCount      <= (others => '0');
         txd          <= (others => '0');
@@ -241,7 +245,7 @@ begin  -- rtl
         begin2       := '0';
         txBusy_txclk <= '1';
         EtherHeader  <= (others => '0');
-      elsif rising_edge(ethernetTXCLK) then  -- rising clock edge
+      elsif rising_edge(clk_125) then   -- rising clock edge
 
         
         begin1       := txBegin2;
@@ -319,7 +323,7 @@ begin  -- rtl
       port map (
         rst    => fifoReset,
         wr_clk => clk_50,
-        rd_clk => ethernetTXCLK,
+        rd_clk => clk_125,
         din    => fifoDin,
         wr_en  => fifoWe,
         rd_en  => txFifoRe,
@@ -329,7 +333,7 @@ begin  -- rtl
 
     CRCGEN : entity work.CrcGenerator
       port map (
-        clk     => ethernetTXCLK,
+        clk     => clk_125,
         reset_n => reset_n,
         sReset  => crcReset,
         en      => crcEn,
@@ -344,5 +348,39 @@ begin  -- rtl
 
   end generate TXCLK_GEN;
 
+
+  -----------------------------------------------------------------------------
+  -- Below is for issues arising out of routing clock net to output pin
+  -- Situation is:  IBUF > BUFG (PLL) > ODDR > OBUF
+  -----------------------------------------------------------------------------
+  S6 : if FPGAType = "Spartan6" generate
+    signal C1 : std_logic;
+    signal R  : std_logic;
+  begin
+    C1 <= not clk_125;
+    R  <= not reset_n;
+
+       ODDR2_inst : ODDR2
+   generic map(
+      DDR_ALIGNMENT => "NONE", -- Sets output alignment to "NONE", "C0", "C1" 
+      INIT => '0', -- Sets initial state of the Q output to '0' or '1'
+      SRTYPE => "SYNC") -- Specifies "SYNC" or "ASYNC" set/reset
+   port map (
+      Q => ethernetGTXCLK, -- 1-bit output data
+      C0 => clk_125, -- 1-bit clock input
+      C1 => C1, -- 1-bit clock input
+      CE => '1',  -- 1-bit clock enable input
+      D0 => '1',   -- 1-bit data input (associated with C0)
+      D1 => '0',   -- 1-bit data input (associated with C1)
+      R => R,    -- 1-bit reset input
+      S => '0'     -- 1-bit set input
+   );
+
+
+  end generate S6;
+
+  TYPE_UNKNOWN : if FPGAType /= "Spartan6" generate
+    ethernetGTXCLK <= clk_125;
+  end generate TYPE_UNKNOWN;
 
 end rtl;

@@ -74,7 +74,6 @@ architecture logic of PlasmaCore is
 
 
   signal ex_ram_en1 : std_logic;
-  signal ex_ram_en2 : std_logic;
 
   constant ZEROS : std_logic_vector(31 downto 0) := (others => '0');
   
@@ -95,8 +94,7 @@ begin  --architecture
   periph_re <= '1' when (mem_address(31 downto 29) = PERIPH_OFFSET and
                          mem_wbe = X"0") else '0';
 
-  --ex_ram_en1 <= '1' when mem_address(31 downto 29) = EX_RAM_OFFSET else '0';
-  ex_ram_en <= ex_ram_en1 and mem_pause_int;  --not ex_ram_en2;
+  ex_ram_en <= ex_ram_en1 and mem_pause_int;
 
   ex_ram_wbe <= mem_wbe_reg when mem_address_reg(31 downto 29) = EX_RAM_OFFSET
                 else (others => '0');
@@ -112,12 +110,10 @@ begin  --architecture
       mem_address_reg <= (others => '0');
       mem_pause_int   <= '0';
       mem_wbe_reg     <= (others => '0');
-      ex_ram_en2      <= '0';
       ex_ram_en1      <= '0';
       ex_ram_addr     <= (others => '0');
     elsif rising_edge(clk) then         -- rising clock edge
       ex_ram_en1    <= '0';
-      ex_ram_en2    <= '0';
       mem_pause_int <= '0';
       if mem_address(31 downto 29) = EX_RAM_OFFSET then
         ex_ram_en1  <= '1';
@@ -125,9 +121,6 @@ begin  --architecture
         if mem_pause = '0' then
           mem_pause_int <= '1';
         end if;
-      end if;
-      if mem_address_reg(31 downto 29) = EX_RAM_OFFSET then
-        ex_ram_en2 <= '1';
       end if;
       mem_address_reg <= mem_address(31 downto 2) & "00";
       mem_wbe_reg     <= mem_wbe;
@@ -182,26 +175,22 @@ begin  --architecture
   end process;
 
   NOT_SIM : if SIMULATION /= '1' generate
-    u2_prog_ram : entity work.ram_PlasmaBootLoader
+    u2_prog_ram : entity work.Ram_PlasmaBootLoader
       port map (
-        clka  => clk,
-        wea   => in_ram_wbe,
-        addra => mem_address(14 downto 2),
-        dina  => mem_data_write,
-        douta => in_ram_dout,
-        clkb  => clk,
-        doutb => open);
+        clk  => clk,
+        wbe  => in_ram_wbe,
+        addr => mem_address(14 downto 2),
+        din  => mem_data_write,
+        dout => in_ram_dout);
   end generate NOT_SIM;
   SIM : if SIMULATION = '1' generate
-    u2_prog_ram : entity work.ram_Program
+    u2_prog_ram : entity work.Ram_Program
       port map (
-        clka  => clk,
-        wea   => in_ram_wbe,
-        addra => mem_address(14 downto 2),
-        dina  => mem_data_write,
-        douta => in_ram_dout,
-        clkb  => clk,
-        doutb => open);
+        clk  => clk,
+        wbe  => in_ram_wbe,
+        addr => mem_address(14 downto 2),
+        din  => mem_data_write,
+        dout => in_ram_dout);
   end generate SIM;
 
 
