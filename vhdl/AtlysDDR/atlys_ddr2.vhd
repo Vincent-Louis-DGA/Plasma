@@ -72,7 +72,7 @@ entity atlys_ddr2 is
       C3_P0_DATA_PORT_SIZE  : integer := 32;
       C3_P1_MASK_SIZE       : integer := 4;
       C3_P1_DATA_PORT_SIZE  : integer := 32;
-      C3_MEMCLK_PERIOD      : integer := 3333;
+      C3_MEMCLK_PERIOD      : integer := 4000;
       -- Memory data transfer clock period.
       C3_RST_ACT_LOW        : integer := 0;
       -- # = 1 for active low reset,
@@ -101,7 +101,7 @@ entity atlys_ddr2 is
 
   port
     (
-
+      c3_clk4             : out   std_logic;
       mcb3_dram_dq        : inout std_logic_vector(C3_NUM_DQ_PINS-1 downto 0);
       mcb3_dram_a         : out   std_logic_vector(C3_MEM_ADDR_WIDTH-1 downto 0);
       mcb3_dram_ba        : out   std_logic_vector(C3_MEM_BANKADDR_WIDTH-1 downto 0);
@@ -213,12 +213,14 @@ architecture arc of atlys_ddr2 is
       C_CLKOUT1_DIVIDE : integer;
       C_CLKOUT2_DIVIDE : integer;
       C_CLKOUT3_DIVIDE : integer;
+      C_CLKOUT4_DIVIDE : integer;
       C_CLKFBOUT_MULT  : integer;
       C_DIVCLK_DIVIDE  : integer;
       C_INCLK_PERIOD   : integer
 
       );
     port (
+      clk4          : out std_logic;
       sys_clk_p     : in  std_logic;
       sys_clk_n     : in  std_logic;
       sys_clk       : in  std_logic;
@@ -427,9 +429,10 @@ architecture arc of atlys_ddr2 is
 
   constant C3_CLKOUT0_DIVIDE          : integer                := 1;
   constant C3_CLKOUT1_DIVIDE          : integer                := 1;
-  constant C3_CLKOUT2_DIVIDE          : integer                := 12;
-  constant C3_CLKOUT3_DIVIDE          : integer                := 6;
-  constant C3_CLKFBOUT_MULT           : integer                := 6;
+  constant C3_CLKOUT2_DIVIDE          : integer                := 10;
+  constant C3_CLKOUT3_DIVIDE          : integer                := 5;
+  constant C3_CLKOUT4_DIVIDE          : integer                := 4;
+  constant C3_CLKFBOUT_MULT           : integer                := 5;
   constant C3_DIVCLK_DIVIDE           : integer                := 1;
   constant C3_INCLK_PERIOD            : integer                := ((C3_MEMCLK_PERIOD * C3_CLKFBOUT_MULT) / (C3_DIVCLK_DIVIDE * C3_CLKOUT0_DIVIDE * 2));
   constant C3_ARB_NUM_TIME_SLOTS      : integer                := 12;
@@ -523,7 +526,6 @@ architecture arc of atlys_ddr2 is
 
 begin
   
-
   c3_sys_clk_p         <= '0';
   c3_sys_clk_n         <= '0';
   c3_selfrefresh_enter <= '0';
@@ -538,6 +540,7 @@ begin
       C_CLKOUT1_DIVIDE => C3_CLKOUT1_DIVIDE,
       C_CLKOUT2_DIVIDE => C3_CLKOUT2_DIVIDE,
       C_CLKOUT3_DIVIDE => C3_CLKOUT3_DIVIDE,
+      C_CLKOUT4_DIVIDE => C3_CLKOUT4_DIVIDE,
       C_CLKFBOUT_MULT  => C3_CLKFBOUT_MULT,
       C_DIVCLK_DIVIDE  => C3_DIVCLK_DIVIDE,
       C_INCLK_PERIOD   => C3_INCLK_PERIOD
@@ -556,7 +559,8 @@ begin
       pll_ce_0      => c3_pll_ce_0,
       pll_ce_90     => c3_pll_ce_90,
       pll_lock      => c3_pll_lock,
-      mcb_drp_clk   => c3_mcb_drp_clk
+      mcb_drp_clk   => c3_mcb_drp_clk,
+      clk4          => c3_clk4
       );
 
 

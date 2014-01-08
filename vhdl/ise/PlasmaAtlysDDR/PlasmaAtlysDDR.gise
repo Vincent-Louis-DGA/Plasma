@@ -89,6 +89,10 @@
     <transform xil_pn:end_ts="1389213174" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1389213174">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/Ram_Program.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -157,6 +161,11 @@
     <transform xil_pn:end_ts="1389213174" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1389213174">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../../../C/Example/Ram_Program.vhd"/>
       <outfile xil_pn:name="../../../C/PlasmaBootLoader/ram_PlasmaBootLoader.vhd"/>
       <outfile xil_pn:name="../../AtlysDDR/atlys_ddr2.vhd"/>
@@ -213,6 +222,12 @@
     <transform xil_pn:end_ts="1389213185" xil_pn:in_ck="1322507159498294559" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7466370148863137066" xil_pn:start_ts="1389213174">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaDDR_tb_beh.prj"/>
       <outfile xil_pn:name="PlasmaDDR_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -222,6 +237,10 @@
     <transform xil_pn:end_ts="1389213185" xil_pn:in_ck="9012258745758879836" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8818735670064190403" xil_pn:start_ts="1389213185">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaDDR_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
     </transform>
@@ -253,12 +272,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1389213055" xil_pn:in_ck="7477655973093071845" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1741529296722082816" xil_pn:start_ts="1389212959">
+    <transform xil_pn:end_ts="1389220840" xil_pn:in_ck="7477655973093071845" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1741529296722082816" xil_pn:start_ts="1389220744">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.lso"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.ngc"/>
       <outfile xil_pn:name="PlasmaAtlysDDR.ngr"/>
@@ -271,59 +290,67 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1378868499" xil_pn:in_ck="7762212224777513297" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5312659122934697522" xil_pn:start_ts="1378868499">
+    <transform xil_pn:end_ts="1389217114" xil_pn:in_ck="7762212224777513297" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5312659122934697522" xil_pn:start_ts="1389217114">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1380596394" xil_pn:in_ck="-7699624631552480968" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1541474830699728654" xil_pn:start_ts="1380596384">
+    <transform xil_pn:end_ts="1389220851" xil_pn:in_ck="3434934932364207403" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1541474830699728654" xil_pn:start_ts="1389220840">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.bld"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.ngd"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1380596553" xil_pn:in_ck="-3889090596818288547" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1380596394">
+    <transform xil_pn:end_ts="1389221053" xil_pn:in_ck="-3889090596818288547" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-398923363910175968" xil_pn:start_ts="1389220851">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.pcf"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_map.map"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_map.mrp"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_map.ncd"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_map.ngm"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_map.xrpt"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_summary.xml"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_usage.xml"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1380596632" xil_pn:in_ck="8965676931098191158" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1380596553">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
-    </transform>
-    <transform xil_pn:end_ts="1380596665" xil_pn:in_ck="7762212224777505672" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1380596632">
+    <transform xil_pn:end_ts="1389221227" xil_pn:in_ck="8965676931098191158" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1389221053">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.ncd"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.pad"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.par"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.ptwx"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.unroutes"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.xpi"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_pad.csv"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_pad.txt"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1380596632" xil_pn:in_ck="523594901476656857" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1380596608">
+    <transform xil_pn:end_ts="1389221271" xil_pn:in_ck="7762212224777505672" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="396117104113915555" xil_pn:start_ts="1389221227">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.ut"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="plasmaatlysddr.bgn"/>
+      <outfile xil_pn:name="plasmaatlysddr.bit"/>
+      <outfile xil_pn:name="plasmaatlysddr.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1389221227" xil_pn:in_ck="523594901476656857" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1389221201">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.twr"/>
+      <outfile xil_pn:name="PlasmaAtlysDDR.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
     </transform>
   </transforms>
 

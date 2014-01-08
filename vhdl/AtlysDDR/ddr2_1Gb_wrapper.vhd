@@ -11,7 +11,7 @@
 -- 
 --
 -- All user ports operate on the same clock, which is 50 MHz.
--- RAM running at 300 MHz.
+-- RAM running at 250 MHz.
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -25,7 +25,7 @@ entity ddr2_1Gb_wrapper is
     DO_SIMULATION : std_logic := '0');
   port (clk100  : in  std_logic;        -- from pin
         reset_n : in  std_logic;        -- from pin
-        clk_50   : out std_logic;        -- sys_clk
+        clk_50  : out std_logic;        -- sys_clk
         clk_125 : out std_logic;        -- 125 MHz clk for ethernet
         clk_mem : out std_logic;        -- memory clock
         reset   : out std_logic;        -- active high sys_reset
@@ -154,6 +154,7 @@ begin
         c3_sys_rst_i  => c3_sys_rst_i,
         c3_calib_done => calib_done_i,
         c3_clk0       => clk_50,
+        c3_clk4       => clk_125,
         c3_rst0       => reset_i,
         clk_mem       => clk_mem,
 
@@ -214,6 +215,7 @@ begin
         C3_CALIB_SOFT_IP => "TRUE",
         C3_SIMULATION    => "FALSE")
       port map (
+        c3_clk4          => clk_125,
         mcb3_dram_dq     => mcb3_dram_dq,
         mcb3_dram_a      => mcb3_dram_a,
         mcb3_dram_ba     => mcb3_dram_ba,

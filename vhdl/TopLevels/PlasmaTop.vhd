@@ -137,11 +137,11 @@ architecture logic of PlasmaTop is
   signal uart_irq  : std_logic;
 
   -- Ethernet
-  signal clk_125 : std_logic;
-  signal etherDout   : std_logic_vector(31 downto 0) := (others => '0');
-  signal etherRe     : std_logic;
-  signal etherWbe    : std_logic_vector(3 downto 0);
-  signal etherIrq    : std_logic                     := '0';
+  signal clk_125   : std_logic;
+  signal etherDout : std_logic_vector(31 downto 0) := (others => '0');
+  signal etherRe   : std_logic;
+  signal etherWbe  : std_logic_vector(3 downto 0);
+  signal etherIrq  : std_logic                     := '0';
 
   signal ex_ram_address  : std_logic_vector(31 downto 0);
   signal ex_ram_dout     : std_logic_vector(31 downto 0);
@@ -267,10 +267,10 @@ begin  --architecture
 -- RAM and CPU
 -------------------------------------------------------------------------------
 
-  ExBusAddr               <= bus_address(27 downto 2) & "00";
-  ExBusDout               <= bus_din;
-  ExBusRe                 <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
-  ExBusWe                 <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
+  ExBusAddr <= bus_address(27 downto 2) & "00";
+  ExBusDout <= bus_din;
+  ExBusRe   <= periph_re when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
+  ExBusWe   <= periph_we when bus_address(31 downto 28) = EX_BUS_OFFSET else '0';
 
   process (sysClk_i, reset_n_i)
   begin  -- process
@@ -328,11 +328,11 @@ begin  --architecture
       signal clkE : std_logic := '0';
     begin
       
-      clkS        <= not clkS             after 10 ns;
-      clkE        <= not clkE             after 4 ns;
-      reset_n_i   <= transport reset_ex_n after 200 ns;
-      sysClk_i    <= clkS when reset_ex_n = '1' else '0';
-      clk_125 <= clkE    when reset_ex_n = '1' else '0';
+      clkS      <= not clkS             after 10 ns;
+      clkE      <= not clkE             after 4 ns;
+      reset_n_i <= transport reset_ex_n after 200 ns;
+      sysClk_i  <= clkS when reset_ex_n = '1' else '0';
+      clk_125   <= clkE when reset_ex_n = '1' else '0';
       
     end generate BRS;
     BRP : if simulateRam /= '1' generate
@@ -372,7 +372,8 @@ begin  --architecture
       port map (
         clk100           => clk_100,
         reset_n          => reset_ex_n,
-        clk_50            => sysClk_i,
+        clk_50           => sysClk_i,
+        clk_125          => clk_125,
         clk_mem          => open,       -- using clk_mem isn't implementable...
         reset            => reset,
         mcb3_dram_dq     => ddr_s_dq,
@@ -791,7 +792,7 @@ begin  --architecture
 
     u10_ethernet : entity work.EthernetTop
       port map (
-        clk          => sysClk_i,
+        clk             => sysClk_i,
         clk_125         => clk_125,
         reset_n         => reset_n_i,
         ethernetMDIO    => ethernetMDIO,

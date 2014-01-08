@@ -31,7 +31,7 @@ entity PlasmaAtlysDDR is
     Uart_bypassRx         : in  std_logic_vector(7 downto 0);
     Uart_bypassRxWeToggle : in  std_logic;
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
-    Uart_bypassTxDvToggle       : out std_logic;
+    Uart_bypassTxDvToggle : out std_logic;
 
     FifoDin   : in  std_logic_vector(31 downto 0) := (others => '0');
     FifoDout  : out std_logic_vector(31 downto 0);
@@ -52,7 +52,7 @@ entity PlasmaAtlysDDR is
     FlashCS    : out   std_logic;
     FlashTris  : out   std_logic_vector(3 downto 0);
     FlashMemDq : inout std_logic_vector(3 downto 0);
-    
+
     -- Ethernet
     ethernetMDIO    : inout std_logic                    := '0';
     ethernetMDC     : out   std_logic                    := '0';
@@ -105,24 +105,24 @@ begin  --architecture
       simulateRam     => simulateRam,
       simulateProgram => simulateProgram,
       includeEthernet => '1',
-      AtlysDDR        => '0')
+      AtlysDDR        => '1')
     port map (
-      clk_100      => clk_100,
-      reset_ex_n   => reset_ex_n,
-      UartRx       => UartRx,
-      UartTx       => UartTx,
+      clk_100               => clk_100,
+      reset_ex_n            => reset_ex_n,
+      UartRx                => UartRx,
+      UartTx                => UartTx,
       Uart_bypassRx         => Uart_bypassRx,
       Uart_bypassRxWeToggle => Uart_bypassRxWeToggle,
       Uart_bypassTx         => Uart_bypassTx,
       Uart_bypassTxDvToggle => Uart_bypassTxDvToggle,
-      leds         => leds,
-      switches     => switches,
-      buttons      => buttons,
-      pmod         => pmod,
-      FlashClk     => FlashClk,
-      FlashCS      => FlashCS,
-      FlashTris    => FlashTris,
-      FlashMemDq   => FlashMemDq,
+      leds                  => leds,
+      switches              => switches,
+      buttons               => buttons,
+      pmod                  => pmod,
+      FlashClk              => FlashClk,
+      FlashCS               => FlashCS,
+      FlashTris             => FlashTris,
+      FlashMemDq            => FlashMemDq,
       ethernetMDIO          => ethernetMDIO,
       ethernetMDC           => ethernetMDC,
       ethernetINT_n         => ethernetINT_n,
@@ -138,24 +138,24 @@ begin  --architecture
       ethernetTXER          => ethernetTXER,
       ethernetTXEN          => ethernetTXEN,
       ethernetTXD           => ethernetTXD,
-      ddr_s_dq     => ddr_s_dq,
-      ddr_s_a      => ddr_s_a,
-      ddr_s_ba     => ddr_s_ba,
-      ddr_s_ras_n  => ddr_s_ras_n,
-      ddr_s_cas_n  => ddr_s_cas_n,
-      ddr_s_we_n   => ddr_s_we_n,
-      ddr_s_odt    => ddr_s_odt,
-      ddr_s_cke    => ddr_s_cke,
-      ddr_s_dm     => ddr_s_dm,
-      ddr_d_udqs   => ddr_d_udqs,
-      ddr_d_udqs_n => ddr_d_udqs_n,
-      ddr_s_rzq    => ddr_s_rzq,
-      ddr_s_zio    => ddr_s_zio,
-      ddr_s_udm    => ddr_s_udm,
-      ddr_d_dqs    => ddr_d_dqs,
-      ddr_d_dqs_n  => ddr_d_dqs_n,
-      ddr_d_ck     => ddr_d_ck,
-      ddr_d_ck_n   => ddr_d_ck_n);
+      ddr_s_dq              => ddr_s_dq,
+      ddr_s_a               => ddr_s_a,
+      ddr_s_ba              => ddr_s_ba,
+      ddr_s_ras_n           => ddr_s_ras_n,
+      ddr_s_cas_n           => ddr_s_cas_n,
+      ddr_s_we_n            => ddr_s_we_n,
+      ddr_s_odt             => ddr_s_odt,
+      ddr_s_cke             => ddr_s_cke,
+      ddr_s_dm              => ddr_s_dm,
+      ddr_d_udqs            => ddr_d_udqs,
+      ddr_d_udqs_n          => ddr_d_udqs_n,
+      ddr_s_rzq             => ddr_s_rzq,
+      ddr_s_zio             => ddr_s_zio,
+      ddr_s_udm             => ddr_s_udm,
+      ddr_d_dqs             => ddr_d_dqs,
+      ddr_d_dqs_n           => ddr_d_dqs_n,
+      ddr_d_ck              => ddr_d_ck,
+      ddr_d_ck_n            => ddr_d_ck_n);
 
 
 end;  --architecture logic

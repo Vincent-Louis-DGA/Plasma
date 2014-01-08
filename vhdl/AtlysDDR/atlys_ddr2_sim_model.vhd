@@ -17,6 +17,7 @@ entity atlys_ddr2_sim_model is
     c3_sys_clk          : in  std_logic;
     c3_sys_rst_i        : in  std_logic;
     c3_calib_done       : out std_logic;
+    c3_clk4             : out std_logic;
     c3_clk0             : out std_logic;
     c3_rst0             : out std_logic;
     clk_mem             : out std_logic;
@@ -64,6 +65,7 @@ architecture model of atlys_ddr2_sim_model is
 
   signal resetCount : std_logic_vector(3 downto 0);
   signal clk50      : std_logic;
+  signal clk125 : std_logic := '0';
   signal mem_clk    : std_logic := '0';
   signal reset      : std_logic;
 
@@ -108,6 +110,8 @@ architecture model of atlys_ddr2_sim_model is
   
 begin  -- model
 
+  clk125 <= not clk125 after 4 ns;
+  c3_clk4 <= clk125;
   clk_mem <= mem_clk;
   c3_rst0 <= reset;
   c3_clk0 <= clk50;
