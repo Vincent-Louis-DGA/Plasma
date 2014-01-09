@@ -49,6 +49,7 @@ architecture rtl of EthernetTx is
   signal txBegin       : std_logic := '0';
   signal txBegin2      : std_logic;
   signal txBusy        : std_logic;
+  signal txActive : std_logic;
   signal fifoDin       : std_logic_vector(7 downto 0);
   signal fifoWe        : std_logic;
   signal ramWbe        : std_logic_vector(3 downto 0);
@@ -148,11 +149,7 @@ begin  -- rtl
       case etherAddr is
         when TX_CONTROL =>
           etherTxConDout(1 downto 0) <= "00";
-          if txBusy = '1' or ramReadAddr < TxPacketLength then
-            etherTxConDout(2) <= '1';
-          else
-            etherTxConDout(2) <= '0';
-          end if;
+          etherTxConDout(2) <= txActive;
           etherTxConDout(31 downto 3) <= (others => '0');
           
         when TX_PACKET_LENGTH =>
@@ -169,6 +166,7 @@ begin  -- rtl
     end if;
   end process FILL_FIFO;
 
+  txActive <= '1' when ramReadAddr < TxPacketLength else txBusy;
   ramWriteAddr <= etherAddr(10 downto 0);
   ramWbe       <= etherWbe when etherAddr(15 downto ETHER_TXBUF_OFFSET'right) = ETHER_TXBUF_OFFSET else X"0";
 

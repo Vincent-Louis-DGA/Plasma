@@ -12,16 +12,11 @@ entity Ram_PlasmaBootLoader is
     M : integer := 13);               -- Address width
 
   port (
-    clka  : in  std_logic;
-    wea   : in  std_logic_vector(N-1 downto 0)   := (others => '0');
-    addra : in  std_logic_vector(M-1 downto 0)   := (others => '0');
-    dina  : in  std_logic_vector(N*8-1 downto 0) := (others => '0');
-    douta : out std_logic_vector(N*8-1 downto 0);
-    clkb  : in  std_logic;
-    web   : in  std_logic_vector(N-1 downto 0)   := (others => '0');
-    addrb : in  std_logic_vector(M-1 downto 0)   := (others => '1');
-    dinb  : in  std_logic_vector(N*8-1 downto 0) := (others => '0');
-    doutb : out std_logic_vector(N*8-1 downto 0)
+    clk  : in  std_logic;
+    wbe   : in  std_logic_vector(N-1 downto 0)   := (others => '0');
+    addr : in  std_logic_vector(M-1 downto 0)   := (others => '0');
+    din  : in  std_logic_vector(N*8-1 downto 0) := (others => '0');
+    dout : out std_logic_vector(N*8-1 downto 0)
     );
 
 end Ram_PlasmaBootLoader;
@@ -349,42 +344,28 @@ architecture logic of Ram_PlasmaBootLoader is
 1244 => X"7F454C46",1245 => X"01020008",1246 => X"00000000",1247 => X"00000000",
     others => (others => '0')
     );
-  signal addra_i : std_logic_vector(M-1 downto 0);
-  signal addrb_i : std_logic_vector(M-1 downto 0);
+  signal addr_i : std_logic_vector(M-1 downto 0);
 
-  signal dina_i : std_logic_vector(N*8-1 downto 0);
-  signal dinb_i : std_logic_vector(N*8-1 downto 0);
+  signal din_i : std_logic_vector(N*8-1 downto 0);
 
   
 begin  -- logic
 
-  dina_i <= to_X01(dina);
-  dinb_i <= to_X01(dinb);
+  din_i <= to_X01(din);
 
 
-
-  PROCESS_A : process (clka, clkb)
+  PROCESS_A : process (clk)
   begin  -- process WRITE_PROCESS
-    if rising_edge(clka) then           -- rising clock edge
+    if rising_edge(clk) then           -- rising clock edge
+      addr_i <= addr;
       for i in 0 to N-1 loop
-        if wea(i) = '1' then
-          ram(to_integer(unsigned(addra)))(8*i+7 downto 8*i) <= dina_i(8*i+7 downto 8*i);
+        if wbe(i) = '1' then
+          ram(to_integer(unsigned(addr)))(8*i+7 downto 8*i) <= din_i(8*i+7 downto 8*i);
         end if;
       end loop;  -- i
-      addra_i <= addra;
-    end if;
-
-    if rising_edge(clkb) then           -- rising clock edge
-      for i in 0 to N-1 loop
-        if web(i) = '1' then
-          ram(to_integer(unsigned(addrb)))(8*i+7 downto 8*i) <= dinb_i(8*i+7 downto 8*i);
-        end if;
-      end loop;  -- i
-      addrb_i <= addrb;
     end if;
   end process PROCESS_A;
 
-  douta <= ram(to_integer(unsigned(addra_i)));
-  doutb <= ram(to_integer(unsigned(addrb_i)));
+  dout <= ram(to_integer(unsigned(addr_i)));
 
 end logic;

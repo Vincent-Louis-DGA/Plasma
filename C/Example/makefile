@@ -19,11 +19,9 @@ target:
 	as.exe $(PLASMA_LIB)\boot_os.s -o boot_os.o
 	gcc.exe $(CFLAGS) $(Target).c 
 	ld.exe -Ttext 0x00000000 -e entry -Map $(Target)_boot.map -s -N \
-		boot_os.o $(Target).o -o test.axf
-	objdump.bat test.axf $(Target)_boot.lst
-	convert_bin.exe	# Creates test.bin and code.txt from test.axf
-	ram_image.exe $(PLASMA_LIB)\ram_xilinx.vhd \
-		code.txt ram_$(Target).vhd
+		boot_os.o $(Target).o -o $(Target)_boot.axf
+	objdump.bat $(Target)_boot.axf $(Target)_boot.lst
+	ConvertAxfToVhdl.exe -i $(Target)_boot.axf -o Ram_Program.vhd
 	ld.exe -Ttext $(BOOT_OFFSET) -e entry -Map $(Target).map -s -N \
 		boot_os.o $(Target).o -o $(Target).axf
 	objdump.bat $(Target).axf $(Target).lst

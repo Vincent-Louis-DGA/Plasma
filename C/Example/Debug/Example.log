@@ -1,45 +1,34 @@
-﻿Build started 6/11/2013 2:21:23 p.m..
+﻿Build started 9/01/2014 12:53:37 p.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
-         del *.o *.map *.lst *.axf *.bin code.txt
+         del *.o *.map *.lst *.axf
        Rebuild:
-         gmake target Target=Example && move /Y test.bin Example.bin
+         gmake target Target=Example
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
-         Ethernet.c: In function `ProcessUdpPacket':
-         In file included from Example.c:78:
-         Ethernet.c:133: warning: unused variable `destPort'
-         Ethernet.c:132: warning: unused variable `sourcePort'
-         Ethernet.c: In function `EthernetInterruptHandler':
-         Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
-         Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
+         Ethernet.c: In function `ProcessIcmpPacket':
+         In file included from Example.c:79:
+         Ethernet.c:223: warning: passing arg 2 of `CopyIpFilter' discards `volatile' from pointer target type
          Ethernet.c: In function `EthernetExercise':
-         Ethernet.c:395: warning: unused variable `u'
+         Ethernet.c:598: warning: unused variable `u'
          Example.c: In function `main':
-         Example.c:82: warning: unused variable `i'
-         Ethernet.c: In function `ProcessIpPacket':
-         Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
-         Ethernet.c: In function `ProcessEthernetPacket':
-         Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
-         Ethernet.c:152: warning: `pFilter' might be used uninitialized in this function
+         Example.c:83: warning: unused variable `i'
          ld.exe -Ttext 0x00000000 -e entry -Map Example_boot.map -s -N \
-         		boot_os.o Example.o -o test.axf
-         objdump.bat test.axf Example_boot.lst
+         		boot_os.o Example.o -o Example_boot.axf
+         objdump.bat Example_boot.axf Example_boot.lst
          
-         C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls test.axf  1>Example_boot.lst 
-         convert_bin.exe	# Creates test.bin and code.txt from test.axf
-         test.axf -> code.txt & test.bin
-         Entry=0x0 length=6048=0x17a0
-         ram_image.exe ..\..\Tools\lib\ram_xilinx.vhd \
-         		code.txt ram_Example.vhd
+         C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls Example_boot.axf  1>Example_boot.lst 
+         ConvertAxfToVhdl.exe -i Example_boot.axf -o Ram_Program.vhd
+         Reading input file 'Example_boot.axf'...
+         Filling template: N = 4, M = 13...
+         Writing output file 'Ram_Program.vhd'...
          ld.exe -Ttext 0x40000000 -e entry -Map Example.map -s -N \
          		boot_os.o Example.o -o Example.axf
          objdump.bat Example.axf Example.lst
          
          C:\work_unsync\Plasma\C\Example>objdump.exe -Dxls Example.axf  1>Example.lst 
-                 1 file(s) moved.
      1>Done Building Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.97
+Time Elapsed 00:00:02.52

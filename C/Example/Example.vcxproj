@@ -36,10 +36,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <NMakeOutput>$(TargetName).exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>gmake target Target=$(TargetName) &amp;&amp; move /Y test.bin $(TargetName).bin</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>gmake target Target=$(TargetName) &amp;&amp; move /Y test.bin $(TargetName).bin</NMakeReBuildCommandLine>
+    <NMakeBuildCommandLine>gmake target Target=$(TargetName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>gmake target Target=$(TargetName)</NMakeReBuildCommandLine>
     <NMakeIncludeSearchPath>..\..\Tools\lib;c:\program files (x86)\microsoft visual studio 10.0\vc\include</NMakeIncludeSearchPath>
-    <NMakeCleanCommandLine>del *.o *.map *.lst *.axf *.bin code.txt</NMakeCleanCommandLine>
+    <NMakeCleanCommandLine>del *.o *.map *.lst *.axf</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeOutput>Example.exe</NMakeOutput>

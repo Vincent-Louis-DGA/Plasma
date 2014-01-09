@@ -37,6 +37,7 @@ int main(void) {
 
 int count = 0;
 
+
 void InterruptServiceRoutine(int status)
 {
 	count++;
@@ -82,8 +83,11 @@ int main(void)
 	int s,i;
 	char buffer [64];
 	
+	*(int*)(0x10) = 0x1234567;
 
-	EthernetExercise(buffer);
+	print("Hello World\n");
+
+	EthernetExercise();
 
 	
 	HeapExercise();

@@ -10,6 +10,7 @@ namespace ConvertAxfToVhdl
     public class AxfToVhdlConverter
     {
         const string InitDataTemplateString = "<INIT_DATA>";
+        const string EntityNameTemplateString = "BlockRamTemplate";
 
         string inputFile = null;
         string outputFile = null;
@@ -173,12 +174,12 @@ namespace ConvertAxfToVhdl
         private void FillTemplate()
         {
             Console.WriteLine("Filling template: N = " + RamWidthInBytes + ", M = " + RamAddressWidth + "...");
-            templateFile = ConvertAxfToVhdl.Resource.dualRamTemplate;
+            templateFile = ConvertAxfToVhdl.Resource.BlockRamTemplate;
             templateFile = templateFile.Replace("0009", RamAddressWidth.ToString());
             templateFile = templateFile.Replace("0004", RamWidthInBytes.ToString());
 
             string vhdlEntity = Path.GetFileNameWithoutExtension(outputFile);
-            templateFile = templateFile.Replace("dualRamTemplate", vhdlEntity);
+            templateFile = templateFile.Replace(EntityNameTemplateString, vhdlEntity);
 
 
             StringBuilder sb = new StringBuilder(InitDataTemplateString);

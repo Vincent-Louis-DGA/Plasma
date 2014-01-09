@@ -158,12 +158,16 @@ int itox(unsigned int value, char* result)
 	return ret;
 }
 
-void byteToHex(char value, char* result)
+void bytesToHex(char* value, char* result, int numBytes)
 {
+	int i;
 	unsigned char v;
-	v = (value >> 4) & 0xF;
-	result[0] = HexDigits[v];
-	v = (value) & 0xF;
-	result[1] = HexDigits[v];
+	for(i = 0; i < numBytes; i++)
+	{
+		v = (value[i] >> 4) & 0xF;
+		result[i*2] = HexDigits[v];
+		v = (value[i]) & 0xF;
+		result[i*2+1] = HexDigits[v];
+	}
 }
 

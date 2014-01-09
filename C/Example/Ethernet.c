@@ -1,6 +1,7 @@
 #ifndef __ETHERNET_C
 #define __ETHERNET_C
 
+
 #include <plasma.h>
 #include <plasma_stdio.h>
 #include <plasma_string.h>
@@ -33,6 +34,7 @@
 #define ETHER_TX_DEST_MAC_HIGH	(ETHER_OFFSET+0x3024)
 #define ETHER_TX_DEST_MAC_MID	(ETHER_OFFSET+0x3028)
 #define ETHER_TX_DEST_MAC_LOW	(ETHER_OFFSET+0x302C)
+#define ETHER_TX_TYPE			(ETHER_OFFSET+0x3030)
 
 #define ETHER_TX_BUSY	(MemoryRead(ETHER_TX_CONTROL) & 0x4)
 
@@ -41,15 +43,16 @@
 #define MacMid	0x3544
 #define MacLow	0x5441
 
+#define ETHER_TYPE_IPV4		0x0800
+#define ETHER_TYPE_ARP		0x0806
 #define IP_HEADER_LEN		20
 #define UDP_HEADER_LEN		8
+#define DHCP_OPTIONS_OFFSET	240
 #define IP_PROTOCOL_ICMP	1
 #define IP_PROTOCOL_UDP		17
 #define IP_PROTOCOL_TCP		6
 
-// Function signature for processing IP packets in Interrupt Handler
-// void RxProcess(char * rxBuffer)
-//void (*RxProcess)(char*) = DefaultProcessIpPacket;
+
 
 typedef struct
 {
@@ -65,17 +68,41 @@ typedef struct
 	unsigned short length;
 } UdpFilter_t;
 
+enum IpQueryType { ICMP, ARP, TCP };
+
+typedef struct
+{
+	IpFilter_t ipInfo;
+	int queryInfo [4];
+	enum IpQueryType queryType;
+} IpQuery_t;
 
 IpFilter_t ipFilter = {1,1,1};
-int ipLease = 0;
-int transactionId;
-unsigned int ownIpAddress = 0;	// 192.168.104.104?
+volatile unsigned int ipLease = 0;
+volatile int transactionId;
+volatile unsigned int ownIpAddress = 0;	// 192.168.104.104?
+volatile char DhcpState = 0;
+volatile unsigned int dhcpServerIp = 0;
+
+char isrBuf [64];
+char mainBuf[64];
+
+#define MAX_IP_QUERIES 4
+volatile IpQuery_t IpQueryStack [MAX_IP_QUERIES];
+volatile int IpQueryStackIndex = -1;
 
 void CreateIpFilter(char * buffer, IpFilter_t* filterOut)
 {
 	filterOut->destAddr = *(unsigned int*)(buffer+16);
 	filterOut->sourceAddr = *(unsigned int*)(buffer+12);
 	filterOut->protocol = *(buffer+9);
+}
+
+void CopyIpFilter(IpFilter_t * src, IpFilter_t * dest)
+{
+	dest->destAddr = src->destAddr;
+	dest->sourceAddr = src->sourceAddr;
+	dest->protocol = src->protocol;
 }
 
 int PassesIpFilter(IpFilter_t* packet, IpFilter_t* filter)
@@ -98,71 +125,172 @@ int PassesIpFilter(IpFilter_t* packet, IpFilter_t* filter)
 	return 1;
 }
 
+unsigned int CharToIp(char * buf)
+{
+	int i;
+	unsigned int ip = 0;
+	int start = 0;
+	int end;
+	i = atoi_p(buf+start, &end);
+	start += end;
+	ip = (ip<<8) + i;
+	i = atoi_p(buf+start, &end);
+	start += end;
+	ip = (ip<<8) + i;
+	i = atoi_p(buf+start, &end);
+	start += end;
+	ip = (ip<<8) + i;
+	i = atoi_p(buf+start, &end);
+	start += end;
+	ip = (ip<<8) + i;
+	return ip;
+}
+
+void IpToHex(unsigned int ip, char * buf)
+{
+	char * val = (char*)&ip;
+	bytesToHex(val, buf,1);
+	buf[2] = '.';
+	bytesToHex(val+1, buf+3,1);
+	buf[5] = '.';
+	bytesToHex(val+2, buf+6,1);
+	buf[8] = '.';
+	bytesToHex(val+3, buf+9,1);
+}
+
+
 void ProcessDhcpPacket(char * buffer)
 {
 	unsigned int u;
-	u = *(unsigned int*)(buffer+IP_HEADER_LEN);
-	write("DHCPo\n",6);
-	write((char*)&u, 4);
-	if(((u & 0xFFFF) != 67) || ((u & 0xFFFF0000) != (68 << 16)))
-		return;
+	int i;
+	char option;
+	char optionLen;
 
-	write("DHCPp\n",6);
-
+	write("D:",2);
 	u = *(unsigned int*)(buffer+IP_HEADER_LEN+UDP_HEADER_LEN+4);
+	
+	bytesToHex((char*)&u,isrBuf,4);
+	write(isrBuf,8); writeChar(';');
+
 	if(u != transactionId)
 		return;
-	ownIpAddress = *(unsigned int*)(buffer+IP_HEADER_LEN+UDP_HEADER_LEN+16);
-	
-	write((char*)&ownIpAddress, 4);
+	u = *(unsigned int*)(buffer+IP_HEADER_LEN+UDP_HEADER_LEN+16);
+	IpToHex(u,isrBuf);
+	write(isrBuf,11); writeChar(';');
+	if(DhcpState == 0)
+		ownIpAddress = u;
+
+	u = *(unsigned int*)(buffer+IP_HEADER_LEN+UDP_HEADER_LEN+20);
+	IpToHex(u,isrBuf);
+	write(isrBuf,11); writeChar(';');
+	if(DhcpState == 0)
+		dhcpServerIp = u;
+
+	buffer = buffer + IP_HEADER_LEN + UDP_HEADER_LEN + DHCP_OPTIONS_OFFSET;
+	// Process Options
+	for(i = 0; i < 10; i++)
+	{
+		option = buffer[0];
+		if(option == 0xFF)
+			break;
+		optionLen = buffer[1];
+		if(optionLen > 31) break;
+
+		if(option == 51 && optionLen == 4)
+		{
+			if(DhcpState == 1)
+			{
+				ipLease = (buffer[2]<<24)+(buffer[3]<<16)+(buffer[4]<<8)+(buffer[5]);
+			}
+		}
+
+		bytesToHex(buffer, isrBuf, optionLen+2);
+		write(isrBuf, optionLen*2+4); writeChar(';');
+		buffer = buffer + optionLen + 2;
+	}
+
 }
 
 
-void ProcessIcmpPacket(char * buffer)
+void ProcessIcmpPacket(char * buffer, IpFilter_t * pFilter)
 {
-	writeChar('C');
+	write("C:",2);
+	bytesToHex(buffer+IP_HEADER_LEN, isrBuf, 2);
+	write(isrBuf,4); writeChar(';');
+	if(IpQueryStackIndex == (MAX_IP_QUERIES-1))
+		return;
+	IpQueryStackIndex++;
+	CopyIpFilter(pFilter, &(IpQueryStack[IpQueryStackIndex].ipInfo));
+	IpQueryStack[IpQueryStackIndex].queryType = ICMP;
 }
 
-void ProcessTcpPacket(char * buffer)
+void ProcessTcpPacket(char * buffer, IpFilter_t * pFilter)
 {
 	writeChar('T');
+	bytesToHex(buffer+IP_HEADER_LEN, isrBuf, 2);
+	write(isrBuf,4); writeChar(';');
 }
 
-void ProcessUdpPacket(char * buffer)
+void ProcessUdpPacket(char * buffer, IpFilter_t * pFilter)
 {
 	unsigned short sourcePort = *(unsigned short*)(buffer + IP_HEADER_LEN);
 	unsigned short destPort = *(unsigned short*)(buffer + IP_HEADER_LEN+2);
-	//if(destPort == 68)
-	//	ProcessDhcpPacket(buffer);
-	//else
-		writeChar('U');
+	write("U:",2);
+	bytesToHex((char*)&sourcePort, isrBuf, 2);
+	write(isrBuf,4); writeChar(';');
+	bytesToHex((char*)&destPort, isrBuf, 2);
+	write(isrBuf,4); writeChar(';');
+	if(destPort == 68)
+		ProcessDhcpPacket(buffer);
+	
 }
 
-void DefaultProcessIpPacket(char * buffer)
+void DefaultProcessIpPacket(char * buffer, IpFilter_t * pFilter)
 {
-	writeChar('I');
+	write("I:",2);
+	bytesToHex(buffer+IP_HEADER_LEN, isrBuf, 2);
+	write(isrBuf,4); writeChar(';');
 }
 
 void ProcessArpPacket(char * buffer, unsigned int bufferSelect)
 {
-	writeChar('A');
+	write("\nA",2);
+	if(IpQueryStackIndex == (MAX_IP_QUERIES-1))
+		return;
+	IpQueryStackIndex++;
+	IpQueryStack[IpQueryStackIndex].queryType = ARP;
+	IpQueryStack[IpQueryStackIndex].queryInfo[0] = MemoryRead(ETHER_RX_SRC_MAC_HIGH ^ bufferSelect);
+	IpQueryStack[IpQueryStackIndex].queryInfo[1] = MemoryRead(ETHER_RX_SRC_MAC_MID ^ bufferSelect);
+	IpQueryStack[IpQueryStackIndex].queryInfo[2] = MemoryRead(ETHER_RX_SRC_MAC_LOW ^ bufferSelect);
 }
+
 
 inline void ProcessIpPacket(char * buffer)
 {
-	IpFilter_t* pFilter;
+	IpFilter_t pFilter;
+	
+	CreateIpFilter(buffer, &pFilter);
 
-	CreateIpFilter(buffer, pFilter);
-	if(PassesIpFilter(pFilter, &ipFilter) == 0)
+	write("\nI:",3);
+	isrBuf[11] = ';';
+	IpToHex(pFilter.sourceAddr, isrBuf);
+	write(isrBuf,12);
+	IpToHex(pFilter.destAddr, isrBuf);
+	write(isrBuf,12);
+	bytesToHex((char*)&pFilter.protocol,isrBuf,1);
+	write(isrBuf,2); writeChar(';');
+	
+	if(PassesIpFilter(&pFilter, &ipFilter) == 0)
 		return;
-	if(pFilter->protocol == IP_PROTOCOL_UDP)
-		ProcessUdpPacket(buffer);
-	else if(pFilter->protocol == IP_PROTOCOL_ICMP)
-		ProcessIcmpPacket(buffer);
-	else if(pFilter->protocol == IP_PROTOCOL_TCP)
-		ProcessTcpPacket(buffer);
+
+	if(pFilter.protocol == IP_PROTOCOL_UDP)
+		ProcessUdpPacket(buffer, &pFilter);
+	else if(pFilter.protocol == IP_PROTOCOL_ICMP)
+		ProcessIcmpPacket(buffer, &pFilter);
+	else if(pFilter.protocol == IP_PROTOCOL_TCP)
+		ProcessTcpPacket(buffer, &pFilter);
 	else
-		DefaultProcessIpPacket(buffer);
+		DefaultProcessIpPacket(buffer, &pFilter);
 }
 
 
@@ -170,9 +298,9 @@ inline void ProcessEthernetPacket(char * buffer, unsigned int bufferSelect, unsi
 {
 	unsigned short etherType = MemoryRead(ETHER_RX_TYPE^bufferSelect);
 	unsigned int firstWord;
-	if(etherType == 0x0800)
+	if(etherType == ETHER_TYPE_IPV4)
 		ProcessIpPacket(buffer);
-	else if(etherType == 0x0806)
+	else if(etherType == ETHER_TYPE_ARP)
 		ProcessArpPacket(buffer, bufferSelect);
 	else if(etherType < 0x0600)
 	{
@@ -205,45 +333,13 @@ void EthernetInterruptHandler(int irqStatus)
 	*IrqStatusClrReg = irqStatus;	// Not actually necessary for Ethernet IRQ, but still good practice.
 }
 
-unsigned int CharToIp(char * buf)
-{
-	int i;
-	unsigned int ip = 0;
-	int start = 0;
-	int end;
-	i = atoi_p(buf+start, &end);
-	start += end;
-	ip = (ip<<8) + i;
-	i = atoi_p(buf+start, &end);
-	start += end;
-	ip = (ip<<8) + i;
-	i = atoi_p(buf+start, &end);
-	start += end;
-	ip = (ip<<8) + i;
-	i = atoi_p(buf+start, &end);
-	start += end;
-	ip = (ip<<8) + i;
-	return ip;
-}
-
-void IpToHex(unsigned int ip, char * buf)
-{
-	byteToHex((ip>>24)&0xFF, buf);
-	buf[2] = '.';
-	byteToHex((ip>>16)&0xFF, buf+3);
-	buf[5] = '.';
-	byteToHex((ip>>8)&0xFF, buf+6);
-	buf[8] = '.';
-	byteToHex((ip>>0)&0xFF, buf+9);
-}
 
 
 void EthernetInit(unsigned short macHigh, unsigned short macMid, unsigned short macLow)
 {
-	*(unsigned short*)(ETHER_OWN_MAC_HIGH) = macHigh;
-	*(unsigned short*)(ETHER_OWN_MAC_MID) = macMid;
-	*(unsigned short*)(ETHER_OWN_MAC_LOW) = macLow;
-	//MemoryWrite(ETHER_RX_CONTROL, 1);	// Filter by Dest MAC
+	MemoryWrite(ETHER_OWN_MAC_HIGH, macHigh);
+	MemoryWrite(ETHER_OWN_MAC_MID, macMid);
+	MemoryWrite(ETHER_OWN_MAC_LOW, macLow);
 	MemoryWrite(ETHER_RX_PACKET_LENGTH, 0);
 	MemoryWrite(ETHER_RX_PACKET_LENGTH^ETHER_SELECT_MASK, 0);
 	*IrqVectorReg = (unsigned int)EthernetInterruptHandler;
@@ -267,9 +363,9 @@ unsigned short Checksum16(unsigned short * startAddress, unsigned short len)
 
 void EthernetSetTxMacDest(unsigned short macHigh, unsigned short macMid, unsigned short macLow)
 {
-	*(unsigned short*)(ETHER_TX_DEST_MAC_HIGH) = macHigh;
-	*(unsigned short*)(ETHER_TX_DEST_MAC_MID) = macMid;
-	*(unsigned short*)(ETHER_TX_DEST_MAC_LOW) = macLow;
+	MemoryWrite(ETHER_TX_DEST_MAC_HIGH, macHigh);
+	MemoryWrite(ETHER_TX_DEST_MAC_MID, macMid);
+	MemoryWrite(ETHER_TX_DEST_MAC_LOW, macLow);
 }
 
 void FillIpHeader(unsigned short totalLength, char protocol, unsigned int srcAddress, unsigned int destAddress)
@@ -344,11 +440,12 @@ int CreateDhcpDiscover(unsigned int id)
 	*(unsigned short*)(uBuffer+o) = MacMid; o += 2;
 	*(unsigned short*)(uBuffer+o) = MacLow; o += 2;
 	
-	for(i = 0; i < 202; i++)
+	for(i = 0; i < 192+10; i++)
 	{
 		*(uBuffer+o) = 0;
 		o++;
 	}
+	o = DHCP_OPTIONS_OFFSET-4;
 	*(unsigned int*)(uBuffer+o) = 0x63825363; o += 4;	// "DHCP"
 	*(unsigned short*)(uBuffer+o) = 0x3501; o += 2;		// Option 53
 	*(uBuffer+o) = 0x01; o+=1;	// DHCP Discover
@@ -358,65 +455,178 @@ int CreateDhcpDiscover(unsigned int id)
 	return CreateUdpPacket(0, 0xFFFFFFFF, 68, 67, o);
 }
 
+int ChangeToDhcpRequest()
+{
+	char* uBuffer = (char*)(ETHER_TXBUF+IP_HEADER_LEN+UDP_HEADER_LEN);
+	int o;
+
+	o = 20;
+	*(unsigned int*)(uBuffer+o) = dhcpServerIp;	// server ip
+
+	o = DHCP_OPTIONS_OFFSET;
+	uBuffer = (char*)(ETHER_TXBUF+IP_HEADER_LEN+UDP_HEADER_LEN);
+	*(unsigned int*)(uBuffer+o) = 0x35010300; o+=4;	// Option 53, DHCP Req.
+	*(unsigned short*)(uBuffer+o) = 0x3204; o+=2;	// Option 50.
+	*(unsigned short*)(uBuffer+o) = (ownIpAddress>>16) & 0xFFFF; o+=2;
+	*(unsigned short*)(uBuffer+o) = (ownIpAddress) & 0xFFFF; o+=2;
+	*(uBuffer+o) = 0xFF; o+= 1;
+	return CreateUdpPacket(0, 0xFFFFFFFF, 68, 67, o);
+}
+
 
 void DoDhcp()
 {
 	int i,k;
-	int repeats;
-	char buf [16];
-	ownIpAddress = 0;
+	int repeats, dhcpAttempts;
 	ipFilter.destAddr = 0;
 	ipFilter.sourceAddr = 0;
-	ipFilter.protocol = 0;//IP_PROTOCOL_UDP;
+	ipFilter.protocol = IP_PROTOCOL_UDP;
 	transactionId = (MacMid<<16) + MacLow;
-	for(repeats = 0; repeats < 10 && ownIpAddress == 0; repeats++)
+	for(dhcpAttempts = 0; dhcpAttempts < 10; dhcpAttempts++)
 	{
-		IpToHex(ownIpAddress, buf);
-		write(buf,11); write("\n",1);
+		for(repeats = 0; repeats < 10 && ownIpAddress == 0; repeats++)
+		{
+			ownIpAddress = 0;
+			DhcpState = 0;
+			ipLease = 0;
+		
+			while(ETHER_TX_BUSY != 0);
+			i = CreateDhcpDiscover(++transactionId);
+			MemoryWrite(ETHER_TX_PACKET_LENGTH, i);
+			MemoryWrite(ETHER_TX_CONTROL, 2);
+			while(ETHER_TX_BUSY != 0);
+			for(k = 0; k < 1000; k++)
+			{
+				for(i = 0; i < 10000; i++); // wait
+				if(ownIpAddress != 0)
+					break;
+			}
+		}
+		DhcpState = 1;
 		while(ETHER_TX_BUSY != 0);
-		i = CreateDhcpDiscover(transactionId++);
+		i = ChangeToDhcpRequest();
 		MemoryWrite(ETHER_TX_PACKET_LENGTH, i);
 		MemoryWrite(ETHER_TX_CONTROL, 2);
-		for(k = 0; k < 100; k++)
+		while(ETHER_TX_BUSY != 0);
+		for(k = 0; k < 1000; k++)
 		{
-			for(i = 0; i < 100000; i++);
-			if(ownIpAddress != 0)
-				break;
+			for(i = 0; i < 10000; i++);	// wait
+			if(ipLease != 0)
+			{
+				DhcpState = 2;
+				return;
+			}
 		}
 	}
 	
-		IpToHex(ownIpAddress, buf);
-		write(buf,11); write("\n",1);
 }
 
+void WaitForTxToFinish() { while(ETHER_TX_BUSY != 0); }
 
-void EthernetExercise(char * buffer)
+void SendBufferedPacket(int txLen)
 {
-	int i;
+	while(ETHER_TX_BUSY != 0);
+	MemoryWrite(ETHER_TX_PACKET_LENGTH, txLen);
+	MemoryWrite(ETHER_TX_CONTROL, 2);
+}
+
+void SendArpReply(unsigned short macDestHi, unsigned short macDestMid, unsigned short macDestLow, unsigned int destIp)
+{
+	unsigned short s;
+	unsigned short * buffer;
+	if(ownIpAddress == 0)
+		return;
+	
+	WaitForTxToFinish();
+	EthernetSetTxMacDest(macDestHi,macDestMid,macDestLow);
+	MemoryWrite(ETHER_TX_TYPE, ETHER_TYPE_ARP);
+	buffer = (unsigned short*)(ETHER_TXBUF);
+	*buffer++ = 0x0001;	// Ethernet
+	*buffer++ = 0x0800;	// IPv4
+	*buffer++ = 0x0604;	// 6 > 4
+	*buffer++ = 0x0002;	// Reply
+	s = MemoryRead(ETHER_OWN_MAC_HIGH);
+	*buffer++ = s;
+	s = MemoryRead(ETHER_OWN_MAC_MID);
+	*buffer++ = s;
+	s = MemoryRead(ETHER_OWN_MAC_LOW);
+	*buffer++ = s;
+	s = (ownIpAddress>>16)&0xFFFF;
+	*buffer++ = s;
+	s = ownIpAddress&0xFFFF;
+	*buffer++ = s;
+	s = 0;
+	*buffer++ = s;
+	*buffer++ = s;
+	*buffer++ = s;
+	s = (destIp>>16)&0xFFFF;
+	*buffer++ = s;
+	s = destIp&0xFFFF;
+	*buffer++ = s;
+	SendBufferedPacket(46);
+	MemoryWrite(ETHER_TX_TYPE, ETHER_TYPE_IPV4);
+}
+
+void ServiceIpQueryStack()
+{
+	int index = IpQueryStackIndex;
+	unsigned short pmh, pmm, pml;
+	IpQueryStackIndex = MAX_IP_QUERIES;	// 'Locks' the stack.
+	if(index < 0)
+	{
+		IpQueryStackIndex = -1;
+		return;
+	}
+	if(IpQueryStack[index].queryType == ARP)
+		write("a",1);
+	else if(IpQueryStack[index].queryType == ICMP)
+		write("c",1);
+	writeChar('0'+index);
+	writeChar('\n');
+	pmh = MemoryRead(ETHER_TX_DEST_MAC_HIGH);
+	pmm = MemoryRead(ETHER_TX_DEST_MAC_MID);
+	pml = MemoryRead(ETHER_TX_DEST_MAC_LOW);
+	SendArpReply(IpQueryStack[index].queryInfo[0],IpQueryStack[index].queryInfo[1],IpQueryStack[index].queryInfo[2],IpQueryStack[index].queryInfo[3]);
+	
+	EthernetSetTxMacDest(pmh,pmm,pml);
+	IpQueryStackIndex = index-1;
+}
+
+void EthernetExercise()
+{
+	int i ;
 	unsigned int s,u;
 	char * txP;
 	unsigned int destIp;
 	int txLen = 42;
 	
+	
 	EthernetInit(MacHigh, MacMid, MacLow);
 
-	
 
 	DoDhcp();
+	
+	write("\nIP Address: ",13);
+	IpToHex(ownIpAddress, mainBuf);
+	write(mainBuf,11); write(";",1);
+	write("Lease: ",7);
+	bytesToHex((char*)&ipLease, mainBuf, 4);
+	write(mainBuf,8); writeChar('\n');
+	
+	SendArpReply(0xFFFF,0xFFFF,0xFFFF, ownIpAddress);
 	
 	EthernetSetTxMacDest(0x70f3,0x9500,0x721f);
 	destIp = CharToIp("192.168.104.64");
 	ipFilter.destAddr = ownIpAddress;
 	ipFilter.protocol = 0;
 	ipFilter.sourceAddr = 0;
-
+	
 	for(s = 0; s < 32; s++)
 	{
-		while(ETHER_TX_BUSY != 0);
-			
-		
-		txLen = 16;
+		ServiceIpQueryStack();
+		txLen = 1024;
 		txP = (char*)(ETHER_TXBUF + IP_HEADER_LEN + UDP_HEADER_LEN);
+		WaitForTxToFinish();
 		for(i = 0; i < txLen; i++)
 		{
 			*txP = i;
@@ -424,12 +634,12 @@ void EthernetExercise(char * buffer)
 		}
 
 		txLen = CreateUdpPacket(ownIpAddress,destIp,0,60000 + s, txLen);
-
-		MemoryWrite(ETHER_TX_PACKET_LENGTH, txLen);
-		MemoryWrite(ETHER_TX_CONTROL, 2);
+		
+		SendBufferedPacket(txLen);
 	}
 
-	while(1);
+	while(1)
+		ServiceIpQueryStack();
 }
 
 

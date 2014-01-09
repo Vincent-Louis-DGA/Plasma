@@ -69,18 +69,18 @@ namespace ConvertAxfToVhdl {
         ///use ieee.numeric_std.all;
         ///use ieee.std_logic_unsigned.all;
         ///
-        ///entity dualRamTemplate is
+        ///entity BlockRamTemplate is
         ///  generic (
-        ///    N : integer := 2;                   -- Width in bytes
-        ///    M : integer := 2);                  -- Address width
+        ///    N : integer := 0004;                -- Width in bytes
+        ///    M : integer := 0009);               -- Address width
         ///
         ///  port (
-        ///    clka  : in  std_logic;
+        ///    clk  : in  std_logic;
         ///    [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string dualRamTemplate {
+        internal static string BlockRamTemplate {
             get {
-                return ResourceManager.GetString("dualRamTemplate", resourceCulture);
+                return ResourceManager.GetString("BlockRamTemplate", resourceCulture);
             }
         }
     }
