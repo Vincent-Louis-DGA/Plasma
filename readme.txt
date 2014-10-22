@@ -23,7 +23,6 @@ This software is provided "as is" and any express or implied warranties, includi
 
 
 
-
 Project Structure:
 
 vhdl	:	VHDL code for FPGA and example Xilinx ISE v13.3 projects for the ATLYS board.
