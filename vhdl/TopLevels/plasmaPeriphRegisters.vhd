@@ -11,10 +11,10 @@ package plasmaPeriphRegisters is
   constant IN_RAM_OFFSET : std_logic_vector(31 downto 29) := "000";
   constant EX_RAM_OFFSET : std_logic_vector(31 downto 29) := "010";
   constant PERIPH_OFFSET : std_logic_vector(31 downto 29) := "001";
-  
+
   constant INTERRUPT_VECTOR : std_logic_vector(31 downto 0) := X"00000080";
-  
-  constant UART_OFFSET : std_logic_vector(31 downto 6) := X"200000" & "00";
+
+  constant UART_OFFSET     : std_logic_vector(31 downto 6)  := X"200000" & "00";
   constant ETHERNET_OFFSET : std_logic_vector(31 downto 16) := X"2001";
 
   constant IRQ_STATUS_ADDR     : std_logic_vector(31 downto 0) := X"20000040";
@@ -33,6 +33,7 @@ package plasmaPeriphRegisters is
   constant COUNTER1_ADDR    : std_logic_vector(31 downto 0) := X"200000A0";
   constant COUNTER1_PS_ADDR : std_logic_vector(31 downto 0) := X"200000A4";
   constant COUNTER1_TC_ADDR : std_logic_vector(31 downto 0) := X"200000A8";
+  constant COUNTER2_ADDR    : std_logic_vector(31 downto 0) := X"200000AC";
 
   constant CACHE_HITCOUNT_ADDR  : std_logic_vector(31 downto 0) := X"200000B0";
   constant CACHE_READCOUNT_ADDR : std_logic_vector(31 downto 0) := X"200000B4";
@@ -49,7 +50,7 @@ package plasmaPeriphRegisters is
   constant LOGIC_AN_OFFSET   : std_logic_vector(31 downto 16) := X"2200";
 
   constant ROMEM_GUARD_ADDR : std_logic_vector(31 downto 0) := X"2ABCDEF0";
-  
+
   constant EX_BUS_OFFSET : std_logic_vector(31 downto 28) := X"3";
 
 

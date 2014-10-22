@@ -54,6 +54,7 @@
   <ItemGroup>
     <ClCompile Include="Ethernet.c" />
     <ClCompile Include="Example.c" />
+    <ClCompile Include="IPv4Stack.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -69,7 +69,12 @@ int dtoi(char * string, int strlen)
 	return r;
 }
 
-// Convert string to integer
+/* 
+	Convert string to integer.
+	Returns integer.
+	endOffset is an output parameter to give relative offset
+	of the end of the number part of the string.
+*/
 int atoi_p(char * string, int * endOffset)
 {
 	int len = 0;
@@ -108,7 +113,11 @@ int atoi_p(char * string, int * endOffset)
 }
 
 
-
+/*
+	Converts an integer to a string.
+	Inserts null character at end of string.
+	Returns integer offset of the null character relative to buffer.
+*/
 int itoa_p(int value, char* result, int base) {
 
 	char* ptr1 = result;
@@ -157,7 +166,9 @@ int itox(unsigned int value, char* result)
 	result[ret] = 0;
 	return ret;
 }
-
+/*
+	Converts bytes to a hex string.
+*/
 void bytesToHex(char* value, char* result, int numBytes)
 {
 	int i;
@@ -169,5 +180,6 @@ void bytesToHex(char* value, char* result, int numBytes)
 		v = (value[i]) & 0xF;
 		result[i*2+1] = HexDigits[v];
 	}
+	result[i*2] = 0;
 }
 

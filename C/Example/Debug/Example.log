@@ -1,4 +1,4 @@
-﻿Build started 9/01/2014 12:53:37 p.m..
+﻿Build started 10/01/2014 9:46:23 a.m..
      1>Project "C:\work_unsync\Plasma\C\Example\Example.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          del *.o *.map *.lst *.axf
@@ -6,11 +6,13 @@
          gmake target Target=Example
          as.exe ..\..\Tools\lib\boot_os.s -o boot_os.o
          gcc.exe -O2 -Wall -c -s -fno-pic -mips1 -mno-abicalls Example.c 
-         Ethernet.c: In function `ProcessIcmpPacket':
+         IPv4Stack.c: In function `ProcessIcmpPacket':
          In file included from Example.c:79:
-         Ethernet.c:223: warning: passing arg 2 of `CopyIpFilter' discards `volatile' from pointer target type
-         Ethernet.c: In function `EthernetExercise':
-         Ethernet.c:598: warning: unused variable `u'
+         IPv4Stack.c:149: warning: passing arg 2 of `CopyIpFilter' discards `volatile' from pointer target type
+         IPv4Stack.c: At top level:
+         IPv4Stack.c:196: warning: `ProcessIpPacket' declared inline after being called
+         IPv4Stack.c: In function `IPv4StackExercise':
+         IPv4Stack.c:445: warning: unused variable `u'
          Example.c: In function `main':
          Example.c:83: warning: unused variable `i'
          ld.exe -Ttext 0x00000000 -e entry -Map Example_boot.map -s -N \
@@ -31,4 +33,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.52
+Time Elapsed 00:00:03.04

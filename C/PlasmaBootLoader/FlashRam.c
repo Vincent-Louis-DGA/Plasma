@@ -125,9 +125,18 @@ void FlashSpiTransaction(char instr, int address, int addressLen, char * writeBu
 	
 
 }
+
+
 void FlashSpiRead(char instr, int address, int addressLen, char * readBuffer, int readLen)
 {
 	FlashSpiTransaction(instr, address, addressLen, (char*)0,0,readBuffer,readLen,0);
+}
+
+int ReadStatusRegister()
+{
+	char readBuffer [1];
+	FlashSpiRead(0x05, 0,0,readBuffer, 1);
+	return readBuffer[0];
 }
 
 void FlashSpiWrite(char instr, int address, int addressLen, char * writeBuffer, int writeLen)
@@ -135,10 +144,14 @@ void FlashSpiWrite(char instr, int address, int addressLen, char * writeBuffer, 
 	FlashSpiTransaction(instr, address, addressLen,writeBuffer,writeLen,(char*)0,0,0);
 }
 
+/*
+	Reads from Flash Memory.
+*/
 void FlashReadMemory(int address, char * readBuffer, int readLen)
 {
 	FlashSpiRead(0x03, address, 3, readBuffer, readLen);
 }
+
 
 /*
 	Enables Flash Write, INST 0x06.
@@ -156,6 +169,41 @@ void WriteDisable()
 	FlashSpiWrite(0x04, 0,0,(char*)0, 0);
 }
 
+void WaitWhileWriteInProgress()
+{
+	int i,x;
+	for(i = 0; i < 5000; i++)
+	{
+		x = ReadStatusRegister();
+		if((x & 1) == 0)
+			break;
+		Sleep(1);
+	}
+}
+
+/*
+	Writes to Flash.
+	Writes in pages of 256 bytes. Cannot write more than 256 bytes.
+	If last 8 bits of address are non-zero, then write length is further reduced to less than 256.
+*/
+void FlashWriteMemory(int address, char * writeBuffer, int writeLen)
+{
+	if(writeLen > 256) writeLen = 256;
+	writeLen -= (address & 0xFF);
+	WriteEnable();
+	FlashSpiWrite(0x02, address, 3, writeBuffer, writeLen);
+	WaitWhileWriteInProgress();
+}
+
+/*
+	Erases an entire 65536 byte sector, resetting all bytes to 0xFF.
+*/
+void FlashEraseSector(int address)
+{
+	WriteEnable();
+	FlashSpiRead(0xD8,address,3,0,0);
+	WaitWhileWriteInProgress();
+}
 
 int ReadVolatileConfigurationRegister()
 {
@@ -171,38 +219,6 @@ int ReadNonVolatileConfigurationRegister()
 	FlashSpiRead(0xB5, 0,0,readBuffer, 2);
 	return (readBuffer[0] << 8) + readBuffer[1];
 }
-/*
-void PrintReadBuffer(int address, char * r, int readLen)
-{
-	int i = 0;
-	char TxBuffer[64];
-	int len = 0;
-	print("Read ");
-	itoa_p(address, TxBuffer, 16);
-	print(TxBuffer);
-	print(" : ");
-	for(i = 0; i < readLen; i++)
-	{
-		len = itoa_p(r[i], TxBuffer,16);
-		if(len < 2)
-			print("0");
-		print(TxBuffer);
-
-		if((i & 0x1) == 1)
-			print(" ");
-	}
-	printLine("");
-}
-
-void ReadAndPrintFlash(int address)
-{
-	char r [20];
-	int i;
-	for(i = 0 ; i < 20; i++) r[i] = 0;
-	FlashSpiRead(0x03, address, 3, r, 20);
-	PrintReadBuffer(address, r, 20);
-}
-*/
 
 
 char ReadSpiVecr()
@@ -274,56 +290,3 @@ void FlashInit()
 	else
 		FlashStatus.NumLines = 1;
 }
-/*
-void ReadAndPrintRegisters()
-{
-	int r;
-	char TxBuffer[64];
-	r = ReadSpiVecr();
-	print("1VECR  : ");
-	itox(r, TxBuffer);
-	printLine(TxBuffer);
-	r = ReadDioVecr();
-	print("2VECR  : ");
-	itox(r, TxBuffer);
-	printLine(TxBuffer);
-	r = ReadQioVecr();
-	print("4VECR  : ");
-	itox(r, TxBuffer);
-	printLine(TxBuffer);
-	r = ReadVolatileConfigurationRegister();
-	print("VCR  : ");
-	itox(r, TxBuffer);
-	printLine(TxBuffer);
-	r = ReadNonVolatileConfigurationRegister();
-	print("NVCR : ");
-	itox(r, TxBuffer);
-	printLine(TxBuffer);
-}
-
-char ReadAndPrintFlashId()
-{
-	int i = 0;
-	int len = 0;
-	char r [RDID_LEN];
-	char TxBuffer[64];
-	print("Lines : ");
-	len = itoa_p(FlashStatus.NumLines, TxBuffer, 10);
-	printLine(TxBuffer);
-	FlashSpiRead(0x9F, 0, 0, r, RDID_LEN);
-	PrintReadBuffer(0x1D000000, r, RDID_LEN);
-	return 1;
-}
-
-void TestFlashRam()
-{
-	FlashInit();
-	
-	ReadAndPrintFlashId();
-	ReadAndPrintRegisters();
-	ReadAndPrintFlash(0x180000);
-	ReadAndPrintFlash(0x180010);
-	ReadAndPrintFlash(0x180100);
-	ReadAndPrintFlash(0x200000);
-}
-*/

@@ -13,6 +13,8 @@ Development environment is MS Windows 7, Xilinx ISE v13.3, MS Visual C++ Express
 
 Disclaimer:
 
+(Modified from disclaimer on OpenCores)
+
 MIPS(R) is a registered trademark and MIPS I(TM) is a trademark of MIPS Technologies, Inc. in the United States and other countries. MIPS Technologies, Inc. does not endorse and is not associated with this project. OpenCores, Steve Rhoads and Adrian Jongenelen are not affiliated in any way with MIPS Technologies, Inc.
 
 The Plasma CPU project has been placed into the public domain by its original author and is free for commercial and non-commercial use. 

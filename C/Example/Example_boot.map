@@ -19,7 +19,7 @@ Address of section .text set to 0x0
 LOAD boot_os.o
 LOAD Example.o
 
-.text           0x00000000     0x2188
+.text           0x00000000     0x1e2c
                 0x00000000                _ftext=.
  *(.text)
  .text          0x00000000      0x200 boot_os.o
@@ -32,53 +32,54 @@ LOAD Example.o
                 0x000001f4                OS_Syscall
                 0x00000068                OS_AsmInterruptEnable
                 0x0000005c                OS_DefaultISR
- .text          0x00000200     0x1f88 Example.o
-                0x00001310                EthernetSetTxMacDest
+ .text          0x00000200     0x1c2c Example.o
+                0x00000bfc                EthernetSetTxMacDest
                 0x00000310                readChar
-                0x00000f74                EthernetInterruptHandler
-                0x000012cc                Checksum16
+                0x000009fc                EthernetInterruptHandler
+                0x00000bb8                Checksum16
                 0x00000200                print
                 0x00000504                atoi_p
                 0x0000066c                itoa_p
-                0x000013c0                CreatePingRequest
-                0x00001f40                ProcessEthernetPacket
-                0x0000091c                CopyIpFilter
-                0x00001688                DoDhcp
-                0x00001b98                EthernetExercise
-                0x00001604                ChangeToDhcpRequest
+                0x000019fc                IPv4StackExercise
+                0x000012b8                CreatePingRequest
+                0x00001da4                ProcessEthernetPacket
+                0x00000ce8                CopyIpFilter
+                0x00001580                DoDhcp
+                0x000014fc                ChangeToDhcpRequest
                 0x00000440                xtoi
                 0x00000264                write
-                0x00000c98                ProcessIcmpPacket
-                0x00001344                FillIpHeader
-                0x00000d4c                ProcessTcpPacket
+                0x00000f60                ProcessIcmpPacket
+                0x0000123c                FillIpHeader
+                0x00001014                ProcessTcpPacket
                 0x0000039c                strncmp_p
                 0x00000828                StackExercise
                 0x00000238                printLine
-                0x00000da0                ProcessUdpPacket
+                0x00001068                ProcessUdpPacket
                 0x000002c0                read
-                0x00000e50                DefaultProcessIpPacket
-                0x000018ac                WaitForTxToFinish
-                0x00000eac                ProcessArpPacket
+                0x00001118                DefaultProcessIpPacket
+                0x00000c30                WaitForTxToFinish
+                0x00001174                ProcessArpPacket
                 0x000004c4                dtoi
                 0x00000358                writeChar
-                0x00001480                CreateUdpPacket
-                0x00001d04                main
+                0x00001378                CreateUdpPacket
+                0x00001b68                main
                 0x00000800                InterruptServiceRoutine
-                0x00001940                SendArpReply
-                0x000009ac                CharToIp
+                0x000017a4                SendArpReply
+                0x000008f8                CharToIp
                 0x0000079c                bytesToHex
-                0x00001510                CreateDhcpDiscover
+                0x00001408                CreateDhcpDiscover
                 0x0000073c                itox
-                0x00001e24                ProcessIpPacket
-                0x00001a78                ServiceIpQueryStack
-                0x00000a38                IpToHex
-                0x000008f8                CreateIpFilter
+                0x00001c88                ProcessIpPacket
+                0x00000b74                EthernetInitIrq
+                0x000018dc                ServiceIpQueryStack
+                0x00000984                IpToHex
+                0x00000cc4                CreateIpFilter
                 0x00000400                append
-                0x00000ab0                ProcessDhcpPacket
-                0x00001240                EthernetInit
-                0x00000940                PassesIpFilter
+                0x00000d78                ProcessDhcpPacket
+                0x00000b28                EthernetInit
+                0x00000d0c                PassesIpFilter
                 0x00000874                HeapExercise
-                0x000018ec                SendBufferedPacket
+                0x00000c70                SendBufferedPacket
                 0x0000048c                btoi
  *(.stub)
  *(.gnu.warning)
@@ -91,12 +92,12 @@ LOAD Example.o
 
 .fini
  *(.fini)
-                0x00002188                _ecode=.
+                0x00001e2c                _ecode=.
 
-.reginfo        0x00002188       0x18
+.reginfo        0x00001e2c       0x18
  *(.reginfo)
- .reginfo       0x00002188       0x18 boot_os.o
- .reginfo       0x000021a0       0x18 Example.o
+ .reginfo       0x00001e2c       0x18 boot_os.o
+ .reginfo       0x00001e44       0x18 Example.o
 
 .ctors
  *(.ctors)
@@ -116,29 +117,29 @@ LOAD Example.o
 .sdefini
  *(.sdefini)
 
-.rodata         0x000021a0       0xd5
+.rodata         0x00001e44       0xd5
  *(.rodata)
- .rodata        0x000021a0       0xd5 Example.o
-                0x000021ec                HexDigits
+ .rodata        0x00001e44       0xd5 Example.o
+                0x00001e90                HexDigits
  *(.rdata)
  *(.gnu.linkonce.r*)
 
 .rodata1
  *(.rodata1)
-                0x00002275                _etext=.
-                0x00002275                PROVIDE (etext, .)
+                0x00001f19                _etext=.
+                0x00001f19                PROVIDE (etext, .)
 
-.data           0x00002275        0xf
-                0x00002275                _fdata=.
+.data           0x00001f19        0xf
+                0x00001f19                _fdata=.
  *(.data)
- *fill*         0x00002275        0x3
- .data          0x00002278        0xc Example.o
-                0x00002278                ipFilter
+ *fill*         0x00001f19        0x3
+ .data          0x00001f1c        0xc Example.o
+                0x00001f1c                ipFilter
  *(.gnu.linkonce.d*)
 
 .data1
  *(.data1)
-                0x0000a274                _gp=(.+0x7ff0)
+                0x00009f18                _gp=(.+0x7ff0)
 
 .lit8
  *(.lit8)
@@ -146,44 +147,44 @@ LOAD Example.o
 .lit4
  *(.lit4)
 
-.sdata          0x00002284       0x2c
+.sdata          0x00001f28       0x2c
  *(.sdata)
- .sdata         0x00002284       0x2c Example.o
-                0x00002290                IrqVectorReg
-                0x0000229c                ipLease
-                0x0000228c                IrqStatusClrReg
-                0x000022a8                dhcpServerIp
-                0x000022a0                ownIpAddress
-                0x00002294                IrqMaskReg
-                0x00002298                count
-                0x00002284                ReadOnlyMemoryGuard
-                0x000022ac                IpQueryStackIndex
-                0x00002288                IrqStatusReg
-                0x000022a4                DhcpState
+ .sdata         0x00001f28       0x2c Example.o
+                0x00001f34                IrqVectorReg
+                0x00001f40                ipLease
+                0x00001f30                IrqStatusClrReg
+                0x00001f4c                dhcpServerIp
+                0x00001f44                ownIpAddress
+                0x00001f38                IrqMaskReg
+                0x00001f3c                count
+                0x00001f28                ReadOnlyMemoryGuard
+                0x00001f50                IpQueryStackIndex
+                0x00001f2c                IrqStatusReg
+                0x00001f48                DhcpState
  *(.gnu.linkonce.s*)
-                0x000022b0                _edata=.
-                0x000022b0                PROVIDE (edata, .)
-                0x000022b0                .=ALIGN(0x8)
-                0x000022b0                __bss_start=.
-                0x000022b0                _fbss=__bss_start
+                0x00001f54                _edata=.
+                0x00001f54                PROVIDE (edata, .)
+                0x00001f58                .=ALIGN(0x8)
+                0x00001f54                __bss_start=.
+                0x00001f58                _fbss=__bss_start
 
-.sbss           0x000022b0        0x8
+.sbss           0x00001f58        0x8
  *(.sbss)
  *(.scommon)
- .scommon       0x000022b0        0x8 Example.o
-                0x000022b0                heap
-                0x000022b4                transactionId
+ .scommon       0x00001f58        0x8 Example.o
+                0x00001f58                heap
+                0x00001f5c                transactionId
 
-.bss            0x000022c0      0x100
+.bss            0x00001f60      0x100
  *(.dynbss)
  *(.bss)
  *(COMMON)
- COMMON         0x000022c0      0x100 Example.o
-                0x000022c0                isrBuf
-                0x00002300                mainBuf
-                0x00002340                IpQueryStack
-                0x000023c0                _end=.
-                0x000023c0                PROVIDE (end, .)
+ COMMON         0x00001f60      0x100 Example.o
+                0x00001f60                isrBuf
+                0x00001fa0                mainBuf
+                0x00001fe0                IpQueryStack
+                0x00002060                _end=.
+                0x00002060                PROVIDE (end, .)
 
 .stab
  *(.stab)

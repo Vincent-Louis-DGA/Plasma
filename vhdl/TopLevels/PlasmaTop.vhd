@@ -38,13 +38,13 @@ entity PlasmaTop is
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
     Uart_bypassTxDvToggle : out std_logic;
 
-    FifoDin   : in  std_logic_vector(7 downto 0) := (others => '0');
-    FifoDout  : out std_logic_vector(7 downto 0);
-    FifoWe    : in  std_logic                    := '0';
-    FifoRe    : in  std_logic                    := '0';
+    FifoDin   : in  std_logic_vector(31 downto 0) := (others => '0');
+    FifoDout  : out std_logic_vector(31 downto 0);
+    FifoWe    : in  std_logic                     := '0';
+    FifoRe    : in  std_logic                     := '0';
     FifoFull  : out std_logic;
     FifoEmpty : out std_logic;
-    FifoClear : in  std_logic                    := '0';
+    FifoClear : in  std_logic                     := '0';
 
     -- General purpose bus connected directly to CPU
     ExBusDin  : in  std_logic_vector(31 downto 0) := (others => '0');
@@ -175,16 +175,21 @@ architecture logic of PlasmaTop is
 
   signal bypassRxWeToggle_sim : std_logic := '0';
 
-  signal counter1     : std_logic_vector(31 downto 0) := (others => '0');
-  signal counter1_psc : std_logic_vector(31 downto 0) := (others => '0');
-  signal counter1_ps  : std_logic_vector(31 downto 0) := (others => '0');
-  signal counter1_tc  : std_logic_vector(31 downto 0) := (others => '1');
+  signal   counter1     : std_logic_vector(31 downto 0) := (others => '0');
+  signal   counter1_psc : std_logic_vector(31 downto 0) := (others => '0');
+  signal   counter1_ps  : std_logic_vector(31 downto 0) := (others => '0');
+  signal   counter1_tc  : std_logic_vector(31 downto 0) := (others => '1');
+  -- Counter 2 has a fixed prescale of 5, ie, frequency fixed at 10 MHz.
+  signal   counter2     : std_logic_vector(31 downto 0) := (others => '0');
+  constant counter2_ps  : std_logic_vector(3 downto 0)  := X"4";
+  signal counter2_psc : std_logic_vector(3 downto 0) := (others => '0');
+
 
   -----------------------------------------------------------------------------
   -- Fifo Signals
   -----------------------------------------------------------------------------
-  signal fifoDout_i  : std_logic_vector(7 downto 0);
-  signal fifoDin_i   : std_logic_vector(7 downto 0);
+  signal fifoDout_i  : std_logic_vector(31 downto 0);
+  signal fifoDin_i   : std_logic_vector(31 downto 0);
   signal fifoRe_i    : std_logic := '0';
   signal fifoWe_i    : std_logic := '0';
   signal fifoFull_i  : std_logic;
@@ -235,7 +240,7 @@ begin  --architecture
   fifoEmpty   <= fifoEmpty_i;
   fifoClear_i <= FifoClear or fifoClear_c;
 
-  fifoDin_i <= bus_din(7 downto 0) when
+  fifoDin_i <= bus_din(31 downto 0) when
                (bus_address = FIFO_DIN_ADDR and periph_we = '1') else
                fifoDin;
 
@@ -251,17 +256,31 @@ begin  --architecture
     end if;
   end process;
 
-  FIFO : entity work.fifo2048x8
+  FIFO_0 : entity work.fifo2048x8
     port map (
       rst    => fifoClear_i,
       wr_clk => sysClk_i,
       rd_clk => sysClk_i,
-      din    => fifoDin_i,
+      din    => fifoDin_i(31 downto 24),
       wr_en  => fifoWe_i,
       rd_en  => fifoRe_i,
-      dout   => fifoDout_i,
+      dout   => fifoDout_i(31 downto 24),
       full   => fifoFull_i,
       empty  => fifoEmpty_i);
+
+  FIFO_GEN : for n in 0 to 2 generate
+    FIFO_N : entity work.fifo2048x8
+      port map (
+        rst    => fifoClear_i,
+        wr_clk => sysClk_i,
+        rd_clk => sysClk_i,
+        din    => fifoDin_i(n*8+7 downto n*8),
+        wr_en  => fifoWe_i,
+        rd_en  => fifoRe_i,
+        dout   => fifoDout_i(n*8+7 downto n*8),
+        full   => open,
+        empty  => open);
+  end generate FIFO_GEN;
 
 -------------------------------------------------------------------------------
 -- RAM and CPU
@@ -463,7 +482,7 @@ begin  --architecture
 
   PERIPH_MUX : process (periph_address, uart_dout, switches_reg, buttons_reg,
                         leds_reg, pmod_reg, irq_mask, irq_status, rand_reg,
-                        intr_vector, counter1, counter1_ps,
+                        intr_vector, counter1, counter1_ps, counter2,
                         counter1_tc, cache_hitcount, cache_readcount,
                         flash_dq_in, flash_sclk, flash_tris, flash_cs,
                         fifoFull_i, fifoEmpty_i, fifoDout_i,
@@ -495,6 +514,8 @@ begin  --architecture
       periph_dout <= counter1_ps;
     elsif periph_address = COUNTER1_TC then
       periph_dout <= counter1_tc;
+    elsif periph_address = COUNTER2_ADDR then
+      periph_dout <= counter2;
     elsif periph_address = CACHE_HITCOUNT_ADDR then
       periph_dout <= cache_hitcount;
     elsif periph_address = CACHE_READCOUNT_ADDR then
@@ -506,7 +527,7 @@ begin  --architecture
     elsif periph_address = FLASH_TRIS_ADDR then
       periph_dout <= X"0000000" & flash_tris;
     elsif periph_address = FIFO_DOUT_ADDR then
-      periph_dout <= X"000000" & fifoDout_i;
+      periph_dout <= fifoDout_i;
     elsif periph_address = FIFO_CON_ADDR then
       periph_dout <= X"0000000" & "00" & not fifoEmpty_i & fifoFull_i;
     elsif periph_address(31 downto 28) = EX_BUS_OFFSET then
@@ -642,6 +663,8 @@ begin  --architecture
       counter1_ps  <= (others => '0');
       counter1_psc <= (others => '0');
       counter1_tc  <= (others => '1');
+      counter2     <= (others => '0');
+      counter2_psc <= (others => '0');
     elsif rising_edge(sysClk_i) then    -- rising clock edge
       if counter1_psc = counter1_ps then
         counter1_psc <= (others => '0');
@@ -652,6 +675,12 @@ begin  --architecture
         end if;
       else
         counter1_psc <= counter1_psc + 1;
+      end if;
+      if counter2_psc = counter2_ps then
+        counter2_psc <= (others => '0');
+        counter2     <= counter2 + 1;
+      else
+        counter2_psc <= counter2_psc + 1;
       end if;
       if periph_we = '1' then
         case bus_address is

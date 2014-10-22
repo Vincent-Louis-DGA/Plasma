@@ -76,7 +76,7 @@ void HeapExercise()
 }
 
 
-#include "Ethernet.c"
+#include "IPv4Stack.c"
 
 int main(void)
 {
@@ -87,7 +87,7 @@ int main(void)
 
 	print("Hello World\n");
 
-	EthernetExercise();
+	IPv4StackExercise();
 
 	
 	HeapExercise();

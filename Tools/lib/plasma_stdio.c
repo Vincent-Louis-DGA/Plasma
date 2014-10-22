@@ -40,6 +40,27 @@ unsigned char readChar()
 	return (unsigned char)MemoryRead(UART_RX);
 }
 
+/* Blocking readLine from STDIN */
+int readLine(char * buf, int maxChars, int echo)
+{
+	int n;
+	for(n = 0; n < maxChars; n++)
+	{
+		buf[n] = readChar();
+		if(echo)
+			writeChar(buf[n]);
+		if(buf[n] == '\b')
+			n-=2;
+		if(buf[n] == '\n')
+		{
+			n--;
+			break;
+		}
+	}
+	buf[n] = 0;
+	return n;
+}
+
 /* Blocking write to STDIN */
 void writeChar(unsigned char c)
 {
@@ -47,4 +68,16 @@ void writeChar(unsigned char c)
 	printChar(c);
 }
 
-
+/*
+	A blocking delay of approximate milliseconds.
+*/
+void Sleep(unsigned int milliseconds)
+{
+	int m;
+	unsigned int start;
+	for(m = 0; m < milliseconds; m++)
+	{
+		start = MemoryRead(COUNTER2);
+		while((MemoryRead(COUNTER2) - start) < 10000);
+	}
+}
