@@ -48,6 +48,8 @@ unsigned int* IrqMaskReg = (unsigned int*)IRQ_MASK;
 
 #define RAND_GEN		(PERIPH_BASE+	0x78)
 
+#define HWVERSION		(PERIPH_BASE+	0x80)
+
 #define LEDS_OUT		(LEDS_OFFSET+0x0)
 #define LEDS_SET		(LEDS_OFFSET+0x4)
 #define LEDS_CLR		(LEDS_OFFSET+0x8)

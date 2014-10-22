@@ -33,6 +33,8 @@ entity PlasmaTop is
     buttons  : in    std_logic_vector(4 downto 0);
     pmod     : inout std_logic_vector(7 downto 0);
 
+    HWVersion : in std_logic_vector(31 downto 0) := X"00000000";
+
     Uart_bypassRx         : in  std_logic_vector(7 downto 0) := (others => '0');
     Uart_bypassRxWeToggle : in  std_logic                    := '0';
     Uart_bypassTx         : out std_logic_vector(7 downto 0);
@@ -486,7 +488,8 @@ begin  --architecture
                         counter1_tc, cache_hitcount, cache_readcount,
                         flash_dq_in, flash_sclk, flash_tris, flash_cs,
                         fifoFull_i, fifoEmpty_i, fifoDout_i,
-                        ExBusDin, etherDout, ReadOnlyMemoryGuard)
+                        ExBusDin, etherDout, ReadOnlyMemoryGuard,
+                        HWVersion)
   begin  -- process PERIPH_MUX
     if periph_address(31 downto UART_OFFSET'right) = UART_OFFSET then
       periph_dout <= ZEROS32(31 downto uart_dout'length) & uart_dout;
@@ -502,6 +505,8 @@ begin  --architecture
       periph_dout <= etherDout;
     elsif periph_address = RAND_ADDR then
       periph_dout <= rand_reg;
+    elsif periph_address = HWVERSION_ADDR then
+      periph_dout <= HWVersion;
     elsif periph_address = IRQ_STATUS_ADDR then
       periph_dout <= irq_status;
     elsif periph_address = IRQ_MASK_ADDR then
