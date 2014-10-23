@@ -47,8 +47,7 @@ unsigned int* IrqMaskReg = (unsigned int*)IRQ_MASK;
 #define BUTTON_CENTRE_DOWN ((MemoryRead(BUTTONS)&BUTTON_CENTRE_MASK) != 0)
 
 #define RAND_GEN		(PERIPH_BASE+	0x78)
-
-#define HWVERSION		(PERIPH_BASE+	0x80)
+#define HWVERSION		(PERIPH_BASE+	0x7C)
 
 #define LEDS_OUT		(LEDS_OFFSET+0x0)
 #define LEDS_SET		(LEDS_OFFSET+0x4)

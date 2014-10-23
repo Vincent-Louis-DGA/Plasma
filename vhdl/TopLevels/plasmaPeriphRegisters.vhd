@@ -28,7 +28,7 @@ package plasmaPeriphRegisters is
   constant BUTTONS_ADDR        : std_logic_vector(31 downto 0) := X"20000074";
   constant RAND_ADDR           : std_logic_vector(31 downto 0) := X"20000078";
 
-  constant HWVERSION_ADDR : std_logic_vector(31 downto 0) := X"20000080";
+  constant HWVERSION_ADDR : std_logic_vector(31 downto 0) := X"2000007C";
 
   constant PMOD_OFFSET : std_logic_vector(31 downto 5) := X"200000" & "100";
 
